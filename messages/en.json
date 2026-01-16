@@ -1,0 +1,313 @@
+{
+  "metadata": {
+    "title": "Alba Dialysis and Transplants | Nephrology Clinic in Leon, Guanajuato",
+    "description": "Experts in hemodialysis, hemodiafiltration and kidney transplant. Over 25 years of experience caring for our patients' kidney health in Leon, Guanajuato."
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "branches": "Locations",
+    "about": "About Us",
+    "contact": "Contact",
+    "doctors": "Medical Directory",
+    "resources": "Resources",
+    "bookAppointment": "Book Appointment"
+  },
+  "hero": {
+    "badge": "Specialized Kidney Care",
+    "title": "Your kidney wellness",
+    "titleHighlight": "is our priority",
+    "titleLine1": "Your kidney",
+    "titleLine2": "health",
+    "headlineLine1": "Kidney disease moves fast.",
+    "headlineLine2": "We move faster.",
+    "ctaButton": "Explore services",
+    "tagline": "Over 25 years of excellence in kidney care",
+    "line1": "Your kidney health",
+    "line2": "in the best",
+    "line3": "hands.",
+    "subtitle": "Over 25 years providing dialysis treatments with cutting-edge technology and exceptional human care.",
+    "cta": "Explore Services",
+    "ctaSecondary": "Discover our services",
+    "ariaLabel": "Hero section",
+    "stats": {
+      "experience": "Years of experience",
+      "sessions": "Monthly sessions",
+      "branches": "Locations",
+      "patients": "Patients served"
+    }
+  },
+  "heroScroll": {
+    "label": "You're not alone",
+    "description": "We know this journey is difficult. That's why we're here for you and your family. Together, every step is easier.",
+    "label2": "More than a clinic",
+    "description2": "We are family. A team that knows you by name, celebrates your progress, and walks with you through difficult days. Because your wellbeing is our priority.",
+    "statement": "Let us hold your hand and your family's."
+  },
+  "inversaStatement": {
+    "headlineLine1": "Alba is where",
+    "headlineLine2": "compassion, technology,",
+    "headlineLine3": "and expertise meet.",
+    "imageAlt": "Alba Dialysis medical team",
+    "contentLabel": "Medical Excellence",
+    "contentDescription": "Our comprehensive approach combines the most advanced hemodialysis technology with a highly specialized medical team. Every treatment is personalized, every patient is a priority, and every day we work to improve lives.",
+    "ctaButton": "Discover Alba"
+  },
+  "services": {
+    "title": "Comprehensive Care For You and Your Family",
+    "subtitle": "It's not just dialysis. It's your life, your health, your future.",
+    "familyMission": {
+      "headline": "More than a clinic, we are family",
+      "description": "We know that kidney disease doesn't just affect you, but your whole family. That's why every service is designed to care for you and support those around you.",
+      "pillars": {
+        "care": "Personalized care",
+        "support": "Family support",
+        "quality": "Quality of life"
+      }
+    },
+    "viewAll": "View all services",
+    "hemodialysis": {
+      "title": "Hemodialysis",
+      "description": "Sessions that restore your energy and wellbeing. Cutting-edge technology so every treatment is more comfortable and effective."
+    },
+    "hemodiafiltration": {
+      "title": "Hemodiafiltration",
+      "description": "A more advanced technique that means fewer symptoms, more energy, and better quality of life during your treatment."
+    },
+    "transplant": {
+      "title": "Kidney Transplant",
+      "description": "We accompany you every step toward a new chance at life. From evaluation to post-transplant follow-up."
+    },
+    "nutrition": {
+      "title": "Renal Nutrition",
+      "description": "Learn to eat deliciously and healthily. Personalized plans that adapt to your life and tastes, not the other way around."
+    },
+    "psychology": {
+      "title": "Psychological Assessment",
+      "description": "Because your emotional wellbeing matters as much as your physical health. Professional support for you and your family at every stage."
+    },
+    "physiotherapy": {
+      "title": "Intradialysis Physiotherapy",
+      "description": "Stay active and strong. Exercises during your session that improve mobility and help you feel better every day."
+    },
+    "surgery": {
+      "title": "Surgical Procedures",
+      "description": "Vascular access and transplant preparation with the highest standards of safety and care."
+    },
+    "nephrology": {
+      "title": "Nephrology Consultation",
+      "description": "Personalized care with nephrologists who know you, listen to you, and design the best plan for you."
+    }
+  },
+  "branches": {
+    "title": "Our Locations",
+    "subtitle": "Find the clinic nearest to you",
+    "viewAll": "View all locations",
+    "phone": "Phone",
+    "address": "Address",
+    "hours": "Hours",
+    "hoursValue": "Mon - Sat: 6:00 AM - 10:00 PM",
+    "getDirections": "Get directions",
+    "leon": {
+      "name": "Alba Leon Centro",
+      "address": "Melchor Ocampo 122, Col. Centro, Leon, Gto."
+    },
+    "brisas": {
+      "name": "Brisas Medical Unit",
+      "address": "Blvd. La Luz 5235, Col. San Nicolas, Leon, Gto."
+    },
+    "dolores": {
+      "name": "Dolores Hidalgo Unit",
+      "address": "Blvd. Miguel Hidalgo 822, Fracc. Cristobal, Dolores Hidalgo, Gto."
+    },
+    "renalmedic": {
+      "name": "Renalmedic",
+      "address": "Leon Norte, Leon, Gto."
+    }
+  },
+  "doctors": {
+    "title": "Our Medical Team",
+    "subtitle": "Specialists committed to your health",
+    "viewProfile": "View profile",
+    "bookAppointment": "Book appointment",
+    "viewAll": "View full directory",
+    "founder": "Founder",
+    "nephrologist": "Nephrologist",
+    "transplantSurgeon": "Transplant Surgeon",
+    "specialties": "Specialties",
+    "education": "Education",
+    "experience": "Experience"
+  },
+  "about": {
+    "title": "Our Story",
+    "subtitle": "Over two decades dedicated to kidney health",
+    "heroHeadline": "Caring for kidney health in the Bajio region for over 25 years",
+    "mission": {
+      "title": "Mission",
+      "content": "To provide high-quality medical care to patients with kidney diseases, using cutting-edge technology and a human approach that improves their quality of life."
+    },
+    "vision": {
+      "title": "Vision",
+      "content": "To be the reference in nephrology care in the Mexican Bajio region, recognized for excellence in our treatments and warm care for our patients."
+    },
+    "values": {
+      "title": "Our Values",
+      "compassion": "Compassion",
+      "compassionDescription": "We treat each patient with empathy and respect, understanding that behind each case there is a personal story.",
+      "excellence": "Excellence",
+      "excellenceDescription": "We constantly seek to improve our processes and outcomes to offer the best possible care.",
+      "integrity": "Integrity",
+      "integrityDescription": "We act with honesty and transparency in every decision, always prioritizing patient wellbeing.",
+      "innovation": "Innovation",
+      "innovationDescription": "We incorporate cutting-edge technology and new medical techniques for more effective treatments."
+    },
+    "founder": {
+      "title": "Meet Our Founder",
+      "name": "Dr. Maria de Jesus Gutierrez Navarro",
+      "role": "Founder and Medical Director",
+      "bio": "With over 25 years of experience in nephrology, Dr. Gutierrez founded Alba Dialysis with the vision of offering comprehensive and humane treatment to kidney disease patients in the Bajio region."
+    },
+    "timeline": {
+      "title": "Our Journey",
+      "2014": {
+        "title": "Alba Centro Founded",
+        "description": "The first clinic opens in downtown Leon, Guanajuato."
+      },
+      "2017": {
+        "title": "Expansion to Brisas",
+        "description": "Opening of the Brisas Medical Unit to serve more patients."
+      },
+      "2019": {
+        "title": "Dolores Hidalgo",
+        "description": "We bring our services to Dolores Hidalgo, expanding our coverage."
+      },
+      "2021": {
+        "title": "Renalmedic",
+        "description": "Inauguration of Renalmedic in Leon Norte, consolidating our presence."
+      }
+    }
+  },
+  "testimonials": {
+    "title": "What Our Patients Say",
+    "subtitle": "Stories of hope and recovery",
+    "trustIndicator": "+5,000 patients trust us"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We are here to help you",
+    "form": {
+      "step1": "Select location",
+      "step2": "Your information",
+      "step3": "Your message",
+      "branch": "Location",
+      "selectBranch": "Select a location",
+      "doctor": "Doctor (optional)",
+      "selectDoctor": "Select a doctor",
+      "name": "Full name",
+      "email": "Email address",
+      "phone": "Phone number",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send message",
+      "sending": "Sending...",
+      "success": "Message sent successfully. We will contact you soon.",
+      "error": "There was an error sending your message. Please try again.",
+      "next": "Next",
+      "previous": "Previous",
+      "required": "This field is required",
+      "invalidEmail": "Invalid email address",
+      "invalidPhone": "Invalid phone number"
+    },
+    "info": {
+      "title": "Contact Information",
+      "whatsapp": "WhatsApp",
+      "email": "Email",
+      "mainPhone": "Main phone"
+    }
+  },
+  "resources": {
+    "title": "Patient Resources",
+    "subtitle": "Useful information for your kidney health care",
+    "tips": {
+      "title": "Health Tips",
+      "diet": {
+        "title": "Healthy Eating",
+        "description": "Nutrition guide for patients with kidney disease."
+      },
+      "exercise": {
+        "title": "Exercise and Dialysis",
+        "description": "Recommended physical activities during treatment."
+      },
+      "medications": {
+        "title": "Medication Management",
+        "description": "How to organize and properly take your medications."
+      },
+      "emotional": {
+        "title": "Emotional Wellness",
+        "description": "Strategies to maintain a positive attitude."
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": "What is hemodialysis?",
+      "a1": "Hemodialysis is a treatment that uses a machine to filter the blood when the kidneys cannot do it on their own. During the process, blood passes through a special filter called a dialyzer that removes waste and excess fluids.",
+      "q2": "How long does a dialysis session last?",
+      "a2": "Generally, each session lasts between 3 and 4 hours, and is performed 3 times a week. The exact duration depends on the individual needs of each patient.",
+      "q3": "Can I travel if I am on dialysis?",
+      "a3": "Yes, it is possible to travel. You just need to coordinate your sessions at your destination in advance. Our team can help you find dialysis centers at your destination.",
+      "q4": "What should I eat during treatment?",
+      "a4": "It's important to follow a specific diet that limits sodium, potassium, and phosphorus. Our nutrition team will provide you with a personalized plan that fits your needs and preferences.",
+      "q5": "Can I work while receiving dialysis?",
+      "a5": "Many patients continue to work while receiving dialysis treatment. We offer flexible schedules to accommodate your work and personal routine."
+    }
+  },
+  "cta": {
+    "label": "Take the first step",
+    "title": "Let us walk this journey with you",
+    "subtitle": "You don't have to face this alone. Schedule a consultation and discover how we can support your family.",
+    "button": "Talk to us"
+  },
+  "footer": {
+    "description": "Leaders in dialysis treatment and transplants in Leon, Guanajuato. Over 25 years caring for our patients' kidney health.",
+    "quickLinks": "Quick Links",
+    "contactInfo": "Contact",
+    "followUs": "Follow Us",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms and Conditions"
+  },
+  "whatsapp": {
+    "tooltip": "Contact us on WhatsApp"
+  },
+  "booking": {
+    "title": "Book Your Appointment",
+    "subtitle": "Complete the form and we will contact you",
+    "selectDate": "Select a date",
+    "selectTime": "Select a time",
+    "reason": "Reason for consultation",
+    "notes": "Additional notes (optional)",
+    "confirm": "Confirm appointment",
+    "success": "Your appointment request has been sent. We will contact you soon to confirm."
+  },
+  "common": {
+    "learnMore": "Learn more",
+    "readMore": "Read more",
+    "seeAll": "See all",
+    "back": "Back",
+    "loading": "Loading...",
+    "error": "An error has occurred"
+  },
+  "team": {
+    "headline": "A team dedicated to restoring your quality of life",
+    "description": "Nephrologists, surgeons, and specialists work together to provide you with comprehensive care. More than a clinic, we are family.",
+    "cta": "Meet the team"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "description": "Learn how we protect your personal data at Alba Dialysis and Transplants."
+  },
+  "terms": {
+    "title": "Terms and Conditions",
+    "description": "Terms and conditions of use for the Alba Dialysis and Transplants website."
+  }
+}

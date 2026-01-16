@@ -1,0 +1,14 @@
+# Robots.txt for Alba Dialisis y Trasplantes
+# https://albadialisis.com
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow API routes and Next.js internal paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+
+# Sitemap location
+Sitemap: https://albadialisis.com/sitemap.xml
