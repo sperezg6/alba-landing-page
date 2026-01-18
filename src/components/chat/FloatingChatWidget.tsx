@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send, ArrowUpRight, RotateCcw } from 'lucide-react';
 import { usePathname } from 'next/navigation';
+import DOMPurify from 'dompurify';
 import { cn } from '@/lib/utils';
 import { sendMessageStreaming } from '@/lib/chat-api';
 
@@ -52,9 +53,9 @@ const followUpSuggestions = [
   '¿Puedo comer frutas?',
 ];
 
-// Simple markdown-like formatting
+// Simple markdown-like formatting with XSS protection
 function formatMessage(content: string) {
-  return content
+  const formatted = content
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     // Handle headings (must process ### before ## before #)
     .replace(/^### (.*$)/gm, '<p class="font-semibold text-gray-700 mt-3 mb-1.5 text-sm">$1</p>')
@@ -67,13 +68,20 @@ function formatMessage(content: string) {
     // Convert URLs to clickable links (handles with or without https://)
     .replace(
       /(?:https?:\/\/)?(?:www\.)?([a-zA-Z0-9-]+(?:\.[a-zA-Z]{2,})+)(?:\/[^\s<]*)?/g,
-      (match, domain) => {
+      (match) => {
         const url = match.startsWith('http') ? match : `https://${match}`;
         return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-alba-primary hover:underline">${match}</a>`;
       }
     )
     .replace(/\n\n/g, '</p><p class="mt-1.5">')
     .replace(/\n/g, '<br />');
+
+  // Sanitize HTML to prevent XSS attacks
+  return DOMPurify.sanitize(formatted, {
+    ALLOWED_TAGS: ['strong', 'p', 'li', 'hr', 'a', 'br'],
+    ALLOWED_ATTR: ['href', 'target', 'rel', 'class'],
+    ALLOW_DATA_ATTR: false,
+  });
 }
 
 export function FloatingChatWidget() {

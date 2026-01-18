@@ -63,27 +63,27 @@ function SpanishTermsContent() {
   return (
     <div className="space-y-8 text-gray-700">
       <section>
-        <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Aceptacion de los Terminos</h2>
+        <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Aceptación de los Términos</h2>
         <p>
-          Al acceder y utilizar el sitio web de Alba Dialisis y Trasplantes (albadialisis.com), usted acepta estos Terminos y Condiciones de Uso. Si no esta de acuerdo con alguno de estos terminos, le pedimos que no utilice nuestro sitio web. El uso continuado del sitio constituye la aceptacion de cualquier modificacion a estos terminos.
+          Al acceder y utilizar el sitio web de Alba Diálisis y Trasplantes (albadialisis.com), usted acepta estos Términos y Condiciones de Uso. Si no está de acuerdo con alguno de estos términos, le pedimos que no utilice nuestro sitio web. El uso continuado del sitio constituye la aceptación de cualquier modificación a estos términos.
         </p>
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold text-gray-900 mb-4">2. Descripcion de los Servicios</h2>
+        <h2 className="text-2xl font-semibold text-gray-900 mb-4">2. Descripción de los Servicios</h2>
         <p className="mb-4">
-          Alba Dialisis y Trasplantes es una clinica especializada en servicios de nefrologia que incluyen:
+          Alba Diálisis y Trasplantes es una clínica especializada en servicios de nefrología que incluyen:
         </p>
         <ul className="list-disc pl-6 space-y-2">
-          <li>Hemodialisis y hemodiafiltracion</li>
-          <li>Dialisis peritoneal</li>
-          <li>Consulta nefrologica</li>
-          <li>Evaluacion y preparacion para trasplante renal</li>
+          <li>Hemodiálisis y hemodiafiltración</li>
+          <li>Diálisis peritoneal</li>
+          <li>Consulta nefrológica</li>
+          <li>Evaluación y preparación para trasplante renal</li>
           <li>Seguimiento post-trasplante</li>
-          <li>Atencion de urgencias nefrologicas</li>
+          <li>Atención de urgencias nefrológicas</li>
         </ul>
         <p className="mt-4">
-          Este sitio web proporciona informacion sobre nuestros servicios y permite solicitar citas. No sustituye la consulta medica profesional.
+          Este sitio web proporciona información sobre nuestros servicios y permite solicitar citas. No sustituye la consulta médica profesional.
         </p>
       </section>
 
@@ -91,93 +91,93 @@ function SpanishTermsContent() {
         <h2 className="text-2xl font-semibold text-gray-900 mb-4">3. Uso Apropiado del Sitio</h2>
         <p className="mb-4">Usted se compromete a:</p>
         <ul className="list-disc pl-6 space-y-2">
-          <li>Proporcionar informacion veraz y actualizada.</li>
+          <li>Proporcionar información veraz y actualizada.</li>
           <li>No utilizar el sitio para fines ilegales o no autorizados.</li>
-          <li>No intentar acceder a areas restringidas del sitio.</li>
+          <li>No intentar acceder a áreas restringidas del sitio.</li>
           <li>No interferir con el funcionamiento del sitio.</li>
-          <li>No enviar contenido malicioso o danino.</li>
+          <li>No enviar contenido malicioso o dañino.</li>
         </ul>
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold text-gray-900 mb-4">4. Citas y Servicios Medicos</h2>
+        <h2 className="text-2xl font-semibold text-gray-900 mb-4">4. Citas y Servicios Médicos</h2>
         <p className="mb-4">
-          Al solicitar una cita a traves de nuestro sitio web:
+          Al solicitar una cita a través de nuestro sitio web:
         </p>
         <ul className="list-disc pl-6 space-y-2">
-          <li>La confirmacion de la cita esta sujeta a disponibilidad.</li>
-          <li>Debe proporcionar informacion de contacto valida.</li>
-          <li>Las cancelaciones deben realizarse con al menos 24 horas de anticipacion.</li>
+          <li>La confirmación de la cita está sujeta a disponibilidad.</li>
+          <li>Debe proporcionar información de contacto válida.</li>
+          <li>Las cancelaciones deben realizarse con al menos 24 horas de anticipación.</li>
           <li>Nos reservamos el derecho de reprogramar citas por causas de fuerza mayor.</li>
         </ul>
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold text-gray-900 mb-4">5. Informacion Medica</h2>
+        <h2 className="text-2xl font-semibold text-gray-900 mb-4">5. Información Médica</h2>
         <p className="mb-4">
-          La informacion proporcionada en este sitio web tiene fines informativos unicamente y no debe considerarse como:
+          La información proporcionada en este sitio web tiene fines informativos únicamente y no debe considerarse como:
         </p>
         <ul className="list-disc pl-6 space-y-2">
-          <li>Diagnostico medico.</li>
-          <li>Tratamiento o prescripcion medica.</li>
+          <li>Diagnóstico médico.</li>
+          <li>Tratamiento o prescripción médica.</li>
           <li>Sustituto de la consulta con un profesional de la salud.</li>
         </ul>
         <p className="mt-4">
-          Siempre consulte a un medico calificado para obtener asesoramiento sobre su condicion de salud especifica.
+          Siempre consulte a un médico calificado para obtener asesoramiento sobre su condición de salud específica.
         </p>
       </section>
 
       <section>
         <h2 className="text-2xl font-semibold text-gray-900 mb-4">6. Propiedad Intelectual</h2>
         <p>
-          Todo el contenido de este sitio web, incluyendo textos, imagenes, logos, graficos y software, es propiedad de Alba Dialisis y Trasplantes o sus licenciantes, y esta protegido por las leyes de propiedad intelectual de Mexico y tratados internacionales. Queda prohibida su reproduccion, distribucion o modificacion sin autorizacion previa por escrito.
+          Todo el contenido de este sitio web, incluyendo textos, imágenes, logos, gráficos y software, es propiedad de Alba Diálisis y Trasplantes o sus licenciantes, y está protegido por las leyes de propiedad intelectual de México y tratados internacionales. Queda prohibida su reproducción, distribución o modificación sin autorización previa por escrito.
         </p>
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold text-gray-900 mb-4">7. Limitacion de Responsabilidad</h2>
+        <h2 className="text-2xl font-semibold text-gray-900 mb-4">7. Limitación de Responsabilidad</h2>
         <p className="mb-4">
-          Alba Dialisis y Trasplantes no sera responsable por:
+          Alba Diálisis y Trasplantes no será responsable por:
         </p>
         <ul className="list-disc pl-6 space-y-2">
-          <li>Danos directos, indirectos, incidentales o consecuentes derivados del uso del sitio.</li>
+          <li>Daños directos, indirectos, incidentales o consecuentes derivados del uso del sitio.</li>
           <li>Errores u omisiones en el contenido del sitio.</li>
           <li>Interrupciones en el servicio del sitio web.</li>
-          <li>Virus u otros componentes daninos que puedan afectar su equipo.</li>
+          <li>Virus u otros componentes dañinos que puedan afectar su equipo.</li>
         </ul>
       </section>
 
       <section>
         <h2 className="text-2xl font-semibold text-gray-900 mb-4">8. Enlaces a Terceros</h2>
         <p>
-          Este sitio puede contener enlaces a sitios web de terceros. No somos responsables del contenido, politicas de privacidad o practicas de estos sitios externos. Le recomendamos revisar los terminos y politicas de cualquier sitio que visite.
+          Este sitio puede contener enlaces a sitios web de terceros. No somos responsables del contenido, políticas de privacidad o prácticas de estos sitios externos. Le recomendamos revisar los términos y políticas de cualquier sitio que visite.
         </p>
       </section>
 
       <section>
         <h2 className="text-2xl font-semibold text-gray-900 mb-4">9. Modificaciones</h2>
         <p>
-          Nos reservamos el derecho de modificar estos Terminos y Condiciones en cualquier momento. Las modificaciones entraran en vigor inmediatamente despues de su publicacion en el sitio web. Su uso continuado del sitio despues de dichos cambios constituye su aceptacion de los nuevos terminos.
+          Nos reservamos el derecho de modificar estos Términos y Condiciones en cualquier momento. Las modificaciones entrarán en vigor inmediatamente después de su publicación en el sitio web. Su uso continuado del sitio después de dichos cambios constituye su aceptación de los nuevos términos.
         </p>
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold text-gray-900 mb-4">10. Ley Aplicable y Jurisdiccion</h2>
+        <h2 className="text-2xl font-semibold text-gray-900 mb-4">10. Ley Aplicable y Jurisdicción</h2>
         <p>
-          Estos Terminos y Condiciones se rigen por las leyes de los Estados Unidos Mexicanos. Cualquier controversia derivada de estos terminos sera resuelta por los tribunales competentes de la ciudad de León, Guanajuato, Mexico, renunciando expresamente a cualquier otro fuero que pudiera corresponderle.
+          Estos Términos y Condiciones se rigen por las leyes de los Estados Unidos Mexicanos. Cualquier controversia derivada de estos términos será resuelta por los tribunales competentes de la ciudad de León, Guanajuato, México, renunciando expresamente a cualquier otro fuero que pudiera corresponderle.
         </p>
       </section>
 
       <section>
         <h2 className="text-2xl font-semibold text-gray-900 mb-4">11. Contacto</h2>
         <p className="mb-4">
-          Para cualquier pregunta sobre estos Terminos y Condiciones, contactenos:
+          Para cualquier pregunta sobre estos Términos y Condiciones, contáctenos:
         </p>
         <address className="not-italic">
-          <strong>Alba Dialisis y Trasplantes</strong><br />
+          <strong>Alba Diálisis y Trasplantes</strong><br />
           Blvd. Campestre 503, Jardines del Moral<br />
-          León, Guanajuato, Mexico<br />
-          Telefono: <a href="tel:4773293939" className="text-alba-primary hover:underline">477-329-39-39</a><br />
+          León, Guanajuato, México<br />
+          Teléfono: <a href="tel:4773293939" className="text-alba-primary hover:underline">477-329-39-39</a><br />
           Email: <a href="mailto:contacto@albadialisis.com" className="text-alba-primary hover:underline">contacto@albadialisis.com</a>
         </address>
       </section>

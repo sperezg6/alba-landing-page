@@ -9,7 +9,7 @@ export function PrivacyPage() {
   const t = useTranslations('privacy');
   const locale = useLocale();
 
-  const lastUpdated = locale === 'es' ? '15 de enero de 2025' : 'January 15, 2025';
+  const lastUpdated = locale === 'es' ? '15 de Enero de 2025' : 'January 15, 2025';
 
   return (
     <>
@@ -32,7 +32,7 @@ export function PrivacyPage() {
               {t('title')}
             </h1>
             <p className="mt-4 text-white/60">
-              {locale === 'es' ? 'Ultima actualizacion' : 'Last updated'}: {lastUpdated}
+              {locale === 'es' ? 'Última actualización' : 'Last updated'}: {lastUpdated}
             </p>
           </motion.div>
         </div>
@@ -63,39 +63,39 @@ function SpanishPrivacyContent() {
   return (
     <div className="space-y-8 text-gray-700">
       <section>
-        <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Informacion que Recopilamos</h2>
+        <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Información que Recopilamos</h2>
         <p className="mb-4">
-          En Alba Dialisis y Trasplantes, recopilamos informacion personal para brindarle la mejor atencion medica posible. La informacion que podemos recopilar incluye:
+          En Alba Diálisis y Trasplantes, recopilamos información personal para brindarle la mejor atención médica posible. La información que podemos recopilar incluye:
         </p>
         <ul className="list-disc pl-6 space-y-2">
-          <li><strong>Informacion de identificacion:</strong> Nombre completo, fecha de nacimiento, genero, CURP, INE.</li>
-          <li><strong>Informacion de contacto:</strong> Direccion, numero de telefono, correo electronico.</li>
-          <li><strong>Informacion medica:</strong> Historial medico, diagnosticos, tratamientos, resultados de laboratorio, medicamentos.</li>
-          <li><strong>Informacion de seguro:</strong> Datos de su poliza de seguro medico, si aplica.</li>
-          <li><strong>Informacion de facturacion:</strong> Datos necesarios para procesar pagos.</li>
+          <li><strong>Información de identificación:</strong> Nombre completo, fecha de nacimiento, género, CURP, INE.</li>
+          <li><strong>Información de contacto:</strong> Dirección, número de teléfono, correo electrónico.</li>
+          <li><strong>Información médica:</strong> Historial médico, diagnósticos, tratamientos, resultados de laboratorio, medicamentos.</li>
+          <li><strong>Información de seguro:</strong> Datos de su póliza de seguro médico, si aplica.</li>
+          <li><strong>Información de facturación:</strong> Datos necesarios para procesar pagos.</li>
         </ul>
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold text-gray-900 mb-4">2. Uso de la Informacion</h2>
-        <p className="mb-4">Utilizamos su informacion personal para:</p>
+        <h2 className="text-2xl font-semibold text-gray-900 mb-4">2. Uso de la Información</h2>
+        <p className="mb-4">Utilizamos su información personal para:</p>
         <ul className="list-disc pl-6 space-y-2">
-          <li>Proporcionar servicios medicos de dialisis y trasplante renal.</li>
-          <li>Coordinar su atencion con otros proveedores de salud.</li>
+          <li>Proporcionar servicios médicos de diálisis y trasplante renal.</li>
+          <li>Coordinar su atención con otros proveedores de salud.</li>
           <li>Comunicarnos con usted sobre citas, resultados y tratamientos.</li>
-          <li>Procesar pagos y facturacion.</li>
+          <li>Procesar pagos y facturación.</li>
           <li>Cumplir con obligaciones legales y regulatorias.</li>
-          <li>Mejorar nuestros servicios y la calidad de atencion.</li>
+          <li>Mejorar nuestros servicios y la calidad de atención.</li>
         </ul>
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold text-gray-900 mb-4">3. Proteccion de Datos Personales</h2>
+        <h2 className="text-2xl font-semibold text-gray-900 mb-4">3. Protección de Datos Personales</h2>
         <p className="mb-4">
-          De conformidad con la Ley Federal de Proteccion de Datos Personales en Posesion de los Particulares (LFPDPPP), implementamos medidas de seguridad administrativas, tecnicas y fisicas para proteger su informacion personal contra dano, perdida, alteracion, destruccion o uso no autorizado.
+          De conformidad con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP), implementamos medidas de seguridad administrativas, técnicas y físicas para proteger su información personal contra daño, pérdida, alteración, destrucción o uso no autorizado.
         </p>
         <p>
-          Su informacion medica es tratada como confidencial y solo es accesible al personal autorizado que necesita conocerla para brindarle atencion medica.
+          Su información médica es tratada como confidencial y solo es accesible al personal autorizado que necesita conocerla para brindarle atención médica.
         </p>
       </section>
 
@@ -105,32 +105,32 @@ function SpanishPrivacyContent() {
           Usted tiene derecho a Acceder, Rectificar, Cancelar u Oponerse (Derechos ARCO) al tratamiento de sus datos personales. Para ejercer estos derechos, puede:
         </p>
         <ul className="list-disc pl-6 space-y-2">
-          <li>Enviar un correo electronico a: <a href="mailto:privacidad@albadialisis.com" className="text-alba-primary hover:underline">privacidad@albadialisis.com</a></li>
+          <li>Enviar un correo electrónico a: <a href="mailto:privacidad@albadialisis.com" className="text-alba-primary hover:underline">privacidad@albadialisis.com</a></li>
           <li>Presentar una solicitud por escrito en cualquiera de nuestras sucursales.</li>
-          <li>Llamar a nuestra linea de atencion: <a href="tel:4773293939" className="text-alba-primary hover:underline">477-329-39-39</a></li>
+          <li>Llamar a nuestra línea de atención: <a href="tel:4773293939" className="text-alba-primary hover:underline">477-329-39-39</a></li>
         </ul>
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold text-gray-900 mb-4">5. Compartir Informacion</h2>
+        <h2 className="text-2xl font-semibold text-gray-900 mb-4">5. Compartir Información</h2>
         <p className="mb-4">
-          No vendemos ni alquilamos su informacion personal. Solo compartimos su informacion con:
+          No vendemos ni alquilamos su información personal. Solo compartimos su información con:
         </p>
         <ul className="list-disc pl-6 space-y-2">
-          <li>Otros profesionales de la salud involucrados en su atencion.</li>
-          <li>Laboratorios y centros de diagnostico.</li>
-          <li>Su compania de seguros, si aplica.</li>
+          <li>Otros profesionales de la salud involucrados en su atención.</li>
+          <li>Laboratorios y centros de diagnóstico.</li>
+          <li>Su compañía de seguros, si aplica.</li>
           <li>Autoridades gubernamentales cuando sea requerido por ley.</li>
         </ul>
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold text-gray-900 mb-4">6. Cookies y Tecnologias de Rastreo</h2>
+        <h2 className="text-2xl font-semibold text-gray-900 mb-4">6. Cookies y Tecnologías de Rastreo</h2>
         <p className="mb-4">
-          Nuestro sitio web utiliza cookies y tecnologias similares para:
+          Nuestro sitio web utiliza cookies y tecnologías similares para:
         </p>
         <ul className="list-disc pl-6 space-y-2">
-          <li>Mejorar su experiencia de navegacion.</li>
+          <li>Mejorar su experiencia de navegación.</li>
           <li>Analizar el uso del sitio web.</li>
           <li>Recordar sus preferencias.</li>
         </ul>
@@ -140,22 +140,22 @@ function SpanishPrivacyContent() {
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold text-gray-900 mb-4">7. Cambios a esta Politica</h2>
+        <h2 className="text-2xl font-semibold text-gray-900 mb-4">7. Cambios a esta Política</h2>
         <p>
-          Nos reservamos el derecho de modificar esta politica de privacidad en cualquier momento. Los cambios seran publicados en esta pagina con la fecha de actualizacion correspondiente. Le recomendamos revisar periodicamente esta politica.
+          Nos reservamos el derecho de modificar esta política de privacidad en cualquier momento. Los cambios serán publicados en esta página con la fecha de actualización correspondiente. Le recomendamos revisar periódicamente esta política.
         </p>
       </section>
 
       <section>
         <h2 className="text-2xl font-semibold text-gray-900 mb-4">8. Contacto</h2>
         <p className="mb-4">
-          Si tiene preguntas sobre esta politica de privacidad o sobre como manejamos sus datos personales, contactenos:
+          Si tiene preguntas sobre esta política de privacidad o sobre cómo manejamos sus datos personales, contáctenos:
         </p>
         <address className="not-italic">
-          <strong>Alba Dialisis y Trasplantes</strong><br />
+          <strong>Alba Diálisis y Trasplantes</strong><br />
           Blvd. Campestre 503, Jardines del Moral<br />
-          León, Guanajuato, Mexico<br />
-          Telefono: <a href="tel:4773293939" className="text-alba-primary hover:underline">477-329-39-39</a><br />
+          León, Guanajuato, México<br />
+          Teléfono: <a href="tel:4773293939" className="text-alba-primary hover:underline">477-329-39-39</a><br />
           Email: <a href="mailto:contacto@albadialisis.com" className="text-alba-primary hover:underline">contacto@albadialisis.com</a>
         </address>
       </section>

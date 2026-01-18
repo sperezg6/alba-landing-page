@@ -1,6 +1,7 @@
 import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { doctors } from '@/lib/data';
+import { getCalComConfig } from '@/lib/scheduling/types';
 import { DoctorProfilePage } from './DoctorProfilePage';
 
 export function generateStaticParams() {
@@ -43,5 +44,11 @@ export default async function Page({
     notFound();
   }
 
-  return <DoctorProfilePage doctor={doctor} />;
+  // Get Cal.com config server-side (secure - not exposed to client bundle)
+  const calConfig = getCalComConfig(doctor.slug) || {
+    username: 'alba-clinica',
+    eventSlug: '30min'
+  };
+
+  return <DoctorProfilePage doctor={doctor} calConfig={calConfig} />;
 }

@@ -34,7 +34,7 @@ export function CalComBooking({
       {/* Cal.com iframe - clean and reliable */}
       <div className="cal-embed-container">
         <iframe
-          src={`https://cal.com/${calLink}?embed=true&theme=dark&layout=month_view&hideEventTypeDetails=true`}
+          src={`https://cal.com/${calLink}?embed=true&theme=dark&layout=month_view&hideEventTypeDetails=true&locale=es`}
           width="100%"
           height="100%"
           frameBorder="0"
@@ -92,7 +92,7 @@ export function CalComBookingIframe({
 
       {/* Cal.com iframe */}
       <iframe
-        src={`https://cal.com/${calLink}?embed=true&theme=dark`}
+        src={`https://cal.com/${calLink}?embed=true&theme=dark&locale=es`}
         width="100%"
         height="600"
         frameBorder="0"

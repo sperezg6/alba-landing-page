@@ -11,27 +11,20 @@ import {
 import { Link } from '@/i18n/navigation';
 import { branches, type Doctor } from '@/lib/data';
 import { CalComBooking } from '@/components/scheduling';
-import { DOCTOR_CALCOM_CONFIG } from '@/lib/scheduling/types';
+import type { CalComConfig } from '@/lib/scheduling/types';
 
 interface DoctorProfilePageProps {
   doctor: Doctor;
+  calConfig: CalComConfig;
 }
 
-// Get Cal.com config for a doctor
-function getCalComConfig(slug: string) {
-  return DOCTOR_CALCOM_CONFIG[slug] || { username: 'alba-clinica' };
-}
-
-export function DoctorProfilePage({ doctor }: DoctorProfilePageProps) {
+export function DoctorProfilePage({ doctor, calConfig }: DoctorProfilePageProps) {
   const t = useTranslations();
   const locale = useLocale();
 
   const doctorBranches = doctor.branches
     .map((branchId) => branches.find((b) => b.id === branchId))
     .filter(Boolean);
-
-  // Get Cal.com config for this doctor
-  const calConfig = getCalComConfig(doctor.slug);
 
   // Check if doctor has a hero image for full-width background
   const hasHeroImage = !!doctor.heroImage;
