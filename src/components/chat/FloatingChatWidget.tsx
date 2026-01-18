@@ -56,8 +56,12 @@ const followUpSuggestions = [
 function formatMessage(content: string) {
   return content
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    // Handle headings (must process ### before ## before #)
+    .replace(/^### (.*$)/gm, '<p class="font-semibold text-gray-700 mt-3 mb-1.5 text-sm">$1</p>')
     .replace(/^## (.*$)/gm, '<p class="font-semibold text-gray-800 mt-3 mb-1.5 text-sm">$1</p>')
-    .replace(/^# (.*$)/gm, '<p class="font-semibold text-gray-900 mt-3 mb-1.5 text-sm">$1</p>')
+    .replace(/^# (.*$)/gm, '<p class="font-semibold text-gray-900 mt-4 mb-2 text-base">$1</p>')
+    // Handle emoji headers (e.g., "🌅 Desayuno" at start of line)
+    .replace(/^([\u{1F300}-\u{1F9FF}][\u{FE00}-\u{FE0F}]?\s+\S.*$)/gmu, '<p class="font-medium text-gray-800 mt-3 mb-1.5 text-sm">$1</p>')
     .replace(/^- (.*$)/gm, '<li class="ml-4 text-sm">$1</li>')
     .replace(/---/g, '<hr class="my-2 border-gray-200">')
     // Convert URLs to clickable links (handles with or without https://)

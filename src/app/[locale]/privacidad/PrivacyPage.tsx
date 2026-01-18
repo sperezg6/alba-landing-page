@@ -154,7 +154,7 @@ function SpanishPrivacyContent() {
         <address className="not-italic">
           <strong>Alba Dialisis y Trasplantes</strong><br />
           Blvd. Campestre 503, Jardines del Moral<br />
-          Leon, Guanajuato, Mexico<br />
+          León, Guanajuato, Mexico<br />
           Telefono: <a href="tel:4773293939" className="text-alba-primary hover:underline">477-329-39-39</a><br />
           Email: <a href="mailto:contacto@albadialisis.com" className="text-alba-primary hover:underline">contacto@albadialisis.com</a>
         </address>
@@ -258,7 +258,7 @@ function EnglishPrivacyContent() {
         <address className="not-italic">
           <strong>Alba Dialysis and Transplants</strong><br />
           Blvd. Campestre 503, Jardines del Moral<br />
-          Leon, Guanajuato, Mexico<br />
+          León, Guanajuato, Mexico<br />
           Phone: <a href="tel:4773293939" className="text-alba-primary hover:underline">477-329-39-39</a><br />
           Email: <a href="mailto:contacto@albadialisis.com" className="text-alba-primary hover:underline">contacto@albadialisis.com</a>
         </address>

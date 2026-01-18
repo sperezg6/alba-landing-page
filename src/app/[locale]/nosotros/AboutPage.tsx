@@ -41,7 +41,10 @@ export function AboutPage() {
 
         {/* Content */}
         <div className="relative z-10 h-full flex flex-col justify-end px-6 md:px-12 lg:px-16 xl:px-24 pb-32 md:pb-40 lg:pb-48">
-          <h1 className="inversa-headline text-white max-w-5xl">
+          <h1
+            className="font-light leading-[0.95] tracking-tight"
+            style={{ color: '#FFFFFF', fontSize: 'clamp(3rem, 7vw, 6rem)' }}
+          >
             {t('about.heroHeadline')}
           </h1>
         </div>

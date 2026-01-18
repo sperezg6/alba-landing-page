@@ -230,7 +230,7 @@ export function ServicesShowcase() {
                     rel="noopener noreferrer"
                     className="mt-6 flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors group"
                   >
-                    Prueba nuestro asistente nutricional
+                    {t('nutritionAssistant.link')}
                     <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </a>
                 )}

@@ -14,8 +14,8 @@ export function OrganizationSchema({ locale }: OrganizationSchemaProps) {
     name: 'Alba Dialisis y Trasplantes',
     alternateName: 'Alba Dialysis and Transplants',
     description: isSpanish
-      ? 'Clinica especializada en nefrologia, hemodialisis, hemodiafiltracion y trasplante renal en Leon, Guanajuato, Mexico. Mas de 25 anos de experiencia.'
-      : 'Clinic specializing in nephrology, hemodialysis, hemodiafiltration and kidney transplant in Leon, Guanajuato, Mexico. Over 25 years of experience.',
+      ? 'Clinica especializada en nefrologia, hemodialisis, hemodiafiltracion y trasplante renal en León, Guanajuato, Mexico. Mas de 25 anos de experiencia.'
+      : 'Clinic specializing in nephrology, hemodialysis, hemodiafiltration and kidney transplant in León, Guanajuato, Mexico. Over 25 years of experience.',
     url: 'https://albadialisis.com',
     logo: {
       '@type': 'ImageObject',
@@ -26,7 +26,7 @@ export function OrganizationSchema({ locale }: OrganizationSchemaProps) {
     image: 'https://albadialisis.com/images/equipo-alba.jpg',
     telephone: '+52 477 329 3939',
     email: 'contacto@albadialisis.com',
-    foundingDate: '1999',
+    foundingDate: '2014',
     founder: {
       '@type': 'Person',
       name: 'Dra. Maria de Jesus Gutierrez Navarro',
@@ -35,7 +35,7 @@ export function OrganizationSchema({ locale }: OrganizationSchemaProps) {
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Melchor Ocampo 122, Col. Centro',
-      addressLocality: 'Leon',
+      addressLocality: 'León',
       addressRegion: 'Guanajuato',
       postalCode: '37000',
       addressCountry: 'MX',
@@ -48,7 +48,7 @@ export function OrganizationSchema({ locale }: OrganizationSchemaProps) {
     areaServed: [
       {
         '@type': 'City',
-        name: 'Leon',
+        name: 'León',
         containedInPlace: {
           '@type': 'State',
           name: 'Guanajuato',

@@ -13,8 +13,8 @@ export function WebsiteSchema({ locale }: WebsiteSchemaProps) {
     name: 'Alba Dialisis y Trasplantes',
     alternateName: 'Alba Dialysis and Transplants',
     description: isSpanish
-      ? 'Sitio web oficial de Alba Dialisis y Trasplantes - Clinica de nefrologia en Leon, Guanajuato'
-      : 'Official website of Alba Dialysis and Transplants - Nephrology clinic in Leon, Guanajuato',
+      ? 'Sitio web oficial de Alba Dialisis y Trasplantes - Clinica de nefrologia en León, Guanajuato'
+      : 'Official website of Alba Dialysis and Transplants - Nephrology clinic in León, Guanajuato',
     publisher: {
       '@type': 'Organization',
       '@id': 'https://albadialisis.com/#organization',

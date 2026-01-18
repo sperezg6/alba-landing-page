@@ -18,9 +18,11 @@ interface DoctorCardProps {
   image: string;
   slug: string;
   isFounder?: boolean;
+  founderLabel: string;
+  viewProfileLabel: string;
 }
 
-const DoctorCard = ({ name, role, image, slug, isFounder }: DoctorCardProps) => {
+const DoctorCard = ({ name, role, image, slug, isFounder, founderLabel, viewProfileLabel }: DoctorCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const router = useRouter();
 
@@ -34,7 +36,7 @@ const DoctorCard = ({ name, role, image, slug, isFounder }: DoctorCardProps) => 
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onDoubleClick={handleDoubleClick}
-      title="Doble clic para ver perfil"
+      title={viewProfileLabel}
     >
       {/* Image container */}
       <div className="relative aspect-[3/4] overflow-hidden rounded-sm mb-4">
@@ -51,7 +53,7 @@ const DoctorCard = ({ name, role, image, slug, isFounder }: DoctorCardProps) => 
         {isFounder && (
           <div className="absolute top-3 left-3">
             <span className="text-[10px] uppercase tracking-widest text-white/90 bg-white/10 backdrop-blur-sm px-2 py-1 rounded-sm">
-              Fundadora
+              {founderLabel}
             </span>
           </div>
         )}
@@ -75,6 +77,7 @@ const DoctorCard = ({ name, role, image, slug, isFounder }: DoctorCardProps) => 
 
 export function DoctorShowcase() {
   const t = useTranslations('team');
+  const tCard = useTranslations('doctorCard');
   const sectionRef = useRef<HTMLElement>(null);
   const headlineRef = useRef<HTMLDivElement>(null);
   const descriptionRef = useRef<HTMLDivElement>(null);
@@ -197,6 +200,8 @@ export function DoctorShowcase() {
               image={doctor.image}
               slug={doctor.slug}
               isFounder={doctor.isFounder}
+              founderLabel={tCard('founder')}
+              viewProfileLabel={tCard('viewProfile')}
             />
           ))}
         </div>

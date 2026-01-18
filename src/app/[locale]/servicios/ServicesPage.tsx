@@ -133,9 +133,12 @@ export function ServicesPage() {
                 Nuestros Servicios
               </span>
             </div>
-            <h1 className="inversa-headline !text-white max-w-4xl">
-              Atención integral<br />
-              para tu salud renal
+            <h1
+              className="font-light leading-[0.95] tracking-tight"
+              style={{ color: '#FFFFFF', fontSize: 'clamp(3rem, 7vw, 6rem)' }}
+            >
+              Atención integral para<br />
+              tu salud renal
             </h1>
           </motion.div>
         </div>

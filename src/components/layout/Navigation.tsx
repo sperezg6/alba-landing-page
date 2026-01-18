@@ -2,14 +2,23 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { Link, usePathname } from '@/i18n/navigation';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { FullscreenMenu } from './FullscreenMenu';
 
+const navLinks = [
+  { href: '/servicios', key: 'services' },
+  { href: '/sucursales', key: 'branches' },
+  { href: '/nosotros', key: 'about' },
+  { href: '/directorio', key: 'doctors' },
+  { href: '/contacto', key: 'contact' },
+];
+
 export function Navigation() {
   const locale = useLocale();
   const pathname = usePathname();
+  const t = useTranslations('nav');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -81,6 +90,29 @@ export function Navigation() {
             >
               ALBA
             </Link>
+
+            {/* Desktop Navigation Links - Hidden on mobile, visible on lg+ */}
+            <ul className="hidden lg:flex items-center gap-8">
+              {navLinks.map((link) => (
+                <li key={link.key}>
+                  <Link
+                    href={link.href}
+                    className={cn(
+                      "text-sm font-medium uppercase tracking-wider transition-colors duration-300",
+                      pathname === link.href
+                        ? showLightStyling
+                          ? "text-alba-primary"
+                          : "text-alba-primary"
+                        : showLightStyling
+                          ? "text-white/90 hover:text-white"
+                          : "text-gray-600 hover:text-gray-900"
+                    )}
+                  >
+                    {t(link.key)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
 
             {/* Menu button - "Menu ✦" text (Inversa style) */}
             <button

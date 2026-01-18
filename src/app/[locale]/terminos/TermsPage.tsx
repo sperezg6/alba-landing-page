@@ -9,7 +9,7 @@ export function TermsPage() {
   const t = useTranslations('terms');
   const locale = useLocale();
 
-  const lastUpdated = locale === 'es' ? '15 de enero de 2025' : 'January 15, 2025';
+  const lastUpdated = locale === 'es' ? '15 de Enero de 2025' : 'January 15, 2025';
 
   return (
     <>
@@ -32,7 +32,7 @@ export function TermsPage() {
               {t('title')}
             </h1>
             <p className="mt-4 text-white/60">
-              {locale === 'es' ? 'Ultima actualizacion' : 'Last updated'}: {lastUpdated}
+              {locale === 'es' ? 'Última actualización' : 'Last updated'}: {lastUpdated}
             </p>
           </motion.div>
         </div>
@@ -164,7 +164,7 @@ function SpanishTermsContent() {
       <section>
         <h2 className="text-2xl font-semibold text-gray-900 mb-4">10. Ley Aplicable y Jurisdiccion</h2>
         <p>
-          Estos Terminos y Condiciones se rigen por las leyes de los Estados Unidos Mexicanos. Cualquier controversia derivada de estos terminos sera resuelta por los tribunales competentes de la ciudad de Leon, Guanajuato, Mexico, renunciando expresamente a cualquier otro fuero que pudiera corresponderle.
+          Estos Terminos y Condiciones se rigen por las leyes de los Estados Unidos Mexicanos. Cualquier controversia derivada de estos terminos sera resuelta por los tribunales competentes de la ciudad de León, Guanajuato, Mexico, renunciando expresamente a cualquier otro fuero que pudiera corresponderle.
         </p>
       </section>
 
@@ -176,7 +176,7 @@ function SpanishTermsContent() {
         <address className="not-italic">
           <strong>Alba Dialisis y Trasplantes</strong><br />
           Blvd. Campestre 503, Jardines del Moral<br />
-          Leon, Guanajuato, Mexico<br />
+          León, Guanajuato, Mexico<br />
           Telefono: <a href="tel:4773293939" className="text-alba-primary hover:underline">477-329-39-39</a><br />
           Email: <a href="mailto:contacto@albadialisis.com" className="text-alba-primary hover:underline">contacto@albadialisis.com</a>
         </address>
@@ -290,7 +290,7 @@ function EnglishTermsContent() {
       <section>
         <h2 className="text-2xl font-semibold text-gray-900 mb-4">10. Applicable Law and Jurisdiction</h2>
         <p>
-          These Terms and Conditions are governed by the laws of the United Mexican States. Any controversy arising from these terms shall be resolved by the competent courts of the city of Leon, Guanajuato, Mexico, expressly waiving any other jurisdiction that may apply.
+          These Terms and Conditions are governed by the laws of the United Mexican States. Any controversy arising from these terms shall be resolved by the competent courts of the city of León, Guanajuato, Mexico, expressly waiving any other jurisdiction that may apply.
         </p>
       </section>
 
@@ -302,7 +302,7 @@ function EnglishTermsContent() {
         <address className="not-italic">
           <strong>Alba Dialysis and Transplants</strong><br />
           Blvd. Campestre 503, Jardines del Moral<br />
-          Leon, Guanajuato, Mexico<br />
+          León, Guanajuato, Mexico<br />
           Phone: <a href="tel:4773293939" className="text-alba-primary hover:underline">477-329-39-39</a><br />
           Email: <a href="mailto:contacto@albadialisis.com" className="text-alba-primary hover:underline">contacto@albadialisis.com</a>
         </address>

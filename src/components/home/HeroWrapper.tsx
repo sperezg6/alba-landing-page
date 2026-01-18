@@ -120,10 +120,11 @@ export function HeroWrapper() {
         className="absolute inset-0 h-[130%] -top-[10%]"
       >
         <Image
-          src="/hero-inversa.png"
+          src="/hero-test4.jpeg"
           alt="Alba Dialysis - Kidney Care Excellence"
           fill
           className="object-cover"
+          style={{ objectPosition: 'center 85%' }}
           priority
           quality={90}
         />
@@ -149,18 +150,29 @@ export function HeroWrapper() {
         <ScrollCursor containerRef={wrapperRef} />
 
         {/* Bottom content - Headline + CTA */}
-        <div className="absolute bottom-0 left-0 p-6 md:p-10 lg:p-16 pb-12 md:pb-16">
-          <h1 className="inversa-headline max-w-5xl">
+        <div className="absolute bottom-0 left-0 p-6 md:p-10 lg:p-16 pb-24 md:pb-32">
+          <h1
+            className="font-light leading-[0.95] tracking-tight"
+            style={{ color: '#FFFFFF', fontSize: 'clamp(2.5rem, 8vw, 8rem)' }}
+          >
             {t('headlineLine1')}<br />
-            {t('headlineLine2')}
+            <span className="md:whitespace-nowrap">{t('headlineLine2')}</span>
           </h1>
 
-          <Link
-            href="/servicios"
-            className="inline-block mt-6 md:mt-8 px-5 py-2.5 md:px-6 md:py-3 bg-alba-primary text-black text-sm font-semibold uppercase tracking-wider rounded hover:bg-alba-primary-dark transition-colors cursor-pointer"
-          >
-            {t('ctaButton')}
-          </Link>
+          <div className="flex flex-wrap gap-4 mt-6 md:mt-8">
+            <Link
+              href="/servicios"
+              className="inline-block px-5 py-2.5 md:px-6 md:py-3 bg-alba-primary text-black text-sm font-semibold uppercase tracking-wider rounded hover:bg-alba-primary-dark transition-colors cursor-pointer"
+            >
+              {t('ctaButton')}
+            </Link>
+            <Link
+              href="/contacto"
+              className="inline-block px-5 py-2.5 md:px-6 md:py-3 border border-white text-white text-sm font-semibold uppercase tracking-wider rounded hover:bg-white hover:text-black transition-colors cursor-pointer"
+            >
+              {t('appointmentButton')}
+            </Link>
+          </div>
         </div>
       </section>
 

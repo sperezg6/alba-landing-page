@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Alba Dialisis y Trasplantes | Clinica de Nefrologia en Leon, Guanajuato",
-    "description": "Expertos en hemodialisis, hemodiafiltracion y trasplante renal. Mas de 25 años de experiencia cuidando la salud renal de nuestros pacientes en Leon, Guanajuato."
+    "title": "Alba Diálisis y Trasplantes | Clínica de Nefrología en León, Guanajuato",
+    "description": "Expertos en hemodiálisis, hemodiafiltración y trasplante renal. Más de 25 años de experiencia cuidando la salud renal de nuestros pacientes en León, Guanajuato."
   },
   "nav": {
     "home": "Inicio",
@@ -9,7 +9,7 @@
     "branches": "Sucursales",
     "about": "Nosotros",
     "contact": "Contacto",
-    "doctors": "Directorio Medico",
+    "doctors": "Directorio Médico",
     "resources": "Recursos",
     "bookAppointment": "Agendar Cita"
   },
@@ -19,17 +19,18 @@
     "titleHighlight": "es nuestra prioridad",
     "titleLine1": "Tu salud",
     "titleLine2": "renal",
-    "headlineLine1": "La enfermedad renal avanza rapido.",
-    "headlineLine2": "Nosotros mas.",
+    "headlineLine1": "Aquí comienza",
+    "headlineLine2": "tu nuevo amanecer.",
     "ctaButton": "Conocer servicios",
-    "tagline": "Mas de 25 años de excelencia en cuidado renal",
+    "appointmentButton": "Agendar cita",
+    "tagline": "Más de 25 años de excelencia en cuidado renal",
     "line1": "Tu salud renal",
     "line2": "en las mejores",
     "line3": "manos.",
-    "subtitle": "Mas de 25 años brindando tratamientos de dialisis con tecnologia de vanguardia y atencion humana excepcional.",
+    "subtitle": "Más de 25 años brindando tratamientos de diálisis con tecnología de vanguardia y atención humana excepcional.",
     "cta": "Conocer Servicios",
     "ctaSecondary": "Conoce nuestros servicios",
-    "ariaLabel": "Seccion principal",
+    "ariaLabel": "Sección principal",
     "stats": {
       "experience": "Años de experiencia",
       "sessions": "Sesiones mensuales",
@@ -38,27 +39,27 @@
     }
   },
   "heroScroll": {
-    "label": "No estas solo",
-    "description": "Sabemos que este camino es dificil. Por eso estamos aqui para ti y para tu familia. Juntos, cada paso es mas facil.",
-    "label2": "Mas que una clinica",
-    "description2": "Somos familia. Un equipo que te conoce por tu nombre, que celebra tus avances y te acompana en los dias dificiles. Porque tu bienestar es nuestra prioridad.",
-    "statement": "Permitenos tomar tu mano y la de tu familia."
+    "label": "No estás solo",
+    "description": "Sabemos que este camino es difícil. Por eso estamos aquí para ti y para tu familia. Juntos, cada paso es más fácil.",
+    "label2": "Más que una clínica",
+    "description2": "Somos familia. Un equipo que te conoce por tu nombre, que celebra tus avances y te acompaña en los días difíciles. Porque tu bienestar es nuestra prioridad.",
+    "statement": "Permítenos tomar tu mano y la de tu familia."
   },
   "inversaStatement": {
     "headlineLine1": "Alba es donde",
-    "headlineLine2": "compasion, tecnologia",
+    "headlineLine2": "compasión, tecnología",
     "headlineLine3": "y experiencia convergen.",
-    "imageAlt": "Equipo medico de Alba Dialisis",
-    "contentLabel": "Excelencia Medica",
-    "contentDescription": "Nuestro enfoque integral combina la mas avanzada tecnologia en hemodialisis con un equipo medico altamente especializado. Cada tratamiento es personalizado, cada paciente es prioridad, y cada dia trabajamos para mejorar vidas.",
+    "imageAlt": "Equipo médico de Alba Diálisis",
+    "contentLabel": "Excelencia Médica",
+    "contentDescription": "Nuestro enfoque integral combina la más avanzada tecnología en hemodiálisis con un equipo médico altamente especializado. Cada tratamiento es personalizado, cada paciente es prioridad, y cada día trabajamos para mejorar vidas.",
     "ctaButton": "Conocer Alba"
   },
   "services": {
     "title": "Cuidado Integral Para Ti y Tu Familia",
-    "subtitle": "No es solo dialisis. Es tu vida, tu salud, tu futuro.",
+    "subtitle": "No es solo diálisis. Es tu vida, tu salud, tu futuro.",
     "familyMission": {
-      "headline": "Mas que una clinica, somos familia",
-      "description": "Sabemos que la enfermedad renal no solo te afecta a ti, sino a toda tu familia. Por eso cada servicio esta disenado para cuidarte a ti y apoyar a quienes te rodean.",
+      "headline": "Más que una clínica, somos familia",
+      "description": "Sabemos que la enfermedad renal no solo te afecta a ti, sino a toda tu familia. Por eso cada servicio está diseñado para cuidarte a ti y apoyar a quienes te rodean.",
       "pillars": {
         "care": "Cuidado personalizado",
         "support": "Apoyo familiar",
@@ -67,115 +68,115 @@
     },
     "viewAll": "Ver todos los servicios",
     "hemodialysis": {
-      "title": "Hemodialisis",
-      "description": "Sesiones que te devuelven energia y bienestar. Tecnologia de punta para que cada tratamiento sea mas comodo y efectivo."
+      "title": "Hemodiálisis",
+      "description": "Sesiones que te devuelven energía y bienestar. Tecnología de punta para que cada tratamiento sea más cómodo y efectivo."
     },
     "hemodiafiltration": {
-      "title": "Hemodiafiltracion",
-      "description": "Una tecnica mas avanzada que significa menos sintomas, mas energia y mejor calidad de vida durante tu tratamiento."
+      "title": "Hemodiafiltración",
+      "description": "Una técnica más avanzada que significa menos síntomas, más energía y mejor calidad de vida durante tu tratamiento."
     },
     "transplant": {
       "title": "Trasplante Renal",
-      "description": "Te acompanamos en cada paso hacia una nueva oportunidad de vida. Desde la evaluacion hasta el seguimiento post-trasplante."
+      "description": "Te acompañamos en cada paso hacia una nueva oportunidad de vida. Desde la evaluación hasta el seguimiento post-trasplante."
     },
     "nutrition": {
-      "title": "Nutricion Renal",
-      "description": "Aprende a comer rico y saludable. Planes personalizados que se adaptan a tu vida y tus gustos, no al reves."
+      "title": "Nutrición Renal",
+      "description": "Aprende a comer rico y saludable. Planes personalizados que se adaptan a tu vida y tus gustos, no al revés."
     },
     "psychology": {
-      "title": "Valoracion Psicologica",
-      "description": "Porque tu bienestar emocional importa tanto como el fisico. Apoyo profesional para ti y tu familia en cada etapa."
+      "title": "Valoración Psicológica",
+      "description": "Porque tu bienestar emocional importa tanto como el físico. Apoyo profesional para ti y tu familia en cada etapa."
     },
     "physiotherapy": {
-      "title": "Fisioterapia Intra-dialisis",
-      "description": "Mantente activo y fuerte. Ejercicios durante tu sesion que mejoran tu movilidad y te hacen sentir mejor cada dia."
+      "title": "Fisioterapia Intra-diálisis",
+      "description": "Mantente activo y fuerte. Ejercicios durante tu sesión que mejoran tu movilidad y te hacen sentir mejor cada día."
     },
     "surgery": {
-      "title": "Procedimientos Quirurgicos",
-      "description": "Accesos vasculares y preparacion para trasplante con los mas altos estandares de seguridad y cuidado."
+      "title": "Procedimientos Quirúrgicos",
+      "description": "Accesos vasculares y preparación para trasplante con los más altos estándares de seguridad y cuidado."
     },
     "nephrology": {
-      "title": "Consulta de Nefrologia",
-      "description": "Atencion personalizada con nefrologos que te conocen, te escuchan y disegnan el mejor plan para ti."
+      "title": "Consulta de Nefrología",
+      "description": "Atención personalizada con nefrólogos que te conocen, te escuchan y diseñan el mejor plan para ti."
     }
   },
   "branches": {
     "title": "Nuestras Sucursales",
-    "subtitle": "Encuentra la clinica mas cercana a ti",
+    "subtitle": "Encuentra la clínica más cercana a ti",
     "viewAll": "Ver todas las sucursales",
-    "phone": "Telefono",
-    "address": "Direccion",
+    "phone": "Teléfono",
+    "address": "Dirección",
     "hours": "Horario",
-    "hoursValue": "Lun - Sab: 6:00 AM - 10:00 PM",
-    "getDirections": "Como llegar",
+    "hoursValue": "Lun - Sáb: 6:00 AM - 10:00 PM",
+    "getDirections": "Cómo llegar",
     "leon": {
-      "name": "Alba Leon Centro",
-      "address": "Melchor Ocampo 122, Col. Centro, Leon, Gto."
+      "name": "Alba León Centro",
+      "address": "Melchor Ocampo 122, Col. Centro, León, Gto."
     },
     "brisas": {
-      "name": "Unidad Medica Brisas",
-      "address": "Blvd. La Luz 5235, Col. San Nicolas, Leon, Gto."
+      "name": "Unidad Médica Brisas",
+      "address": "Blvd. La Luz 5235, Col. San Nicolás, León, Gto."
     },
     "dolores": {
       "name": "Unidad Dolores Hidalgo",
-      "address": "Blvd. Miguel Hidalgo 822, Fracc. Cristobal, Dolores Hidalgo, Gto."
+      "address": "Blvd. Miguel Hidalgo 822, Fracc. Cristóbal, Dolores Hidalgo, Gto."
     },
     "renalmedic": {
       "name": "Renalmedic",
-      "address": "Leon Norte, Leon, Gto."
+      "address": "León Norte, León, Gto."
     }
   },
   "doctors": {
-    "title": "Nuestro Equipo Medico",
+    "title": "Nuestro Equipo Médico",
     "subtitle": "Especialistas comprometidos con tu salud",
     "viewProfile": "Ver perfil",
     "bookAppointment": "Agendar cita",
     "viewAll": "Ver directorio completo",
     "founder": "Fundadora",
-    "nephrologist": "Nefrologa",
+    "nephrologist": "Nefróloga",
     "transplantSurgeon": "Cirujano de Trasplantes",
     "specialties": "Especialidades",
-    "education": "Formacion",
+    "education": "Formación",
     "experience": "Experiencia"
   },
   "about": {
     "title": "Nuestra Historia",
-    "subtitle": "Mas de dos decadas dedicadas a la salud renal",
-    "heroHeadline": "Cuidando la salud renal del Bajio por mas de 25 años",
+    "subtitle": "Más de dos décadas dedicadas a la salud renal",
+    "heroHeadline": "Cuidando la salud renal del Bajío por más de 25 años",
     "mission": {
-      "title": "Mision",
-      "content": "Brindar atencion medica de alta calidad a pacientes con enfermedades renales, utilizando tecnologia de vanguardia y un enfoque humano que mejore su calidad de vida."
+      "title": "Misión",
+      "content": "Brindar atención médica de alta calidad a pacientes con enfermedades renales, utilizando tecnología de vanguardia y un enfoque humano que mejore su calidad de vida."
     },
     "vision": {
-      "title": "Vision",
-      "content": "Ser el referente en atencion nefrologica en el Bajio mexicano, reconocidos por la excelencia en nuestros tratamientos y el trato calido hacia nuestros pacientes."
+      "title": "Visión",
+      "content": "Ser el referente en atención nefrológica en el Bajío mexicano, reconocidos por la excelencia en nuestros tratamientos y el trato cálido hacia nuestros pacientes."
     },
     "values": {
       "title": "Nuestros Valores",
-      "compassion": "Compasion",
-      "compassionDescription": "Tratamos a cada paciente con empatia y respeto, entendiendo que detras de cada caso hay una historia personal.",
+      "compassion": "Compasión",
+      "compassionDescription": "Tratamos a cada paciente con empatía y respeto, entendiendo que detrás de cada caso hay una historia personal.",
       "excellence": "Excelencia",
-      "excellenceDescription": "Buscamos constantemente mejorar nuestros procesos y resultados para ofrecer la mejor atencion posible.",
+      "excellenceDescription": "Buscamos constantemente mejorar nuestros procesos y resultados para ofrecer la mejor atención posible.",
       "integrity": "Integridad",
-      "integrityDescription": "Actuamos con honestidad y transparencia en cada decision, priorizando siempre el bienestar del paciente.",
-      "innovation": "Innovacion",
-      "innovationDescription": "Incorporamos tecnologia de vanguardia y nuevas tecnicas medicas para tratamientos mas efectivos."
+      "integrityDescription": "Actuamos con honestidad y transparencia en cada decisión, priorizando siempre el bienestar del paciente.",
+      "innovation": "Innovación",
+      "innovationDescription": "Incorporamos tecnología de vanguardia y nuevas técnicas médicas para tratamientos más efectivos."
     },
     "founder": {
       "title": "Conoce a Nuestra Fundadora",
-      "name": "Dra. Maria de Jesus Gutierrez Navarro",
-      "role": "Fundadora y Directora Medica",
-      "bio": "Con mas de 25 años de experiencia en nefrologia, la Dra. Gutierrez fundo Alba Dialisis con la vision de ofrecer un tratamiento integral y humano a pacientes con enfermedad renal en la region del Bajio."
+      "name": "Dra. María de Jesús Gutiérrez Navarro",
+      "role": "Fundadora y Directora Médica",
+      "bio": "Con más de 25 años de experiencia en nefrología, la Dra. Gutiérrez fundó Alba Diálisis con la visión de ofrecer un tratamiento integral y humano a pacientes con enfermedad renal en la región del Bajío."
     },
     "timeline": {
       "title": "Nuestra Trayectoria",
       "2014": {
-        "title": "Fundacion de Alba Centro",
-        "description": "Se inaugura la primera clinica en el centro de Leon, Guanajuato."
+        "title": "Fundación de Alba Centro",
+        "description": "Se inaugura la primera clínica en el centro de León, Guanajuato."
       },
       "2017": {
-        "title": "Expansion a Brisas",
-        "description": "Apertura de la Unidad Medica Brisas para atender a mas pacientes."
+        "title": "Expansión a Brisas",
+        "description": "Apertura de la Unidad Médica Brisas para atender a más pacientes."
       },
       "2019": {
         "title": "Dolores Hidalgo",
@@ -183,18 +184,23 @@
       },
       "2021": {
         "title": "Renalmedic",
-        "description": "Inauguracion de Renalmedic en Leon Norte, consolidando nuestra presencia."
+        "description": "Inauguración de Renalmedic en León Norte, consolidando nuestra presencia."
       }
+    },
+    "familyMessage": {
+      "headline": "Tranquilo, todo va a estar bien",
+      "subheadline": "Juntos de la mano, caminando a un nuevo amanecer",
+      "description": "En Alba entendemos que enfrentar una enfermedad renal puede ser abrumador. Por eso estamos aquí: para acompañarte, apoyarte y recordarte que no estás solo en este camino."
     }
   },
   "testimonials": {
     "title": "Lo Que Dicen Nuestros Pacientes",
-    "subtitle": "Historias de esperanza y recuperacion",
+    "subtitle": "Historias de esperanza y recuperación",
     "trustIndicator": "+5,000 pacientes confían en nosotros"
   },
   "contact": {
-    "title": "Contactanos",
-    "subtitle": "Estamos aqui para ayudarte",
+    "title": "Contáctanos",
+    "subtitle": "Estamos aquí para ayudarte",
     "form": {
       "step1": "Selecciona sucursal",
       "step2": "Tus datos",
@@ -204,8 +210,8 @@
       "doctor": "Doctor (opcional)",
       "selectDoctor": "Selecciona un doctor",
       "name": "Nombre completo",
-      "email": "Correo electronico",
-      "phone": "Telefono",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
       "subject": "Asunto",
       "message": "Mensaje",
       "submit": "Enviar mensaje",
@@ -215,32 +221,32 @@
       "next": "Siguiente",
       "previous": "Anterior",
       "required": "Este campo es requerido",
-      "invalidEmail": "Correo electronico invalido",
-      "invalidPhone": "Telefono invalido"
+      "invalidEmail": "Correo electrónico inválido",
+      "invalidPhone": "Teléfono inválido"
     },
     "info": {
-      "title": "Informacion de contacto",
+      "title": "Información de contacto",
       "whatsapp": "WhatsApp",
       "email": "Correo",
-      "mainPhone": "Telefono principal"
+      "mainPhone": "Teléfono principal"
     }
   },
   "resources": {
     "title": "Recursos para Pacientes",
-    "subtitle": "Informacion util para el cuidado de tu salud renal",
+    "subtitle": "Información útil para el cuidado de tu salud renal",
     "tips": {
       "title": "Consejos de Salud",
       "diet": {
-        "title": "Alimentacion Saludable",
-        "description": "Guia de nutricion para pacientes con enfermedad renal."
+        "title": "Alimentación Saludable",
+        "description": "Guía de nutrición para pacientes con enfermedad renal."
       },
       "exercise": {
-        "title": "Ejercicio y Dialisis",
-        "description": "Actividades fisicas recomendadas durante el tratamiento."
+        "title": "Ejercicio y Diálisis",
+        "description": "Actividades físicas recomendadas durante el tratamiento."
       },
       "medications": {
         "title": "Manejo de Medicamentos",
-        "description": "Como organizar y tomar correctamente tus medicinas."
+        "description": "Cómo organizar y tomar correctamente tus medicinas."
       },
       "emotional": {
         "title": "Bienestar Emocional",
@@ -263,21 +269,21 @@
   },
   "cta": {
     "label": "Da el primer paso",
-    "title": "Permitenos estar contigo en este camino",
-    "subtitle": "No tienes que enfrentar esto solo. Agenda una consulta y descubre como podemos acompanar a tu familia.",
-    "button": "Hablar con nosotros"
+    "title": "Permítenos estar contigo en este camino",
+    "subtitle": "No tienes que enfrentar esto solo. Agenda una consulta y descubre cómo podemos acompañar a tu familia.",
+    "button": "Agendar tu cita"
   },
   "footer": {
-    "description": "Lideres en tratamiento de dialisis y trasplantes en Leon, Guanajuato. Mas de 25 años cuidando la salud renal de nuestros pacientes.",
-    "quickLinks": "Enlaces rapidos",
+    "description": "Líderes en tratamiento de diálisis y trasplantes en León, Guanajuato. Más de 25 años cuidando la salud renal de nuestros pacientes.",
+    "quickLinks": "Enlaces rápidos",
     "contactInfo": "Contacto",
-    "followUs": "Siguenos",
+    "followUs": "Síguenos",
     "rights": "Todos los derechos reservados.",
     "privacy": "Aviso de privacidad",
-    "terms": "Terminos y condiciones"
+    "terms": "Términos y condiciones"
   },
   "whatsapp": {
-    "tooltip": "Contactanos por WhatsApp"
+    "tooltip": "Contáctanos por WhatsApp"
   },
   "booking": {
     "title": "Agenda tu Cita",
@@ -290,8 +296,8 @@
     "success": "Tu solicitud de cita ha sido enviada. Te contactaremos pronto para confirmar."
   },
   "common": {
-    "learnMore": "Saber mas",
-    "readMore": "Leer mas",
+    "learnMore": "Saber más",
+    "readMore": "Leer más",
     "seeAll": "Ver todo",
     "back": "Volver",
     "loading": "Cargando...",
@@ -299,15 +305,37 @@
   },
   "team": {
     "headline": "Un equipo dedicado a restaurar tu calidad de vida",
-    "description": "Nefrologos, cirujanos y especialistas trabajan juntos para brindarte atencion integral. Mas que una clinica, somos familia.",
-    "cta": "Conocer al equipo"
+    "description": "Nefrólogos, cirujanos y especialistas trabajan juntos para brindarte atención integral. Más que una clínica, somos familia.",
+    "cta": "Agenda con especialista"
   },
   "privacy": {
     "title": "Aviso de Privacidad",
-    "description": "Conoce como protegemos tus datos personales en Alba Dialisis y Trasplantes."
+    "description": "Conoce cómo protegemos tus datos personales en Alba Diálisis y Trasplantes."
   },
   "terms": {
-    "title": "Terminos y Condiciones",
-    "description": "Terminos y condiciones de uso del sitio web de Alba Dialisis y Trasplantes."
+    "title": "Términos y Condiciones",
+    "description": "Términos y condiciones de uso del sitio web de Alba Diálisis y Trasplantes."
+  },
+  "menu": {
+    "close": "Cerrar",
+    "phone": "Teléfono",
+    "language": "Idioma",
+    "copyright": "Todos los derechos reservados"
+  },
+  "nutritionAssistant": {
+    "badge": "Nueva Herramienta",
+    "title": "Asistente de Nutrición Renal",
+    "description": "Resuelve tus dudas nutricionales al instante con nuestro asistente inteligente",
+    "cta": "Probar Ahora",
+    "link": "Prueba nuestro asistente nutricional",
+    "label": "Asistente Nutricional",
+    "openChat": "Abrir Chat"
+  },
+  "doctorCard": {
+    "founder": "Fundadora",
+    "viewProfile": "Doble clic para ver perfil"
+  },
+  "emergency": {
+    "label": "Emergencias 24/7"
   }
 }

@@ -8,6 +8,7 @@ export interface Branch {
   addressKey: string;
   address: string;
   phone: string;
+  email: string;
   mapUrl: string;
   image: string;
   coordinates: {
@@ -20,24 +21,26 @@ export const branches: Branch[] = [
   {
     id: 'leon',
     slug: 'alba-leon-centro',
-    name: 'Alba Leon Centro',
+    name: 'Alba León Centro',
     nameKey: 'branches.leon.name',
     addressKey: 'branches.leon.address',
-    address: 'Melchor Ocampo 122, Col. Centro, Leon, Gto.',
+    address: 'Melchor Ocampo 122, Col. Centro, León, Gto.',
     phone: '477-329-39-39',
-    mapUrl: 'https://maps.google.com/?q=Melchor+Ocampo+122+Leon+Guanajuato',
+    email: 'centro@albadialisis.com',
+    mapUrl: 'https://maps.google.com/?q=Melchor+Ocampo+122+León+Guanajuato',
     image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80',
     coordinates: { lat: 21.1236, lng: -101.6822 },
   },
   {
     id: 'brisas',
     slug: 'unidad-medica-brisas',
-    name: 'Unidad Medica Brisas',
+    name: 'Unidad Médica Brisas',
     nameKey: 'branches.brisas.name',
     addressKey: 'branches.brisas.address',
-    address: 'Blvd. La Luz 5235, Col. San Nicolas, Leon, Gto.',
+    address: 'Blvd. La Luz 5235, Col. San Nicolás, León, Gto.',
     phone: '477-248-83-16',
-    mapUrl: 'https://maps.google.com/?q=Blvd+La+Luz+5235+Leon+Guanajuato',
+    email: 'brisas@albadialisis.com',
+    mapUrl: 'https://maps.google.com/?q=Blvd+La+Luz+5235+León+Guanajuato',
     image: 'https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=800&q=80',
     coordinates: { lat: 21.1456, lng: -101.7234 },
   },
@@ -47,8 +50,9 @@ export const branches: Branch[] = [
     name: 'Unidad Dolores Hidalgo',
     nameKey: 'branches.dolores.name',
     addressKey: 'branches.dolores.address',
-    address: 'Blvd. Miguel Hidalgo 822, Fracc. Cristobal, Dolores Hidalgo, Gto.',
+    address: 'Blvd. Miguel Hidalgo 822, Fracc. Cristóbal, Dolores Hidalgo, Gto.',
     phone: '418-690-51-58',
+    email: 'dhidalgo@albadialisis.com',
     mapUrl: 'https://maps.google.com/?q=Blvd+Miguel+Hidalgo+822+Dolores+Hidalgo+Guanajuato',
     image: 'https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=800&q=80',
     coordinates: { lat: 21.1594, lng: -100.9367 },
@@ -59,9 +63,10 @@ export const branches: Branch[] = [
     name: 'Renalmedic',
     nameKey: 'branches.renalmedic.name',
     addressKey: 'branches.renalmedic.address',
-    address: 'Leon Norte, Leon, Gto.',
+    address: 'León Norte, León, Gto.',
     phone: '477-329-39-39',
-    mapUrl: 'https://maps.google.com/?q=Leon+Norte+Guanajuato',
+    email: 'renalmedic@albadialisis.com',
+    mapUrl: 'https://maps.google.com/?q=León+Norte+Guanajuato',
     image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?w=800&q=80',
     coordinates: { lat: 21.1589, lng: -101.6869 },
   },
@@ -75,6 +80,7 @@ export interface Doctor {
   roleKey: string;
   isFounder: boolean;
   email: string;
+  phone?: string;
   branches: BranchId[];
   image: string;
   heroImage?: string; // Optional larger image for profile hero section
@@ -84,85 +90,92 @@ export interface Doctor {
   educationEn: string[];
   specialties: string[];
   specialtiesEn: string[];
+  certifications?: string[];
+  memberships?: string[];
   cedula?: string; // Cédula profesional (professional license number)
+  cedulaEspecialidad?: string; // Cédula de especialidad
 }
 
 export const doctors: Doctor[] = [
   {
     id: 1,
     slug: 'maria-gutierrez-navarro',
-    name: 'Dra. Maria de Jesus Gutierrez Navarro',
-    role: 'Nefrologa',
+    name: 'Dra. María de Jesús Gutiérrez Navarro',
+    role: 'Nefróloga',
     roleKey: 'doctors.nephrologist',
     isFounder: true,
     email: 'fundadora@albadialisis.com',
     branches: ['leon', 'brisas'],
     image: '/images/doctors/dra-maria-gutierrez.jpg',
     heroImage: '/images/doctors/dra-maria-gutierrez-hero.jpeg',
-    bio: 'Con mas de 25 años de experiencia en nefrologia, la Dra. Gutierrez es la fundadora y directora medica de Alba Dialisis. Se especializa en el tratamiento integral de enfermedades renales cronicas y agudas.',
-    bioEn: 'With over 25 years of experience in nephrology, Dr. Gutierrez is the founder and medical director of Alba Dialysis. She specializes in comprehensive treatment of chronic and acute kidney diseases.',
+    bio: 'Con más de 25 años de experiencia en nefrología, la Dra. Gutiérrez es la fundadora y directora médica de Alba Diálisis. Se especializa en el tratamiento integral de enfermedades renales crónicas y agudas.',
+    bioEn: 'With over 25 years of experience in nephrology, Dr. Gutiérrez is the founder and medical director of Alba Dialysis. She specializes in comprehensive treatment of chronic and acute kidney diseases.',
     education: [
       'Medicina General - Universidad de Guanajuato',
-      'Especialidad en Nefrologia - UNAM',
-      'Fellowship en Trasplante Renal - Hospital General de Mexico'
+      'Especialidad en Nefrología - UNAM',
+      'Fellowship en Trasplante Renal - Hospital General de México'
     ],
     educationEn: [
       'General Medicine - University of Guanajuato',
       'Nephrology Specialty - UNAM',
-      'Kidney Transplant Fellowship - Hospital General de Mexico'
+      'Kidney Transplant Fellowship - Hospital General de México'
     ],
-    specialties: ['Hemodialisis', 'Trasplante Renal', 'Enfermedad Renal Cronica'],
+    specialties: ['Hemodiálisis', 'Trasplante Renal', 'Enfermedad Renal Crónica'],
     specialtiesEn: ['Hemodialysis', 'Kidney Transplant', 'Chronic Kidney Disease'],
   },
   {
     id: 2,
     slug: 'josue-tapia-lopez',
-    name: 'Dr. Josue W. Tapia Lopez',
-    role: 'Nefrologo',
+    name: 'Dr. Josué W. Tapia López',
+    role: 'Nefrólogo',
     roleKey: 'doctors.nephrologist',
     isFounder: false,
     email: 'josue.tapia@albadialisis.com',
     branches: ['leon', 'renalmedic'],
     image: '/images/doctors/dr-josue-tapia.jpg',
     heroImage: '/images/doctors/dr-josue-tapia-hero.jpeg',
-    bio: 'El Dr. Tapia es especialista en nefrologia con enfoque en hemodiafiltracion y manejo de pacientes criticos. Atiende en las unidades Centro y Renalmedic.',
+    bio: 'El Dr. Tapia es especialista en nefrología con enfoque en hemodiafiltración y manejo de pacientes críticos. Atiende en las unidades Centro y Renalmedic.',
     bioEn: 'Dr. Tapia is a nephrology specialist focused on hemodiafiltration and critical patient management. He practices at Centro and Renalmedic units.',
     education: [
       'Medicina General - Universidad de Guadalajara',
-      'Especialidad en Nefrologia - Instituto Nacional de Cardiologia'
+      'Especialidad en Nefrología - Instituto Nacional de Cardiología'
     ],
     educationEn: [
       'General Medicine - University of Guadalajara',
       'Nephrology Specialty - National Institute of Cardiology'
     ],
-    specialties: ['Hemodiafiltracion', 'Nefrologia Critica', 'Accesos Vasculares'],
+    specialties: ['Hemodiafiltración', 'Nefrología Crítica', 'Accesos Vasculares'],
     specialtiesEn: ['Hemodiafiltration', 'Critical Nephrology', 'Vascular Access'],
     cedula: '9940966',
   },
   {
     id: 3,
     slug: 'pamela-vazquez',
-    name: 'Dra. Pamela Vazquez Gtz.',
-    role: 'Nefrologa',
+    name: 'Dra. Pamela Vázquez Gutiérrez',
+    role: 'Nefróloga Certificada',
     roleKey: 'doctors.nephrologist',
     isFounder: false,
-    email: 'pamela.vazquez@albadialisis.com',
+    email: 'vazquezg.pamela@gmail.com',
+    phone: '55 1948 0097',
     branches: ['dolores'],
     image: '/images/doctors/dra-pamela-vazquez.jpg',
     heroImage: '/images/doctors/dra-pamela-vazquez-hero.jpeg',
-    bio: 'La Dra. Vazquez lidera la unidad de Dolores Hidalgo, brindando atencion especializada en nefrologia a la comunidad. Su enfoque es el manejo integral del paciente renal.',
-    bioEn: 'Dr. Vazquez leads the Dolores Hidalgo unit, providing specialized nephrology care to the community. Her focus is comprehensive kidney patient management.',
+    bio: 'La Dra. Pamela Vázquez Gutiérrez es nefróloga certificada, reconocida como una de "Los Mejores Médicos de México 2025". Se especializa en nefrología clínica, manejo de enfermedad renal crónica, preparación para trasplante renal y hemodiálisis. Su enfoque integral combina atención médica de excelencia con un trato humano y cercano.',
+    bioEn: 'Dr. Pamela Vázquez Gutiérrez is a certified nephrologist, recognized as one of "The Best Doctors in Mexico 2025". She specializes in clinical nephrology, chronic kidney disease management, kidney transplant preparation, and hemodialysis. Her comprehensive approach combines excellent medical care with a warm and personal touch.',
     education: [
-      'Medicina General - Universidad Autonoma de Queretaro',
-      'Especialidad en Nefrologia - Hospital Civil de Guadalajara'
+      'Medicina General - Universidad La Salle',
+      'Especialidad en Nefrología - Instituto Nacional de Cardiología "Ignacio Chávez"'
     ],
     educationEn: [
-      'General Medicine - Autonomous University of Queretaro',
-      'Nephrology Specialty - Hospital Civil de Guadalajara'
+      'General Medicine - Universidad La Salle',
+      'Nephrology Specialty - National Institute of Cardiology "Ignacio Chávez"'
     ],
-    specialties: ['Hemodialisis', 'Nefrologia General', 'Educacion al Paciente'],
-    specialtiesEn: ['Hemodialysis', 'General Nephrology', 'Patient Education'],
+    specialties: ['Nefrología Clínica', 'Enfermedad Renal Crónica', 'Preparación para Trasplante Renal', 'Hemodiálisis'],
+    specialtiesEn: ['Clinical Nephrology', 'Chronic Kidney Disease', 'Kidney Transplant Preparation', 'Hemodialysis'],
+    certifications: ['Consejo Mexicano de Nefrología', 'Los Mejores Médicos de México 2025'],
+    memberships: ['Sociedad Mexicana de Nefrología', 'Sociedad Latinoamericana de Nefrología e Hipertensión'],
     cedula: '10138846',
+    cedulaEspecialidad: '6000609',
   },
   {
     id: 4,
@@ -175,114 +188,114 @@ export const doctors: Doctor[] = [
     branches: ['leon', 'brisas'],
     image: '/images/doctors/dr-abel-orozco.jpg',
     heroImage: '/images/doctors/dr-abel-orozco-hero.jpeg',
-    bio: 'El Dr. Orozco es cirujano especialista en trasplante renal con amplia experiencia en procedimientos quirurgicos complejos relacionados con la enfermedad renal.',
+    bio: 'El Dr. Orozco es cirujano especialista en trasplante renal con amplia experiencia en procedimientos quirúrgicos complejos relacionados con la enfermedad renal.',
     bioEn: 'Dr. Orozco is a kidney transplant specialist surgeon with extensive experience in complex surgical procedures related to kidney disease.',
     education: [
       'Medicina General - UNAM',
-      'Cirugia General - Hospital General de Mexico',
-      'Subespecialidad en Trasplante - Instituto Nacional de Ciencias Medicas y Nutricion'
+      'Cirugía General - Hospital General de México',
+      'Subespecialidad en Trasplante - Instituto Nacional de Ciencias Médicas y Nutrición'
     ],
     educationEn: [
       'General Medicine - UNAM',
-      'General Surgery - Hospital General de Mexico',
+      'General Surgery - Hospital General de México',
       'Transplant Subspecialty - National Institute of Medical Sciences and Nutrition'
     ],
-    specialties: ['Trasplante Renal', 'Cirugia de Accesos Vasculares', 'Cirugia Laparoscopica'],
+    specialties: ['Trasplante Renal', 'Cirugía de Accesos Vasculares', 'Cirugía Laparoscópica'],
     specialtiesEn: ['Kidney Transplant', 'Vascular Access Surgery', 'Laparoscopic Surgery'],
   },
   {
     id: 5,
     slug: 'carmen-alfaro-cruz',
     name: 'Dra. Carmen Alfaro Cruz',
-    role: 'Nefrologa',
+    role: 'Nefróloga',
     roleKey: 'doctors.nephrologist',
     isFounder: false,
     email: 'carmen.alfaro@albadialisis.com',
     branches: ['leon'],
     image: '/images/doctors/placeholder-doctor.jpg',
-    bio: 'La Dra. Alfaro es especialista en nefrologia con experiencia en el manejo de pacientes con enfermedad renal. Atiende en la unidad Centro.',
+    bio: 'La Dra. Alfaro es especialista en nefrología con experiencia en el manejo de pacientes con enfermedad renal. Atiende en la unidad Centro.',
     bioEn: 'Dr. Alfaro is a nephrology specialist with experience in managing patients with kidney disease. She practices at the Centro unit.',
     education: [
       'Medicina General',
-      'Especialidad en Nefrologia'
+      'Especialidad en Nefrología'
     ],
     educationEn: [
       'General Medicine',
       'Nephrology Specialty'
     ],
-    specialties: ['Hemodialisis', 'Nefrologia General'],
+    specialties: ['Hemodiálisis', 'Nefrología General'],
     specialtiesEn: ['Hemodialysis', 'General Nephrology'],
     cedula: '5088266',
   },
   {
     id: 6,
     slug: 'xochitl-perez',
-    name: 'Dra. Xochitl Stephany Veronica Perez',
-    role: 'Nefrologa',
+    name: 'Dra. Xóchitl Stephany Verónica Pérez',
+    role: 'Nefróloga',
     roleKey: 'doctors.nephrologist',
     isFounder: false,
     email: 'xochitl.perez@albadialisis.com',
     branches: ['leon'],
     image: '/images/doctors/placeholder-doctor.jpg',
-    bio: 'La Dra. Perez es especialista en nefrologia con enfoque en el tratamiento integral del paciente renal. Atiende en la unidad Centro.',
-    bioEn: 'Dr. Perez is a nephrology specialist focused on comprehensive kidney patient treatment. She practices at the Centro unit.',
+    bio: 'La Dra. Pérez es especialista en nefrología con enfoque en el tratamiento integral del paciente renal. Atiende en la unidad Centro.',
+    bioEn: 'Dr. Pérez is a nephrology specialist focused on comprehensive kidney patient treatment. She practices at the Centro unit.',
     education: [
       'Medicina General',
-      'Especialidad en Nefrologia'
+      'Especialidad en Nefrología'
     ],
     educationEn: [
       'General Medicine',
       'Nephrology Specialty'
     ],
-    specialties: ['Hemodialisis', 'Nefrologia General'],
+    specialties: ['Hemodiálisis', 'Nefrología General'],
     specialtiesEn: ['Hemodialysis', 'General Nephrology'],
     cedula: '9486265',
   },
   {
     id: 7,
     slug: 'german-landeros-garcia',
-    name: 'Dr. German Alfonso Landeros Garcia',
-    role: 'Nefrologo',
+    name: 'Dr. Germán Alfonso Landeros García',
+    role: 'Nefrólogo',
     roleKey: 'doctors.nephrologist',
     isFounder: false,
     email: 'german.landeros@albadialisis.com',
     branches: ['leon'],
     image: '/images/doctors/placeholder-doctor.jpg',
-    bio: 'El Dr. Landeros es especialista en nefrologia con experiencia en el manejo de pacientes renales. Atiende en la unidad Centro.',
+    bio: 'El Dr. Landeros es especialista en nefrología con experiencia en el manejo de pacientes renales. Atiende en la unidad Centro.',
     bioEn: 'Dr. Landeros is a nephrology specialist with experience in managing kidney patients. He practices at the Centro unit.',
     education: [
       'Medicina General',
-      'Especialidad en Nefrologia'
+      'Especialidad en Nefrología'
     ],
     educationEn: [
       'General Medicine',
       'Nephrology Specialty'
     ],
-    specialties: ['Hemodialisis', 'Nefrologia General'],
+    specialties: ['Hemodiálisis', 'Nefrología General'],
     specialtiesEn: ['Hemodialysis', 'General Nephrology'],
     cedula: '15170551',
   },
   {
     id: 8,
     slug: 'jessica-cervantes-rios',
-    name: 'Dra. Jessica Gabriela Cervantes Rios',
-    role: 'Nefrologa',
+    name: 'Dra. Jessica Gabriela Cervantes Ríos',
+    role: 'Nefróloga',
     roleKey: 'doctors.nephrologist',
     isFounder: false,
     email: 'jessica.cervantes@albadialisis.com',
     branches: ['renalmedic'],
     image: '/images/doctors/placeholder-doctor.jpg',
-    bio: 'La Dra. Cervantes es especialista en nefrologia con experiencia en el tratamiento de pacientes renales. Atiende en la unidad Renalmedic.',
+    bio: 'La Dra. Cervantes es especialista en nefrología con experiencia en el tratamiento de pacientes renales. Atiende en la unidad Renalmedic.',
     bioEn: 'Dr. Cervantes is a nephrology specialist with experience in treating kidney patients. She practices at the Renalmedic unit.',
     education: [
       'Medicina General',
-      'Especialidad en Nefrologia'
+      'Especialidad en Nefrología'
     ],
     educationEn: [
       'General Medicine',
       'Nephrology Specialty'
     ],
-    specialties: ['Hemodialisis', 'Nefrologia General'],
+    specialties: ['Hemodiálisis', 'Nefrología General'],
     specialtiesEn: ['Hemodialysis', 'General Nephrology'],
     cedula: '10694318',
   },
@@ -381,30 +394,30 @@ export interface Testimonial {
 export const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: 'Roberto Martinez',
-    role: 'Paciente de hemodialisis',
+    name: 'Roberto Martínez',
+    role: 'Paciente de hemodiálisis',
     roleEn: 'Hemodialysis patient',
-    content: 'El equipo de Alba me ha tratado como familia desde el primer dia. La calidad de atencion y el trato humano hacen toda la diferencia en mi tratamiento.',
+    content: 'El equipo de Alba me ha tratado como familia desde el primer día. La calidad de atención y el trato humano hacen toda la diferencia en mi tratamiento.',
     contentEn: 'The Alba team has treated me like family since day one. The quality of care and human treatment make all the difference in my treatment.',
     image: 'https://randomuser.me/api/portraits/men/45.jpg',
     rating: 5,
   },
   {
     id: 2,
-    name: 'Carmen Hernandez',
+    name: 'Carmen Hernández',
     role: 'Familiar de paciente',
     roleEn: 'Patient family member',
-    content: 'Gracias a Alba, mi esposo recibio su trasplante exitosamente. El seguimiento y apoyo que nos brindaron fue excepcional.',
+    content: 'Gracias a Alba, mi esposo recibió su trasplante exitosamente. El seguimiento y apoyo que nos brindaron fue excepcional.',
     contentEn: 'Thanks to Alba, my husband received his transplant successfully. The follow-up and support they gave us was exceptional.',
     image: 'https://randomuser.me/api/portraits/women/63.jpg',
     rating: 5,
   },
   {
     id: 3,
-    name: 'Luis Sanchez',
-    role: 'Paciente de hemodiafiltracion',
+    name: 'Luis Sánchez',
+    role: 'Paciente de hemodiafiltración',
     roleEn: 'Hemodiafiltration patient',
-    content: 'Las instalaciones son de primer nivel y el personal medico es altamente capacitado. Me siento seguro en cada sesion.',
+    content: 'Las instalaciones son de primer nivel y el personal médico es altamente capacitado. Me siento seguro en cada sesión.',
     contentEn: 'The facilities are top-notch and the medical staff is highly trained. I feel safe in every session.',
     image: 'https://randomuser.me/api/portraits/men/22.jpg',
     rating: 5,

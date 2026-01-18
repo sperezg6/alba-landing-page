@@ -60,13 +60,13 @@ export async function generateMetadata({
   const { locale } = await params;
 
   const titles = {
-    es: 'Alba Dialisis y Trasplantes | Clinica de Nefrologia en Leon, Guanajuato',
-    en: 'Alba Dialysis and Transplants | Nephrology Clinic in Leon, Guanajuato',
+    es: 'Alba Dialisis y Trasplantes | Clinica de Nefrologia en León, Guanajuato',
+    en: 'Alba Dialysis and Transplants | Nephrology Clinic in León, Guanajuato',
   };
 
   const descriptions = {
-    es: 'Expertos en hemodialisis, hemodiafiltracion y trasplante renal. Mas de 25 anos de experiencia cuidando la salud renal de nuestros pacientes en Leon, Guanajuato.',
-    en: 'Experts in hemodialysis, hemodiafiltration and kidney transplant. Over 25 years of experience caring for our patients kidney health in Leon, Guanajuato.',
+    es: 'Expertos en hemodialisis, hemodiafiltracion y trasplante renal. Mas de 25 anos de experiencia cuidando la salud renal de nuestros pacientes en León, Guanajuato.',
+    en: 'Experts in hemodialysis, hemodiafiltration and kidney transplant. Over 25 years of experience caring for our patients kidney health in León, Guanajuato.',
   };
 
   const title = titles[locale as keyof typeof titles] || titles.es;
@@ -87,7 +87,7 @@ export async function generateMetadata({
       'enfermedad renal cronica',
       'clinica de dialisis',
       'nefrologo',
-      'Leon',
+      'León',
       'Guanajuato',
       'Mexico',
       'Alba Dialisis',
@@ -110,9 +110,9 @@ export async function generateMetadata({
       },
     },
     icons: {
-      icon: '/favicon.png',
-      shortcut: '/favicon.png',
-      apple: '/favicon.png',
+      icon: '/gradient-blob.png',
+      shortcut: '/gradient-blob.png',
+      apple: '/gradient-blob.png',
     },
     // Robots metadata
     robots: {
@@ -174,7 +174,7 @@ export async function generateMetadata({
     // Other metadata
     other: {
       'geo.region': 'MX-GUA',
-      'geo.placename': 'Leon, Guanajuato',
+      'geo.placename': 'León, Guanajuato',
       'geo.position': '21.1236;-101.6822',
       'ICBM': '21.1236, -101.6822',
       'theme-color': '#0a1f25',

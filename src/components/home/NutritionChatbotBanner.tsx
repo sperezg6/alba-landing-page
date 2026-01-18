@@ -2,8 +2,11 @@
 
 import { motion } from 'framer-motion';
 import { MessageCircle, ArrowUpRight } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export function NutritionChatbotBanner() {
+  const t = useTranslations('nutritionAssistant');
+
   return (
     <section className="relative bg-alba-dark pt-16 pb-24 md:pt-20 md:pb-32 overflow-hidden">
       {/* Top accent line */}
@@ -26,14 +29,14 @@ export function NutritionChatbotBanner() {
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-alba-primary animate-pulse" />
                 <span className="text-xs font-medium text-alba-primary uppercase tracking-wider">
-                  Nueva Herramienta
+                  {t('badge')}
                 </span>
               </div>
               <h3 className="text-xl md:text-2xl lg:text-3xl font-light" style={{ color: 'white' }}>
-                Asistente de <span className="text-alba-primary">Nutrición Renal</span>
+                {t('title')}
               </h3>
               <p className="text-gray-400 text-sm md:text-base mt-1 max-w-lg">
-                Resuelve tus dudas nutricionales al instante con nuestro asistente inteligente
+                {t('description')}
               </p>
             </div>
           </motion.div>
@@ -51,7 +54,7 @@ export function NutritionChatbotBanner() {
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-3 bg-alba-primary hover:bg-alba-primary-dark text-black px-8 py-4 text-sm font-semibold uppercase tracking-wider transition-all duration-300 hover:shadow-lg hover:shadow-alba-primary/30"
             >
-              Probar Ahora
+              {t('cta')}
               <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </a>
           </motion.div>

@@ -23,7 +23,7 @@ function generateBranchSchema(branch: Branch, locale: string) {
       streetAddress: branch.address.split(',')[0],
       addressLocality: branch.address.includes('Dolores Hidalgo')
         ? 'Dolores Hidalgo'
-        : 'Leon',
+        : 'León',
       addressRegion: 'Guanajuato',
       addressCountry: 'MX',
     },

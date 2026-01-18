@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Alba Dialysis and Transplants | Nephrology Clinic in Leon, Guanajuato",
-    "description": "Experts in hemodialysis, hemodiafiltration and kidney transplant. Over 25 years of experience caring for our patients' kidney health in Leon, Guanajuato."
+    "title": "Alba Dialysis and Transplants | Nephrology Clinic in León, Guanajuato",
+    "description": "Experts in hemodialysis, hemodiafiltration and kidney transplant. Over 25 years of experience caring for our patients' kidney health in León, Guanajuato."
   },
   "nav": {
     "home": "Home",
@@ -19,9 +19,10 @@
     "titleHighlight": "is our priority",
     "titleLine1": "Your kidney",
     "titleLine2": "health",
-    "headlineLine1": "Kidney disease moves fast.",
-    "headlineLine2": "We move faster.",
+    "headlineLine1": "Here begins",
+    "headlineLine2": "your new dawn.",
     "ctaButton": "Explore services",
+    "appointmentButton": "Book appointment",
     "tagline": "Over 25 years of excellence in kidney care",
     "line1": "Your kidney health",
     "line2": "in the best",
@@ -109,12 +110,12 @@
     "hoursValue": "Mon - Sat: 6:00 AM - 10:00 PM",
     "getDirections": "Get directions",
     "leon": {
-      "name": "Alba Leon Centro",
-      "address": "Melchor Ocampo 122, Col. Centro, Leon, Gto."
+      "name": "Alba León Centro",
+      "address": "Melchor Ocampo 122, Col. Centro, León, Gto."
     },
     "brisas": {
       "name": "Brisas Medical Unit",
-      "address": "Blvd. La Luz 5235, Col. San Nicolas, Leon, Gto."
+      "address": "Blvd. La Luz 5235, Col. San Nicolas, León, Gto."
     },
     "dolores": {
       "name": "Dolores Hidalgo Unit",
@@ -122,7 +123,7 @@
     },
     "renalmedic": {
       "name": "Renalmedic",
-      "address": "Leon Norte, Leon, Gto."
+      "address": "León Norte, León, Gto."
     }
   },
   "doctors": {
@@ -171,7 +172,7 @@
       "title": "Our Journey",
       "2014": {
         "title": "Alba Centro Founded",
-        "description": "The first clinic opens in downtown Leon, Guanajuato."
+        "description": "The first clinic opens in downtown León, Guanajuato."
       },
       "2017": {
         "title": "Expansion to Brisas",
@@ -183,8 +184,13 @@
       },
       "2021": {
         "title": "Renalmedic",
-        "description": "Inauguration of Renalmedic in Leon Norte, consolidating our presence."
+        "description": "Inauguration of Renalmedic in León Norte, consolidating our presence."
       }
+    },
+    "familyMessage": {
+      "headline": "Don't worry, everything will be alright",
+      "subheadline": "Walking hand in hand towards a new dawn",
+      "description": "At Alba, we understand that facing kidney disease can be overwhelming. That's why we're here: to accompany you, support you, and remind you that you're not alone on this journey."
     }
   },
   "testimonials": {
@@ -265,10 +271,10 @@
     "label": "Take the first step",
     "title": "Let us walk this journey with you",
     "subtitle": "You don't have to face this alone. Schedule a consultation and discover how we can support your family.",
-    "button": "Talk to us"
+    "button": "Book your appointment"
   },
   "footer": {
-    "description": "Leaders in dialysis treatment and transplants in Leon, Guanajuato. Over 25 years caring for our patients' kidney health.",
+    "description": "Leaders in dialysis treatment and transplants in León, Guanajuato. Over 25 years caring for our patients' kidney health.",
     "quickLinks": "Quick Links",
     "contactInfo": "Contact",
     "followUs": "Follow Us",
@@ -300,7 +306,7 @@
   "team": {
     "headline": "A team dedicated to restoring your quality of life",
     "description": "Nephrologists, surgeons, and specialists work together to provide you with comprehensive care. More than a clinic, we are family.",
-    "cta": "Meet the team"
+    "cta": "Book with a specialist"
   },
   "privacy": {
     "title": "Privacy Policy",
@@ -309,5 +315,27 @@
   "terms": {
     "title": "Terms and Conditions",
     "description": "Terms and conditions of use for the Alba Dialysis and Transplants website."
+  },
+  "menu": {
+    "close": "Close",
+    "phone": "Phone",
+    "language": "Language",
+    "copyright": "All rights reserved"
+  },
+  "nutritionAssistant": {
+    "badge": "New Tool",
+    "title": "Renal Nutrition Assistant",
+    "description": "Get instant answers to your nutritional questions with our intelligent assistant",
+    "cta": "Try Now",
+    "link": "Try our nutritional assistant",
+    "label": "Nutritional Assistant",
+    "openChat": "Open Chat"
+  },
+  "doctorCard": {
+    "founder": "Founder",
+    "viewProfile": "Double-click to view profile"
+  },
+  "emergency": {
+    "label": "24/7 Emergency"
   }
 }

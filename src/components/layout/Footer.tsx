@@ -22,11 +22,14 @@ const quickLinks = [
 const socialLinks = [
   { href: 'https://facebook.com/albadialisis', label: 'Fb' },
   { href: 'https://instagram.com/albadialisis', label: 'Ig' },
+  { href: 'https://youtube.com/@albadialisis', label: 'Yt' },
   { href: 'https://linkedin.com/company/albadialisis', label: 'Li' },
 ];
 
 export function Footer() {
   const t = useTranslations();
+  const tEmergency = useTranslations('emergency');
+  const tNutrition = useTranslations('nutritionAssistant');
   const posthog = usePostHog();
   const footerRef = useRef<HTMLElement>(null);
   const bigTextRef = useRef<HTMLDivElement>(null);
@@ -172,7 +175,7 @@ export function Footer() {
               <div className="h-line absolute inset-0 bg-white/10 origin-right" />
             </div>
             <span className="text-[#F4F3E8]/40 text-xs uppercase tracking-[0.2em] block mb-4">
-              Emergencias 24/7
+              {tEmergency('label')}
             </span>
             <a
               href="tel:4773293939"
@@ -236,7 +239,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-[#F4F3E8]/60 hover:text-alba-primary transition-colors text-sm"
                 >
-                  Asistente Nutricional
+                  {tNutrition('label')}
                   <ArrowUpRight className="w-3 h-3" />
                 </a>
               </li>

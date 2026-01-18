@@ -16,7 +16,7 @@ export function LocationMap({ activeBranch, onMarkerClick }: LocationMapProps) {
   const markers = useRef<Map<string, mapboxgl.Marker>>(new Map());
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // Center of all branches (approximately Leon, Guanajuato)
+  // Center of all branches (approximately León, Guanajuato)
   const centerLng = -101.4;
   const centerLat = 21.14;
 

@@ -24,6 +24,9 @@ interface FullscreenMenuProps {
 
 export function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps) {
   const t = useTranslations('nav');
+  const tMenu = useTranslations('menu');
+  const tNutrition = useTranslations('nutritionAssistant');
+  const tFooter = useTranslations('footer');
   const locale = useLocale();
   const pathname = usePathname();
 
@@ -54,8 +57,18 @@ export function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4 }}
-          className="fixed inset-0 bg-alba-dark z-50 flex flex-col"
+          className="fixed inset-0 bg-alba-dark z-50 flex flex-col overflow-hidden"
         >
+          {/* Background Logo */}
+          <div
+            className="absolute inset-0 opacity-[0.04] pointer-events-none"
+            style={{
+              backgroundImage: 'url(/images/alba-extracted/logo-verde.png)',
+              backgroundSize: '80%',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center',
+            }}
+          />
           {/* Header */}
           <div className="flex items-center justify-between px-6 md:px-10 lg:px-16 py-6 md:py-8">
             {/* Logo */}
@@ -73,7 +86,7 @@ export function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps) {
               className="flex items-center gap-2 text-base text-white hover:text-white/80 transition-colors"
               aria-label="Close menu"
             >
-              <span className="font-normal">Close</span>
+              <span className="font-normal">{tMenu('close')}</span>
               <svg
                 width="16"
                 height="16"
@@ -142,7 +155,7 @@ export function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps) {
               <div className="space-y-8">
                 <div>
                   <p className="text-xs font-medium text-white/40 uppercase tracking-wider mb-3">
-                    Teléfono
+                    {tMenu('phone')}
                   </p>
                   <a
                     href="tel:4773293939"
@@ -167,7 +180,7 @@ export function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps) {
                 {/* Language Switcher */}
                 <div>
                   <p className="text-xs font-medium text-white/40 uppercase tracking-wider mb-3">
-                    Idioma
+                    {tMenu('language')}
                   </p>
                   <Link
                     href={pathname}
@@ -182,7 +195,7 @@ export function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps) {
                 {/* Nutritional Chatbot Link */}
                 <div>
                   <p className="text-xs font-medium text-white/40 uppercase tracking-wider mb-3">
-                    Asistente Nutricional
+                    {tNutrition('label')}
                   </p>
                   <a
                     href={process.env.NEXT_PUBLIC_CHATBOT_URL || 'http://localhost:3001'}
@@ -190,7 +203,7 @@ export function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps) {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-lg font-light text-white hover:text-alba-primary transition-colors"
                   >
-                    Abrir Chat
+                    {tNutrition('openChat')}
                     <ArrowUpRight className="w-4 h-4" />
                   </a>
                 </div>
@@ -217,7 +230,7 @@ export function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps) {
             className="px-6 md:px-10 lg:px-16 py-6 border-t border-white/10"
           >
             <p className="text-xs text-white/30">
-              © {new Date().getFullYear()} Alba Diálisis y Trasplantes. Todos los derechos reservados.
+              © {new Date().getFullYear()} Alba Diálisis y Trasplantes. {tFooter('rights')}
             </p>
           </motion.div>
         </motion.nav>
