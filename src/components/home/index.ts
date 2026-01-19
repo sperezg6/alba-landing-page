@@ -12,7 +12,7 @@ export { TestimonialsCTA } from './TestimonialsCTA';
 export { HeroCinematic } from './HeroCinematic';
 export { HeroScrollSection } from './HeroScrollSection';
 export { HeroWrapper } from './HeroWrapper';
-export { InversaStatement } from './InversaStatement';
+export { AlbaStatement } from './AlbaStatement';
 export { StatementSection } from './StatementSection';
 export { ServicesHorizontal } from './ServicesHorizontal';
 export { ServicesShowcase } from './ServicesShowcase';

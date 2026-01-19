@@ -1,4 +1,4 @@
-// Easing presets matching Inversa-style animations
+// Easing presets matching Alba-style animations
 export const easings = {
   // Smooth, cinematic ease-out
   smooth: 'power3.out',

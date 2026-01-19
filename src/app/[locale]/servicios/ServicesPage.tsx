@@ -106,7 +106,7 @@ export function ServicesPage() {
 
   return (
     <>
-      {/* Hero Section - Inversa Style */}
+      {/* Hero Section - Alba Style */}
       <section className="relative h-screen min-h-[600px] w-full overflow-hidden">
         {/* Background Image */}
         <Image
@@ -160,7 +160,7 @@ export function ServicesPage() {
       </section>
 
       {/* Services Grid - Dynamic Expanding Animation */}
-      <section className="bg-creme-inversa pt-12 md:pt-16 pb-20 md:pb-28 lg:pb-32 px-6 md:px-12 lg:px-16 xl:px-24">
+      <section className="bg-creme-alba pt-12 md:pt-16 pb-20 md:pb-28 lg:pb-32 px-6 md:px-12 lg:px-16 xl:px-24">
         <div className="max-w-7xl mx-auto">
           {/* Section Header - Centered */}
           <div className="mb-12 md:mb-16 text-center">
@@ -201,7 +201,7 @@ export function ServicesPage() {
               return (
                 <motion.div
                   key={service.id}
-                  className={`relative overflow-hidden cursor-pointer bg-creme-inversa border-gray-900/10 ${
+                  className={`relative overflow-hidden cursor-pointer bg-creme-alba border-gray-900/10 ${
                     !isLastCol ? 'border-r' : ''
                   } ${!isLastRow ? 'border-b' : ''}`}
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -285,7 +285,7 @@ export function ServicesPage() {
             >
               <defs>
                 <clipPath id="service-mask">
-                  {/* Inversa-style asymmetric: full top, step cut bottom-left */}
+                  {/* Alba-style asymmetric: full top, step cut bottom-left */}
                   <path d="M0,0 L1200,0 L1200,380 L250,380 L250,500 L0,500 Z" />
                 </clipPath>
               </defs>
@@ -309,7 +309,7 @@ export function ServicesPage() {
               }}
             >
               {[
-                { number: '3', label: 'Clínicas en el Bajío' },
+                { number: '4', label: 'Clínicas en el Bajío' },
                 { number: '50+', label: 'Profesionales' },
                 { number: '5,000+', label: 'Pacientes atendidos' },
                 { number: '25', label: 'Años de experiencia' },
@@ -335,7 +335,7 @@ export function ServicesPage() {
             {/* Mobile stats - below image */}
             <div className="grid grid-cols-2 gap-6 mt-8 md:hidden">
               {[
-                { number: '3', label: 'Clínicas en el Bajío' },
+                { number: '4', label: 'Clínicas en el Bajío' },
                 { number: '50+', label: 'Profesionales' },
                 { number: '5,000+', label: 'Pacientes atendidos' },
                 { number: '25', label: 'Años de experiencia' },
@@ -369,7 +369,7 @@ export function ServicesPage() {
       </section>
 
       {/* CTA Section - With Gradient Blob Background */}
-      <section className="relative bg-creme-inversa py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
+      <section className="relative bg-creme-alba py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
         {/* Gradient Blobs */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Large teal/cyan blob - top right */}

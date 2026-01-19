@@ -207,7 +207,7 @@ export function ResourcesPage() {
       </section>
 
       {/* Health Tips Section */}
-      <section className="bg-creme-inversa py-20 md:py-28">
+      <section className="bg-creme-alba py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
           {/* Section Header */}
           <div className="mb-16">
@@ -310,7 +310,7 @@ export function ResourcesPage() {
       </section>
 
       {/* Additional Resources */}
-      <section className="bg-creme-inversa py-20 md:py-28">
+      <section className="bg-creme-alba py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
           {/* Section Header */}
           <div className="mb-16">
@@ -337,7 +337,7 @@ export function ResourcesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-creme-inversa p-8 md:p-10 group"
+                className="bg-creme-alba p-8 md:p-10 group"
               >
                 <div className="w-14 h-14 border border-gray-900/10 flex items-center justify-center mb-6">
                   <resource.icon className="w-6 h-6 text-gray-600" />

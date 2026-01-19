@@ -22,7 +22,7 @@ export function AboutPage() {
 
   return (
     <>
-      {/* Hero Section - Inversa Style with Image */}
+      {/* Hero Section - Alba Style with Image */}
       <section
         ref={heroRef}
         className="relative h-screen min-h-[600px] w-full overflow-hidden"
@@ -49,7 +49,7 @@ export function AboutPage() {
           </h1>
         </div>
 
-        {/* Step Ramp Divider - Inversa style */}
+        {/* Step Ramp Divider - Alba style */}
         <StepRampDivider
           color="#F4F3E8"
           height={150}
@@ -58,7 +58,7 @@ export function AboutPage() {
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="bg-creme-inversa pt-20 md:pt-28 lg:pt-32 pb-10 md:pb-12 px-6 md:px-12 lg:px-16 xl:px-24">
+      <section className="bg-creme-alba pt-20 md:pt-28 lg:pt-32 pb-10 md:pb-12 px-6 md:px-12 lg:px-16 xl:px-24">
         <div className="max-w-7xl mx-auto">
           {/* Top decorative line with ticks */}
           <motion.div
@@ -130,7 +130,7 @@ export function AboutPage() {
       </section>
 
       {/* Full-width Team Photo Section - With unique SVG mask */}
-      <section className="relative bg-creme-inversa pt-6 md:pt-8 pb-16 md:pb-20 lg:pb-24 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
+      <section className="relative bg-creme-alba pt-6 md:pt-8 pb-16 md:pb-20 lg:pb-24 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <motion.div
@@ -273,7 +273,7 @@ export function AboutPage() {
       </section>
 
       {/* Values Section - Typography focused with grid */}
-      <section className="bg-creme-inversa py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24">
+      <section className="bg-creme-alba py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <motion.div
@@ -450,7 +450,7 @@ export function AboutPage() {
       </section>
 
       {/* Team Preview Section - Asymmetrical Editorial Grid */}
-      <section className="bg-creme-inversa py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24">
+      <section className="bg-creme-alba py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24">
         <div className="max-w-7xl mx-auto">
           {/* Header - Asymmetric with CTA on right */}
           <div className="grid lg:grid-cols-12 gap-8 mb-12 md:mb-16">

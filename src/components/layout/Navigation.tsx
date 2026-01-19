@@ -57,7 +57,7 @@ export function Navigation() {
 
   return (
     <>
-      {/* Minimal Fixed Header - ALBA text + Menu ✦ (Inversa style) */}
+      {/* Minimal Fixed Header - ALBA text + Menu ✦ */}
       <header
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
@@ -78,7 +78,7 @@ export function Navigation() {
 
         <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 relative z-10">
           <nav className="flex items-center justify-between">
-            {/* Logo - "ALBA" text (Inversa style) */}
+            {/* Logo - "ALBA" text */}
             <Link
               href="/"
               className={cn(
@@ -114,7 +114,7 @@ export function Navigation() {
               ))}
             </ul>
 
-            {/* Menu button - "Menu ✦" text (Inversa style) */}
+            {/* Menu button - "Menu ✦" text */}
             <button
               className={cn(
                 "flex items-center gap-2 text-base transition-colors duration-300",

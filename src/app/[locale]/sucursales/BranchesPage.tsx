@@ -212,7 +212,7 @@ export function BranchesPage() {
 
   return (
     <>
-      {/* Hero Section - Inversa Style with Static Image */}
+      {/* Hero Section - Alba Style with Static Image */}
       <section className="relative h-[70vh] min-h-[500px] w-full overflow-hidden bg-alba-dark">
         {/* Background Image */}
         <div className="absolute inset-0">
@@ -265,7 +265,7 @@ export function BranchesPage() {
       </section>
 
       {/* Branch Selection Section */}
-      <section className="relative bg-creme-inversa py-16 md:py-24 px-6 md:px-12 lg:px-16 xl:px-24">
+      <section className="relative bg-creme-alba py-16 md:py-24 px-6 md:px-12 lg:px-16 xl:px-24">
         {/* Decorative Grid Lines */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           {/* Vertical lines */}
@@ -488,7 +488,7 @@ export function BranchesPage() {
       </section>
 
       {/* CTA Section - With Gradient Blobs and Grid Lines */}
-      <section className="relative bg-creme-inversa py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
+      <section className="relative bg-creme-alba py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
         {/* Decorative Grid Lines */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Top horizontal line with ticks */}

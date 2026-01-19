@@ -39,7 +39,7 @@ export function TermsPage() {
       </section>
 
       {/* Content */}
-      <section className="bg-creme-inversa py-16 md:py-24">
+      <section className="bg-creme-alba py-16 md:py-24">
         <div className="max-w-4xl mx-auto px-6 md:px-12 lg:px-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

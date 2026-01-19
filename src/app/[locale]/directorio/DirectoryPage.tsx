@@ -37,7 +37,7 @@ export function DirectoryPage() {
       </section>
 
       {/* Doctors Grid */}
-      <section className="bg-creme-inversa py-20 md:py-28">
+      <section className="bg-creme-alba py-20 md:py-28">
         <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16">
           <div className="flex items-center gap-3 mb-12">
             <div className="w-2 h-2 rounded-full bg-gray-900" />
@@ -59,7 +59,7 @@ export function DirectoryPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-creme-inversa group"
+                  className="bg-creme-alba group"
                 >
                   <div className="flex flex-col lg:flex-row h-full">
                     {/* Image */}

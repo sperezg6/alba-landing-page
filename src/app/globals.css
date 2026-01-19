@@ -42,7 +42,7 @@
   --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* Cinematic Easing - Inversa style */
+  /* Cinematic Easing - Alba style */
   --ease-cinematic: cubic-bezier(0.77, 0, 0.175, 1);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -1090,10 +1090,10 @@ html.lenis body {
   right: -0.15em;
 }
 
-/* ===== INVERSA-STYLE HERO ===== */
+/* ===== ALBA-STYLE HERO ===== */
 
-/* Bold display headline - Inversa clone (Bebas Neue style) */
-.inversa-headline {
+/* Bold display headline (Bebas Neue style) */
+.alba-headline {
   font-family: var(--font-display), 'Bebas Neue', system-ui, sans-serif;
   font-size: clamp(3.5rem, 12vw, 7rem);
   font-weight: 400;
@@ -1104,13 +1104,13 @@ html.lenis body {
 }
 
 @media (min-width: 768px) {
-  .inversa-headline {
+  .alba-headline {
     font-size: clamp(5rem, 11vw, 9rem);
   }
 }
 
 @media (min-width: 1024px) {
-  .inversa-headline {
+  .alba-headline {
     font-size: clamp(6rem, 10vw, 10rem);
   }
 }
@@ -1133,10 +1133,10 @@ html.lenis body {
   background-color: #1E3A5F;
 }
 
-/* ===== INVERSA-STYLE BUTTON ANIMATIONS ===== */
+/* ===== ALBA-STYLE BUTTON ANIMATIONS ===== */
 
-/* Corner-cut button with clip-path animation (exact Inversa style) */
-.btn-inversa {
+/* Corner-cut button with clip-path animation */
+.btn-alba {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -1153,14 +1153,14 @@ html.lenis body {
   transition: clip-path 0.25s ease-out, background-color 0.25s ease-out;
 }
 
-.btn-inversa:hover {
+.btn-alba:hover {
   /* Corner-cut moves to top-left on hover */
   clip-path: polygon(1.5rem 0, 100% 0, 100% 100%, 0 100%, 0 1.5rem);
   background-color: #333333;
 }
 
 /* Outline variant with corner-cut animation */
-.btn-inversa-outline {
+.btn-alba-outline {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -1178,16 +1178,16 @@ html.lenis body {
   transition: clip-path 0.25s ease-out, background-color 0.25s ease-out, color 0.25s ease-out;
 }
 
-.btn-inversa-outline:hover {
+.btn-alba-outline:hover {
   /* Corner-cut moves to top-left on hover */
   clip-path: polygon(1.5rem 0, 100% 0, 100% 100%, 0 100%, 0 1.5rem);
   background-color: #2B3A42;
   color: #ffffff;
 }
 
-/* ===== INVERSA ANIMATED BUTTON (with scramble text animation) ===== */
+/* ===== ALBA ANIMATED BUTTON (with scramble text animation) ===== */
 
-.btn-inversa-animated {
+.btn-alba-animated {
   position: relative;
   display: inline-flex;
   align-items: flex-start;
@@ -1205,21 +1205,21 @@ html.lenis body {
   transition: background-color 0.35s ease-out;
 }
 
-.btn-inversa-animated:hover {
+.btn-alba-animated:hover {
   background-color: #333333;
 }
 
-.btn-inversa-animated .btn-text {
+.btn-alba-animated .btn-text {
   display: flex;
   align-items: center;
 }
 
-.btn-inversa-animated .btn-letter {
+.btn-alba-animated .btn-letter {
   display: inline-block;
 }
 
 /* Outline variant with scramble text animation */
-.btn-inversa-outline-animated {
+.btn-alba-outline-animated {
   position: relative;
   display: inline-flex;
   align-items: flex-start;
@@ -1238,22 +1238,22 @@ html.lenis body {
   transition: background-color 0.35s ease-out, color 0.35s ease-out;
 }
 
-.btn-inversa-outline-animated:hover {
+.btn-alba-outline-animated:hover {
   background-color: #2B3A42;
   color: #ffffff;
 }
 
-.btn-inversa-outline-animated .btn-text {
+.btn-alba-outline-animated .btn-text {
   display: flex;
   align-items: center;
 }
 
-.btn-inversa-outline-animated .btn-letter {
+.btn-alba-outline-animated .btn-letter {
   display: inline-block;
 }
 
 /* Dark variant for outline button (on dark backgrounds) */
-.btn-inversa-outline-animated-dark {
+.btn-alba-outline-animated-dark {
   position: relative;
   display: inline-flex;
   align-items: flex-start;
@@ -1271,25 +1271,25 @@ html.lenis body {
   transition: background-color 0.35s ease-out, color 0.35s ease-out, border-color 0.35s ease-out;
 }
 
-.btn-inversa-outline-animated-dark:hover {
+.btn-alba-outline-animated-dark:hover {
   background-color: #F4F3E8;
   color: #0D0D0D;
   border-color: #F4F3E8;
 }
 
-.btn-inversa-outline-animated-dark .btn-text {
+.btn-alba-outline-animated-dark .btn-text {
   display: flex;
   align-items: center;
 }
 
-.btn-inversa-outline-animated-dark .btn-letter {
+.btn-alba-outline-animated-dark .btn-letter {
   display: inline-block;
 }
 
-/* ===== INVERSA-STYLE IMAGE FRAMES ===== */
+/* ===== ALBA-STYLE IMAGE FRAMES ===== */
 
 /*
- * Inversa image frame style:
+ * Alba image frame style:
  * - Large rounded corners at top (~48px radius)
  * - Diagonal cut at bottom-left (for right-side images)
  * - Diagonal cut at bottom-right (for left-side images)
@@ -1299,9 +1299,9 @@ html.lenis body {
  */
 
 /* Frame container - Right variant (image on right, content on left)
-   Based on Inversa: Large rounded top-left corner, diagonal cut at bottom-left
+   Large rounded top-left corner, diagonal cut at bottom-left
    The diagonal goes from ~32% on bottom edge to left edge at ~60% from top */
-.frame-inversa-right {
+.frame-alba-right {
   position: relative;
   overflow: hidden;
   /* SVG mask with large rounded top-left, sharp top-right, big diagonal bottom-left */
@@ -1311,8 +1311,8 @@ html.lenis body {
   -webkit-mask-size: 100% 100%;
 }
 
-/* Border outline for frame-inversa-right - using SVG for consistent border shape */
-.frame-inversa-right::before {
+/* Border outline for frame-alba-right - using SVG for consistent border shape */
+.frame-alba-right::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -1325,7 +1325,7 @@ html.lenis body {
 
 /* Frame container - Left variant (image on left, content on right)
    Mirror of right variant: Large rounded top-right corner, diagonal cut at bottom-right */
-.frame-inversa-left {
+.frame-alba-left {
   position: relative;
   overflow: hidden;
   /* SVG mask with large rounded top-right, sharp top-left, big diagonal bottom-right */
@@ -1335,8 +1335,8 @@ html.lenis body {
   -webkit-mask-size: 100% 100%;
 }
 
-/* Border outline for frame-inversa-left - using SVG for consistent border shape */
-.frame-inversa-left::before {
+/* Border outline for frame-alba-left - using SVG for consistent border shape */
+.frame-alba-left::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -1347,7 +1347,7 @@ html.lenis body {
   background-size: 100% 100%;
 }
 
-/* Inversa creme background color */
-.bg-creme-inversa {
+/* Alba creme background color */
+.bg-creme-alba {
   background-color: #F4F3E8;
 }

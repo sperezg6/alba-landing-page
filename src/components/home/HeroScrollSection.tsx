@@ -79,7 +79,7 @@ export function HeroScrollSection() {
         className="absolute inset-0 -top-[30%] h-[130%]"
       >
         <Image
-          src="/hero-inversa.png"
+          src="/hero-alba.png"
           alt="Alba Dialysis Background"
           fill
           className="object-cover"

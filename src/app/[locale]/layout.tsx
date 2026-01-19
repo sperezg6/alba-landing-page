@@ -40,7 +40,7 @@ const playfairDisplay = Playfair_Display({
   weight: ['400', '500', '600', '700', '800', '900'],
 });
 
-// Bold display font for Inversa-style headlines
+// Bold display font for Alba-style headlines
 const bebasNeue = Bebas_Neue({
   subsets: ['latin'],
   variable: '--font-display',
@@ -110,9 +110,12 @@ export async function generateMetadata({
       },
     },
     icons: {
-      icon: '/gradient-blob.png',
-      shortcut: '/gradient-blob.png',
-      apple: '/gradient-blob.png',
+      icon: [
+        { url: '/favicon.png', type: 'image/png' },
+        { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      ],
+      shortcut: '/favicon.png',
+      apple: '/apple-touch-icon.png',
     },
     // Robots metadata
     robots: {

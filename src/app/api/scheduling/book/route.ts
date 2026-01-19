@@ -80,9 +80,6 @@ export async function POST(request: NextRequest) {
     const result = await bookAppointment(bookingRequest);
 
     if (result.success) {
-      // TODO: Send confirmation email to patient
-      // TODO: Store appointment in database
-
       return NextResponse.json({
         success: true,
         message: 'Appointment booked successfully',

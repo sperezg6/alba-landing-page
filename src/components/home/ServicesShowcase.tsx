@@ -75,7 +75,7 @@ export function ServicesShowcase() {
       }
 
       // Animate each service card
-      const cards = gsap.utils.toArray<HTMLElement>('.service-card-inversa');
+      const cards = gsap.utils.toArray<HTMLElement>('.service-card-alba');
       cards.forEach((card) => {
         const content = card.querySelector('.service-content');
         const image = card.querySelector('.service-image');
@@ -122,7 +122,7 @@ export function ServicesShowcase() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-creme-inversa relative overflow-hidden">
+    <section ref={sectionRef} className="bg-creme-alba relative overflow-hidden">
       {/* Gradient Blobs Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Top-left lime blob */}
@@ -189,7 +189,7 @@ export function ServicesShowcase() {
         return (
           <div
             key={service.id}
-            className={`service-card-inversa relative z-10 min-h-[60vh] md:min-h-[70vh] flex ${isEven ? 'flex-row' : 'flex-row-reverse'} flex-wrap md:flex-nowrap`}
+            className={`service-card-alba relative z-10 min-h-[60vh] md:min-h-[70vh] flex ${isEven ? 'flex-row' : 'flex-row-reverse'} flex-wrap md:flex-nowrap`}
           >
             {/* Content Side */}
             <div
@@ -217,7 +217,7 @@ export function ServicesShowcase() {
                   {t(service.descriptionKey)}
                 </p>
 
-                {/* CTA Button - Corner-cut clip-path animation with letter animation (Inversa style) */}
+                {/* CTA Button - Corner-cut clip-path animation with letter animation */}
                 <AnimatedButton href={service.href} variant="filled">
                   {t(service.ctaKey)}
                 </AnimatedButton>
@@ -237,7 +237,7 @@ export function ServicesShowcase() {
               </div>
             </div>
 
-            {/* Image Side - Inversa-style frame with rounded corners and diagonal cuts */}
+            {/* Image Side - Alba-style frame with rounded corners and diagonal cuts */}
             <div
               className={`
                 service-image
@@ -245,7 +245,7 @@ export function ServicesShowcase() {
                 h-[40vh] md:h-auto
                 aspect-[4/3]
                 order-1 md:order-none
-                ${isEven ? 'frame-inversa-right' : 'frame-inversa-left'}
+                ${isEven ? 'frame-alba-right' : 'frame-alba-left'}
               `}
             >
               <div className="relative w-full h-full">
@@ -261,7 +261,7 @@ export function ServicesShowcase() {
         );
       })}
 
-      {/* View All Services Link - Corner-cut outline button with letter animation (Inversa style) */}
+      {/* View All Services Link - Corner-cut outline button with letter animation */}
       <div className="relative z-10 py-24 md:py-32 px-6 md:px-16 lg:px-24 text-center">
         <AnimatedButton href="/servicios" variant="outline">
           {t('services.viewAll')}

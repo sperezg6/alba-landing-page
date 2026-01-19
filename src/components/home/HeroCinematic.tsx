@@ -45,7 +45,7 @@ export function HeroCinematic() {
 
       {/* Full-bleed background image */}
       <Image
-        src="/hero-inversa.png"
+        src="/hero-alba.png"
         alt="Alba Dialysis - Kidney Care Excellence"
         fill
         className="object-cover"
@@ -70,13 +70,13 @@ export function HeroCinematic() {
 
         {/* Bottom content - Headline + CTA */}
         <div className="mt-auto p-6 md:p-10 lg:p-16 pb-12 md:pb-16">
-          {/* Headline - Bold display font, Inversa style */}
-          <h1 className="inversa-headline max-w-5xl">
+          {/* Headline - Bold display font, Alba style */}
+          <h1 className="alba-headline max-w-5xl">
             {t('headlineLine1')}<br />
             {t('headlineLine2')}
           </h1>
 
-          {/* CTA Button - Lime/chartreuse, Inversa style */}
+          {/* CTA Button - Primary orange */}
           <Link
             href="/servicios"
             className="inline-block mt-6 md:mt-8 px-5 py-2.5 md:px-6 md:py-3 bg-alba-primary text-black text-sm font-semibold uppercase tracking-wider rounded hover:bg-alba-primary-dark transition-colors cursor-pointer"

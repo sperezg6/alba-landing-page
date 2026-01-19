@@ -9,8 +9,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function InversaStatement() {
-  const t = useTranslations('inversaStatement');
+export function AlbaStatement() {
+  const t = useTranslations('albaStatement');
   const sectionRef = useRef<HTMLElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
@@ -144,4 +144,4 @@ export function InversaStatement() {
   );
 }
 
-export default InversaStatement;
+export default AlbaStatement;

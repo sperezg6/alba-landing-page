@@ -25,6 +25,8 @@ const contactSchema = z.object({
   phone: z.string().min(10, 'Telefono invalido'),
   subject: z.string().min(3, 'El asunto es requerido'),
   message: z.string().min(10, 'El mensaje debe tener al menos 10 caracteres'),
+  // Honeypot field - should always be empty (bots fill all fields)
+  website: z.string().optional(),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -106,6 +108,7 @@ export function ContactPage() {
   const posthog = usePostHog();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const {
     register,
@@ -120,22 +123,48 @@ export function ContactPage() {
       phone: '',
       subject: '',
       message: '',
+      website: '', // Honeypot - must stay empty
     },
   });
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    posthog.capture('contact_form_submitted', {
-      subject: data.subject,
-    });
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    console.log('Form submitted:', data);
-    setIsSubmitting(false);
-    setIsSuccess(true);
+    setErrorMessage(null);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Error al enviar el mensaje');
+      }
+
+      posthog.capture('contact_form_submitted', {
+        subject: data.subject,
+      });
+      setIsSuccess(true);
+    } catch (error) {
+      console.error('Contact form error:', error);
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : 'Hubo un error al enviar tu mensaje. Por favor intenta de nuevo.'
+      );
+      posthog.capture('contact_form_error', {
+        error: error instanceof Error ? error.message : 'Unknown error',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleReset = () => {
     setIsSuccess(false);
+    setErrorMessage(null);
     reset();
   };
 
@@ -163,7 +192,7 @@ export function ContactPage() {
       </section>
 
       {/* Main Content */}
-      <section className="bg-creme-inversa py-20 md:py-28">
+      <section className="bg-creme-alba py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
             {/* Left Column - Form */}
@@ -236,6 +265,33 @@ export function ContactPage() {
                     error={errors.message?.message}
                     {...register('message')}
                   />
+
+                  {/* Honeypot field - hidden from users, bots will fill it */}
+                  <div
+                    className="absolute opacity-0 pointer-events-none"
+                    style={{ position: 'absolute', left: '-9999px' }}
+                    aria-hidden="true"
+                  >
+                    <label htmlFor="website">Website</label>
+                    <input
+                      type="text"
+                      id="website"
+                      autoComplete="off"
+                      tabIndex={-1}
+                      {...register('website')}
+                    />
+                  </div>
+
+                  {/* Error Message */}
+                  {errorMessage && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="p-4 border border-red-200 bg-red-50"
+                    >
+                      <p className="text-sm text-red-600">{errorMessage}</p>
+                    </motion.div>
+                  )}
 
                   {/* Submit Button */}
                   <div className="pt-4">
