@@ -2,9 +2,15 @@
 
 import { useTranslations, useLocale } from 'next-intl';
 import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
+
+// Dynamic import GSAP to reduce initial bundle size
+const loadGSAP = async () => {
+  const gsap = (await import('gsap')).default;
+  const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+  gsap.registerPlugin(ScrollTrigger);
+  return { gsap, ScrollTrigger };
+};
 import {
   MapPin,
   Mail,
@@ -51,8 +57,6 @@ function DoctoraliaIcon({ className }: { className?: string }) {
   );
 }
 
-gsap.registerPlugin(ScrollTrigger);
-
 interface DoctorProfilePageProps {
   doctor: Doctor;
   calConfig: CalComConfig;
@@ -67,79 +71,92 @@ export function DoctorProfilePage({ doctor, calConfig }: DoctorProfilePageProps)
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Hero animations
-      if (heroRef.current) {
-        gsap.fromTo(heroRef.current.querySelectorAll('.animate-in'),
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out' }
-        );
-      }
+    let ctx: ReturnType<typeof import('gsap').gsap.context> | null = null;
 
-      // Content section animations with ScrollTrigger
-      if (contentRef.current) {
-        // Animate large background numbers
-        const numbers = contentRef.current.querySelectorAll('.section-number');
-        numbers.forEach((num) => {
-          gsap.fromTo(num,
-            { opacity: 0, scale: 0.8 },
-            {
-              opacity: 0.05,
-              scale: 1,
-              duration: 1,
-              ease: 'power2.out',
-              scrollTrigger: {
-                trigger: num.parentElement,
-                start: 'top 90%',
-                toggleActions: 'play none none none',
-              },
-            }
-          );
-        });
+    const initAnimations = async () => {
+      const { gsap } = await loadGSAP();
 
-        // Animate content sections
-        const sections = contentRef.current.querySelectorAll('.content-section');
-        sections.forEach((section) => {
-          gsap.fromTo(section.querySelectorAll('.animate-content'),
+      // Wait for next frame to ensure DOM is fully rendered
+      await new Promise(resolve => requestAnimationFrame(resolve));
+
+      ctx = gsap.context(() => {
+        // Hero animations
+        if (heroRef.current) {
+          gsap.fromTo(heroRef.current.querySelectorAll('.animate-in'),
             { opacity: 0, y: 30 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.6,
-              stagger: 0.1,
-              ease: 'power3.out',
-              scrollTrigger: {
-                trigger: section,
-                start: 'top 85%',
-                toggleActions: 'play none none none',
-              },
-            }
+            { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out' }
           );
-        });
+        }
 
-        // Animate timeline items
-        const timelineItems = contentRef.current.querySelectorAll('.timeline-item');
-        timelineItems.forEach((item, index) => {
-          gsap.fromTo(item,
-            { opacity: 0, x: -20 },
-            {
-              opacity: 1,
-              x: 0,
-              duration: 0.5,
-              delay: index * 0.05,
-              ease: 'power2.out',
-              scrollTrigger: {
-                trigger: item,
-                start: 'top 90%',
-                toggleActions: 'play none none none',
-              },
-            }
-          );
-        });
-      }
-    });
+        // Content section animations with ScrollTrigger
+        if (contentRef.current) {
+          // Animate large background numbers
+          const numbers = contentRef.current.querySelectorAll('.section-number');
+          numbers.forEach((num) => {
+            gsap.fromTo(num,
+              { opacity: 0, scale: 0.8 },
+              {
+                opacity: 0.05,
+                scale: 1,
+                duration: 1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                  trigger: num.parentElement,
+                  start: 'top 90%',
+                  toggleActions: 'play none none none',
+                },
+              }
+            );
+          });
 
-    return () => ctx.revert();
+          // Animate content sections
+          const sections = contentRef.current.querySelectorAll('.content-section');
+          sections.forEach((section) => {
+            gsap.fromTo(section.querySelectorAll('.animate-content'),
+              { opacity: 0, y: 30 },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                  trigger: section,
+                  start: 'top 85%',
+                  toggleActions: 'play none none none',
+                },
+              }
+            );
+          });
+
+          // Animate timeline items
+          const timelineItems = contentRef.current.querySelectorAll('.timeline-item');
+          timelineItems.forEach((item, index) => {
+            gsap.fromTo(item,
+              { opacity: 0, x: -20 },
+              {
+                opacity: 1,
+                x: 0,
+                duration: 0.5,
+                delay: index * 0.05,
+                ease: 'power2.out',
+                scrollTrigger: {
+                  trigger: item,
+                  start: 'top 90%',
+                  toggleActions: 'play none none none',
+                },
+              }
+            );
+          });
+        }
+      });
+    };
+
+    initAnimations();
+
+    return () => {
+      if (ctx) ctx.revert();
+    };
   }, []);
 
   const doctorBranches = doctor.branches
@@ -323,7 +340,7 @@ export function DoctorProfilePage({ doctor, calConfig }: DoctorProfilePageProps)
         {/* SECTION 02: ABOUT (Extended Bio with Background Image) */}
         {hasExtendedBio && (
           <section className="content-section relative py-20 md:py-28 overflow-hidden">
-            {/* Background Image */}
+            {/* Background Image - lazy loaded */}
             {doctor.profileImage && (
               <div className="absolute inset-0">
                 <Image
@@ -333,6 +350,9 @@ export function DoctorProfilePage({ doctor, calConfig }: DoctorProfilePageProps)
                   sizes="100vw"
                   className="object-cover"
                   style={{ objectPosition: 'center 20%' }}
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUH/8QAIhAAAgEDBAMBAAAAAAAAAAAAAQIDAAQRBQYSIRMxQVH/xAAVAQEBAAAAAAAAAAAAAAAAAAADBP/EABkRAAIDAQAAAAAAAAAAAAAAAAECAAMRIf/aAAwDAQACEQMRAD8AzrTtF07UtLivLi6nSaRnDKhAAwxAx/aKKKmuxuTYc7FKuf/Z"
                 />
                 {/* Lighter overlay to show image while maintaining text readability */}
                 <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-white/40" />
@@ -365,7 +385,7 @@ export function DoctorProfilePage({ doctor, calConfig }: DoctorProfilePageProps)
         {/* SECTION 03: PHILOSOPHY (if exists) */}
         {hasPhilosophy && (
           <section className="content-section relative py-20 md:py-28 overflow-hidden">
-            {/* Background Image */}
+            {/* Background Image - lazy loaded */}
             {doctor.heroImage && (
               <div className="absolute inset-0">
                 <Image
@@ -375,6 +395,9 @@ export function DoctorProfilePage({ doctor, calConfig }: DoctorProfilePageProps)
                   sizes="100vw"
                   className="object-cover"
                   style={{ objectPosition: 'center 30%' }}
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUH/8QAIhAAAgEDBAMBAAAAAAAAAAAAAQIDAAQRBQYSIRMxQVH/xAAVAQEBAAAAAAAAAAAAAAAAAAADBP/EABkRAAIDAQAAAAAAAAAAAAAAAAECAAMRIf/aAAwDAQACEQMRAD8AzrTtF07UtLivLi6nSaRnDKhAAwxAx/aKKKmuxuTYc7FKuf/Z"
                 />
                 <div className="absolute inset-0 bg-gradient-to-l from-white via-white/95 to-white/80" />
               </div>
