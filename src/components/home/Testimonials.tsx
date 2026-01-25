@@ -197,7 +197,7 @@ export function Testimonials() {
               <MagneticButton strength={0.4}>
                 <button
                   onClick={handlePrev}
-                  className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] hover:scale-110 transition-all duration-300"
+                  className="w-11 h-11 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] hover:scale-110 transition-all duration-300"
                   aria-label="Previous testimonial"
                 >
                   <ChevronLeft className="w-5 h-5" />
@@ -206,7 +206,7 @@ export function Testimonials() {
               <MagneticButton strength={0.4}>
                 <button
                   onClick={handleNext}
-                  className="w-10 h-10 rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center hover:bg-[var(--color-primary-dark)] hover:scale-110 transition-all duration-300"
+                  className="w-11 h-11 rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center hover:bg-[var(--color-primary-dark)] hover:scale-110 transition-all duration-300"
                   aria-label="Next testimonial"
                 >
                   <ChevronRight className="w-5 h-5" />

@@ -10,6 +10,12 @@ import {
   Download,
   ArrowUpRight,
   MessageCircle,
+  Droplets,
+  Clock,
+  Heart,
+  Shield,
+  Users,
+  Activity,
 } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import ResourcesHeroSection from '@/components/ui/resources-hero-section';
@@ -47,6 +53,49 @@ const faqs = [
   { qKey: 'resources.faq.q3', aKey: 'resources.faq.a3' },
   { qKey: 'resources.faq.q4', aKey: 'resources.faq.a4' },
   { qKey: 'resources.faq.q5', aKey: 'resources.faq.a5' },
+];
+
+// Educational content about hemodialysis
+const hemodialysisProcess = [
+  {
+    step: '01',
+    title: 'Acceso vascular',
+    description: 'Se conecta tu brazo al equipo de diálisis a través de tu acceso vascular (fístula, injerto o catéter).',
+    icon: Activity,
+  },
+  {
+    step: '02',
+    title: 'Filtrado de sangre',
+    description: 'Tu sangre pasa por el dializador, un filtro que elimina toxinas y exceso de líquidos.',
+    icon: Droplets,
+  },
+  {
+    step: '03',
+    title: 'Monitoreo continuo',
+    description: 'El equipo médico supervisa constantemente tu presión, pulso y el funcionamiento del equipo.',
+    icon: Shield,
+  },
+  {
+    step: '04',
+    title: 'Retorno seguro',
+    description: 'La sangre limpia regresa a tu cuerpo. Al terminar, descansas brevemente antes de irte.',
+    icon: Heart,
+  },
+];
+
+const kidneyFacts = [
+  {
+    title: '¿Qué hacen los riñones?',
+    description: 'Filtran aproximadamente 180 litros de sangre al día, eliminando toxinas y regulando líquidos, electrolitos y presión arterial.',
+  },
+  {
+    title: '¿Cuándo se necesita diálisis?',
+    description: 'Cuando los riñones funcionan a menos del 10-15% de su capacidad normal (enfermedad renal etapa 5 o terminal).',
+  },
+  {
+    title: '¿Es permanente?',
+    description: 'Puede ser temporal o permanente. Muchos pacientes están en lista de espera para trasplante, que puede eliminar la necesidad de diálisis.',
+  },
 ];
 
 const resources = [
@@ -204,6 +253,117 @@ export function ResourcesPage() {
 
         {/* Bottom accent line */}
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-alba-primary/50 to-transparent" />
+      </section>
+
+      {/* Understanding Hemodialysis - Educational Section */}
+      <section className="bg-white py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-16 lg:mb-20"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-2 h-2 rounded-full bg-alba-primary" />
+              <span className="text-sm font-medium text-alba-primary uppercase tracking-wider">
+                Entendiendo el Tratamiento
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 max-w-3xl mb-6">
+              ¿Cómo funciona la hemodiálisis?
+            </h2>
+            <p className="text-gray-500 text-lg leading-relaxed max-w-2xl">
+              La hemodiálisis es un tratamiento que realiza la función de filtrado que tus riñones
+              ya no pueden hacer. Conocer el proceso te ayudará a sentirte más seguro y tranquilo.
+            </p>
+          </motion.div>
+
+          {/* Process Steps */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-100 mb-16 lg:mb-20">
+            {hemodialysisProcess.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white p-6 lg:p-8"
+              >
+                <div className="w-12 h-12 rounded-full bg-alba-primary/10 flex items-center justify-center mb-6">
+                  <item.icon className="w-5 h-5 text-alba-primary" />
+                </div>
+                <span className="text-xs font-medium text-gray-400 tracking-wider block mb-3">
+                  Paso {item.step}
+                </span>
+                <h3 className="text-lg font-medium text-gray-900 mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  {item.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Quick Facts */}
+          <div className="grid lg:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="lg:col-span-1"
+            >
+              <h3 className="text-2xl font-light text-gray-900 mb-4">
+                Lo que debes saber
+              </h3>
+              <p className="text-gray-500 leading-relaxed">
+                Información esencial para pacientes y familias que comienzan este camino.
+              </p>
+            </motion.div>
+
+            <div className="lg:col-span-2 space-y-6">
+              {kidneyFacts.map((fact, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="border-l-2 border-alba-primary pl-6"
+                >
+                  <h4 className="font-medium text-gray-900 mb-2">{fact.title}</h4>
+                  <p className="text-gray-500 text-sm leading-relaxed">{fact.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Session Info Cards */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-16 grid sm:grid-cols-3 gap-6"
+          >
+            <div className="bg-gray-50 p-6 text-center">
+              <Clock className="w-8 h-8 text-alba-primary mx-auto mb-4" />
+              <span className="text-3xl font-light text-gray-900 block">3-4 hrs</span>
+              <span className="text-sm text-gray-500">por sesión</span>
+            </div>
+            <div className="bg-gray-50 p-6 text-center">
+              <Activity className="w-8 h-8 text-alba-primary mx-auto mb-4" />
+              <span className="text-3xl font-light text-gray-900 block">3 veces</span>
+              <span className="text-sm text-gray-500">por semana</span>
+            </div>
+            <div className="bg-gray-50 p-6 text-center">
+              <Users className="w-8 h-8 text-alba-primary mx-auto mb-4" />
+              <span className="text-3xl font-light text-gray-900 block">24/7</span>
+              <span className="text-sm text-gray-500">equipo de apoyo</span>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       {/* Health Tips Section */}

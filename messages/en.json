@@ -100,6 +100,23 @@
       "description": "Personalized care with nephrologists who know you, listen to you, and design the best plan for you."
     }
   },
+  "education": {
+    "badge": "Understanding the treatment",
+    "question": "What is hemodialysis?",
+    "answer": "Hemodialysis is a treatment that performs the filtering function that your kidneys can no longer do on their own. Your blood passes through a special filter that removes toxins, waste, and excess fluids, helping to keep your body in balance.",
+    "point1": {
+      "title": "Blood filtration",
+      "description": "Removes toxins and waste that your kidneys can no longer process."
+    },
+    "point2": {
+      "title": "3-4 hours per session",
+      "description": "Usually 3 times per week, with flexible scheduling."
+    },
+    "point3": {
+      "title": "Improves your wellbeing",
+      "description": "Regain energy and maintain a better quality of life."
+    }
+  },
   "branches": {
     "title": "Our Locations",
     "subtitle": "Find the clinic nearest to you",
@@ -133,6 +150,7 @@
     "bookAppointment": "Book appointment",
     "viewAll": "View full directory",
     "founder": "Founder",
+    "founderDirector": "Nephrologist - Founder & Medical Director",
     "nephrologist": "Nephrologist",
     "transplantSurgeon": "Transplant Surgeon",
     "specialties": "Specialties",

@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { Link, usePathname } from '@/i18n/navigation';
-import { useLocale, useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
+import gsap from 'gsap';
 import { cn } from '@/lib/utils';
 import { FullscreenMenu } from './FullscreenMenu';
 
@@ -16,17 +16,17 @@ const navLinks = [
 ];
 
 export function Navigation() {
-  const locale = useLocale();
   const pathname = usePathname();
   const t = useTranslations('nav');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const bgRef = useRef<HTMLDivElement>(null);
 
   // Detect if we're on pages with dark hero sections
   const isHomePage = pathname === '/';
   const isAboutPage = pathname === '/nosotros';
   const isResourcesPage = pathname === '/recursos';
-  const isServicesPage = pathname === '/servicios';
+  const isServicesPage = pathname === '/servicios' || pathname.startsWith('/servicios/');
   const isBranchesPage = pathname === '/sucursales';
   const isContactPage = pathname === '/contacto';
   const isDirectoryPage = pathname === '/directorio' || pathname.startsWith('/directorio/');
@@ -46,6 +46,17 @@ export function Navigation() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [pathname]);
+
+  // Animate background on scroll state change
+  useEffect(() => {
+    if (bgRef.current) {
+      gsap.to(bgRef.current, {
+        opacity: isScrolled ? 1 : 0,
+        duration: 0.3,
+        ease: 'power2.out',
+      });
+    }
+  }, [isScrolled]);
 
   const handleCloseMenu = useCallback(() => {
     setIsMenuOpen(false);
@@ -67,13 +78,9 @@ export function Navigation() {
         )}
       >
         {/* Background that fades in on scroll */}
-        <motion.div
-          initial={false}
-          animate={{
-            opacity: isScrolled ? 1 : 0,
-          }}
-          transition={{ duration: 0.3 }}
-          className="absolute inset-0 bg-white/95 backdrop-blur-sm shadow-sm"
+        <div
+          ref={bgRef}
+          className="absolute inset-0 bg-white/95 backdrop-blur-sm shadow-sm opacity-0"
         />
 
         <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 relative z-10">
@@ -114,10 +121,10 @@ export function Navigation() {
               ))}
             </ul>
 
-            {/* Menu button - "Menu ✦" text */}
+            {/* Menu button - "Menu ✦" text - min 44px touch target */}
             <button
               className={cn(
-                "flex items-center gap-2 text-base transition-colors duration-300",
+                "flex items-center gap-2 text-base transition-colors duration-300 min-h-[44px] min-w-[44px] -mr-3 pr-3 pl-3",
                 showLightStyling
                   ? "text-white hover:text-white/80"
                   : "text-gray-900 hover:text-gray-600"

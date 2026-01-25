@@ -2,15 +2,15 @@
 
 import { useRef, useEffect } from 'react';
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { AnimatedButton } from '@/components/ui/AnimatedButton';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Activity, Droplets, Heart, Apple, Clock, Users, Shield } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Services data
+// Services data - links go to individual service detail pages
 const services = [
   {
     id: 'hemodialysis',
@@ -18,7 +18,13 @@ const services = [
     descriptionKey: 'services.hemodialysis.description',
     image: '/images/services/procedimientos-quirurgicos.jpg',
     ctaKey: 'common.learnMore',
-    href: '/servicios#hemodialisis',
+    href: '/servicios/hemodialisis',
+    icon: Activity,
+    highlights: [
+      { icon: Clock, textEs: '3-4 horas por sesión', textEn: '3-4 hours per session' },
+      { icon: Users, textEs: '+5,000 pacientes atendidos', textEn: '+5,000 patients served' },
+      { icon: Shield, textEs: 'Tecnología de última generación', textEn: 'State-of-the-art technology' },
+    ],
   },
   {
     id: 'hemodiafiltration',
@@ -26,7 +32,13 @@ const services = [
     descriptionKey: 'services.hemodiafiltration.description',
     image: '/images/alba-extracted/fotos-servicios-2.jpg',
     ctaKey: 'common.learnMore',
-    href: '/servicios#hemodiafiltracion',
+    href: '/servicios/hemodiafiltracion',
+    icon: Droplets,
+    highlights: [
+      { icon: Shield, textEs: 'Filtración más avanzada', textEn: 'More advanced filtration' },
+      { icon: Heart, textEs: 'Mejor calidad de vida', textEn: 'Better quality of life' },
+      { icon: Activity, textEs: 'Menos síntomas post-diálisis', textEn: 'Fewer post-dialysis symptoms' },
+    ],
   },
   {
     id: 'transplant',
@@ -34,7 +46,13 @@ const services = [
     descriptionKey: 'services.transplant.description',
     image: '/images/services/clinica-dialisis.jpg',
     ctaKey: 'common.learnMore',
-    href: '/servicios#trasplante',
+    href: '/servicios/trasplante-renal',
+    icon: Heart,
+    highlights: [
+      { icon: Users, textEs: 'Equipo multidisciplinario', textEn: 'Multidisciplinary team' },
+      { icon: Shield, textEs: 'Seguimiento integral', textEn: 'Comprehensive follow-up' },
+      { icon: Clock, textEs: 'Acompañamiento en cada etapa', textEn: 'Support at every stage' },
+    ],
   },
   {
     id: 'nutrition',
@@ -42,12 +60,20 @@ const services = [
     descriptionKey: 'services.nutrition.description',
     image: '/images/alba-extracted/fotos-servicios-13.jpg',
     ctaKey: 'common.learnMore',
-    href: '/servicios#nutricion',
+    href: '/servicios/nutricion-renal',
+    icon: Apple,
+    highlights: [
+      { icon: Users, textEs: 'Planes personalizados', textEn: 'Personalized plans' },
+      { icon: Heart, textEs: 'Mejora tu bienestar', textEn: 'Improve your wellbeing' },
+      { icon: Shield, textEs: 'Nutriólogos especializados', textEn: 'Specialized nutritionists' },
+    ],
   },
 ];
 
 export function ServicesShowcase() {
   const t = useTranslations();
+  const locale = useLocale();
+  const isEn = locale === 'en';
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
 
@@ -177,19 +203,15 @@ export function ServicesShowcase() {
         </div>
       </div>
 
-      {/* Divider */}
-      <div className="relative z-10 px-6 md:px-16 lg:px-24 pb-16 md:pb-24">
-        <div className="h-px bg-gray-200 w-full" />
-      </div>
-
       {/* Service Cards */}
       {services.map((service, index) => {
-        const isEven = index % 2 === 0;
+        const isEvenCard = index % 2 === 0;
+        const ServiceIcon = service.icon;
 
         return (
           <div
             key={service.id}
-            className={`service-card-alba relative z-10 min-h-[60vh] md:min-h-[70vh] flex ${isEven ? 'flex-row' : 'flex-row-reverse'} flex-wrap md:flex-nowrap`}
+            className={`service-card-alba relative z-10 min-h-[60vh] md:min-h-[70vh] flex ${isEvenCard ? 'flex-row' : 'flex-row-reverse'} flex-wrap md:flex-nowrap`}
           >
             {/* Content Side */}
             <div
@@ -203,10 +225,12 @@ export function ServicesShowcase() {
                 order-2 md:order-none
               `}
             >
-              <div className="max-w-md">
-                {/* Bullet Label */}
-                <div className="flex items-center gap-2 mb-6">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gray-900" />
+              <div className="max-w-lg">
+                {/* Icon and Label */}
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 rounded-full bg-alba-primary/10 flex items-center justify-center">
+                    <ServiceIcon className="w-6 h-6 text-alba-primary" />
+                  </div>
                   <span className="text-xs font-medium uppercase tracking-[0.2em] text-gray-900">
                     {t(service.labelKey)}
                   </span>
@@ -216,6 +240,21 @@ export function ServicesShowcase() {
                 <p className="text-lg md:text-xl lg:text-2xl text-gray-800 leading-relaxed mb-8">
                   {t(service.descriptionKey)}
                 </p>
+
+                {/* Highlights */}
+                <div className="space-y-3 mb-8">
+                  {service.highlights.map((highlight, idx) => {
+                    const HighlightIcon = highlight.icon;
+                    return (
+                      <div key={idx} className="flex items-center gap-3">
+                        <HighlightIcon className="w-4 h-4 text-alba-primary flex-shrink-0" />
+                        <span className="text-sm text-gray-600">
+                          {isEn ? highlight.textEn : highlight.textEs}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
 
                 {/* CTA Button - Corner-cut clip-path animation with letter animation */}
                 <AnimatedButton href={service.href} variant="filled">
@@ -245,7 +284,7 @@ export function ServicesShowcase() {
                 h-[40vh] md:h-auto
                 aspect-[4/3]
                 order-1 md:order-none
-                ${isEven ? 'frame-alba-right' : 'frame-alba-left'}
+                ${isEvenCard ? 'frame-alba-right' : 'frame-alba-left'}
               `}
             >
               <div className="relative w-full h-full">
@@ -253,6 +292,7 @@ export function ServicesShowcase() {
                   src={service.image}
                   alt={t(service.labelKey)}
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>

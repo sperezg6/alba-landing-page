@@ -44,6 +44,7 @@ const DoctorCard = ({ name, role, image, slug, isFounder, founderLabel, viewProf
           src={image}
           alt={name}
           fill
+          sizes="(max-width: 768px) 50vw, 25vw"
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
         />
         {/* Subtle overlay on hover */}

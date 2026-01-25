@@ -112,7 +112,7 @@ export function HeroWrapper() {
   return (
     <div
       ref={wrapperRef}
-      className="relative h-[300vh] w-full overflow-hidden"
+      className="relative h-[200vh] md:h-[300vh] w-full overflow-hidden"
     >
       {/* Single continuous background image - spans all 3 viewports */}
       <div
@@ -120,13 +120,13 @@ export function HeroWrapper() {
         className="absolute inset-0 h-[130%] -top-[10%]"
       >
         <Image
-          src="/hero-test4.jpeg"
+          src="/hero-test4.webp"
           alt="Alba Dialysis - Kidney Care Excellence"
           fill
+          sizes="100vw"
           className="object-cover"
           style={{ objectPosition: 'center 85%' }}
           priority
-          quality={90}
         />
       </div>
 

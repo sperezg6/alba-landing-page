@@ -45,12 +45,12 @@ export function HeroCinematic() {
 
       {/* Full-bleed background image */}
       <Image
-        src="/hero-alba.png"
+        src="/hero-alba.webp"
         alt="Alba Dialysis - Kidney Care Excellence"
         fill
+        sizes="100vw"
         className="object-cover"
         priority
-        quality={90}
       />
 
       {/* Subtle dark overlay for text readability */}

@@ -28,8 +28,12 @@ export function SmoothScrollProvider({ children }: Props) {
   useEffect(() => {
     // Respect reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // Disable on mobile devices for better performance
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    // Also check for touch-only devices
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-    if (prefersReducedMotion) {
+    if (prefersReducedMotion || (isMobile && isTouchDevice)) {
       return;
     }
 

@@ -100,6 +100,23 @@
       "description": "Atención personalizada con nefrólogos que te conocen, te escuchan y diseñan el mejor plan para ti."
     }
   },
+  "education": {
+    "badge": "Entendiendo el tratamiento",
+    "question": "¿Qué es la hemodiálisis?",
+    "answer": "La hemodiálisis es un tratamiento que realiza la función de filtrado que tus riñones ya no pueden hacer por sí solos. Tu sangre pasa a través de un filtro especial que elimina toxinas, desechos y exceso de líquidos, ayudando a mantener tu cuerpo en equilibrio.",
+    "point1": {
+      "title": "Filtrado de sangre",
+      "description": "Elimina toxinas y desechos que los riñones ya no pueden procesar."
+    },
+    "point2": {
+      "title": "3-4 horas por sesión",
+      "description": "Generalmente 3 veces por semana, con horarios flexibles."
+    },
+    "point3": {
+      "title": "Mejora tu bienestar",
+      "description": "Recupera energía y mantén una mejor calidad de vida."
+    }
+  },
   "branches": {
     "title": "Nuestras Sucursales",
     "subtitle": "Encuentra la clínica más cercana a ti",
@@ -133,6 +150,7 @@
     "bookAppointment": "Agendar cita",
     "viewAll": "Ver directorio completo",
     "founder": "Fundadora",
+    "founderDirector": "Nefróloga - Fundadora y Directora Médica",
     "nephrologist": "Nefróloga",
     "transplantSurgeon": "Cirujano de Trasplantes",
     "specialties": "Especialidades",
