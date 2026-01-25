@@ -203,7 +203,7 @@ export function ServicesShowcase() {
         </div>
       </div>
 
-      {/* Service Cards */}
+      {/* Service Cards - Full Background with Gradient Overlay */}
       {services.map((service, index) => {
         const isEvenCard = index % 2 === 0;
         const ServiceIcon = service.icon;
@@ -211,24 +211,44 @@ export function ServicesShowcase() {
         return (
           <div
             key={service.id}
-            className={`service-card-alba relative z-10 min-h-[60vh] md:min-h-[70vh] flex ${isEvenCard ? 'flex-row' : 'flex-row-reverse'} flex-wrap md:flex-nowrap`}
+            className="service-card-alba relative z-10 min-h-[70vh] md:min-h-[80vh] flex items-center overflow-hidden"
           >
-            {/* Content Side */}
+            {/* Full Background Image */}
+            <div className="service-image absolute inset-0">
+              <Image
+                src={service.image}
+                alt={t(service.labelKey)}
+                fill
+                sizes="100vw"
+                className="object-cover"
+                loading="lazy"
+              />
+              {/* Gradient Overlay - alternates sides */}
+              <div
+                className={`absolute inset-0 ${
+                  isEvenCard
+                    ? 'bg-gradient-to-r from-[#F5F1EB] via-[#F5F1EB]/80 to-transparent'
+                    : 'bg-gradient-to-l from-[#F5F1EB] via-[#F5F1EB]/80 to-transparent'
+                }`}
+              />
+            </div>
+
+            {/* Content */}
             <div
               className={`
                 service-content
-                w-full md:w-[45%]
-                flex items-center
+                relative z-10
+                w-full
+                flex
+                ${isEvenCard ? 'justify-start' : 'justify-end'}
                 px-6 md:px-16 lg:px-24
-                py-16 md:py-0
-                z-10
-                order-2 md:order-none
+                py-16 md:py-24
               `}
             >
               <div className="max-w-lg">
                 {/* Icon and Label */}
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-full bg-alba-primary/10 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-alba-primary/10 backdrop-blur-sm flex items-center justify-center">
                     <ServiceIcon className="w-6 h-6 text-alba-primary" />
                   </div>
                   <span className="text-xs font-medium uppercase tracking-[0.2em] text-gray-900">
@@ -248,7 +268,7 @@ export function ServicesShowcase() {
                     return (
                       <div key={idx} className="flex items-center gap-3">
                         <HighlightIcon className="w-4 h-4 text-alba-primary flex-shrink-0" />
-                        <span className="text-sm text-gray-600">
+                        <span className="text-sm text-gray-700">
                           {isEn ? highlight.textEn : highlight.textEs}
                         </span>
                       </div>
@@ -256,7 +276,7 @@ export function ServicesShowcase() {
                   })}
                 </div>
 
-                {/* CTA Button - Corner-cut clip-path animation with letter animation */}
+                {/* CTA Button */}
                 <AnimatedButton href={service.href} variant="filled">
                   {t(service.ctaKey)}
                 </AnimatedButton>
@@ -267,34 +287,12 @@ export function ServicesShowcase() {
                     href="https://nutritional-chatbot-ui.vercel.app/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-6 flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors group"
+                    className="mt-6 flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors group"
                   >
                     {t('nutritionAssistant.link')}
                     <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </a>
                 )}
-              </div>
-            </div>
-
-            {/* Image Side - Alba-style frame with rounded corners and diagonal cuts */}
-            <div
-              className={`
-                service-image
-                w-full md:w-[50%]
-                h-[40vh] md:h-auto
-                aspect-[4/3]
-                order-1 md:order-none
-                ${isEvenCard ? 'frame-alba-right' : 'frame-alba-left'}
-              `}
-            >
-              <div className="relative w-full h-full">
-                <Image
-                  src={service.image}
-                  alt={t(service.labelKey)}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
-                />
               </div>
             </div>
           </div>
