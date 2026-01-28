@@ -63,12 +63,12 @@ export function DirectoryPage() {
                 >
                   <div className="flex flex-col lg:flex-row h-full">
                     {/* Image */}
-                    <div className="relative w-full lg:w-2/5 h-72 lg:h-auto lg:min-h-[320px]">
+                    <div className="relative w-full lg:w-2/5 aspect-[4/5] sm:aspect-[3/4] lg:aspect-auto lg:h-auto lg:min-h-[320px]">
                       <Image
                         src={doctor.image}
                         alt={doctor.name}
                         fill
-                        className="object-cover object-top transition-all duration-500"
+                        className="object-cover object-[center_20%] transition-all duration-500"
                       />
                       {/* Founder badge */}
                       {doctor.isFounder && (

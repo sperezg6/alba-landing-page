@@ -25,14 +25,14 @@ export function AboutPage() {
       {/* Hero Section - Alba Style with Image */}
       <section
         ref={heroRef}
-        className="relative h-screen min-h-[600px] w-full overflow-hidden"
+        className="relative h-[100svh] min-h-[500px] md:min-h-[600px] w-full overflow-hidden"
       >
         {/* Background Image */}
         <Image
           src="/images/alba-extracted/fotos-servicios-6.jpg"
           alt="Alba Diálisis - Nosotros"
           fill
-          className="object-cover"
+          className="object-cover object-center"
           priority
         />
 
@@ -40,10 +40,10 @@ export function AboutPage() {
         <div className="absolute inset-0 bg-black/50" />
 
         {/* Content */}
-        <div className="relative z-10 h-full flex flex-col justify-end px-6 md:px-12 lg:px-16 xl:px-24 pb-32 md:pb-40 lg:pb-48">
+        <div className="relative z-10 h-full flex flex-col justify-end px-6 md:px-12 lg:px-16 xl:px-24 pb-40 md:pb-44 lg:pb-48">
           <h1
-            className="font-light leading-[0.95] tracking-tight"
-            style={{ color: '#FFFFFF', fontSize: 'clamp(3rem, 7vw, 6rem)' }}
+            className="font-light leading-[0.95] tracking-tight max-w-[90%] md:max-w-none"
+            style={{ color: '#FFFFFF', fontSize: 'clamp(2.25rem, 7vw, 6rem)' }}
           >
             {t('about.heroHeadline')}
           </h1>
