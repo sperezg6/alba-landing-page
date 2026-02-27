@@ -176,6 +176,11 @@ export function ResourcesPage() {
 
       {/* Nutritional Chatbot Feature Section */}
       <section className="relative bg-alba-dark py-20 md:py-32 overflow-hidden">
+        {/* Decorative gradient blob */}
+        <div
+          className="absolute top-1/2 -translate-y-1/2 -right-32 w-[450px] h-[450px] opacity-25 pointer-events-none"
+          style={{ backgroundImage: 'url(/gradient-blob.png)', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}
+        />
         {/* Top accent line */}
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-alba-primary/50 to-transparent" />
 
@@ -194,11 +199,11 @@ export function ResourcesPage() {
                   Nueva Herramienta
                 </span>
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light mb-6" style={{ color: 'white' }}>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light mb-6" style={{ color: '#374151' }}>
                 Asistente de{' '}
                 <span className="text-alba-primary">Nutrición Renal</span>
               </h2>
-              <p className="text-gray-400 text-lg md:text-xl leading-relaxed mb-10">
+              <p className="text-gray-600 text-lg md:text-xl leading-relaxed mb-10">
                 Obtén respuestas personalizadas sobre tu dieta renal. Nuestro asistente inteligente
                 te ayuda a entender qué alimentos puedes consumir, cómo controlar el potasio,
                 fósforo y sodio, y resolver tus dudas nutricionales al instante.
@@ -224,11 +229,11 @@ export function ResourcesPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative"
             >
-              <div className="bg-[#1A1A1A] border border-alba-primary/20 p-8 md:p-10 rounded-lg">
+              <div className="bg-black/5 border border-gray-900/10 p-8 md:p-10 rounded-lg">
                 <div className="w-16 h-16 bg-alba-primary flex items-center justify-center mb-6 rounded-lg">
                   <MessageCircle className="w-8 h-8 text-black" />
                 </div>
-                <h3 className="text-2xl font-light mb-6" style={{ color: 'white' }}>
+                <h3 className="text-2xl font-light mb-6" style={{ color: '#374151' }}>
                   Preguntas que puedes hacer
                 </h3>
                 <ul className="space-y-4">
@@ -238,11 +243,11 @@ export function ResourcesPage() {
                     '¿Qué puedo desayunar?',
                     '¿Cuánta agua puedo tomar?',
                   ].map((question, idx) => (
-                    <li key={idx} className="flex items-center gap-4 text-gray-300 group cursor-default">
+                    <li key={idx} className="flex items-center gap-4 text-gray-600 group cursor-default">
                       <span className="flex items-center justify-center w-6 h-6 rounded-full bg-alba-primary/10 text-xs text-alba-primary font-medium">
                         {idx + 1}
                       </span>
-                      <span className="group-hover:text-white transition-colors">{question}</span>
+                      <span className="group-hover:text-gray-900 transition-colors">{question}</span>
                     </li>
                   ))}
                 </ul>
@@ -256,7 +261,7 @@ export function ResourcesPage() {
       </section>
 
       {/* Understanding Hemodialysis - Educational Section */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-alba-dark py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
           {/* Section Header */}
           <motion.div
@@ -289,7 +294,7 @@ export function ResourcesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white p-6 lg:p-8"
+                className="bg-alba-dark p-6 lg:p-8"
               >
                 <div className="w-12 h-12 rounded-full bg-alba-primary/10 flex items-center justify-center mb-6">
                   <item.icon className="w-5 h-5 text-alba-primary" />
@@ -367,7 +372,7 @@ export function ResourcesPage() {
       </section>
 
       {/* Health Tips Section */}
-      <section className="bg-creme-alba py-20 md:py-28">
+      <section className="bg-alba-dark py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
           {/* Section Header */}
           <div className="mb-16">
@@ -421,7 +426,7 @@ export function ResourcesPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-alba-dark py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
             {/* Left Column - Header */}
@@ -470,7 +475,7 @@ export function ResourcesPage() {
       </section>
 
       {/* Additional Resources */}
-      <section className="bg-creme-alba py-20 md:py-28">
+      <section className="bg-alba-dark py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
           {/* Section Header */}
           <div className="mb-16">
@@ -497,7 +502,7 @@ export function ResourcesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-creme-alba p-8 md:p-10 group"
+                className="bg-alba-dark p-8 md:p-10 group"
               >
                 <div className="w-14 h-14 border border-gray-900/10 flex items-center justify-center mb-6">
                   <resource.icon className="w-6 h-6 text-gray-600" />
@@ -528,17 +533,22 @@ export function ResourcesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-alba-dark py-20 md:py-28">
-        <div className="max-w-4xl mx-auto px-6 md:px-12 lg:px-16 text-center">
+      <section className="relative bg-alba-dark py-20 md:py-28 overflow-hidden">
+        {/* Decorative gradient blob */}
+        <div
+          className="absolute -bottom-32 -left-32 w-[500px] h-[500px] opacity-30 pointer-events-none"
+          style={{ backgroundImage: 'url(/gradient-blob.png)', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}
+        />
+        <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-12 lg:px-16 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-6" style={{ color: 'white' }}>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-6" style={{ color: '#374151' }}>
               ¿Necesitas más información?
             </h2>
-            <p className="text-lg mb-10 max-w-2xl mx-auto" style={{ color: 'rgba(255,255,255,0.6)' }}>
+            <p className="text-lg mb-10 max-w-2xl mx-auto" style={{ color: 'rgba(55,65,81,0.6)' }}>
               Nuestro equipo está disponible para resolver todas tus dudas sobre el cuidado renal.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -551,7 +561,7 @@ export function ResourcesPage() {
               </Link>
               <a
                 href="tel:4773293939"
-                className="inline-flex items-center gap-2 border border-white/20 text-white px-8 py-4 text-sm font-semibold uppercase tracking-wider hover:bg-white/10 transition-colors"
+                className="inline-flex items-center gap-2 border border-black/20 text-gray-900 px-8 py-4 text-sm font-semibold uppercase tracking-wider hover:bg-black/10 transition-colors"
               >
                 Llamar ahora
               </a>

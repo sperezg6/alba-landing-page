@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { setRequestLocale, getMessages } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
-import { Inter, Plus_Jakarta_Sans, Playfair_Display, Bebas_Neue } from 'next/font/google';
+import { Nunito_Sans, Cardo } from 'next/font/google';
 import { Metadata } from 'next';
 import { routing } from '@/i18n/routing';
 import { Navigation, Footer, WhatsAppButton } from '@/components/layout';
@@ -17,35 +17,20 @@ import '../globals.css';
 
 const BASE_URL = 'https://albadialisis.com';
 
-// Body font - highly readable, optimized for screens
-const inter = Inter({
+// Body font - clean, readable Gotham alternative
+const nunitoSans = Nunito_Sans({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-body',
   display: 'swap',
+  weight: ['400', '500', '600', '700'],
 });
 
-// Heading font - modern geometric sans-serif with character
-const plusJakartaSans = Plus_Jakarta_Sans({
+// Heading font - elegant serif for titles
+const cardo = Cardo({
   subsets: ['latin'],
   variable: '--font-heading',
   display: 'swap',
-  weight: ['400', '500', '600', '700', '800'],
-});
-
-// Serif font for hero headlines - elegant and dramatic
-const playfairDisplay = Playfair_Display({
-  subsets: ['latin'],
-  variable: '--font-serif',
-  display: 'swap',
-  weight: ['400', '500', '600', '700', '800', '900'],
-});
-
-// Bold display font for Alba-style headlines
-const bebasNeue = Bebas_Neue({
-  subsets: ['latin'],
-  variable: '--font-display',
-  display: 'swap',
-  weight: '400',
+  weight: ['400', '700'],
 });
 
 export function generateStaticParams() {
@@ -180,7 +165,7 @@ export async function generateMetadata({
       'geo.placename': 'León, Guanajuato',
       'geo.position': '21.1236;-101.6822',
       'ICBM': '21.1236, -101.6822',
-      'theme-color': '#0a1f25',
+      'theme-color': '#4DBDC9',
     },
   };
 }
@@ -206,7 +191,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${inter.variable} ${plusJakartaSans.variable} ${playfairDisplay.variable} ${bebasNeue.variable}`}>
+    <html lang={locale} className={`${nunitoSans.variable} ${cardo.variable}`}>
       <head>
         {/* HrefLang Links for multilingual SEO */}
         <HrefLangLinks locale={locale} pathname={`/${locale}`} />

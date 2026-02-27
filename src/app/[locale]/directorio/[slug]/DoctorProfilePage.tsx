@@ -183,9 +183,14 @@ export function DoctorProfilePage({ doctor, calConfig }: DoctorProfilePageProps)
     : [];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-alba-dark">
       {/* ==================== HERO SECTION (KEEP AS IS) ==================== */}
       <section className="relative bg-alba-dark overflow-hidden">
+        {/* Decorative gradient blob */}
+        <div
+          className="absolute -top-32 -right-32 w-[500px] h-[500px] opacity-20 pointer-events-none"
+          style={{ backgroundImage: 'url(/gradient-blob.png)', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}
+        />
         {hasHeroImage && (
           <div className="absolute inset-0">
             <Image
@@ -205,7 +210,7 @@ export function DoctorProfilePage({ doctor, calConfig }: DoctorProfilePageProps)
           <div className="pt-28 md:pt-32 animate-in">
             <Link
               href="/directorio"
-              className="inline-flex items-center gap-2 text-white/50 hover:text-white transition-colors text-sm"
+              className="inline-flex items-center gap-2 text-black/50 hover:text-gray-900 transition-colors text-sm"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>{isEn ? 'Back to directory' : 'Volver al directorio'}</span>
@@ -222,23 +227,23 @@ export function DoctorProfilePage({ doctor, calConfig }: DoctorProfilePageProps)
               </div>
             )}
 
-            <h1 className="animate-in text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] tracking-tight" style={{ color: 'white' }}>
+            <h1 className="animate-in text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] tracking-tight" style={{ color: '#374151' }}>
               {doctor.name}
             </h1>
 
-            <p className="animate-in mt-4 text-xl md:text-2xl text-white/60 font-light">
+            <p className="animate-in mt-4 text-xl md:text-2xl text-black/60 font-light">
               {doctor.role}
             </p>
 
             <div className="animate-in mt-10 flex flex-wrap gap-6">
               {doctorBranches.map((branch) => (
-                <div key={branch!.id} className="flex items-center gap-2 text-white/40">
+                <div key={branch!.id} className="flex items-center gap-2 text-black/40">
                   <MapPin className="w-4 h-4" />
                   <span className="text-sm">{branch!.name}</span>
                 </div>
               ))}
               {doctor.languages && (
-                <div className="flex items-center gap-2 text-white/40">
+                <div className="flex items-center gap-2 text-black/40">
                   <Globe className="w-4 h-4" />
                   <span className="text-sm">{(isEn ? doctor.languagesEn : doctor.languages)?.join(' · ')}</span>
                 </div>
@@ -248,7 +253,7 @@ export function DoctorProfilePage({ doctor, calConfig }: DoctorProfilePageProps)
             <div className="animate-in mt-8 flex flex-wrap items-center gap-4">
               <a
                 href={`mailto:${doctor.email}`}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full text-white text-sm transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-black/10 hover:bg-black/20 rounded-full text-gray-900 text-sm transition-colors"
               >
                 <Mail className="w-4 h-4" />
                 <span>{doctor.email}</span>
@@ -256,7 +261,7 @@ export function DoctorProfilePage({ doctor, calConfig }: DoctorProfilePageProps)
               {doctor.phone && (
                 <a
                   href={`tel:${doctor.phone.replace(/\s/g, '')}`}
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full text-white text-sm transition-colors"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-black/10 hover:bg-black/20 rounded-full text-gray-900 text-sm transition-colors"
                 >
                   <Phone className="w-4 h-4" />
                   <span>{doctor.phone}</span>
@@ -266,20 +271,20 @@ export function DoctorProfilePage({ doctor, calConfig }: DoctorProfilePageProps)
                 <div className="flex items-center gap-2">
                   {doctor.socialMedia?.facebook && (
                     <a href={doctor.socialMedia.facebook} target="_blank" rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
-                      <FacebookIcon className="w-4 h-4 text-white" />
+                      className="w-10 h-10 rounded-full bg-black/10 hover:bg-black/20 flex items-center justify-center transition-colors">
+                      <FacebookIcon className="w-4 h-4 text-gray-900" />
                     </a>
                   )}
                   {doctor.socialMedia?.linkedin && (
                     <a href={doctor.socialMedia.linkedin} target="_blank" rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
-                      <LinkedInIcon className="w-4 h-4 text-white" />
+                      className="w-10 h-10 rounded-full bg-black/10 hover:bg-black/20 flex items-center justify-center transition-colors">
+                      <LinkedInIcon className="w-4 h-4 text-gray-900" />
                     </a>
                   )}
                   {doctor.socialMedia?.doctoralia && (
                     <a href={doctor.socialMedia.doctoralia} target="_blank" rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
-                      <DoctoraliaIcon className="w-4 h-4 text-white" />
+                      className="w-10 h-10 rounded-full bg-black/10 hover:bg-black/20 flex items-center justify-center transition-colors">
+                      <DoctoraliaIcon className="w-4 h-4 text-gray-900" />
                     </a>
                   )}
                 </div>
@@ -287,7 +292,7 @@ export function DoctorProfilePage({ doctor, calConfig }: DoctorProfilePageProps)
             </div>
 
             {(doctor.cedula || doctor.cedulaEspecialidad) && (
-              <div className="animate-in mt-6 flex flex-wrap gap-x-6 gap-y-1 text-sm text-white/30">
+              <div className="animate-in mt-6 flex flex-wrap gap-x-6 gap-y-1 text-sm text-black/30">
                 {doctor.cedula && <span>{isEn ? 'License' : 'Cédula'}: {doctor.cedula}</span>}
                 {doctor.cedulaEspecialidad && <span>{isEn ? 'Specialty' : 'Especialidad'}: {doctor.cedulaEspecialidad}</span>}
               </div>
@@ -626,16 +631,16 @@ export function DoctorProfilePage({ doctor, calConfig }: DoctorProfilePageProps)
             <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
               <div className="flex items-center gap-3 mb-12">
                 <Building2 className="w-6 h-6 text-alba-primary" />
-                <span className="text-sm font-medium text-white/60 uppercase tracking-wider">
+                <span className="text-sm font-medium text-black/60 uppercase tracking-wider">
                   {isEn ? 'Also Practices At' : 'También Atiende En'}
                 </span>
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
                 {doctor.externalPractices!.map((practice, index) => (
-                  <div key={index} className="animate-content bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 hover:bg-white/10 transition-colors">
-                    <p className="text-xl font-medium text-white mb-3">{practice.name}</p>
-                    <div className="flex items-start gap-2 text-white/60 mb-2">
+                  <div key={index} className="animate-content bg-black/5 border border-black/10 rounded-2xl p-6 md:p-8 hover:bg-black/10 transition-colors">
+                    <p className="text-xl font-medium text-gray-900 mb-3">{practice.name}</p>
+                    <div className="flex items-start gap-2 text-black/60 mb-2">
                       <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
                       <p className="text-sm">{practice.address}</p>
                     </div>

@@ -89,7 +89,7 @@ export function ServicesHorizontal() {
   // Mobile: vertical layout
   if (isMobile) {
     return (
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-alba-dark">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="headline-section text-gray-900">{t('services.title')}</h2>
@@ -176,12 +176,12 @@ export function ServicesHorizontal() {
                 </span>
 
                 {/* Title */}
-                <h3 className="text-4xl lg:text-5xl font-bold text-white mt-[-2rem] relative z-10">
+                <h3 className="text-4xl lg:text-5xl font-bold text-gray-900 mt-[-2rem] relative z-10">
                   {t(service.titleKey)}
                 </h3>
 
                 {/* Description */}
-                <p className="text-lg text-gray-400 mt-6 leading-relaxed">
+                <p className="text-lg text-gray-600 mt-6 leading-relaxed">
                   {t(service.descriptionKey)}
                 </p>
 
@@ -203,7 +203,7 @@ export function ServicesHorizontal() {
                         'h-1 rounded-full transition-all duration-300',
                         i === index
                           ? 'w-8 bg-[var(--color-secondary)]'
-                          : 'w-2 bg-white/20'
+                          : 'w-2 bg-black/20'
                       )}
                     />
                   ))}
@@ -215,7 +215,7 @@ export function ServicesHorizontal() {
       </div>
 
       {/* Scroll hint on first panel */}
-      <div className="absolute bottom-10 left-10 text-white/50 text-sm uppercase tracking-widest">
+      <div className="absolute bottom-10 left-10 text-black/50 text-sm uppercase tracking-widest">
         <span className="flex items-center gap-2">
           Scroll
           <ArrowRight className="w-4 h-4 animate-pulse" />

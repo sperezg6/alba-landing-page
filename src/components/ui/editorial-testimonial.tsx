@@ -6,6 +6,11 @@ import { useLocale, useTranslations } from 'next-intl';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { testimonials } from '@/lib/data';
+import dynamic from 'next/dynamic';
+
+const FlowFieldBackground = dynamic(() => import('@/components/ui/flow-field-background'), {
+  ssr: false,
+});
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -132,44 +137,47 @@ export default function TestimonialsEditorial() {
       ref={sectionRef}
       className="relative bg-alba-dark py-24 md:py-32 lg:py-40"
     >
+      {/* Flow field particles */}
+      <FlowFieldBackground particleCount={150} speed={0.5} trailOpacity={0.18} />
+
       {/* Divider line with ticks */}
       <div ref={dividerRef} className="absolute top-0 left-0 right-0 px-6 md:px-16 lg:px-24">
         <div className="relative w-full h-px">
           {/* Animated line */}
-          <div className="divider-line absolute inset-0 bg-white/20 origin-center" />
+          <div className="divider-line absolute inset-0 bg-black/20 origin-center" />
           {/* Left tick */}
-          <div className="divider-tick absolute left-0 top-0 w-px h-4 bg-white/20 origin-top -translate-y-1/2" />
+          <div className="divider-tick absolute left-0 top-0 w-px h-4 bg-black/20 origin-top -translate-y-1/2" />
           {/* Center tick */}
-          <div className="divider-tick absolute left-1/2 top-0 w-px h-4 bg-white/20 origin-top -translate-x-1/2 -translate-y-1/2" />
+          <div className="divider-tick absolute left-1/2 top-0 w-px h-4 bg-black/20 origin-top -translate-x-1/2 -translate-y-1/2" />
           {/* Right tick */}
-          <div className="divider-tick absolute right-0 top-0 w-px h-4 bg-white/20 origin-top -translate-y-1/2" />
+          <div className="divider-tick absolute right-0 top-0 w-px h-4 bg-black/20 origin-top -translate-y-1/2" />
         </div>
       </div>
 
       {/* Section Title */}
       <div
         ref={titleRef}
-        className="w-full max-w-4xl mx-auto px-6 md:px-12 mb-16 md:mb-20"
+        className="relative z-10 w-full max-w-4xl mx-auto px-6 md:px-12 mb-16 md:mb-20"
       >
         <h2
           className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight"
-          style={{ color: 'white' }}
+          style={{ color: '#374151' }}
         >
           {t('title')}
         </h2>
-        <p className="mt-4 text-[#F4F3E8]/50 text-base md:text-lg">
+        <p className="mt-4 text-gray-900/50 text-base md:text-lg">
           {t('subtitle')}
         </p>
       </div>
 
       <div
         ref={contentRef}
-        className="w-full max-w-4xl mx-auto px-6 md:px-12"
+        className="relative z-10 w-full max-w-4xl mx-auto px-6 md:px-12"
       >
         {/* Large index number */}
         <div className="flex items-start gap-6 md:gap-10">
           <span
-            className="text-[80px] md:text-[120px] lg:text-[150px] font-light leading-none text-white/10 select-none transition-all duration-500"
+            className="text-[80px] md:text-[120px] lg:text-[150px] font-light leading-none text-black/10 select-none transition-all duration-500"
             style={{ fontFeatureSettings: '"tnum"' }}
           >
             {String(active + 1).padStart(2, '0')}
@@ -183,7 +191,7 @@ export default function TestimonialsEditorial() {
                   ? 'opacity-0 translate-x-4'
                   : 'opacity-100 translate-x-0'
               }`}
-              style={{ color: 'white' }}
+              style={{ color: '#374151' }}
             >
               &ldquo;{quote}&rdquo;
             </blockquote>
@@ -194,8 +202,8 @@ export default function TestimonialsEditorial() {
                 isTransitioning ? 'opacity-0' : 'opacity-100'
               }`}
             >
-              <p className="font-medium text-white">{current.name}</p>
-              <p className="text-sm text-[#F4F3E8]/50">
+              <p className="font-medium text-gray-900">{current.name}</p>
+              <p className="text-sm text-gray-900/50">
                 {role}
               </p>
             </div>
@@ -216,13 +224,13 @@ export default function TestimonialsEditorial() {
                     className={`block h-px transition-all duration-500 ease-out ${
                       index === active
                         ? 'w-12 bg-alba-primary'
-                        : 'w-6 bg-white/20 group-hover:w-8 group-hover:bg-white/40'
+                        : 'w-6 bg-black/20 group-hover:w-8 group-hover:bg-black/40'
                     }`}
                   />
                 </button>
               ))}
             </div>
-            <span className="text-xs text-[#F4F3E8]/40 tracking-widest uppercase">
+            <span className="text-xs text-gray-900/40 tracking-widest uppercase">
               {String(active + 1).padStart(2, '0')} /{' '}
               {String(testimonials.length).padStart(2, '0')}
             </span>
@@ -231,13 +239,13 @@ export default function TestimonialsEditorial() {
           <div className="flex items-center gap-1">
             <button
               onClick={handlePrev}
-              className="p-2 rounded-full text-white/40 hover:text-white hover:bg-white/5 transition-all duration-300"
+              className="p-2 rounded-full text-black/40 hover:text-gray-900 hover:bg-black/5 transition-all duration-300"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={handleNext}
-              className="p-2 rounded-full text-white/40 hover:text-white hover:bg-white/5 transition-all duration-300"
+              className="p-2 rounded-full text-black/40 hover:text-gray-900 hover:bg-black/5 transition-all duration-300"
             >
               <ChevronRight className="w-5 h-5" />
             </button>

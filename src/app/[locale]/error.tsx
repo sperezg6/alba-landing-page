@@ -19,7 +19,7 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="min-h-[80vh] flex items-center justify-center px-4 bg-creme-alba">
+    <div className="min-h-[80vh] flex items-center justify-center px-4 bg-alba-dark">
       <motion.div
         className="text-center max-w-md"
         initial={{ opacity: 0, y: 20 }}

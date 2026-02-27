@@ -196,14 +196,14 @@ export function BookingCalendar({
   return (
     <div className="bg-alba-dark rounded-2xl overflow-hidden">
       {/* Header */}
-      <div className="p-6 border-b border-[rgba(255,255,255,0.1)]">
+      <div className="p-6 border-b border-[rgba(0,0,0,0.1)]">
         <h3
           className="text-2xl font-light mb-2"
-          style={{ color: '#FFFFFF' }}
+          style={{ color: '#374151' }}
         >
           Agenda tu Cita
         </h3>
-        <p className="text-[rgba(255,255,255,0.6)]">
+        <p className="text-[rgba(0,0,0,0.6)]">
           con {doctorName}
         </p>
       </div>
@@ -226,22 +226,22 @@ export function BookingCalendar({
                   disabled={!canGoPrevious}
                   className={`p-2 rounded-lg transition-colors ${
                     canGoPrevious
-                      ? 'hover:bg-[rgba(255,255,255,0.1)] text-[#FFFFFF]'
-                      : 'text-[rgba(255,255,255,0.3)] cursor-not-allowed'
+                      ? 'hover:bg-[rgba(0,0,0,0.06)] text-[#374151]'
+                      : 'text-[rgba(0,0,0,0.3)] cursor-not-allowed'
                   }`}
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
                 <span
                   className="text-lg font-medium"
-                  style={{ color: '#FFFFFF' }}
+                  style={{ color: '#374151' }}
                 >
                   {format(currentWeekStart, 'MMMM yyyy', { locale: es })}
                 </span>
                 <button
                   onClick={goToNextWeek}
-                  className="p-2 rounded-lg hover:bg-[rgba(255,255,255,0.1)] transition-colors"
-                  style={{ color: '#FFFFFF' }}
+                  className="p-2 rounded-lg hover:bg-[rgba(0,0,0,0.06)] transition-colors"
+                  style={{ color: '#374151' }}
                 >
                   <ChevronRight className="w-5 h-5" />
                 </button>
@@ -259,7 +259,7 @@ export function BookingCalendar({
                     (day) => (
                       <div
                         key={day}
-                        className="text-center text-xs font-medium py-2 text-[rgba(255,255,255,0.5)]"
+                        className="text-center text-xs font-medium py-2 text-[rgba(0,0,0,0.5)]"
                       >
                         {day}
                       </div>
@@ -284,8 +284,8 @@ export function BookingCalendar({
                             isSelected
                               ? 'bg-alba-primary text-white'
                               : hasSlots && !isPast
-                              ? 'hover:bg-[rgba(255,255,255,0.1)] text-[#FFFFFF]'
-                              : 'text-[rgba(255,255,255,0.3)] cursor-not-allowed'
+                              ? 'hover:bg-[rgba(0,0,0,0.06)] text-[#374151]'
+                              : 'text-[rgba(0,0,0,0.3)] cursor-not-allowed'
                           }
                         `}
                       >
@@ -318,20 +318,20 @@ export function BookingCalendar({
             >
               <button
                 onClick={() => setBookingStep('date')}
-                className="flex items-center gap-2 text-[rgba(255,255,255,0.6)] hover:text-[#FFFFFF] mb-4 transition-colors"
+                className="flex items-center gap-2 text-[rgba(0,0,0,0.6)] hover:text-[#374151] mb-4 transition-colors"
               >
                 <ChevronLeft className="w-4 h-4" />
                 Cambiar fecha
               </button>
 
               <div className="mb-6">
-                <p className="text-[rgba(255,255,255,0.6)] mb-1">Fecha seleccionada</p>
-                <p className="text-xl font-medium" style={{ color: '#FFFFFF' }}>
+                <p className="text-[rgba(0,0,0,0.6)] mb-1">Fecha seleccionada</p>
+                <p className="text-xl font-medium" style={{ color: '#374151' }}>
                   {format(selectedDate, "EEEE d 'de' MMMM", { locale: es })}
                 </p>
               </div>
 
-              <p className="text-[rgba(255,255,255,0.6)] mb-4">
+              <p className="text-[rgba(0,0,0,0.6)] mb-4">
                 <Clock className="w-4 h-4 inline mr-2" />
                 Horarios disponibles
               </p>
@@ -346,7 +346,7 @@ export function BookingCalendar({
                       ${
                         selectedSlot?.formatted === slot.formatted
                           ? 'bg-alba-primary text-white'
-                          : 'bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] text-[#FFFFFF]'
+                          : 'bg-[rgba(0,0,0,0.05)] hover:bg-[rgba(0,0,0,0.1)] text-[#374151]'
                       }
                     `}
                   >
@@ -367,15 +367,15 @@ export function BookingCalendar({
             >
               <button
                 onClick={() => setBookingStep('time')}
-                className="flex items-center gap-2 text-[rgba(255,255,255,0.6)] hover:text-[#FFFFFF] mb-4 transition-colors"
+                className="flex items-center gap-2 text-[rgba(0,0,0,0.6)] hover:text-[#374151] mb-4 transition-colors"
               >
                 <ChevronLeft className="w-4 h-4" />
                 Cambiar horario
               </button>
 
-              <div className="mb-6 p-4 bg-[rgba(255,255,255,0.05)] rounded-lg">
-                <p className="text-[rgba(255,255,255,0.6)] text-sm">Tu cita</p>
-                <p className="font-medium" style={{ color: '#FFFFFF' }}>
+              <div className="mb-6 p-4 bg-[rgba(0,0,0,0.05)] rounded-lg">
+                <p className="text-[rgba(0,0,0,0.6)] text-sm">Tu cita</p>
+                <p className="font-medium" style={{ color: '#374151' }}>
                   {format(selectedDate, "EEEE d 'de' MMMM", { locale: es })} a las{' '}
                   {selectedSlot.formatted}
                 </p>
@@ -383,7 +383,7 @@ export function BookingCalendar({
 
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm text-[rgba(255,255,255,0.6)] mb-2">
+                  <label className="block text-sm text-[rgba(0,0,0,0.6)] mb-2">
                     Nombre completo *
                   </label>
                   <input
@@ -391,14 +391,14 @@ export function BookingCalendar({
                     name="patientName"
                     value={formData.patientName}
                     onChange={handleFormChange}
-                    className="w-full bg-transparent border-b border-[rgba(255,255,255,0.2)] text-[#FFFFFF] placeholder:text-[rgba(255,255,255,0.3)] py-3 focus:outline-none focus:border-alba-primary transition-colors"
+                    className="w-full bg-transparent border-b border-[rgba(0,0,0,0.2)] text-[#374151] placeholder:text-[rgba(0,0,0,0.3)] py-3 focus:outline-none focus:border-alba-primary transition-colors"
                     placeholder="Tu nombre"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm text-[rgba(255,255,255,0.6)] mb-2">
+                  <label className="block text-sm text-[rgba(0,0,0,0.6)] mb-2">
                     Correo electrónico *
                   </label>
                   <input
@@ -406,14 +406,14 @@ export function BookingCalendar({
                     name="patientEmail"
                     value={formData.patientEmail}
                     onChange={handleFormChange}
-                    className="w-full bg-transparent border-b border-[rgba(255,255,255,0.2)] text-[#FFFFFF] placeholder:text-[rgba(255,255,255,0.3)] py-3 focus:outline-none focus:border-alba-primary transition-colors"
+                    className="w-full bg-transparent border-b border-[rgba(0,0,0,0.2)] text-[#374151] placeholder:text-[rgba(0,0,0,0.3)] py-3 focus:outline-none focus:border-alba-primary transition-colors"
                     placeholder="email@ejemplo.com"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm text-[rgba(255,255,255,0.6)] mb-2">
+                  <label className="block text-sm text-[rgba(0,0,0,0.6)] mb-2">
                     Teléfono *
                   </label>
                   <input
@@ -421,21 +421,21 @@ export function BookingCalendar({
                     name="patientPhone"
                     value={formData.patientPhone}
                     onChange={handleFormChange}
-                    className="w-full bg-transparent border-b border-[rgba(255,255,255,0.2)] text-[#FFFFFF] placeholder:text-[rgba(255,255,255,0.3)] py-3 focus:outline-none focus:border-alba-primary transition-colors"
+                    className="w-full bg-transparent border-b border-[rgba(0,0,0,0.2)] text-[#374151] placeholder:text-[rgba(0,0,0,0.3)] py-3 focus:outline-none focus:border-alba-primary transition-colors"
                     placeholder="+52 123 456 7890"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm text-[rgba(255,255,255,0.6)] mb-2">
+                  <label className="block text-sm text-[rgba(0,0,0,0.6)] mb-2">
                     Motivo de la consulta (opcional)
                   </label>
                   <textarea
                     name="reason"
                     value={formData.reason}
                     onChange={handleFormChange}
-                    className="w-full bg-transparent border-b border-[rgba(255,255,255,0.2)] text-[#FFFFFF] placeholder:text-[rgba(255,255,255,0.3)] py-3 focus:outline-none focus:border-alba-primary transition-colors resize-none"
+                    className="w-full bg-transparent border-b border-[rgba(0,0,0,0.2)] text-[#374151] placeholder:text-[rgba(0,0,0,0.3)] py-3 focus:outline-none focus:border-alba-primary transition-colors resize-none"
                     placeholder="Describe brevemente el motivo de tu consulta"
                     rows={3}
                   />
@@ -470,7 +470,7 @@ export function BookingCalendar({
             >
               <button
                 onClick={() => setBookingStep('details')}
-                className="flex items-center gap-2 text-[rgba(255,255,255,0.6)] hover:text-[#FFFFFF] mb-4 transition-colors"
+                className="flex items-center gap-2 text-[rgba(0,0,0,0.6)] hover:text-[#374151] mb-4 transition-colors"
               >
                 <ChevronLeft className="w-4 h-4" />
                 Editar datos
@@ -478,24 +478,24 @@ export function BookingCalendar({
 
               <h4
                 className="text-xl font-medium mb-6"
-                style={{ color: '#FFFFFF' }}
+                style={{ color: '#374151' }}
               >
                 Confirma tu cita
               </h4>
 
               <div className="space-y-4 mb-6">
-                <div className="p-4 bg-[rgba(255,255,255,0.05)] rounded-lg">
-                  <p className="text-[rgba(255,255,255,0.6)] text-sm mb-1">Doctor</p>
-                  <p className="font-medium" style={{ color: '#FFFFFF' }}>
+                <div className="p-4 bg-[rgba(0,0,0,0.05)] rounded-lg">
+                  <p className="text-[rgba(0,0,0,0.6)] text-sm mb-1">Doctor</p>
+                  <p className="font-medium" style={{ color: '#374151' }}>
                     {doctorName}
                   </p>
                 </div>
 
-                <div className="p-4 bg-[rgba(255,255,255,0.05)] rounded-lg">
-                  <p className="text-[rgba(255,255,255,0.6)] text-sm mb-1">
+                <div className="p-4 bg-[rgba(0,0,0,0.05)] rounded-lg">
+                  <p className="text-[rgba(0,0,0,0.6)] text-sm mb-1">
                     Fecha y hora
                   </p>
-                  <p className="font-medium" style={{ color: '#FFFFFF' }}>
+                  <p className="font-medium" style={{ color: '#374151' }}>
                     {format(selectedDate, "EEEE d 'de' MMMM, yyyy", {
                       locale: es,
                     })}{' '}
@@ -503,23 +503,23 @@ export function BookingCalendar({
                   </p>
                 </div>
 
-                <div className="p-4 bg-[rgba(255,255,255,0.05)] rounded-lg">
-                  <p className="text-[rgba(255,255,255,0.6)] text-sm mb-1">Paciente</p>
-                  <p className="font-medium" style={{ color: '#FFFFFF' }}>
+                <div className="p-4 bg-[rgba(0,0,0,0.05)] rounded-lg">
+                  <p className="text-[rgba(0,0,0,0.6)] text-sm mb-1">Paciente</p>
+                  <p className="font-medium" style={{ color: '#374151' }}>
                     {formData.patientName}
                   </p>
-                  <p className="text-[rgba(255,255,255,0.6)] text-sm">
+                  <p className="text-[rgba(0,0,0,0.6)] text-sm">
                     {formData.patientEmail}
                   </p>
-                  <p className="text-[rgba(255,255,255,0.6)] text-sm">
+                  <p className="text-[rgba(0,0,0,0.6)] text-sm">
                     {formData.patientPhone}
                   </p>
                 </div>
 
                 {formData.reason && (
-                  <div className="p-4 bg-[rgba(255,255,255,0.05)] rounded-lg">
-                    <p className="text-[rgba(255,255,255,0.6)] text-sm mb-1">Motivo</p>
-                    <p style={{ color: '#FFFFFF' }}>{formData.reason}</p>
+                  <div className="p-4 bg-[rgba(0,0,0,0.05)] rounded-lg">
+                    <p className="text-[rgba(0,0,0,0.6)] text-sm mb-1">Motivo</p>
+                    <p style={{ color: '#374151' }}>{formData.reason}</p>
                   </div>
                 )}
               </div>
@@ -557,24 +557,24 @@ export function BookingCalendar({
 
               <h4
                 className="text-2xl font-medium mb-2"
-                style={{ color: '#FFFFFF' }}
+                style={{ color: '#374151' }}
               >
                 ¡Cita Reservada!
               </h4>
 
-              <p className="text-[rgba(255,255,255,0.6)] mb-6">
+              <p className="text-[rgba(0,0,0,0.6)] mb-6">
                 Tu cita con {doctorName} ha sido confirmada para el{' '}
                 {format(selectedDate, "d 'de' MMMM", { locale: es })} a las{' '}
                 {selectedSlot.formatted}
               </p>
 
-              <p className="text-[rgba(255,255,255,0.5)] text-sm mb-8">
+              <p className="text-[rgba(0,0,0,0.5)] text-sm mb-8">
                 Recibirás un correo de confirmación en {formData.patientEmail}
               </p>
 
               <button
                 onClick={resetBooking}
-                className="px-6 py-3 border border-[rgba(255,255,255,0.2)] text-[#FFFFFF] rounded-lg hover:bg-[rgba(255,255,255,0.1)] transition-colors"
+                className="px-6 py-3 border border-[rgba(0,0,0,0.2)] text-[#374151] rounded-lg hover:bg-[rgba(0,0,0,0.06)] transition-colors"
               >
                 Reservar otra cita
               </button>

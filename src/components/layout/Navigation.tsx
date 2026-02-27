@@ -30,13 +30,15 @@ export function Navigation() {
   const isBranchesPage = pathname === '/sucursales';
   const isContactPage = pathname === '/contacto';
   const isDirectoryPage = pathname === '/directorio' || pathname.startsWith('/directorio/');
-  const hasHeroSection = isHomePage || isAboutPage || isResourcesPage || isServicesPage || isBranchesPage || isContactPage || isDirectoryPage;
+  // Pages with dark hero images needing white nav text
+  const hasHeroSection = isHomePage || isServicesPage || isAboutPage;
 
   useEffect(() => {
     const handleScroll = () => {
-      // On home page, switch after passing ~80% of viewport (when reaching services)
+      // On pages with full-height dark heroes, switch after passing most of the hero
       // On other pages, switch after 100px
-      const threshold = pathname === '/' ? window.innerHeight * 0.8 : 100;
+      const hasDarkHero = pathname === '/' || pathname === '/servicios' || pathname.startsWith('/servicios/') || pathname === '/nosotros';
+      const threshold = hasDarkHero ? window.innerHeight * 0.7 : 100;
       setIsScrolled(window.scrollY > threshold);
     };
 
@@ -100,25 +102,38 @@ export function Navigation() {
 
             {/* Desktop Navigation Links - Hidden on mobile, visible on lg+ */}
             <ul className="hidden lg:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <li key={link.key}>
-                  <Link
-                    href={link.href}
-                    className={cn(
-                      "text-sm font-medium uppercase tracking-wider transition-colors duration-300",
-                      pathname === link.href
-                        ? showLightStyling
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <li key={link.key}>
+                    <Link
+                      href={link.href}
+                      className={cn(
+                        "relative text-sm font-medium uppercase tracking-wider transition-all duration-300 pb-1 group",
+                        isActive
                           ? "text-alba-primary"
-                          : "text-alba-primary"
-                        : showLightStyling
-                          ? "text-white/90 hover:text-white"
-                          : "text-gray-600 hover:text-gray-900"
-                    )}
-                  >
-                    {t(link.key)}
-                  </Link>
-                </li>
-              ))}
+                          : showLightStyling
+                            ? "text-white/70 hover:text-white"
+                            : "text-gray-500 hover:text-gray-900"
+                      )}
+                    >
+                      {t(link.key)}
+                      {/* Animated underline */}
+                      <span
+                        className={cn(
+                          "absolute left-0 bottom-0 h-px transition-all duration-300 ease-out",
+                          isActive
+                            ? "w-full bg-alba-primary"
+                            : "w-0 group-hover:w-full",
+                          showLightStyling
+                            ? "bg-white"
+                            : "bg-gray-900"
+                        )}
+                      />
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
 
             {/* Menu button - "Menu ✦" text - min 44px touch target */}

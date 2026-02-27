@@ -48,12 +48,12 @@ const contactSchema = z.object({
 
 // Alba Brand Colors
 const colors = {
-  primary: '#E85A2C',
-  primaryLight: '#F4A261',
-  dark: '#2B3A42',
-  darkLight: '#364954',
-  cream: '#FAF9F6',
-  sage: '#6B8E7D',
+  primary: '#4DBDC9',
+  primaryLight: '#7DD3DE',
+  dark: '#1C1C1C',
+  darkLight: '#2E2E2E',
+  cream: '#F0EDDC',
+  accent: '#EE5631',
   text: '#374151',
   muted: '#6B7280',
   border: '#E5E7EB',

@@ -113,13 +113,18 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
   return (
     <>
       {/* Hero Section - Minimal Dark (like directorio page) */}
-      <section className="relative bg-alba-dark pt-32 pb-20 md:pt-40 md:pb-28">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
+      <section className="relative bg-alba-dark pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+        {/* Decorative gradient blob */}
+        <div
+          className="absolute -top-32 -right-32 w-[450px] h-[450px] opacity-20 pointer-events-none"
+          style={{ backgroundImage: 'url(/gradient-blob.png)', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}
+        />
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
           {/* Back button */}
           <Link
             href="/servicios"
             className="inline-flex items-center gap-2 hover:opacity-80 transition-opacity mb-8"
-            style={{ color: 'rgba(255,255,255,0.5)' }}
+            style={{ color: 'rgba(55,65,81,0.5)' }}
           >
             <ArrowLeft className="w-4 h-4" />
             <span className="text-sm">{isEn ? 'All services' : 'Todos los servicios'}</span>
@@ -128,14 +133,14 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
           <div ref={heroContentRef} className="opacity-0">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-2 h-2 rounded-full bg-alba-primary" />
-              <span className="text-sm font-medium uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.5)' }}>
+              <span className="text-sm font-medium uppercase tracking-wider" style={{ color: 'rgba(55,65,81,0.5)' }}>
                 {isEn ? 'Service' : 'Servicio'}
               </span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight" style={{ color: 'white' }}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight" style={{ color: '#374151' }}>
               {title}
             </h1>
-            <p className="mt-6 text-lg md:text-xl max-w-2xl leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)' }}>
+            <p className="mt-6 text-lg md:text-xl max-w-2xl leading-relaxed" style={{ color: 'rgba(55,65,81,0.6)' }}>
               {shortDescription}
             </p>
           </div>
@@ -143,7 +148,7 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
       </section>
 
       {/* Full Description Section */}
-      <section className="bg-creme-alba py-16 md:py-24 px-6 md:px-12 lg:px-16 xl:px-24">
+      <section className="bg-alba-dark py-16 md:py-24 px-6 md:px-12 lg:px-16 xl:px-24">
         <div ref={descriptionRef} className="max-w-4xl mx-auto opacity-0">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-2 h-2 rounded-full bg-alba-primary" />
@@ -158,7 +163,7 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
       </section>
 
       {/* Who Needs It Section */}
-      <section className="bg-white py-16 md:py-24 px-6 md:px-12 lg:px-16 xl:px-24">
+      <section className="bg-alba-dark py-16 md:py-24 px-6 md:px-12 lg:px-16 xl:px-24">
         <div className="max-w-7xl mx-auto">
           <div ref={whoNeedsItRef} className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center opacity-0">
             <div>
@@ -189,7 +194,7 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
       </section>
 
       {/* Process Steps Section - Horizontal Timeline */}
-      <section className="bg-creme-alba py-16 md:py-24 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
+      <section className="bg-alba-dark py-16 md:py-24 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
         <div className="max-w-[1400px] mx-auto">
           <div ref={processRef} className="opacity-0">
             {/* Header */}
@@ -217,7 +222,7 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                     {/* Timeline Node */}
                     <div className="relative flex justify-center mb-8">
                       <div className="w-12 h-12 rounded-full bg-alba-dark flex items-center justify-center relative z-10">
-                        <span className="text-sm font-semibold text-white">
+                        <span className="text-sm font-semibold text-gray-900">
                           {String(step.step).padStart(2, '0')}
                         </span>
                       </div>
@@ -249,7 +254,7 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                     {/* Timeline Node */}
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 rounded-full bg-alba-dark flex items-center justify-center relative z-10">
-                        <span className="text-sm font-semibold text-white">
+                        <span className="text-sm font-semibold text-gray-900">
                           {String(step.step).padStart(2, '0')}
                         </span>
                       </div>
@@ -273,7 +278,7 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
       </section>
 
       {/* Benefits Section */}
-      <section className="bg-white py-16 md:py-24 px-6 md:px-12 lg:px-16 xl:px-24">
+      <section className="bg-alba-dark py-16 md:py-24 px-6 md:px-12 lg:px-16 xl:px-24">
         <div className="max-w-7xl mx-auto">
           <div ref={benefitsRef} className="opacity-0">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
@@ -310,8 +315,13 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
       </section>
 
       {/* What to Expect Section */}
-      <section className="bg-alba-dark py-16 md:py-24 px-6 md:px-12 lg:px-16 xl:px-24">
-        <div className="max-w-4xl mx-auto">
+      <section className="relative bg-alba-dark py-16 md:py-24 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
+        {/* Decorative gradient blob */}
+        <div
+          className="absolute -bottom-32 -left-32 w-[500px] h-[500px] opacity-25 pointer-events-none"
+          style={{ backgroundImage: 'url(/gradient-blob.png)', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}
+        />
+        <div className="relative z-10 max-w-4xl mx-auto">
           <div ref={expectRef} className="opacity-0 text-center">
             <div className="flex items-center justify-center gap-3 mb-6">
               <div className="w-2 h-2 rounded-full bg-alba-primary" />
@@ -319,24 +329,24 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                 {isEn ? 'What to expect' : 'Qué esperar'}
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-light tracking-tight mb-8" style={{ color: 'white' }}>
+            <h2 className="text-3xl md:text-4xl font-light tracking-tight mb-8" style={{ color: '#374151' }}>
               {isEn ? 'During your treatment' : 'Durante tu tratamiento'}
             </h2>
-            <p className="text-lg leading-relaxed mb-8" style={{ color: 'rgba(255,255,255,0.8)' }}>
+            <p className="text-lg leading-relaxed mb-8" style={{ color: 'rgba(55,65,81,0.8)' }}>
               {whatToExpect}
             </p>
 
             {/* Duration and Frequency if available */}
             {(service.duration || service.frequency) && (
-              <div className="flex flex-wrap justify-center gap-8 pt-8 border-t border-white/10">
+              <div className="flex flex-wrap justify-center gap-8 pt-8 border-t border-black/10">
                 {service.duration && (
-                  <div className="flex items-center gap-3" style={{ color: 'rgba(255,255,255,0.7)' }}>
+                  <div className="flex items-center gap-3" style={{ color: 'rgba(55,65,81,0.7)' }}>
                     <Clock className="w-5 h-5 text-alba-primary" />
                     <span>{service.duration}</span>
                   </div>
                 )}
                 {service.frequency && (
-                  <div className="flex items-center gap-3" style={{ color: 'rgba(255,255,255,0.7)' }}>
+                  <div className="flex items-center gap-3" style={{ color: 'rgba(55,65,81,0.7)' }}>
                     <div className="w-2 h-2 rounded-full bg-alba-primary" />
                     <span>{service.frequency}</span>
                   </div>
@@ -349,7 +359,7 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
 
       {/* FAQ Section */}
       {service.faqs.length > 0 && (
-        <section className="bg-creme-alba py-16 md:py-24 px-6 md:px-12 lg:px-16 xl:px-24">
+        <section className="bg-alba-dark py-16 md:py-24 px-6 md:px-12 lg:px-16 xl:px-24">
           <div className="max-w-3xl mx-auto">
             <div ref={faqRef} className="opacity-0">
               <div className="text-center mb-12">
@@ -368,7 +378,7 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                 {service.faqs.map((faq, index) => {
                   const isOpen = expandedFaq === index;
                   return (
-                    <div key={index} className="bg-white border border-gray-100 overflow-hidden">
+                    <div key={index} className="bg-alba-dark border border-gray-100 overflow-hidden">
                       <button
                         onClick={() => setExpandedFaq(isOpen ? null : index)}
                         className="w-full p-6 text-left flex items-center justify-between"
@@ -402,7 +412,7 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
 
       {/* Related Services Section */}
       {relatedServices.length > 0 && (
-        <section className="bg-white py-16 md:py-24 px-6 md:px-12 lg:px-16 xl:px-24">
+        <section className="bg-alba-dark py-16 md:py-24 px-6 md:px-12 lg:px-16 xl:px-24">
           <div className="max-w-7xl mx-auto">
             <div ref={relatedRef} className="opacity-0">
               <div className="text-center mb-12">
@@ -445,7 +455,7 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
       )}
 
       {/* CTA Section */}
-      <section className="relative bg-creme-alba py-20 md:py-28 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
+      <section className="relative bg-alba-dark py-20 md:py-28 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
         {/* Gradient Blobs */}
         <div className="absolute inset-0 pointer-events-none">
           <div

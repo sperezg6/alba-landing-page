@@ -3,12 +3,20 @@
 import { motion } from 'framer-motion';
 import { MessageCircle, ArrowUpRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import dynamic from 'next/dynamic';
+
+const FlowFieldBackground = dynamic(() => import('@/components/ui/flow-field-background'), {
+  ssr: false,
+});
 
 export function NutritionChatbotBanner() {
   const t = useTranslations('nutritionAssistant');
 
   return (
     <section className="relative bg-alba-dark pt-16 pb-24 md:pt-20 md:pb-32 overflow-hidden">
+      {/* Flow field particles */}
+      <FlowFieldBackground particleCount={150} speed={0.4} trailOpacity={0.18} />
+
       {/* Top accent line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-alba-primary/40 to-transparent" />
 
@@ -32,10 +40,10 @@ export function NutritionChatbotBanner() {
                   {t('badge')}
                 </span>
               </div>
-              <h3 className="text-xl md:text-2xl lg:text-3xl font-light" style={{ color: 'white' }}>
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-light" style={{ color: '#374151' }}>
                 {t('title')}
               </h3>
-              <p className="text-gray-400 text-sm md:text-base mt-1 max-w-lg">
+              <p className="text-gray-600 text-sm md:text-base mt-1 max-w-lg">
                 {t('description')}
               </p>
             </div>

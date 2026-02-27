@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Alba Diálisis y Trasplantes | Clínica de Nefrología en León, Guanajuato",
-    "description": "Expertos en hemodiálisis, hemodiafiltración y trasplante renal. Más de 25 años de experiencia cuidando la salud renal de nuestros pacientes en León, Guanajuato."
+    "title": "Alba Diálisis y Trasplantes | Tu Familia en Cuidado Renal en León, Guanajuato",
+    "description": "Más de 25 años acompañando a pacientes y familias en su camino hacia la salud renal. Hemodiálisis, hemodiafiltración y trasplante renal con calidez y empatía en León, Guanajuato."
   },
   "nav": {
     "home": "Inicio",
@@ -27,7 +27,7 @@
     "line1": "Tu salud renal",
     "line2": "en las mejores",
     "line3": "manos.",
-    "subtitle": "Más de 25 años brindando tratamientos de diálisis con tecnología de vanguardia y atención humana excepcional.",
+    "subtitle": "Más de 25 años caminando de la mano con nuestros pacientes y sus familias, porque tu bienestar es también el nuestro.",
     "cta": "Conocer Servicios",
     "ctaSecondary": "Conoce nuestros servicios",
     "ariaLabel": "Sección principal",
@@ -46,17 +46,17 @@
     "statement": "Permítenos tomar tu mano y la de tu familia."
   },
   "albaStatement": {
-    "headlineLine1": "Alba es donde",
-    "headlineLine2": "compasión, tecnología",
-    "headlineLine3": "y experiencia convergen.",
+    "headlineLine1": "Donde cada amanecer",
+    "headlineLine2": "trae nueva esperanza",
+    "headlineLine3": "para ti y tu familia.",
     "imageAlt": "Equipo médico de Alba Diálisis",
-    "contentLabel": "Excelencia Médica",
-    "contentDescription": "Nuestro enfoque integral combina la más avanzada tecnología en hemodiálisis con un equipo médico altamente especializado. Cada tratamiento es personalizado, cada paciente es prioridad, y cada día trabajamos para mejorar vidas.",
+    "contentLabel": "Cuerpo y Alma",
+    "contentDescription": "En Alba creemos que la familia no solo es de sangre, sino de empatía, de amor y armonía. Por eso cuidamos tu cuerpo y tu alma con la misma dedicación, porque la calidad de la excelencia se cuida con el corazón de la empatía. Cada tratamiento es personalizado, cada paciente es familia, y cada día despertamos junto a ti a una nueva oportunidad.",
     "ctaButton": "Conocer Alba"
   },
   "services": {
     "title": "Cuidado Integral Para Ti y Tu Familia",
-    "subtitle": "No es solo diálisis. Es tu vida, tu salud, tu futuro.",
+    "subtitle": "No es solo diálisis. Es tu vida, tu salud, tu cuerpo y tu alma.",
     "familyMission": {
       "headline": "Más que una clínica, somos familia",
       "description": "Sabemos que la enfermedad renal no solo te afecta a ti, sino a toda tu familia. Por eso cada servicio está diseñado para cuidarte a ti y apoyar a quienes te rodean.",
@@ -163,22 +163,24 @@
     "heroHeadline": "Cuidando la salud renal del Bajío por más de 25 años",
     "mission": {
       "title": "Misión",
-      "content": "Brindar atención médica de alta calidad a pacientes con enfermedades renales, utilizando tecnología de vanguardia y un enfoque humano que mejore su calidad de vida."
+      "content": "Acompañar a cada paciente y su familia en el camino hacia una nueva oportunidad de vida, cuidando su cuerpo y su alma con empatía, calidez y la mejor tecnología disponible."
     },
     "vision": {
       "title": "Visión",
-      "content": "Ser el referente en atención nefrológica en el Bajío mexicano, reconocidos por la excelencia en nuestros tratamientos y el trato cálido hacia nuestros pacientes."
+      "content": "Ser la luz en el horizonte para quienes enfrentan la enfermedad renal en el Bajío — un lugar donde cada paciente encuentre esperanza, familia y una sonrisa tranquila."
     },
     "values": {
       "title": "Nuestros Valores",
-      "compassion": "Compasión",
-      "compassionDescription": "Tratamos a cada paciente con empatía y respeto, entendiendo que detrás de cada caso hay una historia personal.",
+      "compassion": "Empatía",
+      "compassionDescription": "El corazón de la empatía guía cada una de nuestras acciones. Sentimos contigo, caminamos contigo y celebramos contigo cada avance.",
       "excellence": "Excelencia",
-      "excellenceDescription": "Buscamos constantemente mejorar nuestros procesos y resultados para ofrecer la mejor atención posible.",
-      "integrity": "Integridad",
-      "integrityDescription": "Actuamos con honestidad y transparencia en cada decisión, priorizando siempre el bienestar del paciente.",
-      "innovation": "Innovación",
-      "innovationDescription": "Incorporamos tecnología de vanguardia y nuevas técnicas médicas para tratamientos más efectivos."
+      "excellenceDescription": "La calidad de la excelencia se cuida con el corazón de la empatía. Combinamos la mejor tecnología con un trato profundamente humano.",
+      "integrity": "Familia",
+      "integrityDescription": "La familia no solo es de sangre, sino de empatía, de amor y armonía. Cada paciente y cada ser querido son parte de nuestra familia Alba.",
+      "innovation": "Esperanza",
+      "innovationDescription": "Como la primera luz del alba, creemos en los nuevos comienzos. Cada día es una nueva oportunidad para despertar a una vida mejor.",
+      "balance": "Equilibrio",
+      "balanceDescription": "La salud y alegría de un cuerpo estable y un alma viva. Cuidamos tu bienestar físico y emocional con la misma dedicación."
     },
     "founder": {
       "title": "Conoce a Nuestra Fundadora",
@@ -292,7 +294,7 @@
     "button": "Agendar tu cita"
   },
   "footer": {
-    "description": "Líderes en tratamiento de diálisis y trasplantes en León, Guanajuato. Más de 25 años cuidando la salud renal de nuestros pacientes.",
+    "description": "Tu familia en el cuidado renal. Más de 25 años acompañando a nuestros pacientes y sus familias hacia un nuevo amanecer en León, Guanajuato.",
     "quickLinks": "Enlaces rápidos",
     "contactInfo": "Contacto",
     "followUs": "Síguenos",
@@ -322,8 +324,8 @@
     "error": "Ha ocurrido un error"
   },
   "team": {
-    "headline": "Un equipo dedicado a restaurar tu calidad de vida",
-    "description": "Nefrólogos, cirujanos y especialistas trabajan juntos para brindarte atención integral. Más que una clínica, somos familia.",
+    "headline": "Más que un equipo médico, somos tu familia",
+    "description": "Nefrólogos, cirujanos y especialistas que te conocen por tu nombre, celebran tus avances y caminan contigo en cada paso de este camino.",
     "cta": "Agenda con especialista"
   },
   "privacy": {

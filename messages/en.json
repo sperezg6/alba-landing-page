@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Alba Dialysis and Transplants | Nephrology Clinic in León, Guanajuato",
-    "description": "Experts in hemodialysis, hemodiafiltration and kidney transplant. Over 25 years of experience caring for our patients' kidney health in León, Guanajuato."
+    "title": "Alba Dialysis and Transplants | Your Family in Kidney Care in León, Guanajuato",
+    "description": "Over 25 years walking alongside patients and families on their path to kidney health. Hemodialysis, hemodiafiltration, and kidney transplant with warmth and empathy in León, Guanajuato."
   },
   "nav": {
     "home": "Home",
@@ -27,7 +27,7 @@
     "line1": "Your kidney health",
     "line2": "in the best",
     "line3": "hands.",
-    "subtitle": "Over 25 years providing dialysis treatments with cutting-edge technology and exceptional human care.",
+    "subtitle": "Over 25 years walking hand in hand with our patients and their families, because your wellbeing is also ours.",
     "cta": "Explore Services",
     "ctaSecondary": "Discover our services",
     "ariaLabel": "Hero section",
@@ -46,17 +46,17 @@
     "statement": "Let us hold your hand and your family's."
   },
   "albaStatement": {
-    "headlineLine1": "Alba is where",
-    "headlineLine2": "compassion, technology,",
-    "headlineLine3": "and expertise meet.",
+    "headlineLine1": "Where every dawn",
+    "headlineLine2": "brings new hope",
+    "headlineLine3": "for you and your family.",
     "imageAlt": "Alba Dialysis medical team",
-    "contentLabel": "Medical Excellence",
-    "contentDescription": "Our comprehensive approach combines the most advanced hemodialysis technology with a highly specialized medical team. Every treatment is personalized, every patient is a priority, and every day we work to improve lives.",
+    "contentLabel": "Body and Soul",
+    "contentDescription": "We believe that true excellence is cared for with the heart of empathy. Our approach goes beyond advanced technology — we care for your body and your soul, walking alongside you and your family because here, family goes beyond blood.",
     "ctaButton": "Discover Alba"
   },
   "services": {
     "title": "Comprehensive Care For You and Your Family",
-    "subtitle": "It's not just dialysis. It's your life, your health, your future.",
+    "subtitle": "It's not just dialysis. It's your life, your health, your body and your soul.",
     "familyMission": {
       "headline": "More than a clinic, we are family",
       "description": "We know that kidney disease doesn't just affect you, but your whole family. That's why every service is designed to care for you and support those around you.",
@@ -163,22 +163,24 @@
     "heroHeadline": "Caring for kidney health in the Bajio region for over 25 years",
     "mission": {
       "title": "Mission",
-      "content": "To provide high-quality medical care to patients with kidney diseases, using cutting-edge technology and a human approach that improves their quality of life."
+      "content": "To accompany every patient and their family on the path toward a new opportunity in life, caring for their body and soul with empathy, warmth, and the best available technology."
     },
     "vision": {
       "title": "Vision",
-      "content": "To be the reference in nephrology care in the Mexican Bajio region, recognized for excellence in our treatments and warm care for our patients."
+      "content": "To be the light on the horizon for those facing kidney disease in the Bajio region — a place where every patient finds hope, family, and a peaceful smile."
     },
     "values": {
       "title": "Our Values",
-      "compassion": "Compassion",
-      "compassionDescription": "We treat each patient with empathy and respect, understanding that behind each case there is a personal story.",
+      "compassion": "Empathy",
+      "compassionDescription": "The heart of everything we do. We treat each patient as family, understanding that behind every treatment there is a person with hopes, fears, and dreams.",
       "excellence": "Excellence",
-      "excellenceDescription": "We constantly seek to improve our processes and outcomes to offer the best possible care.",
-      "integrity": "Integrity",
-      "integrityDescription": "We act with honesty and transparency in every decision, always prioritizing patient wellbeing.",
-      "innovation": "Innovation",
-      "innovationDescription": "We incorporate cutting-edge technology and new medical techniques for more effective treatments."
+      "excellenceDescription": "We believe excellence is cared for with the heart of empathy. Every treatment, every process, every interaction reflects our commitment to the highest quality of care.",
+      "integrity": "Family",
+      "integrityDescription": "Family goes beyond blood. It's empathy, love, and harmony. Here you'll find a team that knows you by name and walks with you every step of the way.",
+      "innovation": "Hope",
+      "innovationDescription": "Like the dawn that gives us our name, we believe in new beginnings. Every day is an opportunity to renew, to heal, to find light on the horizon.",
+      "balance": "Balance",
+      "balanceDescription": "True wellbeing is the balance between a stable body and a living soul. We care for both, because health is not just physical."
     },
     "founder": {
       "title": "Meet Our Founder",
@@ -292,7 +294,7 @@
     "button": "Book your appointment"
   },
   "footer": {
-    "description": "Leaders in dialysis treatment and transplants in León, Guanajuato. Over 25 years caring for our patients' kidney health.",
+    "description": "Your family in kidney care. Over 25 years walking alongside our patients and their families toward a new dawn in León, Guanajuato.",
     "quickLinks": "Quick Links",
     "contactInfo": "Contact",
     "followUs": "Follow Us",
@@ -322,8 +324,8 @@
     "error": "An error has occurred"
   },
   "team": {
-    "headline": "A team dedicated to restoring your quality of life",
-    "description": "Nephrologists, surgeons, and specialists work together to provide you with comprehensive care. More than a clinic, we are family.",
+    "headline": "More than a medical team, we are your family",
+    "description": "Nephrologists, surgeons, and specialists who know you by name, celebrate your progress, and walk with you every step of this journey.",
     "cta": "Book with a specialist"
   },
   "privacy": {

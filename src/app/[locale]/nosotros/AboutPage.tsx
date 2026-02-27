@@ -51,14 +51,14 @@ export function AboutPage() {
 
         {/* Step Ramp Divider - Alba style */}
         <StepRampDivider
-          color="#F4F3E8"
+          color="#F0EDDC"
           height={150}
           className="absolute bottom-0 left-0 right-0 z-20"
         />
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="bg-creme-alba pt-20 md:pt-28 lg:pt-32 pb-10 md:pb-12 px-6 md:px-12 lg:px-16 xl:px-24">
+      <section className="bg-alba-dark pt-20 md:pt-28 lg:pt-32 pb-10 md:pb-12 px-6 md:px-12 lg:px-16 xl:px-24">
         <div className="max-w-7xl mx-auto">
           {/* Top decorative line with ticks */}
           <motion.div
@@ -130,7 +130,7 @@ export function AboutPage() {
       </section>
 
       {/* Full-width Team Photo Section - With unique SVG mask */}
-      <section className="relative bg-creme-alba pt-6 md:pt-8 pb-16 md:pb-20 lg:pb-24 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
+      <section className="relative bg-alba-dark pt-6 md:pt-8 pb-16 md:pb-20 lg:pb-24 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <motion.div
@@ -200,7 +200,7 @@ export function AboutPage() {
             style={{ objectPosition: 'center 30%' }}
           />
           {/* Gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-alba-dark/95 via-alba-dark/70 to-alba-dark/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
         </div>
 
         {/* Content */}
@@ -222,7 +222,8 @@ export function AboutPage() {
 
             {/* Name - Large and confident */}
             <motion.h2
-              className="text-4xl md:text-5xl lg:text-6xl font-light !text-white leading-[1] mb-4 tracking-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1] mb-4 tracking-tight"
+              style={{ color: '#FFFFFF' }}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -233,7 +234,7 @@ export function AboutPage() {
 
             {/* Role */}
             <motion.p
-              className="text-alba-primary text-lg md:text-xl mb-10"
+              className="text-white/70 text-lg md:text-xl mb-10"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -244,7 +245,7 @@ export function AboutPage() {
 
             {/* Bio - The main content */}
             <motion.p
-              className="text-[#F4F3E8]/70 text-lg md:text-xl leading-relaxed mb-10"
+              className="text-white/80 text-lg md:text-xl leading-relaxed mb-10"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -273,7 +274,7 @@ export function AboutPage() {
       </section>
 
       {/* Values Section - Typography focused with grid */}
-      <section className="bg-creme-alba py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24">
+      <section className="bg-alba-dark py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <motion.div
@@ -296,15 +297,15 @@ export function AboutPage() {
 
           {/* Values Grid - Typography only */}
           <div className="border border-gray-900/10">
-            <div className="grid grid-cols-2 lg:grid-cols-4">
-              {['compassion', 'excellence', 'integrity', 'innovation'].map((key, index) => (
+            <div className="grid grid-cols-2 lg:grid-cols-5">
+              {['compassion', 'excellence', 'integrity', 'innovation', 'balance'].map((key, index) => (
                 <motion.div
                   key={key}
                   className={`flex flex-col justify-between p-6 md:p-8 lg:p-10 min-h-[200px] md:min-h-[240px] ${
-                    index < 3 ? 'lg:border-r border-gray-900/10' : ''
-                  } ${index % 2 === 0 ? 'border-r border-gray-900/10' : ''} ${
-                    index < 2 ? 'border-b border-gray-900/10' : ''
-                  } ${index === 2 || index === 3 ? 'lg:border-b-0' : ''}`}
+                    index < 4 ? 'lg:border-r border-gray-900/10' : ''
+                  } ${index % 2 === 0 ? 'border-r border-gray-900/10 lg:border-r' : 'lg:border-r'} ${
+                    index < 3 ? 'border-b border-gray-900/10 lg:border-b-0' : ''
+                  } ${index === 3 ? 'border-b border-gray-900/10 lg:border-b-0' : ''}`}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -332,8 +333,13 @@ export function AboutPage() {
       </section>
 
       {/* Timeline Section - Clean minimal design with horizontal lines */}
-      <section className="bg-alba-dark py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
-        <div className="max-w-5xl mx-auto">
+      <section className="relative bg-alba-dark py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
+        {/* Decorative gradient blob */}
+        <div
+          className="absolute -top-32 -left-32 w-[500px] h-[500px] opacity-25 pointer-events-none"
+          style={{ backgroundImage: 'url(/gradient-blob.png)', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}
+        />
+        <div className="relative z-10 max-w-5xl mx-auto">
           {/* Section Header */}
           <motion.div
             className="mb-16 md:mb-24"
@@ -348,7 +354,7 @@ export function AboutPage() {
                 Nuestra trayectoria
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light !text-white tracking-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light !text-gray-900 tracking-tight">
               {t('about.timeline.title')}
             </h2>
           </motion.div>
@@ -361,18 +367,18 @@ export function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: [0.77, 0, 0.175, 1] }}
           >
-            <div className="absolute inset-0 bg-white/20 origin-left" />
-            <div className="absolute left-0 top-0 w-px h-3 bg-white/30 origin-center -translate-y-1/2" />
-            <div className="absolute left-1/4 top-0 w-px h-2 bg-white/15 origin-center -translate-y-1/2" />
-            <div className="absolute left-1/2 top-0 w-px h-3 bg-white/30 origin-center -translate-x-1/2 -translate-y-1/2" />
-            <div className="absolute left-3/4 top-0 w-px h-2 bg-white/15 origin-center -translate-y-1/2" />
-            <div className="absolute right-0 top-0 w-px h-3 bg-white/30 origin-center -translate-y-1/2" />
+            <div className="absolute inset-0 bg-black/20 origin-left" />
+            <div className="absolute left-0 top-0 w-px h-3 bg-black/30 origin-center -translate-y-1/2" />
+            <div className="absolute left-1/4 top-0 w-px h-2 bg-black/15 origin-center -translate-y-1/2" />
+            <div className="absolute left-1/2 top-0 w-px h-3 bg-black/30 origin-center -translate-x-1/2 -translate-y-1/2" />
+            <div className="absolute left-3/4 top-0 w-px h-2 bg-black/15 origin-center -translate-y-1/2" />
+            <div className="absolute right-0 top-0 w-px h-3 bg-black/30 origin-center -translate-y-1/2" />
           </motion.div>
 
           {/* Timeline - Simple and elegant */}
           <div className="relative">
             {/* Center line */}
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-white/10 -translate-x-1/2" />
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-black/10 -translate-x-1/2" />
 
             {timeline.map((item, index) => (
               <div key={item.year}>
@@ -393,12 +399,12 @@ export function AboutPage() {
                     </span>
 
                     {/* Title */}
-                    <h3 className="text-xl md:text-2xl font-medium !text-white mb-3">
+                    <h3 className="text-xl md:text-2xl font-medium !text-gray-900 mb-3">
                       {t(item.titleKey)}
                     </h3>
 
                     {/* Description */}
-                    <p className={`text-[#F4F3E8]/50 leading-relaxed max-w-md ${index % 2 === 0 ? 'md:ml-auto' : ''}`}>
+                    <p className={`text-gray-900/50 leading-relaxed max-w-md ${index % 2 === 0 ? 'md:ml-auto' : ''}`}>
                       {t(item.descriptionKey)}
                     </p>
                   </div>
@@ -421,10 +427,10 @@ export function AboutPage() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, ease: [0.77, 0, 0.175, 1], delay: 0.2 }}
                   >
-                    <div className={`absolute inset-0 bg-white/10 ${index % 2 === 0 ? 'origin-left' : 'origin-right'}`} />
-                    <div className="absolute left-0 top-0 w-px h-2 bg-white/20 origin-center -translate-y-1/2" />
-                    <div className="absolute left-1/2 top-0 w-px h-2 bg-white/20 origin-center -translate-x-1/2 -translate-y-1/2" />
-                    <div className="absolute right-0 top-0 w-px h-2 bg-white/20 origin-center -translate-y-1/2" />
+                    <div className={`absolute inset-0 bg-black/10 ${index % 2 === 0 ? 'origin-left' : 'origin-right'}`} />
+                    <div className="absolute left-0 top-0 w-px h-2 bg-black/20 origin-center -translate-y-1/2" />
+                    <div className="absolute left-1/2 top-0 w-px h-2 bg-black/20 origin-center -translate-x-1/2 -translate-y-1/2" />
+                    <div className="absolute right-0 top-0 w-px h-2 bg-black/20 origin-center -translate-y-1/2" />
                   </motion.div>
                 )}
               </div>
@@ -439,18 +445,18 @@ export function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: [0.77, 0, 0.175, 1] }}
           >
-            <div className="absolute inset-0 bg-white/20 origin-right" />
-            <div className="absolute left-0 top-0 w-px h-3 bg-white/30 origin-center translate-y-1/2" />
-            <div className="absolute left-1/4 top-0 w-px h-2 bg-white/15 origin-center translate-y-1/2" />
-            <div className="absolute left-1/2 top-0 w-px h-3 bg-white/30 origin-center -translate-x-1/2 translate-y-1/2" />
-            <div className="absolute left-3/4 top-0 w-px h-2 bg-white/15 origin-center translate-y-1/2" />
-            <div className="absolute right-0 top-0 w-px h-3 bg-white/30 origin-center translate-y-1/2" />
+            <div className="absolute inset-0 bg-black/20 origin-right" />
+            <div className="absolute left-0 top-0 w-px h-3 bg-black/30 origin-center translate-y-1/2" />
+            <div className="absolute left-1/4 top-0 w-px h-2 bg-black/15 origin-center translate-y-1/2" />
+            <div className="absolute left-1/2 top-0 w-px h-3 bg-black/30 origin-center -translate-x-1/2 translate-y-1/2" />
+            <div className="absolute left-3/4 top-0 w-px h-2 bg-black/15 origin-center translate-y-1/2" />
+            <div className="absolute right-0 top-0 w-px h-3 bg-black/30 origin-center translate-y-1/2" />
           </motion.div>
         </div>
       </section>
 
       {/* Team Preview Section - Asymmetrical Editorial Grid */}
-      <section className="bg-creme-alba py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24">
+      <section className="bg-alba-dark py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24">
         <div className="max-w-7xl mx-auto">
           {/* Header - Asymmetric with CTA on right */}
           <div className="grid lg:grid-cols-12 gap-8 mb-12 md:mb-16">
@@ -504,10 +510,10 @@ export function AboutPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0" />
                   <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                    <h3 className="text-xl md:text-2xl font-medium !text-white mb-1">
+                    <h3 className="text-xl md:text-2xl font-medium mb-1" style={{ color: '#FFFFFF' }}>
                       {doctors[0]?.name}
                     </h3>
-                    <p className="text-sm !text-white/70">
+                    <p className="text-sm text-white/70">
                       {t(doctors[0]?.roleKey || '')}
                     </p>
                   </div>
@@ -606,8 +612,13 @@ export function AboutPage() {
       </section>
 
       {/* CTA Section - Asymmetrical Dark */}
-      <section className="bg-alba-dark py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative bg-alba-dark py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
+        {/* Decorative gradient blob */}
+        <div
+          className="absolute -bottom-32 -right-32 w-[600px] h-[600px] opacity-30 pointer-events-none"
+          style={{ backgroundImage: 'url(/gradient-blob.png)', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}
+        />
+        <div className="relative z-10 max-w-7xl mx-auto">
           {/* Top decorative line */}
           <motion.div
             className="relative w-full h-px mb-16 md:mb-20"
@@ -616,10 +627,10 @@ export function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: [0.77, 0, 0.175, 1] }}
           >
-            <div className="absolute inset-0 bg-white/20 origin-left" />
-            <div className="absolute left-0 top-0 w-px h-3 bg-white/30 -translate-y-1/2" />
-            <div className="absolute left-1/3 top-0 w-px h-2 bg-white/15 -translate-y-1/2" />
-            <div className="absolute right-0 top-0 w-px h-3 bg-white/30 -translate-y-1/2" />
+            <div className="absolute inset-0 bg-black/20 origin-left" />
+            <div className="absolute left-0 top-0 w-px h-3 bg-black/30 -translate-y-1/2" />
+            <div className="absolute left-1/3 top-0 w-px h-2 bg-black/15 -translate-y-1/2" />
+            <div className="absolute right-0 top-0 w-px h-3 bg-black/30 -translate-y-1/2" />
           </motion.div>
 
           {/* Asymmetrical grid layout */}
@@ -638,7 +649,7 @@ export function AboutPage() {
                   Próximo paso
                 </span>
               </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light !text-white leading-[0.95] tracking-tight">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light !text-gray-900 leading-[0.95] tracking-tight">
                 Sé parte de<br />
                 <span className="text-alba-primary">nuestra historia</span>
               </h2>
@@ -646,24 +657,24 @@ export function AboutPage() {
 
             {/* Right side - CTA content (takes 5 cols) */}
             <motion.div
-              className="lg:col-span-5 lg:border-l lg:border-white/10 lg:pl-12"
+              className="lg:col-span-5 lg:border-l lg:border-black/10 lg:pl-12"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.77, 0, 0.175, 1] }}
             >
-              <p className="text-[#F4F3E8]/60 text-lg md:text-xl leading-relaxed mb-8">
+              <p className="text-gray-900/60 text-lg md:text-xl leading-relaxed mb-8">
                 Conoce nuestras instalaciones y al equipo que cuidará de tu salud renal.
               </p>
               <Link
                 href="/contacto"
                 className="group inline-flex items-center gap-4"
               >
-                <span className="text-sm font-medium uppercase tracking-wider text-white group-hover:text-alba-primary transition-colors duration-300">
+                <span className="text-sm font-medium uppercase tracking-wider text-gray-900 group-hover:text-alba-primary transition-colors duration-300">
                   Agenda una visita
                 </span>
-                <span className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-alba-primary group-hover:bg-alba-primary transition-all duration-300">
-                  <ArrowUpRight className="w-5 h-5 text-white group-hover:text-black transition-colors duration-300" />
+                <span className="w-12 h-12 rounded-full border border-black/20 flex items-center justify-center group-hover:border-alba-primary group-hover:bg-alba-primary transition-all duration-300">
+                  <ArrowUpRight className="w-5 h-5 text-gray-900 group-hover:text-black transition-colors duration-300" />
                 </span>
               </Link>
             </motion.div>
@@ -677,8 +688,8 @@ export function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.77, 0, 0.175, 1] }}
           >
-            <div className="flex-1 h-px bg-gradient-to-r from-white/20 to-transparent" />
-            <span className="text-[#F4F3E8]/30 text-xs uppercase tracking-[0.3em]">
+            <div className="flex-1 h-px bg-gradient-to-r from-black/20 to-transparent" />
+            <span className="text-gray-900/30 text-xs uppercase tracking-[0.3em]">
               Alba Diálisis
             </span>
           </motion.div>

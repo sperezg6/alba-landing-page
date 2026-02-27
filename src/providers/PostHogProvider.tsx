@@ -13,6 +13,12 @@ if (typeof window !== 'undefined' && process.env.NEXT_PUBLIC_POSTHOG_KEY) {
     capture_pageview: false, // We'll capture manually for better control
     capture_pageleave: true,
   });
+
+  // Register global properties for all events (for multi-site filtering)
+  posthog.register({
+    site: 'alba',
+    site_name: 'Alba Diálisis y Trasplantes',
+  });
 }
 
 // Component to track page views

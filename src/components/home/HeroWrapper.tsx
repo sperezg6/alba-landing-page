@@ -131,7 +131,7 @@ export function HeroWrapper() {
       </div>
 
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/30" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/30" />
 
       {/* Single scroll progress line - Fixed position, only visible in hero wrapper */}
       <div
@@ -183,12 +183,12 @@ export function HeroWrapper() {
           className="ml-auto mr-16 md:mr-24 lg:mr-32 max-w-md md:max-w-lg lg:max-w-xl"
         >
           <div className="flex items-center gap-2 mb-4">
-            <span className="w-2 h-2 rounded-full bg-alba-primary" />
-            <span className="text-alba-primary text-sm font-medium uppercase tracking-[0.2em]">
+            <span className="w-2.5 h-2.5 rounded-full bg-alba-primary shadow-[0_0_8px_rgba(77,189,201,0.6)]" />
+            <span className="text-alba-primary text-sm font-semibold uppercase tracking-[0.2em] drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
               {tScroll('label')}
             </span>
           </div>
-          <p className="text-white text-xl md:text-2xl lg:text-3xl leading-relaxed font-light">
+          <p className="text-white text-xl md:text-2xl lg:text-3xl leading-relaxed font-light drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">
             {tScroll('description')}
           </p>
         </div>
@@ -203,19 +203,19 @@ export function HeroWrapper() {
           {/* Medical Excellence */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <span className="w-2 h-2 rounded-full bg-alba-primary" />
-              <span className="text-alba-primary text-sm font-medium uppercase tracking-[0.2em]">
+              <span className="w-2.5 h-2.5 rounded-full bg-alba-primary shadow-[0_0_8px_rgba(77,189,201,0.6)]" />
+              <span className="text-alba-primary text-sm font-semibold uppercase tracking-[0.2em] drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
                 {tScroll('label2')}
               </span>
             </div>
-            <p className="text-white text-xl md:text-2xl lg:text-3xl leading-relaxed font-light">
+            <p className="text-white text-xl md:text-2xl lg:text-3xl leading-relaxed font-light drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">
               {tScroll('description2')}
             </p>
           </div>
 
           {/* Statement headline */}
           <div className="pt-4">
-            <p className="text-white text-2xl md:text-3xl lg:text-4xl font-light leading-tight">
+            <p className="text-white text-2xl md:text-3xl lg:text-4xl font-light leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">
               {tScroll('statement')}
             </p>
           </div>

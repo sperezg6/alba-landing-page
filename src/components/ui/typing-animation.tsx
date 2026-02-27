@@ -82,7 +82,7 @@ export function TypingAnimation({
       {/* Invisible text to reserve space */}
       <Component
         className={cn(
-          "font-display leading-relaxed tracking-[-0.01em] invisible",
+          "font-heading leading-relaxed tracking-[-0.01em] invisible",
           className
         )}
         aria-hidden="true"
@@ -92,7 +92,7 @@ export function TypingAnimation({
       {/* Visible typed text positioned on top */}
       <Component
         className={cn(
-          "font-display leading-relaxed tracking-[-0.01em] absolute inset-0",
+          "font-heading leading-relaxed tracking-[-0.01em] absolute inset-0",
           className
         )}
       >

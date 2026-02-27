@@ -8,6 +8,12 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useRouter } from '@/i18n/navigation';
 import { AnimatedButton } from '@/components/ui/AnimatedButton';
 import { doctors } from '@/lib/data';
+import { usePostHog } from 'posthog-js/react';
+import dynamic from 'next/dynamic';
+
+const FlowFieldBackground = dynamic(() => import('@/components/ui/flow-field-background'), {
+  ssr: false,
+});
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,13 +26,15 @@ interface DoctorCardProps {
   isFounder?: boolean;
   founderLabel: string;
   viewProfileLabel: string;
+  onProfileClick?: (name: string, slug: string) => void;
 }
 
-const DoctorCard = ({ name, role, image, slug, isFounder, founderLabel, viewProfileLabel }: DoctorCardProps) => {
+const DoctorCard = ({ name, role, image, slug, isFounder, founderLabel, viewProfileLabel, onProfileClick }: DoctorCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const router = useRouter();
 
   const handleDoubleClick = () => {
+    onProfileClick?.(name, slug);
     router.push(`/directorio/${slug}`);
   };
 
@@ -53,7 +61,7 @@ const DoctorCard = ({ name, role, image, slug, isFounder, founderLabel, viewProf
         {/* Founder badge */}
         {isFounder && (
           <div className="absolute top-3 left-3">
-            <span className="text-[10px] uppercase tracking-widest text-white/90 bg-white/10 backdrop-blur-sm px-2 py-1 rounded-sm">
+            <span className="text-[10px] uppercase tracking-widest text-gray-900/90 bg-black/10 backdrop-blur-sm px-2 py-1 rounded-sm">
               {founderLabel}
             </span>
           </div>
@@ -64,11 +72,11 @@ const DoctorCard = ({ name, role, image, slug, isFounder, founderLabel, viewProf
       <div className="space-y-1">
         <h3
           className="text-sm md:text-base font-medium leading-tight transition-colors duration-300"
-          style={{ color: isHovered ? 'var(--color-primary)' : 'white' }}
+          style={{ color: isHovered ? 'var(--color-primary)' : '#374151' }}
         >
           {name}
         </h3>
-        <p className="text-[#F4F3E8]/50 text-xs md:text-sm">
+        <p className="text-gray-900/50 text-xs md:text-sm">
           {role}
         </p>
       </div>
@@ -83,6 +91,14 @@ export function DoctorShowcase() {
   const headlineRef = useRef<HTMLDivElement>(null);
   const descriptionRef = useRef<HTMLDivElement>(null);
   const illustrationsRef = useRef<HTMLDivElement>(null);
+  const posthog = usePostHog();
+
+  const handleDoctorProfileClick = (doctorName: string, doctorSlug: string) => {
+    posthog?.capture('doctor_profile_clicked', {
+      doctor_name: doctorName,
+      doctor_slug: doctorSlug,
+    });
+  };
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -159,6 +175,9 @@ export function DoctorShowcase() {
       ref={sectionRef}
       className="relative bg-alba-dark overflow-hidden"
     >
+      {/* Flow field particles */}
+      <FlowFieldBackground particleCount={200} speed={0.4} trailOpacity={0.15} />
+
       {/* Content container */}
       <div className="relative z-10 px-6 md:px-16 lg:px-24 pt-32 md:pt-40 lg:pt-48">
         {/* Two column layout for headline and description */}
@@ -167,7 +186,7 @@ export function DoctorShowcase() {
           <div ref={headlineRef} className="lg:max-w-3xl">
             <h2
               className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light leading-[1.1]"
-              style={{ color: 'white' }}
+              style={{ color: '#374151' }}
             >
               {t('headline')}
             </h2>
@@ -175,7 +194,7 @@ export function DoctorShowcase() {
 
           {/* Description - Right side */}
           <div ref={descriptionRef} className="lg:max-w-md lg:pt-4">
-            <p className="text-base md:text-lg text-[#F4F3E8]/70 leading-relaxed">
+            <p className="text-base md:text-lg text-gray-900/70 leading-relaxed">
               {t('description')}
             </p>
             <div className="mt-8">
@@ -203,6 +222,7 @@ export function DoctorShowcase() {
               isFounder={doctor.isFounder}
               founderLabel={tCard('founder')}
               viewProfileLabel={tCard('viewProfile')}
+              onProfileClick={handleDoctorProfileClick}
             />
           ))}
         </div>

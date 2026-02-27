@@ -8,6 +8,7 @@ import { Link } from '@/i18n/navigation';
 import { ArrowRight, Map, LayoutGrid } from 'lucide-react';
 import { Section, Button, PlaceCard } from '@/components/ui';
 import { branches } from '@/lib/data';
+import { usePostHog } from 'posthog-js/react';
 
 // Dynamically import map to avoid SSR issues
 const BranchesMap = dynamic(() => import('./BranchesMap'), {
@@ -127,11 +128,26 @@ export function BranchesPreview() {
   const cardsRef = useRef<HTMLDivElement>(null);
   const mobileButtonRef = useRef<HTMLDivElement>(null);
   const bannerRef = useRef<HTMLDivElement>(null);
+  const posthog = usePostHog();
 
   const headerInView = useInView(headerRef, { once: true, amount: 0.3 });
   const cardsInView = useInView(cardsRef, { once: true, amount: 0.2 });
   const mobileButtonInView = useInView(mobileButtonRef, { once: true, amount: 0.5 });
   const bannerInView = useInView(bannerRef, { once: true, amount: 0.3 });
+
+  const handleViewModeChange = (mode: 'cards' | 'map') => {
+    setViewMode(mode);
+    posthog?.capture('branches_view_mode_changed', {
+      view_mode: mode,
+    });
+  };
+
+  const handleBranchDirectionsClick = (branchId: string, branchName: string) => {
+    posthog?.capture('branch_directions_clicked', {
+      branch_id: branchId,
+      branch_name: branchName,
+    });
+  };
 
   return (
     <Section background="default" padding="lg" className="section-light">
@@ -174,7 +190,7 @@ export function BranchesPreview() {
             variants={buttonVariants}
           >
             <button
-              onClick={() => setViewMode('cards')}
+              onClick={() => handleViewModeChange('cards')}
               className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all ${
                 viewMode === 'cards'
                   ? 'bg-white text-gray-900 shadow-sm'
@@ -185,7 +201,7 @@ export function BranchesPreview() {
               <span className="hidden sm:inline">Tarjetas</span>
             </button>
             <button
-              onClick={() => setViewMode('map')}
+              onClick={() => handleViewModeChange('map')}
               className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all ${
                 viewMode === 'map'
                   ? 'bg-white text-gray-900 shadow-sm'
@@ -239,6 +255,7 @@ export function BranchesPreview() {
                 ctaText={t('branches.getDirections')}
                 ctaHref={branch.mapUrl}
                 className="h-full"
+                onClick={() => handleBranchDirectionsClick(branch.id, branch.name)}
               />
             </motion.div>
           ))}

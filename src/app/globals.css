@@ -2,29 +2,30 @@
 
 :root {
   /* Alba Diálisis Brand Colors - Warm & Welcoming Palette */
-  --color-primary: #E85A2C;           /* Alba Orange - main brand color */
-  --color-primary-light: #F4A261;     /* Soft Coral - hover/lighter states */
-  --color-primary-dark: #C94A1F;      /* Deeper Orange - pressed states */
-  --color-secondary: #6B8E7D;         /* Soft Sage - medical but warm */
-  --color-secondary-light: #8BA99A;   /* Lighter sage */
-  --color-secondary-dark: #567264;    /* Deeper sage */
-  --color-background: #FAF9F6;        /* Warm Cream */
+  --color-primary: #4DBDC9;           /* Alba Aqua - main brand color */
+  --color-primary-light: #7DD3DE;     /* Light aqua - hover/lighter states */
+  --color-primary-dark: #3A9BA6;      /* Dark aqua - pressed states */
+  --color-secondary: #EE5631;         /* Orange/Red - accent color */
+  --color-secondary-light: #F47A5E;   /* Light orange */
+  --color-secondary-dark: #C94525;    /* Deep orange */
+  --color-background: #FAFAF7;        /* Warm White */
   --color-surface: #FFFFFF;
   --color-text: #374151;              /* Warm Dark Gray - easier on eyes */
   --color-muted: #6B7280;             /* Medium gray for secondary text */
   --color-border: #E5E7EB;
+  --color-accent-gold: #F59F20;    /* Gold accent */
 
-  /* Dark Theme Colors (for Hero + CTA sections) - Warm Charcoal */
-  --color-dark-bg: #2B3A42;           /* Warm Charcoal - softer than black */
-  --color-dark-surface: #364954;      /* Slightly lighter surface */
-  --color-dark-elevated: #425A66;     /* Elevated elements */
-  --color-dark-text: #F9FAFB;         /* Almost white */
-  --color-dark-muted: #9CA3AF;        /* Muted text on dark */
-  --color-dark-border: rgba(255, 255, 255, 0.12);
+  /* Dark Theme Colors - Brandbook Beige */
+  --color-dark-bg: #FAFAF7;            /* Warm White */
+  --color-dark-surface: #E8E5D4;       /* Slightly deeper beige */
+  --color-dark-elevated: #E0DDD0;      /* Elevated beige */
+  --color-dark-text: #374151;          /* Dark gray text */
+  --color-dark-muted: #6B7280;         /* Muted text */
+  --color-dark-border: rgba(0, 0, 0, 0.12);
 
-  /* Accent Glows - Orange based */
-  --color-orange-glow: rgba(232, 90, 44, 0.4);
-  --color-sage-glow: rgba(107, 142, 125, 0.3);
+  /* Accent Glows */
+  --color-aqua-glow: rgba(77, 189, 201, 0.4);
+  --color-orange-glow: rgba(238, 86, 49, 0.3);
 
   /* Glassmorphism */
   --glass-bg: rgba(255, 255, 255, 0.7);
@@ -49,23 +50,24 @@
 
 @theme inline {
   /* Alba Brand Colors - use as bg-alba-primary, text-alba-dark, etc. */
-  --color-alba-primary: #E85A2C;
-  --color-alba-primary-light: #F4A261;
-  --color-alba-primary-dark: #C94A1F;
-  --color-alba-secondary: #6B8E7D;
-  --color-alba-secondary-light: #8BA99A;
-  --color-alba-secondary-dark: #567264;
-  --color-alba-dark: #2B3A42;
-  --color-alba-dark-light: #364954;
-  --color-alba-dark-elevated: #425A66;
-  --color-alba-cream: #FAF9F6;
+  --color-alba-primary: #4DBDC9;
+  --color-alba-primary-light: #7DD3DE;
+  --color-alba-primary-dark: #3A9BA6;
+  --color-alba-secondary: #EE5631;
+  --color-alba-secondary-light: #F47A5E;
+  --color-alba-secondary-dark: #C94525;
+  --color-alba-dark: #FAFAF7;
+  --color-alba-dark-light: #E8E5D4;
+  --color-alba-dark-elevated: #E0DDD0;
+  --color-alba-cream: #F0EDDC;
   --color-alba-text: #374151;
   --color-alba-muted: #6B7280;
+  --color-alba-accent-gold: #F59F20;
 
   /* Fonts */
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-body);
   --font-heading: var(--font-heading);
-  --font-serif: var(--font-serif);
+  --font-serif: var(--font-heading);
 
   /* Shadows */
   --shadow-glass: var(--glass-shadow);
@@ -98,56 +100,56 @@ html::-webkit-scrollbar {
 body {
   background-color: var(--color-background);
   color: var(--color-text);
-  font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-body), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Typography - Plus Jakarta Sans for headings, Inter for body */
+/* Typography - Cardo for headings, Nunito Sans for body */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading), system-ui, -apple-system, sans-serif;
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: -0.02em;
+  letter-spacing: 0em;
   color: var(--color-text);
 }
 
 /* Heading Scale with proper hierarchy - Enhanced for visual impact */
 h1 {
   font-size: clamp(2.75rem, 6vw, 4.5rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   line-height: 1.08;
 }
 
 h2 {
   font-size: clamp(2.25rem, 5vw, 3.5rem);
   font-weight: 700;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.01em;
 }
 
 h3 {
   font-size: clamp(1.5rem, 3vw, 2.25rem);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: 0em;
 }
 
 h4 {
   font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-  font-weight: 600;
-  letter-spacing: -0.015em;
+  font-weight: 700;
+  letter-spacing: 0em;
 }
 
 h5 {
   font-size: clamp(1.125rem, 2vw, 1.25rem);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.01em;
 }
 
 h6 {
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.01em;
 }
 
@@ -174,8 +176,8 @@ p {
 .display-heading {
   font-family: var(--font-heading), system-ui, -apple-system, sans-serif;
   font-size: clamp(3.5rem, 7vw, 6rem);
-  font-weight: 800;
-  letter-spacing: -0.04em;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   line-height: 1.02;
 }
 
@@ -230,7 +232,7 @@ p {
 
 /* Gradient Text */
 .gradient-text {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  background: linear-gradient(135deg, #4DBDC9 0%, #F59F20 50%, #EE5631 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -242,6 +244,19 @@ p {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Sunrise Gradient - Brand signature (alba = dawn) */
+.bg-sunrise {
+  background: linear-gradient(135deg, #4DBDC9 0%, #6BC5A0 25%, #B8D45C 50%, #F59F20 75%, #EE5631 100%);
+}
+
+.bg-sunrise-subtle {
+  background: linear-gradient(135deg, rgba(77, 189, 201, 0.08) 0%, rgba(107, 197, 160, 0.06) 25%, rgba(184, 212, 92, 0.04) 50%, rgba(245, 159, 32, 0.06) 75%, rgba(238, 86, 49, 0.08) 100%);
+}
+
+.bg-sunrise-vertical {
+  background: linear-gradient(to bottom, #4DBDC9 0%, #6BC5A0 25%, #B8D45C 50%, #F59F20 75%, #EE5631 100%);
 }
 
 /* Animations */
@@ -317,10 +332,10 @@ p {
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(232, 90, 44, 0.3);
+    box-shadow: 0 0 20px rgba(77, 189, 201, 0.3);
   }
   50% {
-    box-shadow: 0 0 40px rgba(232, 90, 44, 0.5);
+    box-shadow: 0 0 40px rgba(77, 189, 201, 0.5);
   }
 }
 
@@ -413,10 +428,10 @@ p {
 /* Glow Pulse */
 @keyframes glow-pulse {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(232, 90, 44, 0.2);
+    box-shadow: 0 0 20px rgba(77, 189, 201, 0.2);
   }
   50% {
-    box-shadow: 0 0 40px rgba(232, 90, 44, 0.4);
+    box-shadow: 0 0 40px rgba(77, 189, 201, 0.4);
   }
 }
 
@@ -483,9 +498,9 @@ p {
 /* High Contrast Mode Support */
 @media (prefers-contrast: high) {
   :root {
-    --color-primary: #C94A1F;
-    --color-primary-light: #E85A2C;
-    --color-secondary: #4A6B5A;
+    --color-primary: #2A8A95;
+    --color-primary-light: #4DBDC9;
+    --color-secondary: #C94525;
     --color-border: #333333;
     --color-muted: #444444;
   }
@@ -631,10 +646,10 @@ html.lenis body {
 .parallax__title {
   font-family: var(--font-heading), system-ui, -apple-system, sans-serif;
   font-size: clamp(3rem, 12vw, 10rem);
-  font-weight: 800;
+  font-weight: 700;
   color: white;
   text-align: center;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.01em;
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
@@ -755,13 +770,13 @@ html.lenis body {
   );
 }
 
-/* Orange Glow Effect */
-.glow-orange {
-  text-shadow: 0 0 40px var(--color-orange-glow);
+/* Aqua Glow Effect */
+.glow-aqua {
+  text-shadow: 0 0 40px var(--color-aqua-glow);
 }
 
-.glow-sage {
-  text-shadow: 0 0 40px var(--color-sage-glow);
+.glow-orange {
+  text-shadow: 0 0 40px var(--color-orange-glow);
 }
 
 /* Dark Section Orange Button */
@@ -795,7 +810,7 @@ html.lenis body {
   box-shadow:
     0 8px 16px rgba(0, 0, 0, 0.04),
     0 24px 48px rgba(43, 58, 66, 0.12);
-  border-color: rgba(232, 90, 44, 0.3);
+  border-color: rgba(77, 189, 201, 0.3);
 }
 
 /* Dark Glass Card (for dark sections) */
@@ -819,9 +834,9 @@ html.lenis body {
     0 16px 16px rgba(0, 0, 0, 0.02);
 }
 
-/* Editorial Headline with Playfair Display */
+/* Editorial Headline with Cardo */
 .headline-editorial {
-  font-family: var(--font-serif), 'Playfair Display', Georgia, serif;
+  font-family: var(--font-heading), 'Cardo', Georgia, serif;
   font-weight: 400;
   letter-spacing: -0.02em;
   line-height: 1.1;
@@ -829,7 +844,7 @@ html.lenis body {
 
 /* Large Editorial Section Number */
 .editorial-number {
-  font-family: var(--font-serif), 'Playfair Display', Georgia, serif;
+  font-family: var(--font-heading), 'Cardo', Georgia, serif;
   font-weight: 300;
   line-height: 1;
   letter-spacing: -0.05em;
@@ -844,9 +859,9 @@ html.lenis body {
 .bg-gradient-animated {
   background: linear-gradient(
     135deg,
-    rgba(107, 142, 125, 0.03) 0%,
-    rgba(232, 90, 44, 0.05) 50%,
-    rgba(107, 142, 125, 0.03) 100%
+    rgba(77, 189, 201, 0.03) 0%,
+    rgba(238, 86, 49, 0.05) 50%,
+    rgba(77, 189, 201, 0.03) 100%
   );
   background-size: 200% 200%;
   animation: gradient-ambient 15s ease infinite;
@@ -862,7 +877,7 @@ html.lenis body {
   align-items: center;
   justify-content: center;
   box-shadow:
-    0 4px 12px rgba(232, 90, 44, 0.25),
+    0 4px 12px rgba(77, 189, 201, 0.25),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -870,7 +885,7 @@ html.lenis body {
 .icon-container-premium:hover {
   transform: translateY(-2px);
   box-shadow:
-    0 8px 20px rgba(232, 90, 44, 0.35),
+    0 8px 20px rgba(77, 189, 201, 0.35),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
@@ -909,12 +924,12 @@ html.lenis body {
   pointer-events: none;
 }
 
-.floating-orb-orange {
-  background: rgba(232, 90, 44, 0.12);
+.floating-orb-aqua {
+  background: rgba(77, 189, 201, 0.12);
 }
 
-.floating-orb-sage {
-  background: rgba(107, 142, 125, 0.1);
+.floating-orb-orange {
+  background: rgba(238, 86, 49, 0.1);
 }
 
 /* Premium Card Hover Glow */
@@ -952,7 +967,7 @@ html.lenis body {
 
 /* Hero Headline - Massive, cinematic (8-12rem) */
 .headline-hero {
-  font-family: var(--font-serif), 'Playfair Display', Georgia, serif;
+  font-family: var(--font-heading), 'Cardo', Georgia, serif;
   font-size: clamp(4rem, 15vw, 12rem);
   line-height: 0.9;
   letter-spacing: -0.03em;
@@ -961,7 +976,7 @@ html.lenis body {
 
 /* Statement Headline - Large, readable (2-4rem) */
 .headline-statement {
-  font-family: var(--font-serif), 'Playfair Display', Georgia, serif;
+  font-family: var(--font-heading), 'Cardo', Georgia, serif;
   font-size: clamp(2rem, 5vw, 4rem);
   line-height: 1.3;
   letter-spacing: -0.01em;
@@ -970,7 +985,7 @@ html.lenis body {
 
 /* Section Headline - Bold sections (3-6rem) */
 .headline-section {
-  font-family: var(--font-serif), 'Playfair Display', Georgia, serif;
+  font-family: var(--font-heading), 'Cardo', Georgia, serif;
   font-size: clamp(3rem, 8vw, 6rem);
   line-height: 1;
   letter-spacing: -0.02em;
@@ -979,7 +994,7 @@ html.lenis body {
 
 /* CTA Headline - Large call to action (6-10rem) */
 .headline-cta {
-  font-family: var(--font-serif), 'Playfair Display', Georgia, serif;
+  font-family: var(--font-heading), 'Cardo', Georgia, serif;
   font-size: clamp(3rem, 10vw, 8rem);
   line-height: 0.95;
   letter-spacing: -0.03em;
@@ -1046,7 +1061,7 @@ html.lenis body {
 
 /* Large menu links */
 .menu-link-large {
-  font-family: var(--font-serif), 'Playfair Display', Georgia, serif;
+  font-family: var(--font-heading), 'Cardo', Georgia, serif;
   font-size: clamp(2rem, 6vw, 4.5rem);
   line-height: 1.2;
   letter-spacing: -0.02em;
@@ -1070,7 +1085,7 @@ html.lenis body {
 /* ===== QUOTATION MARKS DECORATION ===== */
 
 .quote-mark-large {
-  font-family: var(--font-serif), 'Playfair Display', Georgia, serif;
+  font-family: var(--font-heading), 'Cardo', Georgia, serif;
   font-size: clamp(6rem, 15vw, 12rem);
   line-height: 0.5;
   color: var(--color-secondary);
@@ -1094,12 +1109,12 @@ html.lenis body {
 
 /* Bold display headline (Bebas Neue style) */
 .alba-headline {
-  font-family: var(--font-display), 'Bebas Neue', system-ui, sans-serif;
+  font-family: var(--font-heading), 'Cardo', Georgia, serif;
   font-size: clamp(3.5rem, 12vw, 7rem);
-  font-weight: 400;
+  font-weight: 700;
   line-height: 0.95;
   letter-spacing: 0.01em;
-  text-transform: none;
+  text-transform: uppercase;
   color: #FFFFFF !important;
 }
 
@@ -1115,17 +1130,17 @@ html.lenis body {
   }
 }
 
-/* Alba Orange accent color */
+/* Alba Aqua accent color */
 .bg-alba-accent {
-  background-color: #E85A2C;
+  background-color: #4DBDC9;
 }
 
 .bg-alba-accent:hover {
-  background-color: #D14E22;
+  background-color: #3A9BA6;
 }
 
 .text-alba-accent {
-  color: #E85A2C;
+  color: #4DBDC9;
 }
 
 /* Navy dark background */
@@ -1142,7 +1157,7 @@ html.lenis body {
   align-items: center;
   justify-content: center;
   padding: 1rem 2rem;
-  background-color: #2B3A42;
+  background-color: #1C1C1C;
   color: #ffffff;
   font-size: 0.75rem;
   font-weight: 500;
@@ -1167,12 +1182,12 @@ html.lenis body {
   justify-content: center;
   padding: 1rem 2rem;
   background-color: transparent;
-  color: #2B3A42;
+  color: #1C1C1C;
   font-size: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  border: 2px solid #2B3A42;
+  border: 2px solid #1C1C1C;
   /* Corner-cut on bottom-right (idle state) */
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.5rem), calc(100% - 1.5rem) 100%, 0 100%);
   transition: clip-path 0.25s ease-out, background-color 0.25s ease-out, color 0.25s ease-out;
@@ -1181,7 +1196,7 @@ html.lenis body {
 .btn-alba-outline:hover {
   /* Corner-cut moves to top-left on hover */
   clip-path: polygon(1.5rem 0, 100% 0, 100% 100%, 0 100%, 0 1.5rem);
-  background-color: #2B3A42;
+  background-color: #1C1C1C;
   color: #ffffff;
 }
 
@@ -1193,7 +1208,7 @@ html.lenis body {
   align-items: flex-start;
   justify-content: flex-start;
   padding: 0.75rem 1.5rem 1.75rem 1rem;
-  background-color: #2B3A42;
+  background-color: #1C1C1C;
   color: #ffffff;
   font-size: 0.75rem;
   font-weight: 500;
@@ -1226,12 +1241,12 @@ html.lenis body {
   justify-content: flex-start;
   padding: 0.75rem 1.5rem 1.75rem 1rem;
   background-color: transparent;
-  color: #2B3A42;
+  color: #1C1C1C;
   font-size: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  border: 2px solid #2B3A42;
+  border: 2px solid #1C1C1C;
   overflow: hidden;
   /* Corner-cut on bottom-right - stays fixed */
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1rem), calc(100% - 1rem) 100%, 0 100%);
@@ -1239,7 +1254,7 @@ html.lenis body {
 }
 
 .btn-alba-outline-animated:hover {
-  background-color: #2B3A42;
+  background-color: #1C1C1C;
   color: #ffffff;
 }
 
@@ -1260,21 +1275,21 @@ html.lenis body {
   justify-content: flex-start;
   padding: 0.75rem 1.5rem 1.75rem 1rem;
   background-color: transparent;
-  color: #F4F3E8;
+  color: #F0EDDC;
   font-size: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  border: 1px solid rgba(244, 243, 232, 0.3);
+  border: 1px solid rgba(240, 237, 220, 0.3);
   overflow: hidden;
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1rem), calc(100% - 1rem) 100%, 0 100%);
   transition: background-color 0.35s ease-out, color 0.35s ease-out, border-color 0.35s ease-out;
 }
 
 .btn-alba-outline-animated-dark:hover {
-  background-color: #F4F3E8;
+  background-color: #F0EDDC;
   color: #0D0D0D;
-  border-color: #F4F3E8;
+  border-color: #F0EDDC;
 }
 
 .btn-alba-outline-animated-dark .btn-text {
@@ -1349,5 +1364,5 @@ html.lenis body {
 
 /* Alba creme background color */
 .bg-creme-alba {
-  background-color: #F4F3E8;
+  background-color: #F0EDDC;
 }

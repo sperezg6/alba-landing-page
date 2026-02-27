@@ -56,7 +56,7 @@ export function SingleTestimonial() {
   return (
     <section
       ref={sectionRef}
-      className="section-fullscreen section-center bg-white relative overflow-hidden"
+      className="section-fullscreen section-center bg-alba-dark relative overflow-hidden"
     >
       {/* Decorative quotation marks */}
       <span className="quote-mark quote-mark-large absolute top-[15%] left-[10%] text-[var(--color-primary)]/5 select-none">

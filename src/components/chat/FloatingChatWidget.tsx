@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation';
 import DOMPurify from 'dompurify';
 import { cn } from '@/lib/utils';
 import { sendMessageStreaming } from '@/lib/chat-api';
+import { usePostHog } from 'posthog-js/react';
 
 interface Message {
   id: string;
@@ -97,6 +98,19 @@ export function FloatingChatWidget() {
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+  const posthog = usePostHog();
+
+  // Track chat widget open/close
+  const handleOpenChat = () => {
+    setIsOpen(true);
+    posthog?.capture('chat_widget_opened', {
+      source_page: pathname,
+    });
+  };
+
+  const handleCloseChat = () => {
+    setIsOpen(false);
+  };
 
   // Check if we're on the home page
   const isHomePage = pathname === '/' || pathname === '/es' || pathname === '/en';
@@ -169,6 +183,13 @@ export function FloatingChatWidget() {
 
   const handleSend = async (content: string) => {
     if (!content.trim() || isLoading) return;
+
+    // Track message sent
+    posthog?.capture('chat_message_sent', {
+      source_page: pathname,
+      message_length: content.trim().length,
+      is_first_message: messages.length === 0,
+    });
 
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -244,7 +265,7 @@ export function FloatingChatWidget() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-            onClick={() => setIsOpen(true)}
+            onClick={handleOpenChat}
             className="fixed bottom-24 right-6 z-[9999] w-14 h-14 bg-alba-primary hover:bg-alba-primary-dark flex items-center justify-center shadow-lg shadow-alba-primary/30 transition-all duration-300 group rounded-full"
             aria-label="Abrir chat de nutrición"
             whileHover={{ scale: 1.05 }}
@@ -263,7 +284,7 @@ export function FloatingChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.3, ease: [0.77, 0, 0.175, 1] }}
-            className="fixed bottom-6 right-6 z-[9999] w-[520px] h-[700px] max-w-[calc(100vw-48px)] max-h-[calc(100vh-100px)] flex flex-col overflow-hidden shadow-2xl rounded-2xl border border-gray-200/50 bg-[#F4F3E8]/95 backdrop-blur-xl isolate"
+            className="fixed bottom-6 right-6 z-[9999] w-[520px] h-[700px] max-w-[calc(100vw-48px)] max-h-[calc(100vh-100px)] flex flex-col overflow-hidden shadow-2xl rounded-2xl border border-gray-200/50 bg-[#FAFAF7]/95 backdrop-blur-xl isolate"
             onWheel={(e) => e.stopPropagation()}
           >
             {/* Header */}
@@ -289,7 +310,7 @@ export function FloatingChatWidget() {
                   </button>
                 )}
                 <button
-                  onClick={() => setIsOpen(false)}
+                  onClick={handleCloseChat}
                   className="p-2 text-gray-400 hover:text-gray-900 hover:bg-gray-900/5 transition-all duration-300 rounded-lg"
                   aria-label="Cerrar chat"
                 >

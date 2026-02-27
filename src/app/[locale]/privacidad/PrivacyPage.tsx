@@ -14,8 +14,13 @@ export function PrivacyPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-alba-dark pt-32 pb-16 md:pt-40 md:pb-20">
-        <div className="max-w-4xl mx-auto px-6 md:px-12 lg:px-16">
+      <section className="relative bg-alba-dark pt-32 pb-16 md:pt-40 md:pb-20 overflow-hidden">
+        {/* Decorative gradient blob */}
+        <div
+          className="absolute -top-32 -right-32 w-[400px] h-[400px] opacity-20 pointer-events-none"
+          style={{ backgroundImage: 'url(/gradient-blob.png)', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}
+        />
+        <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-12 lg:px-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -23,15 +28,15 @@ export function PrivacyPage() {
           >
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm mb-8"
+              className="inline-flex items-center gap-2 text-black/60 hover:text-gray-900 transition-colors text-sm mb-8"
             >
               <ArrowLeft className="w-4 h-4" />
               {locale === 'es' ? 'Volver al inicio' : 'Back to home'}
             </Link>
-            <h1 className="text-4xl md:text-5xl font-light leading-tight text-white">
+            <h1 className="text-4xl md:text-5xl font-light leading-tight text-gray-900">
               {t('title')}
             </h1>
-            <p className="mt-4 text-white/60">
+            <p className="mt-4 text-black/60">
               {locale === 'es' ? 'Última actualización' : 'Last updated'}: {lastUpdated}
             </p>
           </motion.div>
@@ -39,7 +44,7 @@ export function PrivacyPage() {
       </section>
 
       {/* Content */}
-      <section className="bg-creme-alba py-16 md:py-24">
+      <section className="bg-alba-dark py-16 md:py-24">
         <div className="max-w-4xl mx-auto px-6 md:px-12 lg:px-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

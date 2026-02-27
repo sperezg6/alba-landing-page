@@ -1,5 +1,8 @@
 'use client';
 
+import { useEffect } from 'react';
+import { usePostHog } from 'posthog-js/react';
+
 interface CalComBookingProps {
   /** Cal.com username (e.g., "dr-maria-gutierrez") */
   calUsername: string;
@@ -15,6 +18,16 @@ export function CalComBooking({
   eventSlug = '30min',
 }: CalComBookingProps) {
   const calLink = `${calUsername}/${eventSlug}`;
+  const posthog = usePostHog();
+
+  // Track when booking calendar is viewed
+  useEffect(() => {
+    posthog?.capture('booking_calendar_viewed', {
+      doctor_name: doctorName,
+      cal_username: calUsername,
+      event_slug: eventSlug,
+    });
+  }, [posthog, doctorName, calUsername, eventSlug]);
 
   return (
     <div className="cal-booking-wrapper">
@@ -78,14 +91,14 @@ export function CalComBookingIframe({
   return (
     <div className="bg-alba-dark rounded-2xl overflow-hidden">
       {/* Header */}
-      <div className="p-6 border-b border-[rgba(255,255,255,0.1)]">
+      <div className="p-6 border-b border-[rgba(0,0,0,0.1)]">
         <h3
           className="text-2xl font-light mb-2"
-          style={{ color: '#FFFFFF' }}
+          style={{ color: '#374151' }}
         >
           Agenda tu Cita
         </h3>
-        <p className="text-[rgba(255,255,255,0.6)]">
+        <p className="text-[rgba(0,0,0,0.6)]">
           con {doctorName}
         </p>
       </div>

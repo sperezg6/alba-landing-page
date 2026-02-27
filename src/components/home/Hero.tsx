@@ -274,7 +274,7 @@ export function Hero() {
                         variant="primary"
                         size="lg"
                         rightIcon={<ArrowRight className="w-5 h-5" />}
-                        className="bg-[var(--color-secondary)] text-gray-900 hover:bg-[var(--color-secondary-light)] border-none shadow-lg shadow-[var(--color-secondary)]/20"
+                        className="bg-[var(--color-secondary)] text-white hover:bg-[var(--color-secondary-light)] border-none shadow-lg shadow-[var(--color-secondary)]/20"
                       >
                         {t('hero.cta')}
                       </Button>

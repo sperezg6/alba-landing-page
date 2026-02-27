@@ -6,6 +6,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { usePostHog } from 'posthog-js/react';
 
 const navLinks = [
   { href: '/', labelKey: 'home' },
@@ -29,8 +30,17 @@ export function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps) {
   const tFooter = useTranslations('footer');
   const locale = useLocale();
   const pathname = usePathname();
+  const posthog = usePostHog();
 
   const toggleLocale = locale === 'es' ? 'en' : 'es';
+
+  const handleLanguageSwitch = () => {
+    posthog?.capture('language_switched', {
+      from_lang: locale,
+      to_lang: toggleLocale,
+      source_page: pathname,
+    });
+  };
 
   // Prevent body scroll when menu is open
   useEffect(() => {
@@ -61,10 +71,10 @@ export function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps) {
         >
           {/* Background Logo */}
           <div
-            className="absolute inset-0 opacity-[0.04] pointer-events-none"
+            className="absolute inset-0 opacity-[0.06] pointer-events-none"
             style={{
-              backgroundImage: 'url(/images/alba-extracted/logo-verde.png)',
-              backgroundSize: '80%',
+              backgroundImage: 'url(/logo-alba.png)',
+              backgroundSize: '50%',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center',
             }}
@@ -75,7 +85,7 @@ export function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps) {
             <Link
               href="/"
               onClick={onClose}
-              className="text-base font-semibold uppercase tracking-[0.1em] text-white hover:text-white/80 transition-colors"
+              className="text-base font-semibold uppercase tracking-[0.1em] text-gray-900 hover:text-black/80 transition-colors"
             >
               ALBA
             </Link>
@@ -83,7 +93,7 @@ export function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps) {
             {/* Close Button - Text style matching "Menu ✦" */}
             <button
               onClick={onClose}
-              className="flex items-center gap-2 text-base text-white hover:text-white/80 transition-colors"
+              className="flex items-center gap-2 text-base text-gray-900 hover:text-black/80 transition-colors"
               aria-label="Close menu"
             >
               <span className="font-normal">{tMenu('close')}</span>
@@ -125,7 +135,7 @@ export function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps) {
                           'group flex items-baseline gap-4 py-2 transition-colors duration-300',
                           isActive
                             ? 'text-alba-primary'
-                            : 'text-white/40 hover:text-white'
+                            : 'text-black/40 hover:text-gray-900'
                         )}
                       >
                         <span className="text-xs font-medium tracking-wider">
@@ -149,29 +159,29 @@ export function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.4 }}
-              className="lg:w-[400px] border-t lg:border-t-0 lg:border-l border-white/10 px-6 md:px-10 lg:px-12 py-8 lg:py-16 flex flex-col justify-between"
+              className="lg:w-[400px] border-t lg:border-t-0 lg:border-l border-black/10 px-6 md:px-10 lg:px-12 py-8 lg:py-16 flex flex-col justify-between"
             >
               {/* Contact Info */}
               <div className="space-y-8">
                 <div>
-                  <p className="text-xs font-medium text-white/40 uppercase tracking-wider mb-3">
+                  <p className="text-xs font-medium text-black/40 uppercase tracking-wider mb-3">
                     {tMenu('phone')}
                   </p>
                   <a
                     href="tel:4773293939"
-                    className="text-xl md:text-2xl font-light text-white hover:text-alba-primary transition-colors"
+                    className="text-xl md:text-2xl font-light text-gray-900 hover:text-alba-primary transition-colors"
                   >
                     477-329-39-39
                   </a>
                 </div>
 
                 <div>
-                  <p className="text-xs font-medium text-white/40 uppercase tracking-wider mb-3">
+                  <p className="text-xs font-medium text-black/40 uppercase tracking-wider mb-3">
                     Email
                   </p>
                   <a
                     href="mailto:contacto@albadialisis.com"
-                    className="text-lg md:text-xl font-light text-white hover:text-alba-primary transition-colors"
+                    className="text-lg md:text-xl font-light text-gray-900 hover:text-alba-primary transition-colors"
                   >
                     contacto@albadialisis.com
                   </a>
@@ -179,13 +189,14 @@ export function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps) {
 
                 {/* Language Switcher */}
                 <div>
-                  <p className="text-xs font-medium text-white/40 uppercase tracking-wider mb-3">
+                  <p className="text-xs font-medium text-black/40 uppercase tracking-wider mb-3">
                     {tMenu('language')}
                   </p>
                   <Link
                     href={pathname}
                     locale={toggleLocale}
-                    className="inline-flex items-center gap-2 text-lg font-light text-white hover:text-alba-primary transition-colors"
+                    onClick={handleLanguageSwitch}
+                    className="inline-flex items-center gap-2 text-lg font-light text-gray-900 hover:text-alba-primary transition-colors"
                   >
                     {toggleLocale === 'en' ? 'English' : 'Español'}
                     <ArrowUpRight className="w-4 h-4" />
@@ -194,14 +205,14 @@ export function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps) {
 
                 {/* Nutritional Chatbot Link */}
                 <div>
-                  <p className="text-xs font-medium text-white/40 uppercase tracking-wider mb-3">
+                  <p className="text-xs font-medium text-black/40 uppercase tracking-wider mb-3">
                     {tNutrition('label')}
                   </p>
                   <a
                     href={process.env.NEXT_PUBLIC_CHATBOT_URL || 'http://localhost:3001'}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-lg font-light text-white hover:text-alba-primary transition-colors"
+                    className="inline-flex items-center gap-2 text-lg font-light text-gray-900 hover:text-alba-primary transition-colors"
                   >
                     {tNutrition('openChat')}
                     <ArrowUpRight className="w-4 h-4" />
@@ -227,9 +238,9 @@ export function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.4 }}
-            className="px-6 md:px-10 lg:px-16 py-6 border-t border-white/10"
+            className="px-6 md:px-10 lg:px-16 py-6 border-t border-black/10"
           >
-            <p className="text-xs text-white/30">
+            <p className="text-xs text-black/30">
               © {new Date().getFullYear()} Alba Diálisis y Trasplantes. {tFooter('rights')}
             </p>
           </motion.div>

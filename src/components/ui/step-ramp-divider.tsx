@@ -22,7 +22,7 @@ interface StepRampDividerProps {
  *                     \___________
  */
 export function StepRampDivider({
-  color = "#F4F3E8",
+  color = "#F0EDDC",
   height = 120,
   rampStart = 45,
   rampEnd = 65,

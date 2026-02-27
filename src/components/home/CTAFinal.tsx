@@ -120,12 +120,12 @@ export function CTAFinal() {
       className="relative bg-alba-dark min-h-screen pb-24 lg:pb-32"
     >
       {/* Divider line with ticks */}
-      <div ref={dividerRef} className="absolute top-0 left-0 right-0 px-6 md:px-16 lg:px-24">
+      <div ref={dividerRef} className="absolute top-0 left-0 right-0 z-10 px-6 md:px-16 lg:px-24">
         <div className="relative w-full h-px">
-          <div className="divider-line absolute inset-0 bg-white/20 origin-center" />
-          <div className="divider-tick absolute left-0 top-0 w-px h-4 bg-white/20 origin-top -translate-y-1/2" />
-          <div className="divider-tick absolute left-1/2 top-0 w-px h-4 bg-white/20 origin-top -translate-x-1/2 -translate-y-1/2" />
-          <div className="divider-tick absolute right-0 top-0 w-px h-4 bg-white/20 origin-top -translate-y-1/2" />
+          <div className="divider-line absolute inset-0 bg-black/20 origin-center" />
+          <div className="divider-tick absolute left-0 top-0 w-px h-4 bg-black/20 origin-top -translate-y-1/2" />
+          <div className="divider-tick absolute left-1/2 top-0 w-px h-4 bg-black/20 origin-top -translate-x-1/2 -translate-y-1/2" />
+          <div className="divider-tick absolute right-0 top-0 w-px h-4 bg-black/20 origin-top -translate-y-1/2" />
         </div>
       </div>
 
@@ -143,13 +143,13 @@ export function CTAFinal() {
           {/* Main headline */}
           <h2
             className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-[1.1] max-w-xl"
-            style={{ color: 'white' }}
+            style={{ color: '#374151' }}
           >
             {t('title')}
           </h2>
 
           {/* Subtitle */}
-          <p className="mt-6 text-[#F4F3E8]/60 text-base md:text-lg max-w-md leading-relaxed">
+          <p className="mt-6 text-gray-900/60 text-base md:text-lg max-w-md leading-relaxed">
             {t('subtitle')}
           </p>
 
@@ -166,7 +166,7 @@ export function CTAFinal() {
 
           {/* Branch locations list */}
           <div className="mt-16 space-y-3">
-            <span className="text-[#F4F3E8]/40 text-xs uppercase tracking-[0.15em]">
+            <span className="text-gray-900/40 text-xs uppercase tracking-[0.15em]">
               {tBranches('title')}
             </span>
 
@@ -177,7 +177,7 @@ export function CTAFinal() {
                   className={`branch-card group flex items-center justify-between p-4 rounded-lg border transition-all duration-300 text-left ${
                     activeBranch === branch.id
                       ? 'border-alba-primary/50 bg-alba-primary/5'
-                      : 'border-white/10 hover:border-white/20 bg-white/[0.02]'
+                      : 'border-black/10 hover:border-black/20 bg-black/[0.02]'
                   }`}
                   onMouseEnter={() => setActiveBranch(branch.id)}
                   onMouseLeave={() => setActiveBranch(null)}
@@ -185,18 +185,18 @@ export function CTAFinal() {
                   <div className="flex items-center gap-3">
                     <MapPin
                       className={`w-4 h-4 transition-colors ${
-                        activeBranch === branch.id ? 'text-alba-primary' : 'text-[#F4F3E8]/40'
+                        activeBranch === branch.id ? 'text-alba-primary' : 'text-gray-900/40'
                       }`}
                     />
                     <div>
                       <p
                         className={`text-sm font-medium transition-colors ${
-                          activeBranch === branch.id ? 'text-white' : 'text-[#F4F3E8]/80'
+                          activeBranch === branch.id ? 'text-gray-900' : 'text-gray-900/80'
                         }`}
                       >
                         {tBranches(`${branch.id}.name`)}
                       </p>
-                      <p className="text-xs text-[#F4F3E8]/40 mt-0.5 hidden sm:block">
+                      <p className="text-xs text-gray-900/40 mt-0.5 hidden sm:block">
                         {tBranches(`${branch.id}.address`)}
                       </p>
                     </div>
@@ -207,7 +207,7 @@ export function CTAFinal() {
                     className={`flex items-center gap-2 text-xs transition-colors ${
                       activeBranch === branch.id
                         ? 'text-alba-primary'
-                        : 'text-[#F4F3E8]/40 group-hover:text-[#F4F3E8]/60'
+                        : 'text-gray-900/40 group-hover:text-gray-900/60'
                     }`}
                     onClick={(e) => e.stopPropagation()}
                   >

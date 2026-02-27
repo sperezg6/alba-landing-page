@@ -241,7 +241,7 @@ export function BranchesPage() {
             </div>
             <h1
               className="font-light leading-[0.95] tracking-tight"
-              style={{ color: '#FFFFFF', fontSize: 'clamp(3rem, 7vw, 6rem)' }}
+              style={{ color: '#374151', fontSize: 'clamp(3rem, 7vw, 6rem)' }}
             >
               Encuentra tu clínica<br />
               más cercana
@@ -258,14 +258,14 @@ export function BranchesPage() {
           >
             <path
               d="M0,40 L0,120 L1200,120 L1200,40 L950,40 L950,0 L250,0 L250,40 Z"
-              fill="#F4F3E8"
+              fill="#F0EDDC"
             />
           </svg>
         </div>
       </section>
 
       {/* Branch Selection Section */}
-      <section className="relative bg-creme-alba py-16 md:py-24 px-6 md:px-12 lg:px-16 xl:px-24">
+      <section className="relative bg-alba-dark py-16 md:py-24 px-6 md:px-12 lg:px-16 xl:px-24">
         {/* Decorative Grid Lines */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           {/* Vertical lines */}
@@ -337,9 +337,9 @@ export function BranchesPage() {
                   {/* Branch Name - Large and light */}
                   <h3
                     className={`text-xl md:text-2xl lg:text-3xl font-light mb-4 transition-colors duration-500 tracking-tight ${
-                      activeBranch === branch.id ? '!text-white' : 'text-gray-900'
+                      activeBranch === branch.id ? '!text-gray-900' : 'text-gray-900'
                     }`}
-                    style={activeBranch === branch.id ? { color: '#FFFFFF' } : undefined}
+                    style={activeBranch === branch.id ? { color: '#374151' } : undefined}
                   >
                     {branch.name}
                   </h3>
@@ -348,21 +348,21 @@ export function BranchesPage() {
                   <div className="space-y-1">
                     <p
                       className={`text-sm leading-relaxed transition-colors duration-500 ${
-                        activeBranch === branch.id ? 'text-white/60' : 'text-gray-500'
+                        activeBranch === branch.id ? 'text-black/60' : 'text-gray-500'
                       }`}
                     >
                       {branch.address}
                     </p>
                     <p
                       className={`text-sm transition-colors duration-500 ${
-                        activeBranch === branch.id ? 'text-white/60' : 'text-gray-500'
+                        activeBranch === branch.id ? 'text-black/60' : 'text-gray-500'
                       }`}
                     >
                       {branch.phone}
                     </p>
                     <p
                       className={`text-sm transition-colors duration-500 ${
-                        activeBranch === branch.id ? 'text-white/60' : 'text-gray-500'
+                        activeBranch === branch.id ? 'text-black/60' : 'text-gray-500'
                       }`}
                     >
                       Lun - Sáb: 6:00 AM - 10:00 PM
@@ -391,20 +391,20 @@ export function BranchesPage() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
-                        className="mt-6 pt-6 border-t border-white/10 flex items-center gap-6"
+                        className="mt-6 pt-6 border-t border-black/10 flex items-center gap-6"
                       >
                         <a
                           href={branch.mapUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-xs font-medium uppercase tracking-wider text-alba-primary hover:text-white transition-colors"
+                          className="text-xs font-medium uppercase tracking-wider text-alba-primary hover:text-gray-900 transition-colors"
                           onClick={(e) => e.stopPropagation()}
                         >
                           Cómo llegar
                         </a>
                         <a
                           href={`tel:${branch.phone}`}
-                          className="text-xs font-medium uppercase tracking-wider text-white/60 hover:text-white transition-colors"
+                          className="text-xs font-medium uppercase tracking-wider text-black/60 hover:text-gray-900 transition-colors"
                           onClick={(e) => e.stopPropagation()}
                         >
                           Llamar
@@ -461,7 +461,7 @@ export function BranchesPage() {
                 exit={{ opacity: 0, x: -20 }}
                 className="absolute bottom-8 left-6 md:left-12 lg:left-16 xl:left-24 z-10"
               >
-                <div className="bg-alba-dark/90 backdrop-blur-md rounded-xl p-4 border border-white/10">
+                <div className="bg-alba-dark/90 backdrop-blur-md rounded-xl p-4 border border-black/10">
                   <div className="flex items-center justify-between gap-4 mb-1">
                     <p className="text-alba-primary text-xs uppercase tracking-wider">
                       Ubicación seleccionada
@@ -477,7 +477,7 @@ export function BranchesPage() {
                       {isOpen ? 'Abierto' : 'Cerrado'}
                     </span>
                   </div>
-                  <p className="text-white font-medium">
+                  <p className="text-gray-900 font-medium">
                     {branches.find(b => b.id === activeBranch)?.name}
                   </p>
                 </div>
@@ -488,7 +488,7 @@ export function BranchesPage() {
       </section>
 
       {/* CTA Section - With Gradient Blobs and Grid Lines */}
-      <section className="relative bg-creme-alba py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
+      <section className="relative bg-alba-dark py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
         {/* Decorative Grid Lines */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Top horizontal line with ticks */}
@@ -614,7 +614,7 @@ export function BranchesPage() {
         .marker-dot {
           width: 32px;
           height: 32px;
-          background: #E85A2C;
+          background: #4DBDC9;
           border-radius: 50%;
           display: flex;
           align-items: center;

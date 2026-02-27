@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 interface ScrollCursorProps {
@@ -22,7 +22,6 @@ export function ScrollCursor({ containerRef }: ScrollCursorProps) {
     if (!container) return;
 
     const handleMouseMove = (e: MouseEvent) => {
-      const rect = container.getBoundingClientRect();
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
     };
@@ -67,12 +66,25 @@ export function ScrollCursor({ containerRef }: ScrollCursorProps) {
       }}
       transition={{ duration: 0.2 }}
     >
-      {/* Circle outline */}
-      <div className="relative w-28 h-28 rounded-full border border-white/40 flex items-center justify-center">
+      {/* Circle outline with scroll indicator */}
+      <div className="relative w-28 h-28 rounded-full border border-white/40 flex flex-col items-center justify-center gap-1.5">
         {/* SCROLL text */}
-        <span className="text-white/70 text-xs uppercase tracking-[0.25em] font-light">
+        <span className="text-white/80 text-[10px] uppercase tracking-[0.25em] font-medium">
           Scroll
         </span>
+
+        {/* Animated scroll line */}
+        <div className="relative w-px h-6 overflow-hidden">
+          <motion.div
+            className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white/80 to-transparent"
+            animate={{ y: ['-100%', '100%'] }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          />
+        </div>
       </div>
     </motion.div>
   );

@@ -148,7 +148,7 @@ export function ServicesShowcase() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-creme-alba relative overflow-hidden">
+    <section ref={sectionRef} className="bg-alba-dark relative overflow-hidden">
       {/* Gradient Blobs Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Top-left lime blob */}
@@ -227,8 +227,8 @@ export function ServicesShowcase() {
               <div
                 className={`absolute inset-0 ${
                   isEvenCard
-                    ? 'bg-gradient-to-r from-[#F5F1EB] via-[#F5F1EB]/80 to-transparent'
-                    : 'bg-gradient-to-l from-[#F5F1EB] via-[#F5F1EB]/80 to-transparent'
+                    ? 'bg-gradient-to-r from-[#FAFAF7] via-[#FAFAF7]/80 to-transparent'
+                    : 'bg-gradient-to-l from-[#FAFAF7] via-[#FAFAF7]/80 to-transparent'
                 }`}
               />
             </div>

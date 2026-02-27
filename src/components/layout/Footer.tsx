@@ -5,6 +5,7 @@ import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import { usePostHog } from 'posthog-js/react';
 import { Phone, Mail, MapPin, ArrowUpRight } from 'lucide-react';
+import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { branches } from '@/lib/data';
@@ -117,16 +118,30 @@ export function Footer() {
   }, []);
 
   return (
-    <footer ref={footerRef} className="relative bg-alba-dark overflow-hidden">
+    <footer ref={footerRef} className="relative overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/background_footer.jpg"
+          alt=""
+          fill
+          className="object-cover"
+          style={{ objectPosition: '50% 30%' }}
+          quality={85}
+        />
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
+      </div>
+
       {/* Top horizontal line with ticks */}
       <div className="absolute top-0 left-0 right-0 px-6 md:px-16 lg:px-24">
         <div className="relative w-full h-px">
-          <div className="h-line absolute inset-0 bg-white/20 origin-center" />
-          <div className="line-tick absolute left-0 top-0 w-px h-4 bg-white/20 origin-top -translate-y-1/2" />
+          <div className="h-line absolute inset-0 bg-white/15 origin-center" />
+          <div className="line-tick absolute left-0 top-0 w-px h-4 bg-white/15 origin-top -translate-y-1/2" />
           <div className="line-tick absolute left-1/4 top-0 w-px h-3 bg-white/10 origin-top -translate-y-1/2" />
-          <div className="line-tick absolute left-1/2 top-0 w-px h-4 bg-white/20 origin-top -translate-x-1/2 -translate-y-1/2" />
+          <div className="line-tick absolute left-1/2 top-0 w-px h-4 bg-white/15 origin-top -translate-x-1/2 -translate-y-1/2" />
           <div className="line-tick absolute left-3/4 top-0 w-px h-3 bg-white/10 origin-top -translate-y-1/2" />
-          <div className="line-tick absolute right-0 top-0 w-px h-4 bg-white/20 origin-top -translate-y-1/2" />
+          <div className="line-tick absolute right-0 top-0 w-px h-4 bg-white/15 origin-top -translate-y-1/2" />
         </div>
       </div>
 
@@ -145,7 +160,7 @@ export function Footer() {
         ref={bigTextRef}
         className="absolute -bottom-20 left-0 right-0 pointer-events-none select-none overflow-hidden"
       >
-        <div className="text-[20vw] md:text-[18vw] font-bold tracking-tight text-white/[0.03] leading-none text-center whitespace-nowrap">
+        <div className="text-[20vw] md:text-[18vw] font-bold tracking-tight text-white/[0.05] leading-none text-center whitespace-nowrap">
           ALBA DIALISIS
         </div>
       </div>
@@ -158,11 +173,10 @@ export function Footer() {
           <div className="relative">
             {/* Decorative vertical line */}
             <div className="absolute -left-4 md:-left-8 top-0 bottom-0 w-px hidden md:block">
-              <div className="v-line absolute inset-0 bg-alba-primary/30 origin-top" />
+              <div className="v-line absolute inset-0 bg-white/20 origin-top" />
             </div>
             <h3
-              className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1] max-w-lg"
-              style={{ color: 'white' }}
+              className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1] max-w-lg !text-white"
             >
               {t('footer.description')}
             </h3>
@@ -174,7 +188,7 @@ export function Footer() {
             <div className="absolute -top-4 left-0 right-0 h-px hidden lg:block">
               <div className="h-line absolute inset-0 bg-white/10 origin-right" />
             </div>
-            <span className="text-[#F4F3E8]/40 text-xs uppercase tracking-[0.2em] block mb-4">
+            <span className="text-white/40 text-xs uppercase tracking-[0.2em] block mb-4">
               {tEmergency('label')}
             </span>
             <a
@@ -185,22 +199,22 @@ export function Footer() {
                 source: 'footer_emergency',
               })}
             >
-              <span className="text-4xl md:text-5xl lg:text-6xl font-light text-alba-primary group-hover:text-alba-primary-dark transition-colors">
+              <span className="text-4xl md:text-5xl lg:text-6xl font-light text-alba-accent-gold group-hover:text-white transition-colors">
                 477-329-39-39
               </span>
-              <ArrowUpRight className="w-8 h-8 text-alba-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              <ArrowUpRight className="w-8 h-8 text-alba-accent-gold group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </a>
           </div>
         </div>
 
         {/* Middle horizontal divider with ticks */}
         <div className="relative w-full h-px mb-16">
-          <div className="h-line absolute inset-0 bg-white/20 origin-left" />
-          <div className="line-tick absolute left-0 top-0 w-px h-3 bg-white/30 origin-center -translate-y-1/2" />
-          <div className="line-tick absolute left-1/4 top-0 w-px h-2 bg-white/15 origin-center -translate-y-1/2" />
-          <div className="line-tick absolute left-1/2 top-0 w-px h-3 bg-white/30 origin-center -translate-x-1/2 -translate-y-1/2" />
-          <div className="line-tick absolute left-3/4 top-0 w-px h-2 bg-white/15 origin-center -translate-y-1/2" />
-          <div className="line-tick absolute right-0 top-0 w-px h-3 bg-white/30 origin-center -translate-y-1/2" />
+          <div className="h-line absolute inset-0 bg-white/15 origin-left" />
+          <div className="line-tick absolute left-0 top-0 w-px h-3 bg-white/20 origin-center -translate-y-1/2" />
+          <div className="line-tick absolute left-1/4 top-0 w-px h-2 bg-white/10 origin-center -translate-y-1/2" />
+          <div className="line-tick absolute left-1/2 top-0 w-px h-3 bg-white/20 origin-center -translate-x-1/2 -translate-y-1/2" />
+          <div className="line-tick absolute left-3/4 top-0 w-px h-2 bg-white/10 origin-center -translate-y-1/2" />
+          <div className="line-tick absolute right-0 top-0 w-px h-3 bg-white/20 origin-center -translate-y-1/2" />
         </div>
 
         {/* Bottom Grid */}
@@ -218,7 +232,7 @@ export function Footer() {
 
           {/* Navigation */}
           <div className="relative">
-            <span className="text-alba-primary text-xs uppercase tracking-[0.2em] block mb-6">
+            <span className="text-alba-accent-gold text-sm uppercase tracking-[0.2em] block mb-6">
               Navigate
             </span>
             <ul className="space-y-3">
@@ -226,7 +240,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-[#F4F3E8]/60 hover:text-white transition-colors text-sm"
+                    className="text-white/60 hover:text-white transition-colors text-base"
                   >
                     {t(link.labelKey)}
                   </Link>
@@ -237,7 +251,7 @@ export function Footer() {
                   href="https://nutritional-chatbot-ui.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-[#F4F3E8]/60 hover:text-alba-primary transition-colors text-sm"
+                  className="inline-flex items-center gap-1.5 text-white/60 hover:text-white transition-colors text-base"
                 >
                   {tNutrition('label')}
                   <ArrowUpRight className="w-3 h-3" />
@@ -248,7 +262,7 @@ export function Footer() {
 
           {/* Locations */}
           <div>
-            <span className="text-alba-primary text-xs uppercase tracking-[0.2em] block mb-6">
+            <span className="text-alba-accent-gold text-sm uppercase tracking-[0.2em] block mb-6">
               {t('nav.branches')}
             </span>
             <ul className="space-y-3">
@@ -256,7 +270,7 @@ export function Footer() {
                 <li key={branch.id}>
                   <Link
                     href="/sucursales"
-                    className="text-[#F4F3E8]/60 hover:text-white transition-colors text-sm"
+                    className="text-white/60 hover:text-white transition-colors text-base"
                   >
                     {branch.name.replace('Alba ', '').replace('Unidad Medica ', '').replace('Unidad ', '')}
                   </Link>
@@ -267,14 +281,14 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <span className="text-alba-primary text-xs uppercase tracking-[0.2em] block mb-6">
+            <span className="text-alba-accent-gold text-sm uppercase tracking-[0.2em] block mb-6">
               {t('footer.contactInfo')}
             </span>
             <ul className="space-y-3">
               <li>
                 <a
                   href={`tel:${mainBranch.phone.replace(/-/g, '')}`}
-                  className="flex items-center gap-2 text-[#F4F3E8]/60 hover:text-white transition-colors text-sm"
+                  className="flex items-center gap-2 text-white/60 hover:text-white transition-colors text-base"
                   onClick={() => posthog.capture('phone_clicked', {
                     phone_number: mainBranch.phone,
                     source: 'footer_contact',
@@ -287,7 +301,7 @@ export function Footer() {
               <li>
                 <a
                   href="mailto:contacto@albadialisis.com"
-                  className="flex items-center gap-2 text-[#F4F3E8]/60 hover:text-white transition-colors text-sm"
+                  className="flex items-center gap-2 text-white/60 hover:text-white transition-colors text-base"
                   onClick={() => posthog.capture('email_clicked', {
                     email: 'contacto@albadialisis.com',
                     source: 'footer',
@@ -297,7 +311,7 @@ export function Footer() {
                   contacto@albadialisis.com
                 </a>
               </li>
-              <li className="flex items-start gap-2 text-[#F4F3E8]/60 text-sm">
+              <li className="flex items-start gap-2 text-white/60 text-base">
                 <MapPin className="w-3 h-3 mt-1 flex-shrink-0" />
                 <span>León, Guanajuato</span>
               </li>
@@ -306,7 +320,7 @@ export function Footer() {
 
           {/* Social + Legal */}
           <div>
-            <span className="text-alba-primary text-xs uppercase tracking-[0.2em] block mb-6">
+            <span className="text-alba-accent-gold text-sm uppercase tracking-[0.2em] block mb-6">
               Social
             </span>
             <div className="flex gap-4 mb-8">
@@ -316,7 +330,7 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-[#F4F3E8]/60 hover:border-alba-primary hover:text-alba-primary transition-all text-xs font-medium"
+                  className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-alba-accent-gold hover:text-alba-accent-gold transition-all text-xs font-medium"
                   onClick={() => posthog.capture('social_clicked', {
                     platform: social.label,
                     url: social.href,
@@ -330,7 +344,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/privacidad"
-                  className="text-[#F4F3E8]/40 hover:text-[#F4F3E8]/60 transition-colors text-xs"
+                  className="text-white/40 hover:text-white/60 transition-colors text-xs"
                 >
                   {t('footer.privacy')}
                 </Link>
@@ -338,7 +352,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/terminos"
-                  className="text-[#F4F3E8]/40 hover:text-[#F4F3E8]/60 transition-colors text-xs"
+                  className="text-white/40 hover:text-white/60 transition-colors text-xs"
                 >
                   {t('footer.terms')}
                 </Link>
@@ -353,8 +367,8 @@ export function Footer() {
         {/* Bottom divider line with ticks */}
         <div className="relative w-full h-px">
           <div className="h-line absolute inset-0 bg-white/10 origin-center" />
-          <div className="line-tick absolute left-0 top-0 w-px h-2 bg-white/20 origin-bottom translate-y-0" />
-          <div className="line-tick absolute right-0 top-0 w-px h-2 bg-white/20 origin-bottom translate-y-0" />
+          <div className="line-tick absolute left-0 top-0 w-px h-2 bg-white/15 origin-bottom translate-y-0" />
+          <div className="line-tick absolute right-0 top-0 w-px h-2 bg-white/15 origin-bottom translate-y-0" />
         </div>
       </div>
 
@@ -364,11 +378,11 @@ export function Footer() {
             <span className="text-xl font-semibold tracking-[0.15em] text-white">
               ALBA
             </span>
-            <span className="text-[#F4F3E8]/30 text-xs">
+            <span className="text-white/40 text-xs">
               Dialisis y Trasplantes
             </span>
           </Link>
-          <p className="text-[#F4F3E8]/30 text-xs">
+          <p className="text-white/40 text-xs">
             © {new Date().getFullYear()} {t('footer.rights')}
           </p>
         </div>

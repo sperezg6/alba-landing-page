@@ -42,8 +42,13 @@ export default function ResourcesHeroSection() {
   };
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 px-6 md:px-12 lg:px-16 xl:px-24 bg-alba-dark" ref={heroRef}>
-      <div className="max-w-7xl mx-auto">
+    <section className="relative py-12 md:py-16 lg:py-20 px-6 md:px-12 lg:px-16 xl:px-24 bg-alba-dark overflow-hidden" ref={heroRef}>
+      {/* Decorative gradient blob */}
+      <div
+        className="absolute -bottom-32 -right-32 w-[500px] h-[500px] opacity-25 pointer-events-none"
+        style={{ backgroundImage: 'url(/gradient-blob.png)', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}
+      />
+      <div className="relative z-10 max-w-7xl mx-auto">
         <div className="relative">
           {/* Header with resource type icons */}
           <div className="flex justify-between items-center mb-8 w-full md:w-[85%] absolute lg:top-4 md:top-0 sm:-top-2 -top-3 z-10">
@@ -65,7 +70,7 @@ export default function ResourcesHeroSection() {
                 animationNum={0}
                 timelineRef={heroRef}
                 customVariants={revealVariants}
-                className="md:w-10 md:h-10 sm:w-8 w-6 sm:h-8 h-6 border border-white/20 bg-white/5 backdrop-blur-sm rounded-lg flex items-center justify-center"
+                className="md:w-10 md:h-10 sm:w-8 w-6 sm:h-8 h-6 border border-black/20 bg-black/5 backdrop-blur-sm rounded-lg flex items-center justify-center"
               >
                 <BookOpen className="w-4 h-4 md:w-5 md:h-5 text-alba-primary" />
               </TimelineContent>
@@ -74,7 +79,7 @@ export default function ResourcesHeroSection() {
                 animationNum={1}
                 timelineRef={heroRef}
                 customVariants={revealVariants}
-                className="md:w-10 md:h-10 sm:w-8 w-6 sm:h-8 h-6 border border-white/20 bg-white/5 backdrop-blur-sm rounded-lg flex items-center justify-center"
+                className="md:w-10 md:h-10 sm:w-8 w-6 sm:h-8 h-6 border border-black/20 bg-black/5 backdrop-blur-sm rounded-lg flex items-center justify-center"
               >
                 <FileText className="w-4 h-4 md:w-5 md:h-5 text-alba-primary" />
               </TimelineContent>
@@ -83,7 +88,7 @@ export default function ResourcesHeroSection() {
                 animationNum={2}
                 timelineRef={heroRef}
                 customVariants={revealVariants}
-                className="md:w-10 md:h-10 sm:w-8 w-6 sm:h-8 h-6 border border-white/20 bg-white/5 backdrop-blur-sm rounded-lg flex items-center justify-center"
+                className="md:w-10 md:h-10 sm:w-8 w-6 sm:h-8 h-6 border border-black/20 bg-black/5 backdrop-blur-sm rounded-lg flex items-center justify-center"
               >
                 <Video className="w-4 h-4 md:w-5 md:h-5 text-alba-primary" />
               </TimelineContent>
@@ -135,12 +140,12 @@ export default function ResourcesHeroSection() {
             >
               <div className="flex items-center gap-2 mb-2 sm:text-base text-xs">
                 <span className="text-alba-primary font-bold">25+</span>
-                <span className="text-[#F4F3E8]/70">años de experiencia</span>
-                <span className="text-white/20">|</span>
+                <span className="text-gray-900/70">años de experiencia</span>
+                <span className="text-black/20">|</span>
               </div>
               <div className="flex items-center gap-2 mb-2 sm:text-base text-xs">
                 <span className="text-alba-primary font-bold">50+</span>
-                <span className="text-[#F4F3E8]/70">recursos disponibles</span>
+                <span className="text-gray-900/70">recursos disponibles</span>
               </div>
             </TimelineContent>
             <div className="lg:absolute right-0 bottom-16 flex lg:flex-col flex-row-reverse lg:gap-0 gap-4">
@@ -152,7 +157,7 @@ export default function ResourcesHeroSection() {
                 className="flex lg:text-4xl sm:text-3xl text-2xl items-center gap-2 mb-2"
               >
                 <span className="text-alba-primary font-semibold">5,000+</span>
-                <span className="text-[#F4F3E8]/70 uppercase">pacientes</span>
+                <span className="text-gray-900/70 uppercase">pacientes</span>
               </TimelineContent>
               <TimelineContent
                 as="div"
@@ -162,8 +167,8 @@ export default function ResourcesHeroSection() {
                 className="flex items-center gap-2 mb-2 sm:text-base text-xs"
               >
                 <span className="text-alba-primary font-bold">3</span>
-                <span className="text-[#F4F3E8]/70">clínicas en el Bajío</span>
-                <span className="text-white/20 lg:hidden block">|</span>
+                <span className="text-gray-900/70">clínicas en el Bajío</span>
+                <span className="text-black/20 lg:hidden block">|</span>
               </TimelineContent>
             </div>
           </div>
@@ -172,7 +177,7 @@ export default function ResourcesHeroSection() {
         {/* Main Content */}
         <div className="grid md:grid-cols-3 gap-8 mt-4">
           <div className="md:col-span-2">
-            <h1 className="sm:text-4xl md:text-5xl lg:text-6xl text-2xl !leading-[0.95] font-light !text-white mb-8">
+            <h1 className="sm:text-4xl md:text-5xl lg:text-6xl text-2xl !leading-[0.95] font-light !text-gray-900 mb-8">
               <VerticalCutReveal
                 splitBy="words"
                 staggerDuration={0.1}
@@ -203,7 +208,7 @@ export default function ResourcesHeroSection() {
                 customVariants={revealVariants}
                 className="sm:text-base text-sm"
               >
-                <p className="leading-relaxed text-[#F4F3E8]/60">
+                <p className="leading-relaxed text-gray-900/60">
                   Entendemos que el conocimiento es poder. Por eso hemos creado
                   esta sección con información práctica y recursos educativos
                   para pacientes y familiares.
@@ -216,7 +221,7 @@ export default function ResourcesHeroSection() {
                 customVariants={revealVariants}
                 className="sm:text-base text-sm"
               >
-                <p className="leading-relaxed text-[#F4F3E8]/60">
+                <p className="leading-relaxed text-gray-900/60">
                   Desde guías de alimentación hasta consejos para el día a día,
                   aquí encontrarás todo lo necesario para complementar tu
                   tratamiento de diálisis.
@@ -241,7 +246,7 @@ export default function ResourcesHeroSection() {
                 animationNum={13}
                 timelineRef={heroRef}
                 customVariants={revealVariants}
-                className="text-[#F4F3E8]/50 text-sm mb-8"
+                className="text-gray-900/50 text-sm mb-8"
               >
                 Centro de Diálisis | Cuidado Renal
               </TimelineContent>
@@ -253,7 +258,7 @@ export default function ResourcesHeroSection() {
                 customVariants={revealVariants}
                 className="mb-6"
               >
-                <p className="text-white font-medium mb-4">
+                <p className="text-gray-900 font-medium mb-4">
                   ¿Tienes dudas sobre tu tratamiento o cuidado renal?
                 </p>
               </TimelineContent>

@@ -16,8 +16,13 @@ export function DirectoryPage() {
   return (
     <>
       {/* Hero Section - Minimal Dark */}
-      <section className="relative bg-alba-dark pt-32 pb-20 md:pt-40 md:pb-28">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
+      <section className="relative bg-alba-dark pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+        {/* Decorative gradient blob */}
+        <div
+          className="absolute -top-32 -right-32 w-[400px] h-[400px] opacity-20 pointer-events-none"
+          style={{ backgroundImage: 'url(/gradient-blob.png)', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}
+        />
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -25,11 +30,11 @@ export function DirectoryPage() {
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="w-2 h-2 rounded-full bg-alba-primary" />
-              <span className="text-sm font-medium text-white/50 uppercase tracking-wider">
+              <span className="text-sm font-medium text-black/50 uppercase tracking-wider">
                 {t('doctors.title')}
               </span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight" style={{ color: 'white' }}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight" style={{ color: '#374151' }}>
               {t('doctors.subtitle')}
             </h1>
           </motion.div>
@@ -37,8 +42,13 @@ export function DirectoryPage() {
       </section>
 
       {/* Doctors Grid */}
-      <section className="bg-creme-alba py-20 md:py-28">
-        <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16">
+      <section className="bg-alba-dark py-20 md:py-28 relative overflow-hidden">
+        {/* Decorative gradient blob */}
+        <div
+          className="absolute -top-32 -right-32 w-[500px] h-[500px] opacity-25 pointer-events-none"
+          style={{ backgroundImage: 'url(/gradient-blob.png)', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}
+        />
+        <div className="relative z-10 max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16">
           <div className="flex items-center gap-3 mb-12">
             <div className="w-2 h-2 rounded-full bg-gray-900" />
             <span className="text-sm font-medium text-gray-500 uppercase tracking-wider">
@@ -59,7 +69,7 @@ export function DirectoryPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-creme-alba group"
+                  className="bg-alba-dark group"
                 >
                   <div className="flex flex-col lg:flex-row h-full">
                     {/* Image */}
@@ -167,17 +177,22 @@ export function DirectoryPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-alba-dark py-20 md:py-28">
-        <div className="max-w-4xl mx-auto px-6 md:px-12 lg:px-16 text-center">
+      <section className="relative bg-alba-dark py-20 md:py-28 overflow-hidden">
+        {/* Decorative gradient blob */}
+        <div
+          className="absolute top-1/2 -translate-y-1/2 -left-32 w-[500px] h-[500px] opacity-30 pointer-events-none"
+          style={{ backgroundImage: 'url(/gradient-blob.png)', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}
+        />
+        <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-12 lg:px-16 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-6" style={{ color: 'white' }}>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-6" style={{ color: '#374151' }}>
               Encuentra al especialista ideal para ti
             </h2>
-            <p className="text-lg mb-10 max-w-2xl mx-auto" style={{ color: 'rgba(255,255,255,0.6)' }}>
+            <p className="text-lg mb-10 max-w-2xl mx-auto" style={{ color: 'rgba(0,0,0,0.6)' }}>
               Nuestro equipo está listo para brindarte la mejor atención médica personalizada.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -193,7 +208,7 @@ export function DirectoryPage() {
               </Link>
               <a
                 href="tel:4773293939"
-                className="inline-flex items-center gap-2 border border-white/20 text-white px-8 py-4 text-sm font-semibold uppercase tracking-wider hover:bg-white/10 transition-colors"
+                className="inline-flex items-center gap-2 border border-black/20 text-gray-900 px-8 py-4 text-sm font-semibold uppercase tracking-wider hover:bg-black/10 transition-colors"
               >
                 Llamar ahora
               </a>

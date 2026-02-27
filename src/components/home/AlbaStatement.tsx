@@ -84,7 +84,7 @@ export function AlbaStatement() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen w-full bg-[#F5F5F0] py-20 md:py-32"
+      className="relative min-h-screen w-full bg-alba-primary py-20 md:py-32"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
         {/* Top section: Headline + Image */}
@@ -93,10 +93,10 @@ export function AlbaStatement() {
           <div className="lg:sticky lg:top-32">
             <h2
               ref={headlineRef}
-              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-alba-dark leading-[1.1] tracking-tight"
+              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-white leading-[1.1] tracking-tight"
             >
               {t('headlineLine1')}<br />
-              <span className="text-alba-dark">{t('headlineLine2')}</span><br />
+              <span className="text-white">{t('headlineLine2')}</span><br />
               {t('headlineLine3')}
             </h2>
           </div>
@@ -122,19 +122,19 @@ export function AlbaStatement() {
           className="mt-20 md:mt-32 max-w-md"
         >
           {/* Label */}
-          <span className="text-alba-dark text-xs font-medium uppercase tracking-[0.15em] mb-6 block">
+          <span className="text-alba-accent-gold text-xs font-medium uppercase tracking-[0.15em] mb-6 block">
             {t('contentLabel')}
           </span>
 
           {/* Description */}
-          <p className="text-alba-dark/80 text-base md:text-lg leading-relaxed mb-8">
+          <p className="text-white/80 text-base md:text-lg leading-relaxed mb-8">
             {t('contentDescription')}
           </p>
 
           {/* CTA Button */}
           <Link
             href="/nosotros"
-            className="inline-block px-6 py-3 bg-alba-primary text-white text-sm font-medium uppercase tracking-wider hover:bg-alba-primary-dark transition-colors"
+            className="inline-block px-6 py-3 bg-alba-secondary text-white text-sm font-medium uppercase tracking-wider hover:bg-alba-secondary-dark transition-colors"
           >
             {t('ctaButton')}
           </Link>

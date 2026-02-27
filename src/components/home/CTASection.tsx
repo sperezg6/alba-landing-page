@@ -120,7 +120,8 @@ export function CTASection() {
   return (
     <section
       ref={sectionRef}
-      className="py-24 md:py-32 bg-[var(--color-primary)] overflow-hidden"
+      className="py-24 md:py-32 overflow-hidden"
+      style={{ background: 'linear-gradient(135deg, #4DBDC9 0%, #6BC5A0 25%, #B8D45C 50%, #F59F20 75%, #EE5631 100%)' }}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -168,7 +169,7 @@ export function CTASection() {
                   key={index}
                   className="benefit-item flex items-center gap-3"
                 >
-                  <Check className="w-5 h-5 text-[var(--color-secondary)]" />
+                  <Check className="w-5 h-5 text-white" />
                   <span className="text-white/80">{benefit}</span>
                 </div>
               ))}
@@ -195,6 +196,7 @@ export function CTASection() {
                       variant="secondary"
                       size="lg"
                       rightIcon={<ArrowRight className="w-5 h-5" />}
+                      className="bg-white text-gray-900 hover:bg-white/90"
                     >
                       {t('cta.button')}
                     </Button>
@@ -220,7 +222,7 @@ export function CTASection() {
                       variant="outline"
                       size="lg"
                       leftIcon={<Phone className="w-5 h-5" />}
-                      className="border-white/30 text-white hover:bg-white hover:text-[var(--color-primary)]"
+                      className="border-white/30 text-white hover:bg-white hover:text-gray-900"
                     >
                       477-329-39-39
                     </Button>
@@ -247,7 +249,7 @@ export function CTASection() {
                   { value: 4, suffix: '', label: 'Sucursales' },
                 ].map((stat, index) => (
                   <div key={index} className="text-center group cursor-default transition-transform duration-300 hover:scale-105">
-                    <div className="text-2xl font-bold text-[var(--color-secondary)]">
+                    <div className="text-2xl font-bold text-[#F59F20]">
                       <AnimatedCounter
                         value={stat.value}
                         suffix={stat.suffix}
@@ -273,7 +275,7 @@ export function CTASection() {
                     key={index}
                     className="flex items-center gap-3 p-3 rounded-lg bg-white/5 transition-all duration-300 hover:bg-white/10 hover:translate-x-1 cursor-default"
                   >
-                    <Check className="w-4 h-4 text-[var(--color-secondary)] transition-transform duration-300 group-hover:scale-110" />
+                    <Check className="w-4 h-4 text-[#F59F20] transition-transform duration-300 group-hover:scale-110" />
                     <span className="text-sm text-white/80">{badge}</span>
                   </div>
                 ))}

@@ -54,9 +54,9 @@ export function ParticleTransition({
   };
 
   const glowColors = {
-    teal: 'rgba(45, 212, 191, 0.4)',
-    secondary: 'rgba(232, 184, 109, 0.4)',
-    primary: 'rgba(26, 77, 92, 0.4)',
+    teal: 'rgba(77, 189, 201, 0.4)',
+    secondary: 'rgba(238, 86, 49, 0.4)',
+    primary: 'rgba(77, 189, 201, 0.4)',
   };
 
   return (
@@ -190,9 +190,9 @@ export function GradientMorphTransition({
             rgba(30, 41, 59, 0.4) 35%,
             rgba(100, 116, 139, 0.25) 50%,
             rgba(203, 213, 225, 0.15) 65%,
-            rgba(250, 250, 248, 0.5) 78%,
-            rgba(250, 250, 248, 0.85) 88%,
-            #FAFAF8 100%
+            rgba(240, 237, 220, 0.5) 78%,
+            rgba(240, 237, 220, 0.85) 88%,
+            #F0EDDC 100%
           )`
         }}
       />
@@ -204,7 +204,7 @@ export function GradientMorphTransition({
           background: `linear-gradient(
             135deg,
             transparent 0%,
-            rgba(232, 184, 109, 0.15) 50%,
+            rgba(77, 189, 201, 0.15) 50%,
             transparent 100%
           )`
         }}
@@ -220,8 +220,8 @@ export function GradientMorphTransition({
             top: `${40 + p.offsetY * 0.4}%`,
             width: p.size,
             height: p.size,
-            background: 'rgba(232, 184, 109, 0.6)',
-            boxShadow: `0 0 ${p.size * 3}px rgba(232, 184, 109, 0.4)`,
+            background: 'rgba(77, 189, 201, 0.6)',
+            boxShadow: `0 0 ${p.size * 3}px rgba(77, 189, 201, 0.4)`,
           }}
           initial={{ opacity: 0, scale: 0 }}
           animate={
@@ -246,7 +246,7 @@ export function GradientMorphTransition({
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
-          backgroundImage: `radial-gradient(circle, rgba(26, 77, 92, 1) 1px, transparent 1px)`,
+          backgroundImage: `radial-gradient(circle, rgba(77, 189, 201, 1) 1px, transparent 1px)`,
           backgroundSize: '24px 24px',
         }}
       />
@@ -260,12 +260,12 @@ export function GradientMorphTransition({
         <defs>
           <linearGradient id="curveGradient" x1="0%" y1="0%" x2="0%" y2="100%">
             <stop offset="0%" stopColor="transparent" />
-            <stop offset="100%" stopColor="#FAFAF8" />
+            <stop offset="100%" stopColor="#F0EDDC" />
           </linearGradient>
         </defs>
         <path
           d="M0,40 C360,80 720,0 1080,60 C1260,90 1360,30 1440,50 L1440,100 L0,100 Z"
-          fill="#FAFAF8"
+          fill="#F0EDDC"
         />
         <path
           d="M0,60 C240,20 480,80 720,40 C960,0 1200,60 1440,30 L1440,100 L0,100 Z"
@@ -278,7 +278,7 @@ export function GradientMorphTransition({
       <motion.div
         className="absolute left-1/3 top-1/2 w-px h-20"
         style={{
-          background: 'linear-gradient(to bottom, transparent, rgba(232, 184, 109, 0.3), transparent)',
+          background: 'linear-gradient(to bottom, transparent, rgba(77, 189, 201, 0.3), transparent)',
         }}
         initial={{ opacity: 0, scaleY: 0 }}
         animate={isInView ? { opacity: 0.6, scaleY: 1 } : { opacity: 0, scaleY: 0 }}
@@ -287,7 +287,7 @@ export function GradientMorphTransition({
       <motion.div
         className="absolute right-1/3 top-1/2 w-px h-16"
         style={{
-          background: 'linear-gradient(to bottom, transparent, rgba(232, 184, 109, 0.2), transparent)',
+          background: 'linear-gradient(to bottom, transparent, rgba(77, 189, 201, 0.2), transparent)',
         }}
         initial={{ opacity: 0, scaleY: 0 }}
         animate={isInView ? { opacity: 0.5, scaleY: 1 } : { opacity: 0, scaleY: 0 }}

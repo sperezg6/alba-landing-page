@@ -57,7 +57,7 @@ export function StatementSection() {
   return (
     <section
       ref={sectionRef}
-      className="section-fullscreen section-center bg-white relative overflow-hidden"
+      className="section-fullscreen section-center bg-alba-dark relative overflow-hidden"
     >
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.02]">

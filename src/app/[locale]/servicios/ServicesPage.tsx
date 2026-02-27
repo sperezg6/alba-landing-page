@@ -352,14 +352,14 @@ export function ServicesPage() {
             {/* Cream shape with notches on both sides, center image extends down */}
             <path
               d="M0,50 L0,150 L1200,150 L1200,50 L950,50 L950,0 L250,0 L250,50 Z"
-              fill="#F4F3E8"
+              fill="#F0EDDC"
             />
           </svg>
         </div>
       </section>
 
       {/* Services Grid - Dynamic Expanding Animation */}
-      <section className="bg-creme-alba pt-12 md:pt-16 pb-20 md:pb-28 lg:pb-32 px-6 md:px-12 lg:px-16 xl:px-24">
+      <section className="bg-alba-dark pt-12 md:pt-16 pb-20 md:pb-28 lg:pb-32 px-6 md:px-12 lg:px-16 xl:px-24">
         <div className="max-w-7xl mx-auto">
           {/* Section Header - Centered */}
           <div className="mb-12 md:mb-16 text-center">
@@ -398,7 +398,7 @@ export function ServicesPage() {
               return (
                 <div
                   key={service.id}
-                  className={`service-card relative overflow-hidden cursor-pointer bg-creme-alba border-gray-900/10 opacity-0 ${
+                  className={`service-card relative overflow-hidden cursor-pointer bg-alba-dark border-gray-900/10 opacity-0 ${
                     !isLastCol ? 'border-r' : ''
                   } ${!isLastRow ? 'border-b' : ''}`}
                   onMouseEnter={() => setHovered({ row: service.row, col: service.col })}
@@ -464,7 +464,7 @@ export function ServicesPage() {
               return (
                 <div
                   key={service.id}
-                  className="mobile-service-card bg-white border border-gray-900/10 overflow-hidden opacity-0"
+                  className="mobile-service-card bg-alba-dark border border-gray-900/10 overflow-hidden opacity-0"
                 >
                   {/* Header - always visible, clickable to expand */}
                   <button
@@ -550,7 +550,7 @@ export function ServicesPage() {
       </section>
 
       {/* Educational Section - What is Hemodialysis? */}
-      <section className="bg-white py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24">
+      <section className="bg-alba-dark py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             {/* Left: Header and main explanation */}
@@ -625,7 +625,7 @@ export function ServicesPage() {
       </section>
 
       {/* Treatment Process Timeline */}
-      <section className="bg-creme-alba py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24">
+      <section className="bg-alba-dark py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div ref={processHeaderRef} className="text-center mb-16 opacity-0">
@@ -650,7 +650,7 @@ export function ServicesPage() {
             {servicesData[0].process.map((step, index) => (
               <div
                 key={index}
-                className="process-step relative bg-white p-6 lg:p-8 border border-gray-100 opacity-0"
+                className="process-step relative bg-alba-dark p-6 lg:p-8 border border-gray-100 opacity-0"
               >
                 {/* Connector line (hidden on mobile and last item) */}
                 {index < servicesData[0].process.length - 1 && (
@@ -687,7 +687,12 @@ export function ServicesPage() {
 
       {/* Featured Service - Full width image */}
       <section className="relative bg-alba-dark py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
-        <div className="max-w-7xl mx-auto">
+        {/* Decorative gradient blob */}
+        <div
+          className="absolute -top-32 -right-32 w-[500px] h-[500px] opacity-25 pointer-events-none"
+          style={{ backgroundImage: 'url(/gradient-blob.png)', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}
+        />
+        <div className="relative z-10 max-w-7xl mx-auto">
           {/* Section Header */}
           <div
             ref={featuredHeaderRef}
@@ -699,7 +704,7 @@ export function ServicesPage() {
                 {isEn ? 'Featured service' : 'Servicio destacado'}
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light !text-white tracking-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light !text-gray-900 tracking-tight">
               {isEn ? 'High-efficiency hemodialysis' : 'Hemodiálisis de alta eficiencia'}
             </h2>
           </div>
@@ -753,7 +758,7 @@ export function ServicesPage() {
                   <span className="text-2xl lg:text-3xl xl:text-4xl font-light text-alba-primary">
                     {stat.number}
                   </span>
-                  <p className="text-xs lg:text-sm text-[#F4F3E8]/50 mt-1 uppercase tracking-wider">
+                  <p className="text-xs lg:text-sm text-gray-900/50 mt-1 uppercase tracking-wider">
                     {isEn ? stat.labelEn : stat.labelEs}
                   </p>
                 </div>
@@ -775,7 +780,7 @@ export function ServicesPage() {
                   <span className="text-3xl font-light text-alba-primary">
                     {stat.number}
                   </span>
-                  <p className="text-sm text-[#F4F3E8]/50 mt-2 uppercase tracking-wider">
+                  <p className="text-sm text-gray-900/50 mt-2 uppercase tracking-wider">
                     {isEn ? stat.labelEn : stat.labelEs}
                   </p>
                 </div>
@@ -786,14 +791,14 @@ export function ServicesPage() {
 
         {/* Step divider */}
         <StepRampDivider
-          color="#F4F3E8"
+          color="#F0EDDC"
           height={100}
           className="absolute bottom-0 left-0 right-0 translate-y-[99px]"
         />
       </section>
 
       {/* CTA Section - With Gradient Blob Background */}
-      <section className="relative bg-creme-alba py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
+      <section className="relative bg-alba-dark py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
         {/* Gradient Blobs */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Large teal/cyan blob - top right */}
@@ -860,7 +865,7 @@ export function ServicesPage() {
                     {isEn ? 'Book appointment' : 'Agendar cita'}
                   </span>
                   <span className="w-12 h-12 rounded-full border border-gray-900/20 flex items-center justify-center group-hover:border-gray-900 group-hover:bg-gray-900 transition-all duration-300">
-                    <ArrowUpRight className="w-5 h-5 text-gray-600 group-hover:text-white transition-colors duration-300" />
+                    <ArrowUpRight className="w-5 h-5 text-gray-600 group-hover:text-gray-900 transition-colors duration-300" />
                   </span>
                 </Link>
               </div>

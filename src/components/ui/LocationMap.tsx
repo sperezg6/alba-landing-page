@@ -151,7 +151,7 @@ export function LocationMap({ activeBranch, onMarkerClick }: LocationMapProps) {
         .marker-container:hover .marker-dot,
         .marker-container.active .marker-dot {
           transform: scale(1.3);
-          box-shadow: 0 0 20px rgba(232, 90, 44, 0.6);
+          box-shadow: 0 0 20px rgba(77, 189, 201, 0.6);
         }
 
         .marker-pulse {
@@ -161,7 +161,7 @@ export function LocationMap({ activeBranch, onMarkerClick }: LocationMapProps) {
           transform: translate(-50%, -50%);
           width: 30px;
           height: 30px;
-          background: rgba(232, 90, 44, 0.3);
+          background: rgba(77, 189, 201, 0.3);
           border-radius: 50%;
           opacity: 0;
           z-index: 1;
