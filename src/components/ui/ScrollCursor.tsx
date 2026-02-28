@@ -1,14 +1,22 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 interface ScrollCursorProps {
   containerRef: React.RefObject<HTMLElement | null>;
 }
 
+// SVG circle constants
+const RADIUS = 50;
+const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
+
 export function ScrollCursor({ containerRef }: ScrollCursorProps) {
   const [isVisible, setIsVisible] = useState(false);
+  const progressRef = useRef(0);
+  const circleRef = useRef<SVGCircleElement>(null);
   const cursorX = useMotionValue(0);
   const cursorY = useMotionValue(0);
 
@@ -16,6 +24,32 @@ export function ScrollCursor({ containerRef }: ScrollCursorProps) {
   const springConfig = { damping: 25, stiffness: 200 };
   const smoothX = useSpring(cursorX, springConfig);
   const smoothY = useSpring(cursorY, springConfig);
+
+  // Use GSAP ScrollTrigger scoped to the hero container
+  useEffect(() => {
+    const circle = circleRef.current;
+    const container = containerRef.current;
+    if (!circle || !container) return;
+
+    const ctx = gsap.context(() => {
+      gsap.to(progressRef, {
+        current: 1,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: container,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 0.3,
+          onUpdate: (self) => {
+            const offset = CIRCUMFERENCE * (1 - self.progress);
+            circle.style.strokeDashoffset = String(offset);
+          },
+        },
+      });
+    });
+
+    return () => ctx.revert();
+  }, [containerRef]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -66,25 +100,41 @@ export function ScrollCursor({ containerRef }: ScrollCursorProps) {
       }}
       transition={{ duration: 0.2 }}
     >
-      {/* Circle outline with scroll indicator */}
-      <div className="relative w-28 h-28 rounded-full border border-white/40 flex flex-col items-center justify-center gap-1.5">
+      {/* Circle with scroll progress */}
+      <div className="relative w-28 h-28 flex items-center justify-center">
+        {/* SVG progress ring */}
+        <svg
+          className="absolute inset-0 w-full h-full -rotate-90"
+          viewBox="0 0 112 112"
+        >
+          {/* Background circle */}
+          <circle
+            cx="56"
+            cy="56"
+            r={RADIUS}
+            fill="none"
+            stroke="rgba(255, 255, 255, 0.15)"
+            strokeWidth="1"
+          />
+          {/* Progress circle - alba primary aqua */}
+          <circle
+            ref={circleRef}
+            cx="56"
+            cy="56"
+            r={RADIUS}
+            fill="none"
+            stroke="#4DBDC9"
+            strokeWidth="1.5"
+            strokeDasharray={CIRCUMFERENCE}
+            strokeDashoffset={CIRCUMFERENCE}
+            strokeLinecap="round"
+          />
+        </svg>
+
         {/* SCROLL text */}
         <span className="text-white/80 text-[10px] uppercase tracking-[0.25em] font-medium">
           Scroll
         </span>
-
-        {/* Animated scroll line */}
-        <div className="relative w-px h-6 overflow-hidden">
-          <motion.div
-            className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white/80 to-transparent"
-            animate={{ y: ['-100%', '100%'] }}
-            transition={{
-              duration: 1.5,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-          />
-        </div>
       </div>
     </motion.div>
   );

@@ -233,7 +233,7 @@ export function Footer() {
           {/* Navigation */}
           <div className="relative">
             <span className="text-alba-accent-gold text-sm uppercase tracking-[0.2em] block mb-6">
-              Navigate
+              Navegación
             </span>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
