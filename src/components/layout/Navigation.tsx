@@ -31,13 +31,13 @@ export function Navigation() {
   const isContactPage = pathname === '/contacto';
   const isDirectoryPage = pathname === '/directorio' || pathname.startsWith('/directorio/');
   // Pages with dark hero images needing white nav text
-  const hasHeroSection = isHomePage || isServicesPage || isAboutPage;
+  const hasHeroSection = isHomePage || isServicesPage || isAboutPage || isBranchesPage;
 
   useEffect(() => {
     const handleScroll = () => {
       // On pages with full-height dark heroes, switch after passing most of the hero
       // On other pages, switch after 100px
-      const hasDarkHero = pathname === '/' || pathname === '/servicios' || pathname.startsWith('/servicios/') || pathname === '/nosotros';
+      const hasDarkHero = pathname === '/' || pathname === '/servicios' || pathname.startsWith('/servicios/') || pathname === '/nosotros' || pathname === '/sucursales';
       const threshold = hasDarkHero ? window.innerHeight * 0.7 : 100;
       setIsScrolled(window.scrollY > threshold);
     };

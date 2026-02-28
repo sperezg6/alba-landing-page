@@ -269,7 +269,7 @@ export function BranchesPage() {
           >
             <path
               d="M0,40 L0,120 L1200,120 L1200,40 L950,40 L950,0 L250,0 L250,40 Z"
-              fill="#F0EDDC"
+              fill="#FAFAF7"
             />
           </svg>
         </div>
