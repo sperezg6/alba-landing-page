@@ -352,7 +352,7 @@ export function ServicesPage() {
             {/* Cream shape with notches on both sides, center image extends down */}
             <path
               d="M0,50 L0,150 L1200,150 L1200,50 L950,50 L950,0 L250,0 L250,50 Z"
-              fill="#F0EDDC"
+              fill="#FAFAF7"
             />
           </svg>
         </div>
@@ -791,7 +791,7 @@ export function ServicesPage() {
 
         {/* Step divider */}
         <StepRampDivider
-          color="#F0EDDC"
+          color="#FAFAF7"
           height={100}
           className="absolute bottom-0 left-0 right-0 translate-y-[99px]"
         />

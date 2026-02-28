@@ -51,7 +51,7 @@ export function AboutPage() {
 
         {/* Step Ramp Divider - Alba style */}
         <StepRampDivider
-          color="#F0EDDC"
+          color="#FAFAF7"
           height={150}
           className="absolute bottom-0 left-0 right-0 z-20"
         />
