@@ -23,13 +23,25 @@ export function LocationMap({ activeBranch, onMarkerClick }: LocationMapProps) {
   const createCustomMarker = useCallback((branch: Branch, isActive: boolean) => {
     const el = document.createElement('div');
     el.className = 'custom-marker';
-    el.innerHTML = `
-      <div class="marker-container ${isActive ? 'active' : ''}">
-        <div class="marker-pulse"></div>
-        <div class="marker-dot"></div>
-        <div class="marker-label">${branch.name.replace('Alba ', '').replace('Unidad Medica ', '').replace('Unidad ', '')}</div>
-      </div>
-    `;
+
+    const container = document.createElement('div');
+    container.className = `marker-container ${isActive ? 'active' : ''}`;
+
+    const pulse = document.createElement('div');
+    pulse.className = 'marker-pulse';
+
+    const dot = document.createElement('div');
+    dot.className = 'marker-dot';
+
+    const label = document.createElement('div');
+    label.className = 'marker-label';
+    label.textContent = branch.name.replace('Alba ', '').replace('Unidad Medica ', '').replace('Unidad ', '');
+
+    container.appendChild(pulse);
+    container.appendChild(dot);
+    container.appendChild(label);
+    el.appendChild(container);
+
     return el;
   }, []);
 

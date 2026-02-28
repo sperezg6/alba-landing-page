@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X, Send, ArrowUpRight, RotateCcw } from 'lucide-react';
+import { MessageCircle, X, Send, ArrowUpRight, RotateCcw, AlertTriangle } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import DOMPurify from 'dompurify';
 import { cn } from '@/lib/utils';
@@ -44,6 +44,8 @@ const allPrompts = [
   "¿Cómo funcionan los riñones?",
 ];
 
+const MESSAGE_LIMIT = 30;
+
 // Different rotation intervals for each position (in milliseconds)
 const rotationIntervals = [5000, 6500, 8000];
 
@@ -80,7 +82,7 @@ function formatMessage(content: string) {
   // Sanitize HTML to prevent XSS attacks
   return DOMPurify.sanitize(formatted, {
     ALLOWED_TAGS: ['strong', 'p', 'li', 'hr', 'a', 'br'],
-    ALLOWED_ATTR: ['href', 'target', 'rel', 'class'],
+    ALLOWED_ATTR: ['href', 'target', 'rel'],
     ALLOW_DATA_ATTR: false,
   });
 }
@@ -181,8 +183,11 @@ export function FloatingChatWidget() {
     scrollToBottom();
   }, [messages, streamingContent]);
 
+  const userMessageCount = messages.filter(m => m.role === 'user').length;
+  const isLimitReached = userMessageCount >= MESSAGE_LIMIT;
+
   const handleSend = async (content: string) => {
-    if (!content.trim() || isLoading) return;
+    if (!content.trim() || isLoading || isLimitReached) return;
 
     // Track message sent
     posthog?.capture('chat_message_sent', {
@@ -251,7 +256,7 @@ export function FloatingChatWidget() {
   };
 
   const showWelcome = messages.length === 0;
-  const showFollowUp = messages.length > 0 && !isLoading && !streamingContent;
+  const showFollowUp = messages.length > 0 && !isLoading && !streamingContent && !isLimitReached;
 
   if (!isVisible && !isOpen) return null;
 
@@ -487,6 +492,27 @@ export function FloatingChatWidget() {
                     </motion.div>
                   )}
 
+                  {/* Limit reached banner */}
+                  {isLimitReached && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-800"
+                    >
+                      <AlertTriangle className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                      <div className="text-xs leading-relaxed">
+                        <p className="font-medium">Límite de mensajes alcanzado</p>
+                        <p className="mt-1 text-amber-700">Has enviado 30 mensajes. Inicia una nueva conversación.</p>
+                        <button
+                          onClick={handleReset}
+                          className="mt-2 text-xs font-semibold uppercase tracking-wider text-alba-primary hover:text-alba-primary-dark transition-colors"
+                        >
+                          Nueva conversación
+                        </button>
+                      </div>
+                    </motion.div>
+                  )}
+
                   <div ref={messagesEndRef} />
                 </div>
               )}
@@ -500,12 +526,27 @@ export function FloatingChatWidget() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  placeholder="Escribe tu pregunta..."
-                  className="flex-1 px-4 py-3 bg-white/70 border border-gray-200 text-gray-900 placeholder:text-gray-400 text-sm focus:outline-none focus:border-gray-400 focus:bg-white transition-all duration-300 rounded-xl"
+                  placeholder={isLimitReached ? 'Límite de mensajes alcanzado' : 'Escribe tu pregunta...'}
+                  disabled={isLimitReached}
+                  className={cn(
+                    "flex-1 px-4 py-3 border text-gray-900 placeholder:text-gray-400 text-sm focus:outline-none transition-all duration-300 rounded-xl",
+                    isLimitReached
+                      ? "bg-gray-100 border-gray-200 opacity-60 cursor-not-allowed"
+                      : "bg-white/70 border-gray-200 focus:border-gray-400 focus:bg-white"
+                  )}
                 />
+                {/* Message counter */}
+                {messages.length > 0 && (
+                  <span className={cn(
+                    "text-xs whitespace-nowrap",
+                    isLimitReached ? "text-amber-600 font-medium" : "text-gray-400"
+                  )}>
+                    {userMessageCount}/{MESSAGE_LIMIT}
+                  </span>
+                )}
                 <motion.button
                   onClick={() => handleSend(input)}
-                  disabled={!input.trim() || isLoading}
+                  disabled={!input.trim() || isLoading || isLimitReached}
                   className="p-3 bg-alba-primary hover:bg-alba-primary-dark text-gray-900 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300 rounded-xl"
                   aria-label="Enviar mensaje"
                   whileHover={{ scale: 1.05 }}

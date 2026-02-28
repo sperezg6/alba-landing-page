@@ -122,7 +122,7 @@ export function Footer() {
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/background_footer.jpg"
+          src="/images/background_footer.webp"
           alt=""
           fill
           className="object-cover"

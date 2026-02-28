@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { ArrowUpRight, ChevronRight } from 'lucide-react';
@@ -152,13 +153,21 @@ export function BranchesPage() {
     branches.forEach((branch) => {
       const el = document.createElement('div');
       el.className = 'branch-marker';
-      el.innerHTML = `
-        <div class="marker-dot">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M12 6v12M6 12h12" />
-          </svg>
-        </div>
-      `;
+
+      const dot = document.createElement('div');
+      dot.className = 'marker-dot';
+
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('viewBox', '0 0 24 24');
+      svg.setAttribute('fill', 'none');
+      svg.setAttribute('stroke', 'currentColor');
+      svg.setAttribute('stroke-width', '2.5');
+
+      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.setAttribute('d', 'M12 6v12M6 12h12');
+      svg.appendChild(path);
+      dot.appendChild(svg);
+      el.appendChild(dot);
 
       el.addEventListener('click', () => {
         flyToBranch(branch.id);
@@ -216,10 +225,12 @@ export function BranchesPage() {
       <section className="relative h-[70vh] min-h-[500px] w-full overflow-hidden bg-alba-dark">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <img
+          <Image
             src="/images/alba-extracted/fotos-servicios-12.jpg"
             alt="Alba Dialisis clinics"
-            className="w-full h-full object-cover"
+            fill
+            priority
+            className="object-cover"
           />
           {/* Dark overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-alba-dark via-[#2B3A42]/60 to-[#2B3A42]/40" />
