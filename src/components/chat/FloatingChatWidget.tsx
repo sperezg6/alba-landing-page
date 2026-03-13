@@ -66,7 +66,7 @@ function formatMessage(content: string) {
     .replace(/^# (.*$)/gm, '<p class="font-semibold text-gray-900 mt-4 mb-2 text-base">$1</p>')
     // Handle emoji headers (e.g., "🌅 Desayuno" at start of line)
     .replace(/^([\u{1F300}-\u{1F9FF}][\u{FE00}-\u{FE0F}]?\s+\S.*$)/gmu, '<p class="font-medium text-gray-800 mt-3 mb-1.5 text-sm">$1</p>')
-    .replace(/^- (.*$)/gm, '<li class="ml-4 text-sm">$1</li>')
+    .replace(/^- (.*$)/gm, '<li class="ml-4 text-sm leading-snug">$1</li>')
     .replace(/---/g, '<hr class="my-2 border-gray-200">')
     // Convert URLs to clickable links (handles with or without https://)
     .replace(
@@ -79,9 +79,15 @@ function formatMessage(content: string) {
     .replace(/\n\n/g, '</p><p class="mt-1.5">')
     .replace(/\n/g, '<br />');
 
+  // Wrap consecutive <li> elements in a <ul>
+  const withLists = formatted.replace(
+    /(<li[^>]*>.*?<\/li>)(\s*<br \/>\s*)*(<li[^>]*>.*?<\/li>)*/gs,
+    (match) => `<ul class="my-1.5 space-y-0.5 list-none pl-0">${match.replace(/<br \/>/g, '')}</ul>`
+  );
+
   // Sanitize HTML to prevent XSS attacks
-  return DOMPurify.sanitize(formatted, {
-    ALLOWED_TAGS: ['strong', 'p', 'li', 'hr', 'a', 'br'],
+  return DOMPurify.sanitize(withLists, {
+    ALLOWED_TAGS: ['strong', 'p', 'li', 'ul', 'hr', 'a', 'br'],
     ALLOWED_ATTR: ['href', 'target', 'rel'],
     ALLOW_DATA_ATTR: false,
   });
@@ -424,7 +430,7 @@ export function FloatingChatWidget() {
                       >
                         {message.role === 'assistant' ? (
                           <div
-                            className="text-sm leading-relaxed prose prose-sm max-w-none"
+                            className="text-sm leading-relaxed prose prose-sm max-w-none prose-li:my-0 prose-ul:my-1.5 prose-li:pl-0 prose-ul:pl-0"
                             dangerouslySetInnerHTML={{ __html: formatMessage(message.content) }}
                           />
                         ) : (
@@ -443,7 +449,7 @@ export function FloatingChatWidget() {
                     >
                       <div className="max-w-[90%] px-4 py-3 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 text-gray-700">
                         <div
-                          className="text-sm leading-relaxed prose prose-sm max-w-none"
+                          className="text-sm leading-relaxed prose prose-sm max-w-none prose-li:my-0 prose-ul:my-1.5 prose-li:pl-0 prose-ul:pl-0"
                           dangerouslySetInnerHTML={{ __html: formatMessage(streamingContent) }}
                         />
                       </div>

@@ -67,7 +67,7 @@ const nextConfig: NextConfig = {
               "style-src 'self' 'unsafe-inline' https://api.mapbox.com",
               "img-src 'self' data: blob: https://*.mapbox.com https://images.unsplash.com https://randomuser.me https://i0.wp.com https://albadialisis.com",
               "font-src 'self' data:",
-              "connect-src 'self' https://*.mapbox.com https://*.posthog.com https://*.amazonaws.com https://*.on.aws https://*.supabase.co https://cal.com https://app.cal.com",
+              "connect-src 'self' https://*.mapbox.com https://*.posthog.com https://*.amazonaws.com https://*.on.aws https://cal.com https://app.cal.com",
               "frame-src https://cal.com https://app.cal.com",
               "worker-src 'self' blob:",
               "child-src blob:",
