@@ -88,7 +88,7 @@ function formatMessage(content: string) {
   // Sanitize HTML to prevent XSS attacks
   return DOMPurify.sanitize(withLists, {
     ALLOWED_TAGS: ['strong', 'p', 'li', 'ul', 'hr', 'a', 'br'],
-    ALLOWED_ATTR: ['href', 'target', 'rel'],
+    ALLOWED_ATTR: ['href', 'target', 'rel', 'class'],
     ALLOW_DATA_ATTR: false,
   });
 }
@@ -430,7 +430,7 @@ export function FloatingChatWidget() {
                       >
                         {message.role === 'assistant' ? (
                           <div
-                            className="text-sm leading-relaxed prose prose-sm max-w-none prose-li:my-0 prose-ul:my-1.5 prose-li:pl-0 prose-ul:pl-0"
+                            className="text-sm leading-relaxed max-w-none"
                             dangerouslySetInnerHTML={{ __html: formatMessage(message.content) }}
                           />
                         ) : (
@@ -449,7 +449,7 @@ export function FloatingChatWidget() {
                     >
                       <div className="max-w-[90%] px-4 py-3 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 text-gray-700">
                         <div
-                          className="text-sm leading-relaxed prose prose-sm max-w-none prose-li:my-0 prose-ul:my-1.5 prose-li:pl-0 prose-ul:pl-0"
+                          className="text-sm leading-relaxed max-w-none"
                           dangerouslySetInnerHTML={{ __html: formatMessage(streamingContent) }}
                         />
                       </div>
