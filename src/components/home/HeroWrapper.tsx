@@ -3,7 +3,7 @@
 import { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollCursor } from '@/components/ui/ScrollCursor';
@@ -13,6 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 export function HeroWrapper() {
   const t = useTranslations('hero');
   const tScroll = useTranslations('heroScroll');
+  const locale = useLocale();
   const wrapperRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
   const progressLineRef = useRef<HTMLDivElement>(null);
@@ -112,7 +113,7 @@ export function HeroWrapper() {
   return (
     <div
       ref={wrapperRef}
-      className="relative h-[200vh] md:h-[300vh] w-full overflow-hidden"
+      className="relative z-20 h-[300vh] w-full overflow-hidden rounded-b-[48px] md:rounded-b-[64px]"
     >
       {/* Single continuous background image - spans all 3 viewports */}
       <div
@@ -156,19 +157,25 @@ export function HeroWrapper() {
             style={{ color: '#FFFFFF', fontSize: 'clamp(2.5rem, 8vw, 8rem)' }}
           >
             {t('headlineLine1')}<br />
-            <span className="md:whitespace-nowrap">{t('headlineLine2')}</span>
+            <span className="md:whitespace-nowrap">
+              {locale === 'en' ? (
+                <>your <span style={{ color: '#F59F20' }}>new dawn.</span></>
+              ) : (
+                <>tu <span style={{ color: '#F59F20' }}>nuevo amanecer.</span></>
+              )}
+            </span>
           </h1>
 
           <div className="flex flex-wrap gap-4 mt-6 md:mt-8">
             <Link
               href="/servicios"
-              className="inline-block px-5 py-2.5 md:px-6 md:py-3 bg-alba-primary text-black text-sm font-semibold uppercase tracking-wider rounded hover:bg-alba-primary-dark transition-colors cursor-pointer"
+              className="inline-block px-5 py-2.5 md:px-6 md:py-3 bg-alba-primary text-black text-sm font-semibold uppercase tracking-wider rounded-xl hover:bg-alba-primary-dark transition-colors cursor-pointer"
             >
               {t('ctaButton')}
             </Link>
             <Link
               href="/contacto"
-              className="inline-block px-5 py-2.5 md:px-6 md:py-3 border border-white text-white text-sm font-semibold uppercase tracking-wider rounded hover:bg-white hover:text-black transition-colors cursor-pointer"
+              className="inline-block px-5 py-2.5 md:px-6 md:py-3 border border-white text-white text-sm font-semibold uppercase tracking-wider rounded-xl hover:bg-white hover:text-black transition-colors cursor-pointer"
             >
               {t('appointmentButton')}
             </Link>
@@ -180,15 +187,15 @@ export function HeroWrapper() {
       <section className="relative z-10 h-screen w-full flex items-center">
         <div
           ref={scrollContent1Ref}
-          className="ml-auto mr-16 md:mr-24 lg:mr-32 max-w-md md:max-w-lg lg:max-w-xl"
+          className="ml-auto mr-6 md:mr-24 lg:mr-32 pl-6 md:pl-0 max-w-md md:max-w-lg lg:max-w-xl"
         >
           <div className="flex items-center gap-2 mb-4">
-            <span className="w-2.5 h-2.5 rounded-full bg-alba-primary shadow-[0_0_8px_rgba(77,189,201,0.6)]" />
-            <span className="text-alba-primary text-sm font-semibold uppercase tracking-[0.2em] drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
+            <span className="w-2.5 h-2.5 rounded-full bg-alba-primary shadow-[0_0_8px_rgba(245,159,32,0.6)]" />
+            <span className="text-alba-primary text-base font-semibold uppercase tracking-[0.2em] drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
               {tScroll('label')}
             </span>
           </div>
-          <p className="text-white text-xl md:text-2xl lg:text-3xl leading-relaxed font-light drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">
+          <p className="text-white text-xl md:text-3xl lg:text-4xl xl:text-5xl leading-relaxed font-light drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">
             {tScroll('description')}
           </p>
         </div>
@@ -198,29 +205,30 @@ export function HeroWrapper() {
       <section className="relative z-10 h-screen w-full flex items-center">
         <div
           ref={scrollContent2Ref}
-          className="mr-auto ml-6 md:ml-16 lg:ml-24 max-w-md md:max-w-lg lg:max-w-xl space-y-10"
+          className="mr-auto ml-6 md:ml-16 lg:ml-24 pr-6 md:pr-0 max-w-md md:max-w-lg lg:max-w-xl space-y-8 md:space-y-10"
         >
           {/* Medical Excellence */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <span className="w-2.5 h-2.5 rounded-full bg-alba-primary shadow-[0_0_8px_rgba(77,189,201,0.6)]" />
-              <span className="text-alba-primary text-sm font-semibold uppercase tracking-[0.2em] drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
+              <span className="w-2.5 h-2.5 rounded-full bg-alba-primary shadow-[0_0_8px_rgba(245,159,32,0.6)]" />
+              <span className="text-alba-primary text-base font-semibold uppercase tracking-[0.2em] drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
                 {tScroll('label2')}
               </span>
             </div>
-            <p className="text-white text-xl md:text-2xl lg:text-3xl leading-relaxed font-light drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">
+            <p className="text-white text-xl md:text-3xl lg:text-4xl xl:text-5xl leading-relaxed font-light drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">
               {tScroll('description2')}
             </p>
           </div>
 
           {/* Statement headline */}
           <div className="pt-4">
-            <p className="text-white text-2xl md:text-3xl lg:text-4xl font-light leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">
+            <p className="text-white text-2xl md:text-4xl lg:text-5xl font-light leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">
               {tScroll('statement')}
             </p>
           </div>
         </div>
       </section>
+
     </div>
   );
 }

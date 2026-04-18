@@ -42,6 +42,29 @@ export function BranchesPage() {
   const [mapLoaded, setMapLoaded] = useState(false);
   const [isOpen, setIsOpen] = useState(true);
 
+  // Water effect
+  const [waterPos, setWaterPos] = useState({ x: 50, y: 50 });
+  const [ripples, setRipples] = useState<{ id: number; x: number; y: number }[]>([]);
+  const lastRippleTime = useRef(0);
+  const rippleIdRef = useRef(0);
+
+  const handleGridMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setWaterPos({
+      x: ((e.clientX - rect.left) / rect.width) * 100,
+      y: ((e.clientY - rect.top) / rect.height) * 100,
+    });
+    const now = Date.now();
+    if (now - lastRippleTime.current > 140) {
+      lastRippleTime.current = now;
+      const id = rippleIdRef.current++;
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      setRipples(prev => [...prev, { id, x, y }]);
+      setTimeout(() => setRipples(prev => prev.filter(r => r.id !== id)), 1400);
+    }
+  }, []);
+
   // Check opening status on mount and update every minute
   useEffect(() => {
     setIsOpen(isClinicOpen());
@@ -222,7 +245,7 @@ export function BranchesPage() {
   return (
     <>
       {/* Hero Section - Alba Style with Static Image */}
-      <section className="relative h-[70vh] min-h-[500px] w-full overflow-hidden bg-alba-dark">
+      <section className="relative z-20 h-[70vh] min-h-[500px] w-full overflow-hidden rounded-b-[48px] md:rounded-b-[64px]">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -238,7 +261,7 @@ export function BranchesPage() {
         </div>
 
         {/* Content - Bottom left positioned */}
-        <div className="relative z-10 h-full flex flex-col justify-end px-6 md:px-12 lg:px-16 xl:px-24 pb-24 md:pb-32">
+        <div className="relative z-10 h-full flex flex-col justify-end px-6 md:px-12 lg:px-16 xl:px-24 pb-36 md:pb-44">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -246,13 +269,13 @@ export function BranchesPage() {
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="w-2 h-2 rounded-full bg-alba-primary" />
-              <span className="text-xs font-medium uppercase tracking-[0.2em] text-alba-primary">
+              <span className="text-sm font-semibold uppercase tracking-[0.2em] text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]">
                 Nuestras Sucursales
               </span>
             </div>
             <h1
               className="font-light leading-[0.95] tracking-tight"
-              style={{ color: '#374151', fontSize: 'clamp(3rem, 7vw, 6rem)' }}
+              style={{ color: '#FFFFFF', fontSize: 'clamp(3rem, 7vw, 6rem)' }}
             >
               Encuentra tu clínica<br />
               más cercana
@@ -260,23 +283,37 @@ export function BranchesPage() {
           </motion.div>
         </div>
 
-        {/* Double Notch Divider */}
-        <div className="absolute bottom-0 left-0 right-0 z-20 h-[60px] md:h-[80px]">
-          <svg
-            className="absolute bottom-0 w-full h-full"
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M0,40 L0,120 L1200,120 L1200,40 L950,40 L950,0 L250,0 L250,40 Z"
-              fill="#FAFAF7"
-            />
-          </svg>
-        </div>
       </section>
 
       {/* Branch Selection Section */}
-      <section className="relative bg-alba-dark py-16 md:py-24 px-6 md:px-12 lg:px-16 xl:px-24">
+      <section
+        className="relative z-10 -mt-[48px] md:-mt-[64px] pt-[72px] md:pt-[96px] pb-16 md:pb-24 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden"
+        style={{ background: 'linear-gradient(135deg, rgba(77,189,201,0.20) 0%, #FAFAF7 48%, rgba(245,159,32,0.48) 100%)' }}
+        onMouseMove={handleGridMouseMove}
+      >
+        {/* Water — mouse-following glow */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: `radial-gradient(circle 380px at ${waterPos.x}% ${waterPos.y}%, rgba(255,255,255,0.22) 0%, rgba(77,189,201,0.10) 45%, transparent 70%)`,
+            transition: 'background 80ms linear',
+          }}
+        />
+
+        {/* Water — expanding ripple rings */}
+        {ripples.map((r) => (
+          <div
+            key={r.id}
+            className="water-ripple absolute rounded-full pointer-events-none"
+            style={{
+              left: r.x,
+              top: r.y,
+              transform: 'translate(-50%, -50%)',
+              border: '1.5px solid rgba(77,189,201,0.55)',
+            }}
+          />
+        ))}
+
         {/* Decorative Grid Lines */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           {/* Vertical lines */}
@@ -347,10 +384,7 @@ export function BranchesPage() {
 
                   {/* Branch Name - Large and light */}
                   <h3
-                    className={`text-xl md:text-2xl lg:text-3xl font-light mb-4 transition-colors duration-500 tracking-tight ${
-                      activeBranch === branch.id ? '!text-gray-900' : 'text-gray-900'
-                    }`}
-                    style={activeBranch === branch.id ? { color: '#374151' } : undefined}
+                    className="text-xl md:text-2xl lg:text-3xl font-light mb-4 transition-colors duration-500 tracking-tight text-alba-text"
                   >
                     {branch.name}
                   </h3>
@@ -444,21 +478,20 @@ export function BranchesPage() {
               </button>
             </motion.div>
           )}
+          {/* Mapa Interactivo label — bleeds into the map below */}
+          <div className="pt-12 pb-4">
+            <div className="flex items-center gap-3">
+              <div className="w-2 h-2 rounded-full bg-alba-primary" />
+              <span className="text-xs font-medium uppercase tracking-[0.2em] text-alba-primary">
+                Mapa Interactivo
+              </span>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Interactive Map Section */}
       <section ref={mapSectionRef} className="bg-alba-dark">
-        {/* Section Header */}
-        <div className="px-6 md:px-12 lg:px-16 xl:px-24 pt-8 pb-4">
-          <div className="flex items-center gap-3">
-            <div className="w-2 h-2 rounded-full bg-alba-primary" />
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-alba-primary">
-              Mapa Interactivo
-            </span>
-          </div>
-        </div>
-
         {/* Map Container - Fixed height */}
         <div className="relative" style={{ height: '60vh', minHeight: '450px' }}>
           <div ref={mapContainer} style={{ width: '100%', height: '100%' }} />
@@ -533,16 +566,12 @@ export function BranchesPage() {
         {/* Gradient Blobs */}
         <div className="absolute inset-0 pointer-events-none">
           <div
-            className="absolute -top-1/4 -right-1/4 w-[600px] h-[600px] rounded-full opacity-30 blur-3xl"
-            style={{
-              background: 'radial-gradient(circle, rgba(45, 212, 191, 0.4) 0%, rgba(45, 212, 191, 0) 70%)',
-            }}
+            className="absolute -top-1/4 -right-1/4 w-[600px] h-[600px] rounded-full opacity-[0.18] blur-3xl"
+            style={{ background: 'radial-gradient(circle, #F59F20 0%, transparent 70%)' }}
           />
           <div
-            className="absolute -bottom-1/4 -left-1/4 w-[500px] h-[500px] rounded-full opacity-25 blur-3xl"
-            style={{
-              background: 'radial-gradient(circle, rgba(212, 255, 0, 0.5) 0%, rgba(212, 255, 0, 0) 70%)',
-            }}
+            className="absolute -bottom-1/4 -left-1/4 w-[500px] h-[500px] rounded-full opacity-[0.12] blur-3xl"
+            style={{ background: 'radial-gradient(circle, #4DBDC9 0%, transparent 70%)' }}
           />
         </div>
 
@@ -625,7 +654,7 @@ export function BranchesPage() {
         .marker-dot {
           width: 32px;
           height: 32px;
-          background: #4DBDC9;
+          background: #F59F20;
           border-radius: 50%;
           display: flex;
           align-items: center;

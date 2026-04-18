@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
@@ -17,6 +17,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function AboutPage() {
   const t = useTranslations();
+  const locale = useLocale();
   const heroRef = useRef<HTMLElement>(null);
   const founder = doctors.find((d) => d.isFounder);
 
@@ -25,7 +26,7 @@ export function AboutPage() {
       {/* Hero Section - Alba Style with Image */}
       <section
         ref={heroRef}
-        className="relative h-[100svh] min-h-[500px] md:min-h-[600px] w-full overflow-hidden"
+        className="relative z-20 h-[100svh] min-h-[500px] md:min-h-[600px] w-full overflow-hidden rounded-b-[48px] md:rounded-b-[64px]"
       >
         {/* Background Image */}
         <Image
@@ -45,21 +46,30 @@ export function AboutPage() {
             className="font-light leading-[0.95] tracking-tight max-w-[90%] md:max-w-none"
             style={{ color: '#FFFFFF', fontSize: 'clamp(2.25rem, 7vw, 6rem)' }}
           >
-            {t('about.heroHeadline')}
+            {locale === 'en' ? (
+              <>Caring for kidney health<br />in the Bajio region for over <span style={{ color: '#F59F20' }}>25 years</span></>
+            ) : (
+              <>Cuidando la salud renal<br />en el Bajío desde hace más de <span style={{ color: '#F59F20' }}>25 años</span></>
+            )}
           </h1>
         </div>
 
-        {/* Step Ramp Divider - Alba style */}
-        <StepRampDivider
-          color="#FAFAF7"
-          height={150}
-          className="absolute bottom-0 left-0 right-0 z-20"
-        />
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="bg-alba-dark pt-20 md:pt-28 lg:pt-32 pb-10 md:pb-12 px-6 md:px-12 lg:px-16 xl:px-24">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative z-10 bg-alba-dark pt-20 md:pt-28 lg:pt-32 pb-10 md:pb-12 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
+        {/* Gradient blobs */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div
+            className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-[0.30] blur-3xl"
+            style={{ background: 'radial-gradient(circle, #F59F20 0%, transparent 65%)' }}
+          />
+          <div
+            className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full opacity-[0.22] blur-3xl"
+            style={{ background: 'radial-gradient(circle, #4DBDC9 0%, transparent 65%)' }}
+          />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto">
           {/* Top decorative line with ticks */}
           <motion.div
             className="relative w-full h-px mb-10 md:mb-12"
@@ -129,7 +139,7 @@ export function AboutPage() {
         </div>
       </section>
 
-      {/* Full-width Team Photo Section - With unique SVG mask */}
+      {/* Full-width Team Photo Section */}
       <section className="relative bg-alba-dark pt-6 md:pt-8 pb-16 md:pb-20 lg:pb-24 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
@@ -151,32 +161,20 @@ export function AboutPage() {
             </h2>
           </motion.div>
 
-          {/* Image with unique geometric SVG mask */}
+          {/* Team photo */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.77, 0, 0.175, 1] }}
+            className="relative w-full aspect-[12/5] overflow-hidden rounded-2xl"
           >
-            <svg
-              className="w-full"
-              viewBox="0 0 1200 500"
-              preserveAspectRatio="xMidYMid slice"
-            >
-              <defs>
-                <clipPath id="team-mask">
-                  {/* Unique geometric shape - asymmetric with notch */}
-                  <path d="M0,0 L1200,0 L1200,420 L900,420 L900,500 L0,500 Z" />
-                </clipPath>
-              </defs>
-              <image
-                clipPath="url(#team-mask)"
-                href="/images/equipo-alba.jpg"
-                width="1200"
-                height="500"
-                preserveAspectRatio="xMidYMid slice"
-              />
-            </svg>
+            <Image
+              src="/images/equipo-alba.jpg"
+              alt="Equipo Alba Diálisis"
+              fill
+              className="object-cover"
+            />
           </motion.div>
         </div>
 
@@ -274,8 +272,12 @@ export function AboutPage() {
       </section>
 
       {/* Values Section - Typography focused with grid */}
-      <section className="bg-alba-dark py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative bg-alba-dark py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
+        <div
+          className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-[0.25] blur-3xl pointer-events-none"
+          style={{ background: 'radial-gradient(circle, #4DBDC9 0%, transparent 65%)' }}
+        />
+        <div className="relative z-10 max-w-7xl mx-auto">
           {/* Section Header */}
           <motion.div
             className="mb-12 md:mb-16"
@@ -334,10 +336,18 @@ export function AboutPage() {
 
       {/* Timeline Section - Clean minimal design with horizontal lines */}
       <section className="relative bg-alba-dark py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
-        {/* Decorative gradient blob */}
+        {/* Gradient blobs */}
         <div
-          className="absolute -top-32 -left-32 w-[500px] h-[500px] opacity-25 pointer-events-none"
-          style={{ backgroundImage: 'url(/gradient-blob.png)', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}
+          className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full opacity-[0.22] blur-3xl pointer-events-none"
+          style={{ background: 'radial-gradient(circle, #F59F20 0%, transparent 65%)' }}
+        />
+        <div
+          className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full opacity-[0.22] blur-3xl pointer-events-none"
+          style={{ background: 'radial-gradient(circle, #F59F20 0%, transparent 65%)' }}
+        />
+        <div
+          className="absolute bottom-0 right-0 w-[550px] h-[550px] rounded-full opacity-[0.18] blur-3xl pointer-events-none"
+          style={{ background: 'radial-gradient(circle, #4DBDC9 0%, transparent 65%)' }}
         />
         <div className="relative z-10 max-w-5xl mx-auto">
           {/* Section Header */}
@@ -510,7 +520,7 @@ export function AboutPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0" />
                   <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                    <h3 className="text-xl md:text-2xl font-medium mb-1" style={{ color: '#FFFFFF' }}>
+                    <h3 className="text-xl md:text-2xl font-medium mb-1" style={{ color: '#ffffff' }}>
                       {doctors[0]?.name}
                     </h3>
                     <p className="text-sm text-white/70">

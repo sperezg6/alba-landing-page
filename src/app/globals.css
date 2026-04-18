@@ -2,9 +2,9 @@
 
 :root {
   /* Alba Diálisis Brand Colors - Warm & Welcoming Palette */
-  --color-primary: #4DBDC9;           /* Alba Aqua - main brand color */
-  --color-primary-light: #7DD3DE;     /* Light aqua - hover/lighter states */
-  --color-primary-dark: #3A9BA6;      /* Dark aqua - pressed states */
+  --color-primary: #F59F20;           /* Alba Orange Gold - main brand color */
+  --color-primary-light: #FFBE5C;     /* Light orange - hover/lighter states */
+  --color-primary-dark: #D88A15;      /* Dark orange - pressed states */
   --color-secondary: #EE5631;         /* Orange/Red - accent color */
   --color-secondary-light: #F47A5E;   /* Light orange */
   --color-secondary-dark: #C94525;    /* Deep orange */
@@ -50,9 +50,9 @@
 
 @theme inline {
   /* Alba Brand Colors - use as bg-alba-primary, text-alba-dark, etc. */
-  --color-alba-primary: #4DBDC9;
-  --color-alba-primary-light: #7DD3DE;
-  --color-alba-primary-dark: #3A9BA6;
+  --color-alba-primary: #F59F20;
+  --color-alba-primary-light: #FFBE5C;
+  --color-alba-primary-dark: #D88A15;
   --color-alba-secondary: #EE5631;
   --color-alba-secondary-light: #F47A5E;
   --color-alba-secondary-dark: #C94525;
@@ -328,6 +328,15 @@ p {
   50% {
     transform: translateY(-10px);
   }
+}
+
+@keyframes waterRipple {
+  0%   { width: 0px;   height: 0px;   opacity: 0.8; }
+  100% { width: 280px; height: 280px; opacity: 0;   }
+}
+
+.water-ripple {
+  animation: waterRipple 1.4s ease-out forwards;
 }
 
 @keyframes pulse-glow {
@@ -1150,31 +1159,28 @@ html.lenis body {
 
 /* ===== ALBA-STYLE BUTTON ANIMATIONS ===== */
 
-/* Corner-cut button with clip-path animation */
+/* Rounded button */
 .btn-alba {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 1rem 2rem;
-  background-color: #1C1C1C;
-  color: #ffffff;
+  background-color: #F59F20;
+  color: #000000;
   font-size: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  /* Corner-cut on bottom-right (idle state) */
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.5rem), calc(100% - 1.5rem) 100%, 0 100%);
-  transition: clip-path 0.25s ease-out, background-color 0.25s ease-out;
+  border-radius: 0.875rem;
+  transition: background-color 0.25s ease-out;
 }
 
 .btn-alba:hover {
-  /* Corner-cut moves to top-left on hover */
-  clip-path: polygon(1.5rem 0, 100% 0, 100% 100%, 0 100%, 0 1.5rem);
-  background-color: #333333;
+  background-color: #D88A15;
 }
 
-/* Outline variant with corner-cut animation */
+/* Outline variant with rounded corners */
 .btn-alba-outline {
   position: relative;
   display: inline-flex;
@@ -1188,14 +1194,11 @@ html.lenis body {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   border: 2px solid #1C1C1C;
-  /* Corner-cut on bottom-right (idle state) */
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.5rem), calc(100% - 1.5rem) 100%, 0 100%);
-  transition: clip-path 0.25s ease-out, background-color 0.25s ease-out, color 0.25s ease-out;
+  border-radius: 0.875rem;
+  transition: background-color 0.25s ease-out, color 0.25s ease-out;
 }
 
 .btn-alba-outline:hover {
-  /* Corner-cut moves to top-left on hover */
-  clip-path: polygon(1.5rem 0, 100% 0, 100% 100%, 0 100%, 0 1.5rem);
   background-color: #1C1C1C;
   color: #ffffff;
 }
@@ -1207,21 +1210,20 @@ html.lenis body {
   display: inline-flex;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 0.75rem 1.5rem 1.75rem 1rem;
-  background-color: #1C1C1C;
-  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  background-color: #F59F20;
+  color: #000000;
   font-size: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  border-radius: 0.875rem;
   overflow: hidden;
-  /* Corner-cut on bottom-right - stays fixed */
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1rem), calc(100% - 1rem) 100%, 0 100%);
   transition: background-color 0.35s ease-out;
 }
 
 .btn-alba-animated:hover {
-  background-color: #333333;
+  background-color: #D88A15;
 }
 
 .btn-alba-animated .btn-text {
@@ -1239,7 +1241,7 @@ html.lenis body {
   display: inline-flex;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 0.75rem 1.5rem 1.75rem 1rem;
+  padding: 0.75rem 1.5rem;
   background-color: transparent;
   color: #1C1C1C;
   font-size: 0.75rem;
@@ -1247,9 +1249,8 @@ html.lenis body {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   border: 2px solid #1C1C1C;
+  border-radius: 0.875rem;
   overflow: hidden;
-  /* Corner-cut on bottom-right - stays fixed */
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1rem), calc(100% - 1rem) 100%, 0 100%);
   transition: background-color 0.35s ease-out, color 0.35s ease-out;
 }
 
@@ -1273,7 +1274,7 @@ html.lenis body {
   display: inline-flex;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 0.75rem 1.5rem 1.75rem 1rem;
+  padding: 0.75rem 1.5rem;
   background-color: transparent;
   color: #F0EDDC;
   font-size: 0.75rem;
@@ -1281,8 +1282,8 @@ html.lenis body {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   border: 1px solid rgba(240, 237, 220, 0.3);
+  border-radius: 0.875rem;
   overflow: hidden;
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1rem), calc(100% - 1rem) 100%, 0 100%);
   transition: background-color 0.35s ease-out, color 0.35s ease-out, border-color 0.35s ease-out;
 }
 

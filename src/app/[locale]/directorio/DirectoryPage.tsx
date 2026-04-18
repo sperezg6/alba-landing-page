@@ -34,8 +34,12 @@ export function DirectoryPage() {
                 {t('doctors.title')}
               </span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight" style={{ color: '#374151' }}>
-              {t('doctors.subtitle')}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight text-alba-text">
+              {locale === 'en' ? (
+                <>Specialists committed to your <span style={{ color: '#F59F20' }}>health</span></>
+              ) : (
+                <>Especialistas comprometidos con tu <span style={{ color: '#F59F20' }}>salud</span></>
+              )}
             </h1>
           </motion.div>
         </div>
@@ -56,7 +60,7 @@ export function DirectoryPage() {
             </span>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-px bg-gray-900/10 border border-gray-900/10">
+          <div className="grid md:grid-cols-2 gap-px bg-gray-900/10 border border-gray-900/10 rounded-2xl overflow-hidden">
             {doctors.map((doctor, index) => {
               const doctorBranches = doctor.branches
                 .map((branchId) => branches.find((b) => b.id === branchId)?.name)
@@ -83,7 +87,7 @@ export function DirectoryPage() {
                       {/* Founder badge */}
                       {doctor.isFounder && (
                         <div className="absolute top-4 left-4">
-                          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-alba-primary text-black text-xs font-semibold uppercase tracking-wider">
+                          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-alba-primary text-black text-xs font-semibold uppercase tracking-wider rounded-md">
                             <Award className="w-3.5 h-3.5" />
                             {t('doctors.founder')}
                           </span>
@@ -121,7 +125,7 @@ export function DirectoryPage() {
                             (specialty, idx) => (
                               <span
                                 key={idx}
-                                className="px-3 py-1 border border-gray-900/10 text-gray-600 text-xs"
+                                className="px-3 py-1 border border-gray-900/10 text-gray-600 text-xs rounded-full"
                               >
                                 {specialty}
                               </span>
@@ -139,7 +143,7 @@ export function DirectoryPage() {
                       <div className="mt-6 pt-6 border-t border-gray-900/10 flex flex-wrap items-center gap-3">
                         <Link
                           href={`/directorio/${doctor.slug}#agendar`}
-                          className="inline-flex items-center gap-2 bg-alba-primary hover:bg-alba-primary-dark text-black px-5 py-2.5 text-sm font-semibold uppercase tracking-wider transition-colors"
+                          className="inline-flex items-center gap-2 bg-alba-primary hover:bg-alba-primary-dark text-black px-5 py-2.5 text-sm font-semibold uppercase tracking-wider transition-colors rounded-lg"
                           onClick={() => posthog.capture('agende_cita_clicked', {
                             doctor_name: doctor.name,
                             doctor_slug: doctor.slug,
@@ -189,16 +193,16 @@ export function DirectoryPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-6" style={{ color: '#374151' }}>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-6 text-alba-text">
               Encuentra al especialista ideal para ti
             </h2>
-            <p className="text-lg mb-10 max-w-2xl mx-auto" style={{ color: 'rgba(0,0,0,0.6)' }}>
+            <p className="text-lg mb-10 max-w-2xl mx-auto text-black/60">
               Nuestro equipo está listo para brindarte la mejor atención médica personalizada.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/contacto"
-                className="inline-flex items-center gap-2 bg-alba-primary hover:bg-alba-primary-dark text-black px-8 py-4 text-sm font-semibold uppercase tracking-wider transition-colors"
+                className="inline-flex items-center gap-2 bg-alba-primary hover:bg-alba-primary-dark text-black px-8 py-4 text-sm font-semibold uppercase tracking-wider transition-colors rounded-xl"
                 onClick={() => posthog.capture('agende_cita_clicked', {
                   source: 'directory_cta_section',
                 })}
@@ -208,7 +212,7 @@ export function DirectoryPage() {
               </Link>
               <a
                 href="tel:4773293939"
-                className="inline-flex items-center gap-2 border border-black/20 text-gray-900 px-8 py-4 text-sm font-semibold uppercase tracking-wider hover:bg-black/10 transition-colors"
+                className="inline-flex items-center gap-2 border border-black/20 text-gray-900 px-8 py-4 text-sm font-semibold uppercase tracking-wider hover:bg-black/10 transition-colors rounded-xl"
               >
                 Llamar ahora
               </a>

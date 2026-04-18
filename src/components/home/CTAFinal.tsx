@@ -117,8 +117,9 @@ export function CTAFinal() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-alba-dark min-h-screen pb-24 lg:pb-32"
+      className="relative min-h-screen pb-24 lg:pb-32 overflow-hidden"
     >
+
       {/* Divider line with ticks */}
       <div ref={dividerRef} className="absolute top-0 left-0 right-0 z-10 px-6 md:px-16 lg:px-24">
         <div className="relative w-full h-px">
@@ -142,8 +143,7 @@ export function CTAFinal() {
 
           {/* Main headline */}
           <h2
-            className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-[1.1] max-w-xl"
-            style={{ color: '#374151' }}
+            className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-[1.1] max-w-xl text-alba-text"
           >
             {t('title')}
           </h2>
@@ -157,7 +157,7 @@ export function CTAFinal() {
           <div className="mt-10">
             <Link
               href="/contacto"
-              className="inline-flex items-center gap-3 px-6 py-3 bg-alba-primary text-black text-sm font-semibold uppercase tracking-wider rounded hover:bg-alba-primary-dark transition-all duration-300 group"
+              className="inline-flex items-center gap-3 px-6 py-3 bg-alba-primary text-black text-sm font-semibold uppercase tracking-wider rounded-xl hover:bg-alba-primary-dark transition-all duration-300 group"
             >
               {t('button')}
               <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -227,8 +227,6 @@ export function CTAFinal() {
             onMarkerClick={(id) => setActiveBranch(id)}
           />
 
-          {/* Map overlay gradient for blend */}
-          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-alba-dark to-transparent pointer-events-none hidden lg:block" />
         </div>
       </div>
     </section>

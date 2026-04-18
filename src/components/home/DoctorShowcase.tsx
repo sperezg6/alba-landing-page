@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import gsap from 'gsap';
@@ -9,12 +9,6 @@ import { useRouter } from '@/i18n/navigation';
 import { AnimatedButton } from '@/components/ui/AnimatedButton';
 import { doctors } from '@/lib/data';
 import { usePostHog } from 'posthog-js/react';
-import dynamic from 'next/dynamic';
-
-const FlowFieldBackground = dynamic(() => import('@/components/ui/flow-field-background'), {
-  ssr: false,
-});
-
 gsap.registerPlugin(ScrollTrigger);
 
 // Doctor Card Component with grayscale-to-color hover effect
@@ -47,7 +41,7 @@ const DoctorCard = ({ name, role, image, slug, isFounder, founderLabel, viewProf
       title={viewProfileLabel}
     >
       {/* Image container */}
-      <div className="relative aspect-[3/4] overflow-hidden rounded-sm mb-4">
+      <div className="relative aspect-[3/4] overflow-hidden rounded-2xl mb-4">
         <Image
           src={image}
           alt={name}
@@ -61,7 +55,7 @@ const DoctorCard = ({ name, role, image, slug, isFounder, founderLabel, viewProf
         {/* Founder badge */}
         {isFounder && (
           <div className="absolute top-3 left-3">
-            <span className="text-[10px] uppercase tracking-widest text-gray-900/90 bg-black/10 backdrop-blur-sm px-2 py-1 rounded-sm">
+            <span className="text-[10px] uppercase tracking-widest text-gray-900/90 bg-black/10 backdrop-blur-sm px-2 py-1 rounded-md">
               {founderLabel}
             </span>
           </div>
@@ -71,8 +65,7 @@ const DoctorCard = ({ name, role, image, slug, isFounder, founderLabel, viewProf
       {/* Text content */}
       <div className="space-y-1">
         <h3
-          className="text-sm md:text-base font-medium leading-tight transition-colors duration-300"
-          style={{ color: isHovered ? 'var(--color-primary)' : '#374151' }}
+          className={`text-sm md:text-base font-medium leading-tight transition-colors duration-300 ${isHovered ? 'text-alba-primary' : 'text-alba-text'}`}
         >
           {name}
         </h3>
@@ -93,12 +86,38 @@ export function DoctorShowcase() {
   const illustrationsRef = useRef<HTMLDivElement>(null);
   const posthog = usePostHog();
 
+  const [waterPos, setWaterPos] = useState({ x: 50, y: 50 });
+  const [ripples, setRipples] = useState<{ id: number; x: number; y: number }[]>([]);
+  const lastRippleTime = useRef(0);
+  const rippleIdRef = useRef(0);
+
+  const handleWaterMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setWaterPos({
+      x: ((e.clientX - rect.left) / rect.width) * 100,
+      y: ((e.clientY - rect.top) / rect.height) * 100,
+    });
+    const now = Date.now();
+    if (now - lastRippleTime.current > 400) {
+      lastRippleTime.current = now;
+      const id = rippleIdRef.current++;
+      setRipples(prev => [...prev, { id, x: e.clientX - rect.left, y: e.clientY - rect.top }]);
+      setTimeout(() => setRipples(prev => prev.filter(r => r.id !== id)), 1400);
+    }
+  }, []);
+
   const handleDoctorProfileClick = (doctorName: string, doctorSlug: string) => {
     posthog?.capture('doctor_profile_clicked', {
       doctor_name: doctorName,
       doctor_slug: doctorSlug,
     });
   };
+
+  useEffect(() => {
+    // Refresh ScrollTrigger after layout settles so downstream triggers fire correctly
+    const timer = setTimeout(() => ScrollTrigger.refresh(), 200);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -173,10 +192,36 @@ export function DoctorShowcase() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-alba-dark overflow-hidden"
+      className="relative overflow-hidden bg-alba-dark"
+      onMouseMove={handleWaterMouseMove}
     >
-      {/* Flow field particles */}
-      <FlowFieldBackground particleCount={200} speed={0.4} trailOpacity={0.15} />
+      {/* Gradient blobs */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div
+          className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-[0.22] blur-3xl"
+          style={{ background: 'radial-gradient(circle, #F59F20 0%, transparent 65%)' }}
+        />
+        <div
+          className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full opacity-[0.18] blur-3xl"
+          style={{ background: 'radial-gradient(circle, #4DBDC9 0%, transparent 65%)' }}
+        />
+      </div>
+
+      {/* Water glow overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none z-10"
+        style={{
+          background: `radial-gradient(circle 500px at ${waterPos.x}% ${waterPos.y}%, rgba(245,159,32,0.06) 0%, transparent 70%)`,
+        }}
+      />
+      {/* Ripple rings */}
+      {ripples.map(r => (
+        <div
+          key={r.id}
+          className="water-ripple absolute pointer-events-none z-10 rounded-full border border-alba-primary/20"
+          style={{ left: r.x, top: r.y, transform: 'translate(-50%, -50%)' }}
+        />
+      ))}
 
       {/* Content container */}
       <div className="relative z-10 px-6 md:px-16 lg:px-24 pt-32 md:pt-40 lg:pt-48">
@@ -185,8 +230,7 @@ export function DoctorShowcase() {
           {/* Headline - Left side */}
           <div ref={headlineRef} className="lg:max-w-3xl">
             <h2
-              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light leading-[1.1]"
-              style={{ color: '#374151' }}
+              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light leading-[1.1] text-alba-text"
             >
               {t('headline')}
             </h2>
@@ -198,7 +242,7 @@ export function DoctorShowcase() {
               {t('description')}
             </p>
             <div className="mt-8">
-              <AnimatedButton href="/directorio" variant="outline-dark">
+              <AnimatedButton href="/directorio" variant="outline">
                 {t('cta')}
               </AnimatedButton>
             </div>

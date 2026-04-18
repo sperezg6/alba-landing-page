@@ -1,17 +1,16 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import {
-  ArrowUpRight, Heart, Clock, Shield, Users, Check, ChevronDown,
+  ArrowUpRight, Heart, Clock, Shield, Users,
   Activity, Droplets, Apple, Brain, Dumbbell, Stethoscope, UserCog, Scissors,
   type LucideIcon
 } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
-import { StepRampDivider } from '@/components/ui/step-ramp-divider';
 import { servicesData, type ServiceDetail, type ServiceIconName } from '@/lib/services-data';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -80,7 +79,29 @@ export function ServicesPage() {
   const isEn = locale === 'en';
   const [hovered, setHovered] = useState<{ row: number; col: number } | null>(null);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
-  const [expandedService, setExpandedService] = useState<string | null>(null);
+
+  // Water effect state
+  const [waterPos, setWaterPos] = useState({ x: 50, y: 50 });
+  const [ripples, setRipples] = useState<{ id: number; x: number; y: number }[]>([]);
+  const lastRippleTime = useRef(0);
+  const rippleIdRef = useRef(0);
+
+  const handleGridMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setWaterPos({
+      x: ((e.clientX - rect.left) / rect.width) * 100,
+      y: ((e.clientY - rect.top) / rect.height) * 100,
+    });
+    const now = Date.now();
+    if (now - lastRippleTime.current > 140) {
+      lastRippleTime.current = now;
+      const id = rippleIdRef.current++;
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      setRipples(prev => [...prev, { id, x, y }]);
+      setTimeout(() => setRipples(prev => prev.filter(r => r.id !== id)), 1400);
+    }
+  }, []);
 
   // Refs for GSAP animations
   const heroContentRef = useRef<HTMLDivElement>(null);
@@ -306,7 +327,7 @@ export function ServicesPage() {
   return (
     <>
       {/* Hero Section - Alba Style */}
-      <section className="relative h-screen min-h-[600px] w-full overflow-hidden">
+      <section className="relative z-20 h-screen min-h-[600px] w-full overflow-hidden rounded-b-[48px] md:rounded-b-[64px]">
         {/* Background Image */}
         <Image
           src="/images/alba-extracted/fotos-servicios-4.jpg"
@@ -334,33 +355,46 @@ export function ServicesPage() {
               style={{ color: '#FFFFFF', fontSize: 'clamp(3rem, 7vw, 6rem)' }}
             >
               {isEn ? (
-                <>Comprehensive care for<br />your kidney health</>
+                <>Comprehensive care for<br />your <span style={{ color: '#F59F20' }}>kidney health</span></>
               ) : (
-                <>Atención integral para<br />tu salud renal</>
+                <>Atención integral para<br />tu <span style={{ color: '#F59F20' }}>salud renal</span></>
               )}
             </h1>
           </div>
         </div>
 
-        {/* Double Notch Divider - Both corners cut */}
-        <div className="absolute bottom-0 left-0 right-0 z-20 h-[100px] md:h-[150px]">
-          <svg
-            className="absolute bottom-0 w-full h-full"
-            viewBox="0 0 1200 150"
-            preserveAspectRatio="none"
-          >
-            {/* Cream shape with notches on both sides, center image extends down */}
-            <path
-              d="M0,50 L0,150 L1200,150 L1200,50 L950,50 L950,0 L250,0 L250,50 Z"
-              fill="#FAFAF7"
-            />
-          </svg>
-        </div>
       </section>
 
       {/* Services Grid - Dynamic Expanding Animation */}
-      <section className="bg-alba-dark pt-12 md:pt-16 pb-20 md:pb-28 lg:pb-32 px-6 md:px-12 lg:px-16 xl:px-24">
-        <div className="max-w-7xl mx-auto">
+      <section
+        className="relative z-10 -mt-[48px] md:-mt-[64px] pt-[72px] md:pt-[96px] pb-20 md:pb-28 lg:pb-32 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden"
+        style={{ background: 'linear-gradient(135deg, rgba(77,189,201,0.20) 0%, #FAFAF7 48%, rgba(245,159,32,0.48) 100%)' }}
+        onMouseMove={handleGridMouseMove}
+      >
+        {/* Water — mouse-following glow */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: `radial-gradient(circle 380px at ${waterPos.x}% ${waterPos.y}%, rgba(255,255,255,0.22) 0%, rgba(77,189,201,0.10) 45%, transparent 70%)`,
+            transition: 'background 80ms linear',
+          }}
+        />
+
+        {/* Water — expanding ripple rings */}
+        {ripples.map((r) => (
+          <div
+            key={r.id}
+            className="water-ripple absolute rounded-full pointer-events-none"
+            style={{
+              left: r.x,
+              top: r.y,
+              transform: 'translate(-50%, -50%)',
+              border: `1.5px solid rgba(77,189,201,0.55)`,
+            }}
+          />
+        ))}
+
+        <div className="relative z-10 max-w-7xl mx-auto">
           {/* Section Header - Centered */}
           <div className="mb-12 md:mb-16 text-center">
             <div className="flex items-center justify-center gap-3 mb-6">
@@ -396,9 +430,10 @@ export function ServicesPage() {
               const IconComponent = iconMap[service.iconName];
 
               return (
-                <div
+                <Link
                   key={service.id}
-                  className={`service-card relative overflow-hidden cursor-pointer bg-alba-dark border-gray-900/10 opacity-0 ${
+                  href={`/servicios/${service.slug}`}
+                  className={`service-card relative overflow-hidden bg-white/60 backdrop-blur-sm border-gray-900/10 opacity-0 ${
                     !isLastCol ? 'border-r' : ''
                   } ${!isLastRow ? 'border-b' : ''}`}
                   onMouseEnter={() => setHovered({ row: service.row, col: service.col })}
@@ -425,7 +460,7 @@ export function ServicesPage() {
                         {isEn ? service.titleEn : service.title}
                       </h3>
 
-                      {/* Description and CTA - only visible on hover */}
+                      {/* Description and arrow - only visible on hover */}
                       <div
                         className={`transition-all duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] overflow-hidden ${
                           isHovered
@@ -436,17 +471,14 @@ export function ServicesPage() {
                         <p className="text-sm md:text-base leading-relaxed text-gray-500 mb-4">
                           {isEn ? service.shortDescriptionEn : service.shortDescription}
                         </p>
-                        <Link
-                          href={`/servicios/${service.slug}`}
-                          className="inline-flex items-center gap-2 text-sm font-medium text-alba-primary hover:text-alba-primary/80 transition-colors"
-                        >
+                        <span className="inline-flex items-center gap-2 text-sm font-medium text-alba-primary">
                           {isEn ? 'Learn more' : 'Ver más'}
                           <ArrowUpRight className="w-4 h-4" />
-                        </Link>
+                        </span>
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>
@@ -457,92 +489,27 @@ export function ServicesPage() {
             className={`grid grid-cols-1 gap-4 ${isTouchDevice ? 'block' : 'md:hidden'}`}
           >
             {services.map((service, index) => {
-              const isExpanded = expandedService === service.id;
               const IconComponent = iconMap[service.iconName];
-              const benefits = isEn ? service.benefitsEn : service.benefits;
 
               return (
-                <div
+                <Link
                   key={service.id}
-                  className="mobile-service-card bg-alba-dark border border-gray-900/10 overflow-hidden opacity-0"
+                  href={`/servicios/${service.slug}`}
+                  className="mobile-service-card group bg-white/60 backdrop-blur-sm border border-gray-900/10 overflow-hidden opacity-0 flex items-center justify-between p-6"
                 >
-                  {/* Header - always visible, clickable to expand */}
-                  <button
-                    onClick={() => setExpandedService(isExpanded ? null : service.id)}
-                    className="w-full p-6 text-left"
-                  >
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
-                          <span className="text-xs font-medium text-gray-400">
-                            0{index + 1}
-                          </span>
-                          <IconComponent className={`w-4 h-4 transition-colors duration-300 ${isExpanded ? 'text-alba-primary' : 'text-gray-300'}`} />
-                        </div>
-                        <h3 className="text-lg font-medium text-gray-900">
-                          {isEn ? service.titleEn : service.title}
-                        </h3>
-                      </div>
-                      <ChevronDown
-                        className={`w-5 h-5 text-gray-400 transition-transform duration-300 flex-shrink-0 ${isExpanded ? 'rotate-180' : ''}`}
-                      />
+                  <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-full bg-alba-primary/10 flex items-center justify-center flex-shrink-0">
+                      <IconComponent className="w-5 h-5 text-alba-primary" />
                     </div>
-                  </button>
-
-                  {/* Expanded content */}
-                  <div
-                    className={`overflow-hidden transition-all duration-300 ease-out ${
-                      isExpanded ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
-                    }`}
-                  >
-                    <div className="px-6 pb-6 pt-0">
-                      {/* Description */}
-                      <p className="text-sm leading-relaxed text-gray-500 mb-4">
-                        {isEn ? service.shortDescriptionEn : service.shortDescription}
-                      </p>
-
-                      {/* Benefits preview - show first 3 */}
-                      <div className="space-y-2 mb-5">
-                        <span className="text-xs font-medium uppercase tracking-wider text-gray-400">
-                          {isEn ? 'Benefits' : 'Beneficios'}
-                        </span>
-                        {benefits.slice(0, 3).map((benefit, idx) => (
-                          <div key={idx} className="flex items-start gap-2">
-                            <Check className="w-4 h-4 text-alba-primary flex-shrink-0 mt-0.5" />
-                            <span className="text-sm text-gray-600">{benefit}</span>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Duration/Frequency if available */}
-                      {(service.duration || service.frequency) && (
-                        <div className="flex flex-wrap gap-4 mb-5 pb-5 border-b border-gray-100">
-                          {service.duration && (
-                            <div className="flex items-center gap-2 text-sm text-gray-500">
-                              <Clock className="w-4 h-4" />
-                              {service.duration}
-                            </div>
-                          )}
-                          {service.frequency && (
-                            <div className="flex items-center gap-2 text-sm text-gray-500">
-                              <span className="w-1.5 h-1.5 rounded-full bg-gray-400" />
-                              {service.frequency}
-                            </div>
-                          )}
-                        </div>
-                      )}
-
-                      {/* CTA Link */}
-                      <Link
-                        href={`/servicios/${service.slug}`}
-                        className="inline-flex items-center gap-2 text-sm font-medium text-alba-primary hover:text-alba-primary/80 transition-colors"
-                      >
-                        {isEn ? 'View full details' : 'Ver información completa'}
-                        <ArrowUpRight className="w-4 h-4" />
-                      </Link>
+                    <div>
+                      <span className="text-xs font-medium text-gray-400 block mb-0.5">0{index + 1}</span>
+                      <h3 className="text-base font-medium text-gray-900 group-hover:text-alba-primary transition-colors duration-200">
+                        {isEn ? service.titleEn : service.title}
+                      </h3>
                     </div>
                   </div>
-                </div>
+                  <ArrowUpRight className="w-5 h-5 text-gray-300 group-hover:text-alba-primary transition-colors duration-200 flex-shrink-0" />
+                </Link>
               );
             })}
           </div>
@@ -550,8 +517,19 @@ export function ServicesPage() {
       </section>
 
       {/* Educational Section - What is Hemodialysis? */}
-      <section className="bg-alba-dark py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative bg-alba-dark py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
+        {/* Gradient blobs */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div
+            className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-[0.55] blur-3xl"
+            style={{ background: 'radial-gradient(circle, #F59F20 0%, transparent 65%)' }}
+          />
+          <div
+            className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full opacity-[0.45] blur-3xl"
+            style={{ background: 'radial-gradient(circle, #4DBDC9 0%, transparent 65%)' }}
+          />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             {/* Left: Header and main explanation */}
             <div ref={educationHeaderRef} className="opacity-0">
@@ -582,7 +560,7 @@ export function ServicesPage() {
 
             {/* Right: Key facts and image */}
             <div ref={educationContentRef} className="opacity-0">
-              <div className="relative aspect-[4/3] mb-8 overflow-hidden">
+              <div className="relative aspect-[4/3] mb-8 overflow-hidden rounded-2xl">
                 <Image
                   src="/images/services/hemodialisis.jpg"
                   alt={isEn ? 'Hemodialysis process' : 'Proceso de hemodiálisis'}
@@ -709,52 +687,28 @@ export function ServicesPage() {
             </h2>
           </div>
 
-          {/* Image with SVG mask + Stats overlay */}
-          <div
-            ref={featuredImageRef}
-            className="relative opacity-0"
-          >
-            <svg
-              className="w-full"
-              viewBox="0 0 1200 500"
-              preserveAspectRatio="xMidYMid slice"
-            >
-              <defs>
-                <clipPath id="service-mask">
-                  {/* Alba-style asymmetric: full top, step cut bottom-left */}
-                  <path d="M0,0 L1200,0 L1200,380 L250,380 L250,500 L0,500 Z" />
-                </clipPath>
-              </defs>
-              <image
-                clipPath="url(#service-mask)"
-                href="/images/services/hemodialisis-clinic.jpg"
-                width="1200"
-                height="500"
-                preserveAspectRatio="xMidYMid slice"
+          {/* Image + Stats */}
+          <div ref={featuredImageRef} className="opacity-0">
+            {/* Rounded image */}
+            <div className="relative w-full aspect-[12/5] overflow-hidden rounded-2xl">
+              <Image
+                src="/images/services/hemodialisis-clinic.jpg"
+                alt={isEn ? 'High-efficiency hemodialysis' : 'Hemodiálisis de alta eficiencia'}
+                fill
+                sizes="100vw"
+                className="object-cover"
               />
-            </svg>
+            </div>
 
-            {/* Stats positioned in the cropped area */}
-            <div
-              ref={desktopStatsRef}
-              className="absolute hidden md:grid grid-cols-4 gap-6 lg:gap-8 items-end px-6 lg:px-10"
-              style={{
-                left: '20.83%', // 250/1200 = where the step starts
-                right: '0',
-                top: '76%', // 380/500 = where the step starts vertically
-                bottom: '0',
-              }}
-            >
+            {/* Stats below image */}
+            <div ref={desktopStatsRef} className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
               {[
                 { number: '4', labelEs: 'Clínicas en el Bajío', labelEn: 'Clinics in Bajío' },
                 { number: '50+', labelEs: 'Profesionales', labelEn: 'Professionals' },
                 { number: '5,000+', labelEs: 'Pacientes atendidos', labelEn: 'Patients served' },
                 { number: '25', labelEs: 'Años de experiencia', labelEn: 'Years of experience' },
               ].map((stat, index) => (
-                <div
-                  key={index}
-                  className="stat-item text-left opacity-0"
-                >
+                <div key={index} className="stat-item opacity-0">
                   <span className="text-2xl lg:text-3xl xl:text-4xl font-light text-alba-primary">
                     {stat.number}
                   </span>
@@ -764,63 +718,24 @@ export function ServicesPage() {
                 </div>
               ))}
             </div>
-
-            {/* Mobile stats - below image */}
-            <div ref={mobileStatsRef} className="grid grid-cols-2 gap-6 mt-8 md:hidden">
-              {[
-                { number: '4', labelEs: 'Clínicas en el Bajío', labelEn: 'Clinics in Bajío' },
-                { number: '50+', labelEs: 'Profesionales', labelEn: 'Professionals' },
-                { number: '5,000+', labelEs: 'Pacientes atendidos', labelEn: 'Patients served' },
-                { number: '25', labelEs: 'Años de experiencia', labelEn: 'Years of experience' },
-              ].map((stat, index) => (
-                <div
-                  key={index}
-                  className="stat-item text-center opacity-0"
-                >
-                  <span className="text-3xl font-light text-alba-primary">
-                    {stat.number}
-                  </span>
-                  <p className="text-sm text-gray-900/50 mt-2 uppercase tracking-wider">
-                    {isEn ? stat.labelEn : stat.labelEs}
-                  </p>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
 
-        {/* Step divider */}
-        <StepRampDivider
-          color="#FAFAF7"
-          height={100}
-          className="absolute bottom-0 left-0 right-0 translate-y-[99px]"
-        />
       </section>
 
       {/* CTA Section - With Gradient Blob Background */}
       <section className="relative bg-alba-dark py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
         {/* Gradient Blobs */}
         <div className="absolute inset-0 pointer-events-none">
-          {/* Large teal/cyan blob - top right */}
+          {/* Orange blob - top right */}
           <div
-            className="absolute -top-1/4 -right-1/4 w-[600px] h-[600px] rounded-full opacity-30 blur-3xl"
-            style={{
-              background: 'radial-gradient(circle, rgba(45, 212, 191, 0.4) 0%, rgba(45, 212, 191, 0) 70%)',
-            }}
+            className="absolute -top-1/4 -right-1/4 w-[600px] h-[600px] rounded-full opacity-[0.18] blur-3xl"
+            style={{ background: 'radial-gradient(circle, #F59F20 0%, transparent 70%)' }}
           />
-          {/* Lime/yellow blob - bottom left */}
+          {/* Teal blob - bottom left */}
           <div
-            className="absolute -bottom-1/4 -left-1/4 w-[500px] h-[500px] rounded-full opacity-25 blur-3xl"
-            style={{
-              background: 'radial-gradient(circle, rgba(212, 255, 0, 0.5) 0%, rgba(212, 255, 0, 0) 70%)',
-            }}
-          />
-          {/* Smaller accent blob - center */}
-          <div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full opacity-20 blur-3xl"
-            style={{
-              background: 'radial-gradient(circle, rgba(20, 184, 166, 0.3) 0%, rgba(20, 184, 166, 0) 70%)',
-            }}
+            className="absolute -bottom-1/4 -left-1/4 w-[500px] h-[500px] rounded-full opacity-[0.12] blur-3xl"
+            style={{ background: 'radial-gradient(circle, #4DBDC9 0%, transparent 70%)' }}
           />
         </div>
 
@@ -865,7 +780,7 @@ export function ServicesPage() {
                     {isEn ? 'Book appointment' : 'Agendar cita'}
                   </span>
                   <span className="w-12 h-12 rounded-full border border-gray-900/20 flex items-center justify-center group-hover:border-gray-900 group-hover:bg-gray-900 transition-all duration-300">
-                    <ArrowUpRight className="w-5 h-5 text-gray-600 group-hover:text-gray-900 transition-colors duration-300" />
+                    <ArrowUpRight className="w-5 h-5 text-gray-600 group-hover:text-white transition-colors duration-300" />
                   </span>
                 </Link>
               </div>

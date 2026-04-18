@@ -1,17 +1,11 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { testimonials } from '@/lib/data';
-import dynamic from 'next/dynamic';
-
-const FlowFieldBackground = dynamic(() => import('@/components/ui/flow-field-background'), {
-  ssr: false,
-});
-
 gsap.registerPlugin(ScrollTrigger);
 
 export default function TestimonialsEditorial() {
@@ -23,6 +17,26 @@ export default function TestimonialsEditorial() {
   const dividerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+
+  const [waterPos, setWaterPos] = useState({ x: 50, y: 50 });
+  const [ripples, setRipples] = useState<{ id: number; x: number; y: number }[]>([]);
+  const lastRippleTime = useRef(0);
+  const rippleIdRef = useRef(0);
+
+  const handleWaterMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setWaterPos({
+      x: ((e.clientX - rect.left) / rect.width) * 100,
+      y: ((e.clientY - rect.top) / rect.height) * 100,
+    });
+    const now = Date.now();
+    if (now - lastRippleTime.current > 400) {
+      lastRippleTime.current = now;
+      const id = rippleIdRef.current++;
+      setRipples(prev => [...prev, { id, x: e.clientX - rect.left, y: e.clientY - rect.top }]);
+      setTimeout(() => setRipples(prev => prev.filter(r => r.id !== id)), 1400);
+    }
+  }, []);
 
   const handleChange = (index: number) => {
     if (index === active || isTransitioning) return;
@@ -135,10 +149,24 @@ export default function TestimonialsEditorial() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-alba-dark py-24 md:py-32 lg:py-40"
+      className="relative py-24 md:py-32 lg:py-40 overflow-hidden"
+      onMouseMove={handleWaterMouseMove}
     >
-      {/* Flow field particles */}
-      <FlowFieldBackground particleCount={150} speed={0.5} trailOpacity={0.18} />
+      {/* Water glow overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none z-10"
+        style={{
+          background: `radial-gradient(circle 500px at ${waterPos.x}% ${waterPos.y}%, rgba(245,159,32,0.07) 0%, transparent 70%)`,
+        }}
+      />
+      {/* Ripple rings */}
+      {ripples.map(r => (
+        <div
+          key={r.id}
+          className="water-ripple absolute pointer-events-none z-10 rounded-full border border-alba-primary/20"
+          style={{ left: r.x, top: r.y, transform: 'translate(-50%, -50%)' }}
+        />
+      ))}
 
       {/* Divider line with ticks */}
       <div ref={dividerRef} className="absolute top-0 left-0 right-0 px-6 md:px-16 lg:px-24">
@@ -160,8 +188,7 @@ export default function TestimonialsEditorial() {
         className="relative z-10 w-full max-w-4xl mx-auto px-6 md:px-12 mb-16 md:mb-20"
       >
         <h2
-          className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight"
-          style={{ color: '#374151' }}
+          className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight text-alba-text"
         >
           {t('title')}
         </h2>
@@ -186,12 +213,11 @@ export default function TestimonialsEditorial() {
           <div className="flex-1 pt-4 md:pt-8">
             {/* Quote - fixed min height to prevent layout shifts */}
             <blockquote
-              className={`text-xl md:text-2xl lg:text-3xl font-light leading-relaxed tracking-tight transition-all duration-300 min-h-[180px] md:min-h-[200px] lg:min-h-[220px] ${
+              className={`text-xl md:text-2xl lg:text-3xl font-light leading-relaxed tracking-tight text-alba-text transition-all duration-300 min-h-[180px] md:min-h-[200px] lg:min-h-[220px] ${
                 isTransitioning
                   ? 'opacity-0 translate-x-4'
                   : 'opacity-100 translate-x-0'
               }`}
-              style={{ color: '#374151' }}
             >
               &ldquo;{quote}&rdquo;
             </blockquote>

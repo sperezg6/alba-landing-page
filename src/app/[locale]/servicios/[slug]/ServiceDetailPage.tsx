@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { useLocale } from 'next-intl';
 import Image from 'next/image';
 import gsap from 'gsap';
@@ -36,6 +36,27 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
   const locale = useLocale();
   const isEn = locale === 'en';
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+
+  // Water effect state
+  const [waterPos, setWaterPos] = useState({ x: 50, y: 50 });
+  const [ripples, setRipples] = useState<{ id: number; x: number; y: number }[]>([]);
+  const lastRippleTime = useRef(0);
+  const rippleIdRef = useRef(0);
+
+  const handleWaterMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setWaterPos({
+      x: ((e.clientX - rect.left) / rect.width) * 100,
+      y: ((e.clientY - rect.top) / rect.height) * 100,
+    });
+    const now = Date.now();
+    if (now - lastRippleTime.current > 400) {
+      lastRippleTime.current = now;
+      const id = rippleIdRef.current++;
+      setRipples(prev => [...prev, { id, x: e.clientX - rect.left, y: e.clientY - rect.top }]);
+      setTimeout(() => setRipples(prev => prev.filter(r => r.id !== id)), 1400);
+    }
+  }, []);
 
   // Refs for animations
   const heroContentRef = useRef<HTMLDivElement>(null);
@@ -114,17 +135,16 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
     <>
       {/* Hero Section - Minimal Dark (like directorio page) */}
       <section className="relative bg-alba-dark pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
-        {/* Decorative gradient blob */}
+        {/* Orange blob top-right */}
         <div
-          className="absolute -top-32 -right-32 w-[450px] h-[450px] opacity-20 pointer-events-none"
-          style={{ backgroundImage: 'url(/gradient-blob.png)', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}
+          className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-[0.22] blur-3xl pointer-events-none"
+          style={{ background: 'radial-gradient(circle, #F59F20 0%, transparent 65%)' }}
         />
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
           {/* Back button */}
           <Link
             href="/servicios"
-            className="inline-flex items-center gap-2 hover:opacity-80 transition-opacity mb-8"
-            style={{ color: 'rgba(55,65,81,0.5)' }}
+            className="inline-flex items-center gap-2 hover:opacity-80 transition-opacity mb-8 text-alba-text/50"
           >
             <ArrowLeft className="w-4 h-4" />
             <span className="text-sm">{isEn ? 'All services' : 'Todos los servicios'}</span>
@@ -133,14 +153,20 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
           <div ref={heroContentRef} className="opacity-0">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-2 h-2 rounded-full bg-alba-primary" />
-              <span className="text-sm font-medium uppercase tracking-wider" style={{ color: 'rgba(55,65,81,0.5)' }}>
+              <span className="text-sm font-medium uppercase tracking-wider text-alba-text/50">
                 {isEn ? 'Service' : 'Servicio'}
               </span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight" style={{ color: '#374151' }}>
-              {title}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight text-alba-text">
+              {(() => {
+                const words = title.split(' ');
+                if (words.length <= 1) return <span style={{ color: '#F59F20' }}>{title}</span>;
+                const last = words[words.length - 1];
+                const rest = words.slice(0, -1).join(' ');
+                return <>{rest} <span style={{ color: '#F59F20' }}>{last}</span></>;
+              })()}
             </h1>
-            <p className="mt-6 text-lg md:text-xl max-w-2xl leading-relaxed" style={{ color: 'rgba(55,65,81,0.6)' }}>
+            <p className="mt-6 text-lg md:text-xl max-w-2xl leading-relaxed text-alba-text/60">
               {shortDescription}
             </p>
           </div>
@@ -180,7 +206,7 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                 {whoNeedsIt}
               </p>
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
               <Image
                 src={service.image}
                 alt={title}
@@ -194,7 +220,12 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
       </section>
 
       {/* Process Steps Section - Horizontal Timeline */}
-      <section className="bg-alba-dark py-16 md:py-24 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
+      <section className="relative bg-alba-dark py-16 md:py-24 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
+        {/* Teal blob top-left */}
+        <div
+          className="absolute top-0 left-0 w-[450px] h-[450px] rounded-full opacity-[0.18] blur-3xl pointer-events-none"
+          style={{ background: 'radial-gradient(circle, #4DBDC9 0%, transparent 65%)' }}
+        />
         <div className="max-w-[1400px] mx-auto">
           <div ref={processRef} className="opacity-0">
             {/* Header */}
@@ -278,7 +309,12 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
       </section>
 
       {/* Benefits Section */}
-      <section className="bg-alba-dark py-16 md:py-24 px-6 md:px-12 lg:px-16 xl:px-24">
+      <section className="relative bg-alba-dark py-16 md:py-24 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
+        {/* Orange blob bottom-right */}
+        <div
+          className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full opacity-[0.18] blur-3xl pointer-events-none"
+          style={{ background: 'radial-gradient(circle, #F59F20 0%, transparent 65%)' }}
+        />
         <div className="max-w-7xl mx-auto">
           <div ref={benefitsRef} className="opacity-0">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
@@ -315,12 +351,37 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
       </section>
 
       {/* What to Expect Section */}
-      <section className="relative bg-alba-dark py-16 md:py-24 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden">
-        {/* Decorative gradient blob */}
+      <section
+        className="relative py-16 md:py-24 px-6 md:px-12 lg:px-16 xl:px-24 overflow-hidden"
+        style={{ background: 'linear-gradient(135deg, rgba(77,189,201,0.15) 0%, #FAFAF7 50%, rgba(245,159,32,0.35) 100%)' }}
+        onMouseMove={handleWaterMouseMove}
+      >
+        {/* Teal blob bottom-left */}
         <div
-          className="absolute -bottom-32 -left-32 w-[500px] h-[500px] opacity-25 pointer-events-none"
-          style={{ backgroundImage: 'url(/gradient-blob.png)', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}
+          className="absolute bottom-0 left-0 w-[450px] h-[450px] rounded-full opacity-[0.20] blur-3xl pointer-events-none"
+          style={{ background: 'radial-gradient(circle, #4DBDC9 0%, transparent 65%)' }}
         />
+        {/* Water glow overlay */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: `radial-gradient(circle 380px at ${waterPos.x}% ${waterPos.y}%, rgba(255,255,255,0.22) 0%, rgba(77,189,201,0.10) 45%, transparent 70%)`,
+            transition: 'background 80ms linear',
+          }}
+        />
+        {/* Ripple rings */}
+        {ripples.map((r) => (
+          <div
+            key={r.id}
+            className="water-ripple absolute rounded-full pointer-events-none"
+            style={{
+              left: r.x,
+              top: r.y,
+              transform: 'translate(-50%, -50%)',
+              border: '1.5px solid rgba(77,189,201,0.55)',
+            }}
+          />
+        ))}
         <div className="relative z-10 max-w-4xl mx-auto">
           <div ref={expectRef} className="opacity-0 text-center">
             <div className="flex items-center justify-center gap-3 mb-6">
@@ -329,10 +390,10 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                 {isEn ? 'What to expect' : 'Qué esperar'}
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-light tracking-tight mb-8" style={{ color: '#374151' }}>
+            <h2 className="text-3xl md:text-4xl font-light tracking-tight mb-8 text-alba-text">
               {isEn ? 'During your treatment' : 'Durante tu tratamiento'}
             </h2>
-            <p className="text-lg leading-relaxed mb-8" style={{ color: 'rgba(55,65,81,0.8)' }}>
+            <p className="text-lg leading-relaxed mb-8 text-alba-text/80">
               {whatToExpect}
             </p>
 
@@ -340,13 +401,13 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
             {(service.duration || service.frequency) && (
               <div className="flex flex-wrap justify-center gap-8 pt-8 border-t border-black/10">
                 {service.duration && (
-                  <div className="flex items-center gap-3" style={{ color: 'rgba(55,65,81,0.7)' }}>
+                  <div className="flex items-center gap-3 text-alba-text/70">
                     <Clock className="w-5 h-5 text-alba-primary" />
                     <span>{service.duration}</span>
                   </div>
                 )}
                 {service.frequency && (
-                  <div className="flex items-center gap-3" style={{ color: 'rgba(55,65,81,0.7)' }}>
+                  <div className="flex items-center gap-3 text-alba-text/70">
                     <div className="w-2 h-2 rounded-full bg-alba-primary" />
                     <span>{service.frequency}</span>
                   </div>
@@ -459,16 +520,12 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
         {/* Gradient Blobs */}
         <div className="absolute inset-0 pointer-events-none">
           <div
-            className="absolute -top-1/4 -right-1/4 w-[600px] h-[600px] rounded-full opacity-30 blur-3xl"
-            style={{
-              background: 'radial-gradient(circle, rgba(45, 212, 191, 0.4) 0%, rgba(45, 212, 191, 0) 70%)',
-            }}
+            className="absolute top-0 right-0 w-[550px] h-[550px] rounded-full opacity-[0.22] blur-3xl"
+            style={{ background: 'radial-gradient(circle, #F59F20 0%, transparent 65%)' }}
           />
           <div
-            className="absolute -bottom-1/4 -left-1/4 w-[500px] h-[500px] rounded-full opacity-25 blur-3xl"
-            style={{
-              background: 'radial-gradient(circle, rgba(212, 255, 0, 0.5) 0%, rgba(212, 255, 0, 0) 70%)',
-            }}
+            className="absolute bottom-0 left-0 w-[450px] h-[450px] rounded-full opacity-[0.18] blur-3xl"
+            style={{ background: 'radial-gradient(circle, #4DBDC9 0%, transparent 65%)' }}
           />
         </div>
 
