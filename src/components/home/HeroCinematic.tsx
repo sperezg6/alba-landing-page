@@ -79,7 +79,7 @@ export function HeroCinematic() {
           {/* CTA Button - Primary orange */}
           <Link
             href="/servicios"
-            className="inline-block mt-6 md:mt-8 px-5 py-2.5 md:px-6 md:py-3 bg-alba-primary text-black text-sm font-semibold uppercase tracking-wider rounded hover:bg-alba-primary-dark transition-colors cursor-pointer"
+            className="inline-block mt-6 md:mt-8 px-5 py-2.5 md:px-6 md:py-3 bg-alba-primary text-black text-sm font-semibold uppercase tracking-wider rounded-xl hover:bg-alba-primary-dark transition-colors cursor-pointer"
           >
             {t('ctaButton')}
           </Link>

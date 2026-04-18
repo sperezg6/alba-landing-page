@@ -17,24 +17,24 @@ export default async function HomePage({
   setRequestLocale(locale);
 
   return (
-    <main className="relative">
+    <main className="relative bg-alba-dark">
       {/* Section 1: Hero + Scroll Section (Continuous background with multiple bullet points) */}
       <HeroWrapper />
 
-      {/* Section 2: Services Showcase */}
-      <ServicesShowcase />
+      {/* Section 2: Services Showcase — pulled up under hero rounded corners */}
+      <div className="-mt-[100px] relative z-10">
+        <ServicesShowcase />
+      </div>
 
-      {/* Section 3: Doctor Showcase - Split Screen */}
+      {/* Section 3: Doctor Showcase — cream background with blobs */}
       <DoctorShowcase />
 
-      {/* Section 4: Editorial Testimonials */}
-      <TestimonialsEditorial />
-
-      {/* Section 5: Nutrition Chatbot Banner */}
-      <NutritionChatbotBanner />
-
-      {/* Section 6: Final CTA - Cinematic */}
-      <CTAFinal />
+      {/* Sections 4–6: Shared diagonal gradient background — flows continuously */}
+      <div className="pb-[48px] md:pb-[64px]" style={{ background: 'linear-gradient(135deg, rgba(77,189,201,0.20) 0%, #FAFAF7 48%, rgba(245,159,32,0.48) 100%)' }}>
+        <TestimonialsEditorial />
+        <NutritionChatbotBanner />
+        <CTAFinal />
+      </div>
     </main>
   );
 }

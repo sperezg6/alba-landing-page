@@ -189,7 +189,7 @@ export function ContactPage() {
                 {t('contact.title')}
               </span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight" style={{ color: '#374151' }}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight text-alba-text">
               {t('contact.subtitle')}
             </h1>
           </motion.div>
@@ -197,8 +197,19 @@ export function ContactPage() {
       </section>
 
       {/* Main Content */}
-      <section className="bg-alba-dark py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
+      <section className="relative bg-alba-dark py-20 md:py-28 overflow-hidden">
+        {/* Gradient blobs */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div
+            className="absolute -top-1/4 -right-1/4 w-[600px] h-[600px] rounded-full opacity-[0.15] blur-3xl"
+            style={{ background: 'radial-gradient(circle, #F59F20 0%, transparent 70%)' }}
+          />
+          <div
+            className="absolute -bottom-1/4 -left-1/4 w-[500px] h-[500px] rounded-full opacity-[0.10] blur-3xl"
+            style={{ background: 'radial-gradient(circle, #4DBDC9 0%, transparent 70%)' }}
+          />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
             {/* Left Column - Form */}
             <div>
@@ -303,7 +314,7 @@ export function ContactPage() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="inline-flex items-center gap-2 bg-alba-primary hover:bg-alba-primary-dark text-black px-8 py-4 text-sm font-semibold uppercase tracking-wider transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="inline-flex items-center gap-2 bg-alba-primary hover:bg-alba-primary-dark text-black px-8 py-4 text-sm font-semibold uppercase tracking-wider transition-colors rounded-xl disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? (
                         <>

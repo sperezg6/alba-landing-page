@@ -343,12 +343,12 @@
     "copyright": "All rights reserved"
   },
   "nutritionAssistant": {
-    "badge": "New Tool",
-    "title": "Renal Nutrition Assistant",
-    "description": "Get instant answers to your nutritional questions with our intelligent assistant",
+    "badge": "Alba Assistant",
+    "title": "Your personal renal health assistant",
+    "description": "Get instant answers about treatments, locations, nutrition, and kidney care",
     "cta": "Try Now",
-    "link": "Try our nutritional assistant",
-    "label": "Nutritional Assistant",
+    "link": "Talk to our Alba assistant",
+    "label": "Alba Assistant",
     "openChat": "Open Chat"
   },
   "doctorCard": {

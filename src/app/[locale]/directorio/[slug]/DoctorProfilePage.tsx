@@ -227,7 +227,7 @@ export function DoctorProfilePage({ doctor, calConfig }: DoctorProfilePageProps)
               </div>
             )}
 
-            <h1 className="animate-in text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] tracking-tight" style={{ color: '#374151' }}>
+            <h1 className="animate-in text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] tracking-tight text-alba-text">
               {doctor.name}
             </h1>
 

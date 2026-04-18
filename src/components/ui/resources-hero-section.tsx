@@ -271,7 +271,7 @@ export default function ResourcesHeroSection() {
               >
                 <Link
                   href="/contacto"
-                  className="bg-alba-primary hover:bg-alba-primary-dark flex w-fit ml-auto gap-2 hover:gap-4 transition-all duration-300 ease-in-out text-black px-6 py-3 rounded-sm cursor-pointer font-semibold text-sm uppercase tracking-wider"
+                  className="bg-alba-primary hover:bg-alba-primary-dark flex w-fit ml-auto gap-2 hover:gap-4 transition-all duration-300 ease-in-out text-black px-6 py-3 rounded-xl cursor-pointer font-semibold text-sm uppercase tracking-wider"
                 >
                   Contáctanos <ArrowRight className="w-4 h-4" />
                 </Link>

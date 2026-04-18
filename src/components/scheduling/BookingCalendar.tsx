@@ -198,8 +198,7 @@ export function BookingCalendar({
       {/* Header */}
       <div className="p-6 border-b border-[rgba(0,0,0,0.1)]">
         <h3
-          className="text-2xl font-light mb-2"
-          style={{ color: '#374151' }}
+          className="text-2xl font-light mb-2 text-alba-text"
         >
           Agenda tu Cita
         </h3>
@@ -233,15 +232,13 @@ export function BookingCalendar({
                   <ChevronLeft className="w-5 h-5" />
                 </button>
                 <span
-                  className="text-lg font-medium"
-                  style={{ color: '#374151' }}
+                  className="text-lg font-medium text-alba-text"
                 >
                   {format(currentWeekStart, 'MMMM yyyy', { locale: es })}
                 </span>
                 <button
                   onClick={goToNextWeek}
-                  className="p-2 rounded-lg hover:bg-[rgba(0,0,0,0.06)] transition-colors"
-                  style={{ color: '#374151' }}
+                  className="p-2 rounded-lg hover:bg-[rgba(0,0,0,0.06)] transition-colors text-alba-text"
                 >
                   <ChevronRight className="w-5 h-5" />
                 </button>
@@ -326,7 +323,7 @@ export function BookingCalendar({
 
               <div className="mb-6">
                 <p className="text-[rgba(0,0,0,0.6)] mb-1">Fecha seleccionada</p>
-                <p className="text-xl font-medium" style={{ color: '#374151' }}>
+                <p className="text-xl font-medium text-alba-text">
                   {format(selectedDate, "EEEE d 'de' MMMM", { locale: es })}
                 </p>
               </div>
@@ -375,7 +372,7 @@ export function BookingCalendar({
 
               <div className="mb-6 p-4 bg-[rgba(0,0,0,0.05)] rounded-lg">
                 <p className="text-[rgba(0,0,0,0.6)] text-sm">Tu cita</p>
-                <p className="font-medium" style={{ color: '#374151' }}>
+                <p className="font-medium text-alba-text">
                   {format(selectedDate, "EEEE d 'de' MMMM", { locale: es })} a las{' '}
                   {selectedSlot.formatted}
                 </p>
@@ -477,8 +474,7 @@ export function BookingCalendar({
               </button>
 
               <h4
-                className="text-xl font-medium mb-6"
-                style={{ color: '#374151' }}
+                className="text-xl font-medium mb-6 text-alba-text"
               >
                 Confirma tu cita
               </h4>
@@ -486,7 +482,7 @@ export function BookingCalendar({
               <div className="space-y-4 mb-6">
                 <div className="p-4 bg-[rgba(0,0,0,0.05)] rounded-lg">
                   <p className="text-[rgba(0,0,0,0.6)] text-sm mb-1">Doctor</p>
-                  <p className="font-medium" style={{ color: '#374151' }}>
+                  <p className="font-medium text-alba-text">
                     {doctorName}
                   </p>
                 </div>
@@ -495,7 +491,7 @@ export function BookingCalendar({
                   <p className="text-[rgba(0,0,0,0.6)] text-sm mb-1">
                     Fecha y hora
                   </p>
-                  <p className="font-medium" style={{ color: '#374151' }}>
+                  <p className="font-medium text-alba-text">
                     {format(selectedDate, "EEEE d 'de' MMMM, yyyy", {
                       locale: es,
                     })}{' '}
@@ -505,7 +501,7 @@ export function BookingCalendar({
 
                 <div className="p-4 bg-[rgba(0,0,0,0.05)] rounded-lg">
                   <p className="text-[rgba(0,0,0,0.6)] text-sm mb-1">Paciente</p>
-                  <p className="font-medium" style={{ color: '#374151' }}>
+                  <p className="font-medium text-alba-text">
                     {formData.patientName}
                   </p>
                   <p className="text-[rgba(0,0,0,0.6)] text-sm">
@@ -519,7 +515,7 @@ export function BookingCalendar({
                 {formData.reason && (
                   <div className="p-4 bg-[rgba(0,0,0,0.05)] rounded-lg">
                     <p className="text-[rgba(0,0,0,0.6)] text-sm mb-1">Motivo</p>
-                    <p style={{ color: '#374151' }}>{formData.reason}</p>
+                    <p className="text-alba-text">{formData.reason}</p>
                   </div>
                 )}
               </div>
@@ -556,8 +552,7 @@ export function BookingCalendar({
               </div>
 
               <h4
-                className="text-2xl font-medium mb-2"
-                style={{ color: '#374151' }}
+                className="text-2xl font-medium mb-2 text-alba-text"
               >
                 ¡Cita Reservada!
               </h4>

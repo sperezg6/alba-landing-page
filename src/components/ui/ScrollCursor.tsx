@@ -116,14 +116,14 @@ export function ScrollCursor({ containerRef }: ScrollCursorProps) {
             stroke="rgba(255, 255, 255, 0.15)"
             strokeWidth="1"
           />
-          {/* Progress circle - alba primary aqua */}
+          {/* Progress circle - alba primary orange */}
           <circle
             ref={circleRef}
             cx="56"
             cy="56"
             r={RADIUS}
             fill="none"
-            stroke="#4DBDC9"
+            stroke="#F59F20"
             strokeWidth="1.5"
             strokeDasharray={CIRCUMFERENCE}
             strokeDashoffset={CIRCUMFERENCE}

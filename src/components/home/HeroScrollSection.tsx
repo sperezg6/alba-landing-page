@@ -98,7 +98,7 @@ export function HeroScrollSection() {
           className="ml-auto mr-8 md:mr-16 lg:mr-24 max-w-lg lg:max-w-xl xl:max-w-2xl"
         >
           {/* Label */}
-          <span className="inline-block px-4 py-2 bg-alba-primary text-white text-sm md:text-base font-semibold uppercase tracking-wider rounded-sm mb-8">
+          <span className="inline-block px-4 py-2 bg-alba-primary text-white text-sm md:text-base font-semibold uppercase tracking-wider rounded-xl mb-8">
             {t('label')}
           </span>
 

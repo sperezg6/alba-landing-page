@@ -118,7 +118,7 @@ export function Footer() {
   }, []);
 
   return (
-    <footer ref={footerRef} className="relative overflow-hidden">
+    <footer ref={footerRef} className="relative z-10 overflow-hidden rounded-t-[48px] md:rounded-t-[64px] -mt-[48px] md:-mt-[64px]">
       {/* Background image */}
       <div className="absolute inset-0">
         <Image

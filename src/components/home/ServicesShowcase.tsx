@@ -109,15 +109,15 @@ export function ServicesShowcase() {
         if (content) {
           gsap.fromTo(
             content,
-            { opacity: 0, y: 40 },
+            { opacity: 0, y: 24 },
             {
               opacity: 1,
               y: 0,
-              duration: 0.8,
+              duration: 0.7,
               ease: 'power2.out',
               scrollTrigger: {
                 trigger: card,
-                start: 'top 85%',
+                start: 'top 92%',
                 toggleActions: 'play none none reverse',
               },
             }
@@ -131,11 +131,11 @@ export function ServicesShowcase() {
             {
               opacity: 1,
               scale: 1,
-              duration: 0.8,
+              duration: 0.7,
               ease: 'power2.out',
               scrollTrigger: {
                 trigger: card,
-                start: 'top 85%',
+                start: 'top 92%',
                 toggleActions: 'play none none reverse',
               },
             }
@@ -211,7 +211,7 @@ export function ServicesShowcase() {
         return (
           <div
             key={service.id}
-            className="service-card-alba relative z-10 min-h-[70vh] md:min-h-[80vh] flex items-center overflow-hidden"
+            className="service-card-alba relative z-10 min-h-[50vh] md:min-h-[55vh] flex items-center overflow-hidden"
           >
             {/* Full Background Image */}
             <div className="service-image absolute inset-0">
@@ -283,15 +283,22 @@ export function ServicesShowcase() {
 
                 {/* Secondary CTA for Nutrition - Chatbot Link */}
                 {service.id === 'nutrition' && (
-                  <a
-                    href="https://nutritional-chatbot-ui.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-6 flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors group"
-                  >
-                    {t('nutritionAssistant.link')}
-                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </a>
+                  <>
+                    <a
+                      href="https://nutritional-chatbot-ui.vercel.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-6 flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors group"
+                    >
+                      {t('nutritionAssistant.link')}
+                      <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </a>
+                    <div className="mt-10 pt-8 border-t border-gray-900/10">
+                      <AnimatedButton href="/servicios" variant="outline" className="text-lg">
+                        {t('services.viewAll')}
+                      </AnimatedButton>
+                    </div>
+                  </>
                 )}
               </div>
             </div>
@@ -299,12 +306,6 @@ export function ServicesShowcase() {
         );
       })}
 
-      {/* View All Services Link - Corner-cut outline button with letter animation */}
-      <div className="relative z-10 py-24 md:py-32 px-6 md:px-16 lg:px-24 text-center">
-        <AnimatedButton href="/servicios" variant="outline">
-          {t('services.viewAll')}
-        </AnimatedButton>
-      </div>
     </section>
   );
 }

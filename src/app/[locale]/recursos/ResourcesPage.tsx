@@ -9,7 +9,7 @@ import {
   Video,
   Download,
   ArrowUpRight,
-  MessageCircle,
+  Sparkles,
   Droplets,
   Clock,
   Heart,
@@ -174,12 +174,17 @@ export function ResourcesPage() {
       {/* Hero Section - Animated */}
       <ResourcesHeroSection />
 
-      {/* Nutritional Chatbot Feature Section */}
+      {/* Alba Assistant Feature Section */}
       <section className="relative bg-alba-dark py-20 md:py-32 overflow-hidden">
-        {/* Decorative gradient blob */}
+        {/* Orange blob right */}
         <div
-          className="absolute top-1/2 -translate-y-1/2 -right-32 w-[450px] h-[450px] opacity-25 pointer-events-none"
-          style={{ backgroundImage: 'url(/gradient-blob.png)', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}
+          className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-[0.20] blur-3xl pointer-events-none"
+          style={{ background: 'radial-gradient(circle, #F59F20 0%, transparent 65%)' }}
+        />
+        {/* Teal blob left */}
+        <div
+          className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full opacity-[0.15] blur-3xl pointer-events-none"
+          style={{ background: 'radial-gradient(circle, #4DBDC9 0%, transparent 65%)' }}
         />
         {/* Top accent line */}
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-alba-primary/50 to-transparent" />
@@ -196,26 +201,26 @@ export function ResourcesPage() {
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-2 h-2 rounded-full bg-alba-primary animate-pulse" />
                 <span className="text-sm font-medium text-alba-primary uppercase tracking-wider">
-                  Nueva Herramienta
+                  Asistente Alba
                 </span>
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light mb-6" style={{ color: '#374151' }}>
-                Asistente de{' '}
-                <span className="text-alba-primary">Nutrición Renal</span>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light mb-6 text-alba-text">
+                Tu asistente{' '}
+                <span className="text-alba-primary">personal de salud renal</span>
               </h2>
               <p className="text-gray-600 text-lg md:text-xl leading-relaxed mb-10">
-                Obtén respuestas personalizadas sobre tu dieta renal. Nuestro asistente inteligente
-                te ayuda a entender qué alimentos puedes consumir, cómo controlar el potasio,
-                fósforo y sodio, y resolver tus dudas nutricionales al instante.
+                Resuelve tus dudas sobre tratamientos, sucursales, nutrición y cuidado renal
+                al instante. Nuestro asistente inteligente está disponible para acompañarte
+                en cada etapa de tu tratamiento.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href="https://nutritional-chatbot-ui.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center justify-center gap-2 bg-alba-primary hover:bg-alba-primary-dark text-black px-10 py-5 text-sm font-semibold uppercase tracking-wider transition-all duration-300 hover:shadow-lg hover:shadow-alba-primary/30"
+                  className="group inline-flex items-center justify-center gap-2 bg-alba-primary hover:bg-alba-primary-dark text-black px-10 py-5 text-sm font-semibold uppercase tracking-wider transition-all duration-300 hover:shadow-lg hover:shadow-alba-primary/30 rounded-xl"
                 >
-                  Probar Asistente
+                  Probar Ahora
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </a>
               </div>
@@ -231,17 +236,17 @@ export function ResourcesPage() {
             >
               <div className="bg-black/5 border border-gray-900/10 p-8 md:p-10 rounded-lg">
                 <div className="w-16 h-16 bg-alba-primary flex items-center justify-center mb-6 rounded-lg">
-                  <MessageCircle className="w-8 h-8 text-black" />
+                  <Sparkles className="w-8 h-8 text-black" />
                 </div>
-                <h3 className="text-2xl font-light mb-6" style={{ color: '#374151' }}>
+                <h3 className="text-2xl font-light mb-6 text-alba-text">
                   Preguntas que puedes hacer
                 </h3>
                 <ul className="space-y-4">
                   {[
+                    '¿Cómo agendar una cita?',
+                    '¿Qué es la hemodiálisis?',
                     '¿Qué alimentos debo evitar?',
-                    '¿Cómo controlar el potasio?',
-                    '¿Qué puedo desayunar?',
-                    '¿Cuánta agua puedo tomar?',
+                    '¿Dónde están sus sucursales?',
                   ].map((question, idx) => (
                     <li key={idx} className="flex items-center gap-4 text-gray-600 group cursor-default">
                       <span className="flex items-center justify-center w-6 h-6 rounded-full bg-alba-primary/10 text-xs text-alba-primary font-medium">
@@ -534,10 +539,9 @@ export function ResourcesPage() {
 
       {/* CTA Section */}
       <section className="relative bg-alba-dark py-20 md:py-28 overflow-hidden">
-        {/* Decorative gradient blob */}
         <div
-          className="absolute -bottom-32 -left-32 w-[500px] h-[500px] opacity-30 pointer-events-none"
-          style={{ backgroundImage: 'url(/gradient-blob.png)', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}
+          className="absolute bottom-0 left-0 w-[450px] h-[450px] rounded-full opacity-[0.18] blur-3xl pointer-events-none"
+          style={{ background: 'radial-gradient(circle, #4DBDC9 0%, transparent 65%)' }}
         />
         <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-12 lg:px-16 text-center">
           <motion.div
@@ -545,23 +549,23 @@ export function ResourcesPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-6" style={{ color: '#374151' }}>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-6 text-alba-text">
               ¿Necesitas más información?
             </h2>
-            <p className="text-lg mb-10 max-w-2xl mx-auto" style={{ color: 'rgba(55,65,81,0.6)' }}>
+            <p className="text-lg mb-10 max-w-2xl mx-auto text-alba-text/60">
               Nuestro equipo está disponible para resolver todas tus dudas sobre el cuidado renal.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/contacto"
-                className="inline-flex items-center gap-2 bg-alba-primary hover:bg-alba-primary-dark text-black px-8 py-4 text-sm font-semibold uppercase tracking-wider transition-colors"
+                className="inline-flex items-center gap-2 bg-alba-primary hover:bg-alba-primary-dark text-black px-8 py-4 text-sm font-semibold uppercase tracking-wider transition-colors rounded-xl"
               >
                 Contáctanos
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
               <a
                 href="tel:4773293939"
-                className="inline-flex items-center gap-2 border border-black/20 text-gray-900 px-8 py-4 text-sm font-semibold uppercase tracking-wider hover:bg-black/10 transition-colors"
+                className="inline-flex items-center gap-2 border border-black/20 text-gray-900 px-8 py-4 text-sm font-semibold uppercase tracking-wider hover:bg-black/10 transition-colors rounded-xl"
               >
                 Llamar ahora
               </a>

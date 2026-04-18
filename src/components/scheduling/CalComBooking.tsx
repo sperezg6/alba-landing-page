@@ -34,8 +34,7 @@ export function CalComBooking({
       {/* Header - Left aligned to match Cal.com calendar position */}
       <div className="py-10 md:py-12 px-6 md:px-10" style={{ backgroundColor: '#292929' }}>
         <h3
-          className="text-3xl md:text-4xl font-light mb-2"
-          style={{ color: '#FFFFFF' }}
+          className="text-3xl md:text-4xl font-light mb-2 text-white"
         >
           Agenda tu Cita
         </h3>
@@ -93,8 +92,7 @@ export function CalComBookingIframe({
       {/* Header */}
       <div className="p-6 border-b border-[rgba(0,0,0,0.1)]">
         <h3
-          className="text-2xl font-light mb-2"
-          style={{ color: '#374151' }}
+          className="text-2xl font-light mb-2 text-alba-text"
         >
           Agenda tu Cita
         </h3>

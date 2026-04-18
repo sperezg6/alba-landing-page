@@ -224,7 +224,7 @@ export function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps) {
               <div className="mt-8 lg:mt-0">
                 <Link
                   href="/contacto"
-                  className="inline-flex items-center gap-2 bg-alba-primary hover:bg-alba-primary-dark text-black px-6 py-4 text-sm font-semibold uppercase tracking-wider transition-colors"
+                  className="inline-flex items-center gap-2 bg-alba-primary hover:bg-alba-primary-dark text-black px-6 py-4 text-sm font-semibold uppercase tracking-wider transition-colors rounded-xl"
                 >
                   {t('bookAppointment')}
                   <ArrowUpRight className="w-4 h-4" />

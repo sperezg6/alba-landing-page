@@ -343,12 +343,12 @@
     "copyright": "Todos los derechos reservados"
   },
   "nutritionAssistant": {
-    "badge": "Nueva Herramienta",
-    "title": "Asistente de Nutrición Renal",
-    "description": "Resuelve tus dudas nutricionales al instante con nuestro asistente inteligente",
+    "badge": "Asistente Alba",
+    "title": "Tu asistente personal de salud renal",
+    "description": "Resuelve tus dudas sobre tratamientos, sucursales, nutrición y cuidado renal al instante",
     "cta": "Probar Ahora",
-    "link": "Prueba nuestro asistente nutricional",
-    "label": "Asistente Nutricional",
+    "link": "Habla con nuestro asistente Alba",
+    "label": "Asistente Alba",
     "openChat": "Abrir Chat"
   },
   "doctorCard": {
