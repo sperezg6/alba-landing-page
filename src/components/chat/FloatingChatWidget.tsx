@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X, Send, ArrowUpRight, RotateCcw, AlertTriangle } from 'lucide-react';
+import { Sparkles, X, Send, ArrowUpRight, RotateCcw, AlertTriangle } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import DOMPurify from 'dompurify';
 import { cn } from '@/lib/utils';
@@ -17,31 +17,32 @@ interface Message {
 
 // Pool of all available prompts for rotation
 const allPrompts = [
-  // General nutrition
+  // Services and treatments
+  "¿Qué es la hemodiálisis?",
+  "¿Cómo es una sesión de diálisis?",
+  "¿Qué servicios ofrece Alba?",
+  "¿Tienen servicio de trasplante renal?",
+  "¿Qué es la hemodiafiltración?",
+
+  // Appointments and locations
+  "¿Cómo agendar una cita?",
+  "¿Dónde están sus sucursales?",
+  "¿Cuáles son sus horarios?",
+  "¿Tienen sucursal en León?",
+  "¿Cómo llegar a la clínica?",
+
+  // Patient support
+  "¿Qué debo llevar a mi primera visita?",
+  "¿Tienen servicio de nutrición?",
+  "¿Cómo contactar a un especialista?",
+  "¿Qué pasa si no me dializo?",
+  "¿Cuándo necesito diálisis?",
+
+  // Kidney health and nutrition
   "¿Qué alimentos debo evitar?",
+  "¿Cómo cuidar mis riñones?",
   "¿Cómo controlar el potasio?",
-  "Ayúdame con mi dieta",
-  "¿Qué puedo comer con enfermedad renal?",
-  "Recetas bajas en potasio",
-
-  // Meal planning
-  "Ideas para el desayuno",
-  "Recetas bajas en sodio",
-  "¿Cómo controlar el fósforo?",
-  "Plan de comidas semanal",
-  "¿Qué frutas puedo comer?",
-
-  // Specific needs
-  "¿Cuánta agua puedo tomar?",
-  "Alternativas a la leche",
-  "Proteínas bajas en fósforo",
-  "¿Puedo comer aguacate?",
-  "Alimentos ricos en hierro",
-
-  // Educational
-  "¿Qué es la diálisis?",
-  "¿Por qué limitar el potasio?",
-  "¿Cómo funcionan los riñones?",
+  "¿Qué es la enfermedad renal crónica?",
 ];
 
 const MESSAGE_LIMIT = 30;
@@ -50,10 +51,10 @@ const MESSAGE_LIMIT = 30;
 const rotationIntervals = [5000, 6500, 8000];
 
 const followUpSuggestions = [
-  '¿Qué puedo desayunar?',
-  '¿Cuánta agua puedo tomar?',
-  'Dame un menú semanal',
-  '¿Puedo comer frutas?',
+  '¿Cómo agendar una cita?',
+  '¿Dónde están sus sucursales?',
+  '¿Qué servicios ofrecen?',
+  '¿Tienen nutriólogo?',
 ];
 
 // Simple markdown-like formatting with XSS protection
@@ -81,7 +82,7 @@ function formatMessage(content: string) {
 
   // Wrap consecutive <li> elements in a <ul>
   const withLists = formatted.replace(
-    /(<li[^>]*>.*?<\/li>)(\s*<br \/>\s*)*(<li[^>]*>.*?<\/li>)*/gs,
+    /(<li[^>]*>[\s\S]*?<\/li>)(\s*<br \/>\s*)*(<li[^>]*>[\s\S]*?<\/li>)*/g,
     (match) => `<ul class="my-1.5 space-y-0.5 list-none pl-0">${match.replace(/<br \/>/g, '')}</ul>`
   );
 
@@ -278,11 +279,11 @@ export function FloatingChatWidget() {
             transition={{ type: 'spring', stiffness: 260, damping: 20 }}
             onClick={handleOpenChat}
             className="fixed bottom-24 right-6 z-[9999] w-14 h-14 bg-alba-primary hover:bg-alba-primary-dark flex items-center justify-center shadow-lg shadow-alba-primary/30 transition-all duration-300 group rounded-full"
-            aria-label="Abrir chat de nutrición"
+            aria-label="Abrir asistente Alba"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <MessageCircle className="w-6 h-6 text-gray-900" />
+            <Sparkles className="w-6 h-6 text-gray-900" />
           </motion.button>
         )}
       </AnimatePresence>
@@ -304,7 +305,7 @@ export function FloatingChatWidget() {
                 <div className="w-2 h-2 rounded-full bg-alba-primary" />
                 <div>
                   <h3 className="text-sm font-medium text-gray-900 tracking-wide">
-                    Asistente Nutricional
+                    Asistente Alba
                   </h3>
                   <p className="text-xs text-gray-500">Alba Diálisis</p>
                 </div>
@@ -367,7 +368,7 @@ export function FloatingChatWidget() {
                       ¿En qué puedo ayudarte?
                     </h4>
                     <p className="text-sm text-gray-500">
-                      Pregunta sobre nutrición renal
+                      Tratamientos, sucursales, nutrición y más
                     </p>
                   </div>
 
