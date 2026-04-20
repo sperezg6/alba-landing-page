@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -105,6 +105,7 @@ function AnimatedTextarea({
 
 export function ContactPage() {
   const t = useTranslations();
+  const locale = useLocale();
   const posthog = usePostHog();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -189,8 +190,12 @@ export function ContactPage() {
                 {t('contact.title')}
               </span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight text-alba-text">
-              {t('contact.subtitle')}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight" style={{ color: '#F59F20' }}>
+              {locale === 'en' ? (
+                <>We are here <span style={{ color: '#374151' }}>to help you</span></>
+              ) : (
+                <>Estamos aquí <span style={{ color: '#374151' }}>para ayudarte</span></>
+              )}
             </h1>
           </motion.div>
         </div>

@@ -177,7 +177,7 @@ export default function ResourcesHeroSection() {
         {/* Main Content */}
         <div className="grid md:grid-cols-3 gap-8 mt-4">
           <div className="md:col-span-2">
-            <h1 className="sm:text-4xl md:text-5xl lg:text-6xl text-2xl !leading-[0.95] font-light !text-gray-900 mb-8">
+            <h1 className="sm:text-4xl md:text-5xl lg:text-6xl text-2xl !leading-[0.95] font-light mb-8" style={{ color: '#F59F20' }}>
               <VerticalCutReveal
                 splitBy="words"
                 staggerDuration={0.1}

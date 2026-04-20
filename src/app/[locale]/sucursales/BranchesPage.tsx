@@ -275,10 +275,10 @@ export function BranchesPage() {
             </div>
             <h1
               className="font-light leading-[0.95] tracking-tight"
-              style={{ color: '#FFFFFF', fontSize: 'clamp(3rem, 7vw, 6rem)' }}
+              style={{ color: '#F59F20', fontSize: 'clamp(3rem, 7vw, 6rem)' }}
             >
               Encuentra tu clínica<br />
-              más cercana
+              <span style={{ color: '#FFFFFF' }}>más cercana</span>
             </h1>
           </motion.div>
         </div>
