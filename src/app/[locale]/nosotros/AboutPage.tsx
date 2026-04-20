@@ -44,12 +44,12 @@ export function AboutPage() {
         <div className="relative z-10 h-full flex flex-col justify-end px-6 md:px-12 lg:px-16 xl:px-24 pb-40 md:pb-44 lg:pb-48">
           <h1
             className="font-light leading-[0.95] tracking-tight max-w-[90%] md:max-w-none"
-            style={{ color: '#FFFFFF', fontSize: 'clamp(2.25rem, 7vw, 6rem)' }}
+            style={{ color: '#F59F20', fontSize: 'clamp(2.25rem, 7vw, 6rem)' }}
           >
             {locale === 'en' ? (
-              <>Caring for kidney health<br />in the Bajio region for over <span style={{ color: '#F59F20' }}>25 years</span></>
+              <>Caring for kidney health<br />in the Bajio region for over <span style={{ color: '#FFFFFF' }}>25 years</span></>
             ) : (
-              <>Cuidando la salud renal<br />en el Bajío desde hace más de <span style={{ color: '#F59F20' }}>25 años</span></>
+              <>Cuidando la salud renal<br />en el Bajío desde hace más de <span style={{ color: '#FFFFFF' }}>25 años</span></>
             )}
           </h1>
         </div>

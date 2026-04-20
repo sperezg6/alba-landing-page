@@ -157,13 +157,13 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                 {isEn ? 'Service' : 'Servicio'}
               </span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight text-alba-text">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight" style={{ color: '#F59F20' }}>
               {(() => {
                 const words = title.split(' ');
-                if (words.length <= 1) return <span style={{ color: '#F59F20' }}>{title}</span>;
+                if (words.length <= 1) return <>{title}</>;
                 const last = words[words.length - 1];
                 const rest = words.slice(0, -1).join(' ');
-                return <>{rest} <span style={{ color: '#F59F20' }}>{last}</span></>;
+                return <>{rest} <span style={{ color: '#374151' }}>{last}</span></>;
               })()}
             </h1>
             <p className="mt-6 text-lg md:text-xl max-w-2xl leading-relaxed text-alba-text/60">

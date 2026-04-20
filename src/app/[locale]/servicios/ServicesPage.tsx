@@ -352,12 +352,12 @@ export function ServicesPage() {
             </div>
             <h1
               className="font-light leading-[0.95] tracking-tight"
-              style={{ color: '#FFFFFF', fontSize: 'clamp(3rem, 7vw, 6rem)' }}
+              style={{ color: '#F59F20', fontSize: 'clamp(3rem, 7vw, 6rem)' }}
             >
               {isEn ? (
-                <>Comprehensive care for<br />your <span style={{ color: '#F59F20' }}>kidney health</span></>
+                <>Comprehensive care for<br />your <span style={{ color: '#FFFFFF' }}>kidney health</span></>
               ) : (
-                <>Atención integral para<br />tu <span style={{ color: '#F59F20' }}>salud renal</span></>
+                <>Atención integral para<br />tu <span style={{ color: '#FFFFFF' }}>salud renal</span></>
               )}
             </h1>
           </div>

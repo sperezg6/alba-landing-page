@@ -34,11 +34,11 @@ export function DirectoryPage() {
                 {t('doctors.title')}
               </span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight text-alba-text">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight" style={{ color: '#F59F20' }}>
               {locale === 'en' ? (
-                <>Specialists committed to your <span style={{ color: '#F59F20' }}>health</span></>
+                <>Specialists committed to your <span style={{ color: '#374151' }}>health</span></>
               ) : (
-                <>Especialistas comprometidos con tu <span style={{ color: '#F59F20' }}>salud</span></>
+                <>Especialistas comprometidos con tu <span style={{ color: '#374151' }}>salud</span></>
               )}
             </h1>
           </motion.div>

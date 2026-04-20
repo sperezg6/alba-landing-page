@@ -156,12 +156,12 @@ export function HeroWrapper() {
             className="font-light leading-[0.95] tracking-tight"
             style={{ color: '#FFFFFF', fontSize: 'clamp(2.5rem, 8vw, 8rem)' }}
           >
-            {t('headlineLine1')}<br />
+            <span style={{ color: '#F59F20' }}>{t('headlineLine1')}</span><br />
             <span className="md:whitespace-nowrap">
               {locale === 'en' ? (
-                <>your <span style={{ color: '#F59F20' }}>new dawn.</span></>
+                <>your new dawn.</>
               ) : (
-                <>tu <span style={{ color: '#F59F20' }}>nuevo amanecer.</span></>
+                <>tu nuevo amanecer.</>
               )}
             </span>
           </h1>
