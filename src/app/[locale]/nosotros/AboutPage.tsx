@@ -594,7 +594,7 @@ export function AboutPage() {
               transition={{ duration: 0.6, delay: 0.3, ease: [0.77, 0, 0.175, 1] }}
             >
               <Link href={`/directorio/${doctors[3]?.slug}`} className="group block">
-                <div className="flex gap-4 md:gap-6 items-center p-4 md:p-6 border border-gray-900/10 hover:border-gray-900/20 transition-colors">
+                <div className="flex gap-4 md:gap-6 items-center p-4 md:p-6 border border-gray-900/10 hover:border-gray-900/20 transition-colors rounded-2xl">
                   <div className="relative w-20 h-20 md:w-24 md:h-24 flex-shrink-0 overflow-hidden rounded-xl">
                     <Image
                       src={doctors[3]?.image || ''}
