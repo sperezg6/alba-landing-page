@@ -511,7 +511,7 @@ export function AboutPage() {
               transition={{ duration: 0.8, ease: [0.77, 0, 0.175, 1] }}
             >
               <Link href={`/directorio/${doctors[0]?.slug}`} className="group block h-full">
-                <div className="relative h-full min-h-[400px] md:min-h-[500px] overflow-hidden">
+                <div className="relative h-full min-h-[400px] md:min-h-[500px] overflow-hidden rounded-2xl">
                   <Image
                     src={doctors[0]?.image || ''}
                     alt={doctors[0]?.name || ''}
@@ -540,7 +540,7 @@ export function AboutPage() {
               transition={{ duration: 0.6, delay: 0.1, ease: [0.77, 0, 0.175, 1] }}
             >
               <Link href={`/directorio/${doctors[1]?.slug}`} className="group block">
-                <div className="relative aspect-[3/4] overflow-hidden mb-3">
+                <div className="relative aspect-[3/4] overflow-hidden rounded-2xl mb-3">
                   <Image
                     src={doctors[1]?.image || ''}
                     alt={doctors[1]?.name || ''}
@@ -567,7 +567,7 @@ export function AboutPage() {
               transition={{ duration: 0.6, delay: 0.2, ease: [0.77, 0, 0.175, 1] }}
             >
               <Link href={`/directorio/${doctors[2]?.slug}`} className="group block">
-                <div className="relative aspect-[3/4] overflow-hidden mb-3">
+                <div className="relative aspect-[3/4] overflow-hidden rounded-2xl mb-3">
                   <Image
                     src={doctors[2]?.image || ''}
                     alt={doctors[2]?.name || ''}
@@ -595,7 +595,7 @@ export function AboutPage() {
             >
               <Link href={`/directorio/${doctors[3]?.slug}`} className="group block">
                 <div className="flex gap-4 md:gap-6 items-center p-4 md:p-6 border border-gray-900/10 hover:border-gray-900/20 transition-colors">
-                  <div className="relative w-20 h-20 md:w-24 md:h-24 flex-shrink-0 overflow-hidden">
+                  <div className="relative w-20 h-20 md:w-24 md:h-24 flex-shrink-0 overflow-hidden rounded-xl">
                     <Image
                       src={doctors[3]?.image || ''}
                       alt={doctors[3]?.name || ''}
